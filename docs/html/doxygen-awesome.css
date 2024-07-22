@@ -832,6 +832,7 @@ html.dark-mode iframe#MSearchResults {
     right: 12px;
     top: auto !important;
     user-select: none;
+    display: none;
 }
 
 #nav-tree .selected {
