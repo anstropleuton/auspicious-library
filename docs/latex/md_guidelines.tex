@@ -73,7 +73,13 @@
 \end{DoxyItemize}\hypertarget{md_guidelines_autotoc_md9}{}\doxysubsection{\texorpdfstring{Template Parameter}{Template Parameter}}\label{md_guidelines_autotoc_md9}
 
 \begin{DoxyItemize}
-\item Should be in {\ttfamily Pascal\+Case}.
+\item Should be in {\ttfamily Pascal\+Case}. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Type>}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }structure;}
+
+\end{DoxyCode}
+
 \end{DoxyItemize}\hypertarget{md_guidelines_autotoc_md10}{}\doxysubsection{\texorpdfstring{Files}{Files}}\label{md_guidelines_autotoc_md10}
 
 \begin{DoxyItemize}
@@ -561,8 +567,8 @@
 \begin{DoxyItemize}
 \item Use named constants instead of magic numbers. 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ MaxSize\ =\ 100;}
-\DoxyCodeLine{\textcolor{keywordtype}{int}\ array[MaxSize];}
+\DoxyCodeLine{\textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ max\_array\_size\ =\ 100;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ array[max\_array\_size];}
 
 \end{DoxyCode}
 

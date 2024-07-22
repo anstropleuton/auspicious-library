@@ -54,6 +54,10 @@
 
 ### Template Parameter
 - Should be in `PascalCase`.
+    ```cpp
+    template <typename Type>
+    struct structure;
+    ```
 
 ### Files
 - **Header files** should have a `.hpp` extension.
@@ -440,8 +444,8 @@
 ### Avoid Magic Numbers
 - Use named constants instead of magic numbers.
     ```cpp
-    constexpr int MaxSize = 100;
-    int array[MaxSize];
+    constexpr int max_array_size = 100;
+    int array[max_array_size];
     ```
 
 ### Prefer auto Keyword
