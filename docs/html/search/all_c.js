@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['macros_0',['Macros',['../md_guidelines.html#autotoc_md50',1,'']]],
+  ['magenta_1',['magenta',['../namespaceauspicious__library_1_1aec.html#ae568ef8dee72ced948c982c7d4e31bad',1,'auspicious_library::aec']]],
+  ['magenta_5fbg_2',['magenta_bg',['../namespaceauspicious__library_1_1aec.html#a9c7e601cd3b288f98cc91f7c7386c7a1',1,'auspicious_library::aec']]],
+  ['magic_20numbers_3',['Avoid Magic Numbers',['../md_guidelines.html#autotoc_md55',1,'']]],
+  ['makefile_4',['Makefile',['../Makefile.html',1,'']]],
+  ['mandatory_5fparameter_5fenclose_5',['mandatory_parameter_enclose',['../structauspicious__library_1_1ap_1_1posix__help__format.html#a53dcefb485dc582b14ecfc13ef36ccbc',1,'auspicious_library::ap::posix_help_format::mandatory_parameter_enclose'],['../structauspicious__library_1_1ap_1_1microsoft__help__format.html#a969828b1690480ebf3725631b8b2b13e',1,'auspicious_library::ap::microsoft_help_format::mandatory_parameter_enclose']]],
+  ['max_20enum_20member_6',['Max Enum Member',['../md_guidelines.html#autotoc_md44',1,'']]],
+  ['max_20width_7',['Max width',['../md_guidelines.html#autotoc_md18',1,'']]],
+  ['member_8',['Max Enum Member',['../md_guidelines.html#autotoc_md44',1,'']]],
+  ['member_20function_20declaration_9',['Member Function Declaration',['../md_guidelines.html#autotoc_md29',1,'(Member/) Function Declaration'],['../md_guidelines.html#autotoc_md30',1,'(Member/) Function Declaration']]],
+  ['member_20functions_10',['Member Functions',['../md_guidelines.html#autotoc_md40',1,'']]],
+  ['member_20functions_20and_20lambdas_11',['(Member/) Functions and Lambdas',['../md_guidelines.html#autotoc_md28',1,'']]],
+  ['member_20variables_12',['Member Variables',['../md_guidelines.html#autotoc_md38',1,'']]],
+  ['methods_13',['Functions and Methods',['../md_guidelines.html#autotoc_md6',1,'']]],
+  ['microsoft_5fhelp_5fformat_14',['microsoft_help_format',['../structauspicious__library_1_1ap_1_1microsoft__help__format.html',1,'auspicious_library::ap']]],
+  ['microsoft_5fswitch_15',['microsoft_switch',['../namespaceauspicious__library_1_1ap.html#a7826ca13d78fe36b6181fdf84773b7e7a797d63f1b8b7e884523a49aba3350d42',1,'auspicious_library::ap']]],
+  ['mid_16',['mid',['../structauspicious__library_1_1ap_1_1help__pad__t.html#ad8aa15b8171ae12626b0339f3278096a',1,'auspicious_library::ap::help_pad_t']]],
+  ['misc_20files_17',['Avoid Utils or Misc files',['../md_guidelines.html#autotoc_md27',1,'']]],
+  ['miscellaneous_18',['Miscellaneous',['../md_guidelines.html#autotoc_md42',1,'']]],
+  ['mod_5fargument_19',['mod_argument',['../structauspicious__library_1_1ap_1_1mod__argument.html',1,'auspicious_library::ap']]],
+  ['mod_5fpos_20',['mod_pos',['../structauspicious__library_1_1ap_1_1mod__argument.html#acaf617f24db0be462367f9b83463048d',1,'auspicious_library::ap::mod_argument']]],
+  ['mod_5fsize_21',['mod_size',['../structauspicious__library_1_1ap_1_1mod__argument.html#a3065446b690cfed1792af3c198011df8',1,'auspicious_library::ap::mod_argument']]],
+  ['modified_22',['modified',['../structauspicious__library_1_1ap_1_1mod__argument.html#a5a1523ce77cc6d2c7108eecd51aa8ee9',1,'auspicious_library::ap::mod_argument']]],
+  ['multi_20line_20comments_23',['Multi-line Comments',['../md_guidelines.html#autotoc_md21',1,'']]]
+];

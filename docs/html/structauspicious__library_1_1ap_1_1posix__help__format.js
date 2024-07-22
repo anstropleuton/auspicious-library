@@ -1,0 +1,28 @@
+var structauspicious__library_1_1ap_1_1posix__help__format =
+[
+    [ "pad_short_names", "structauspicious__library_1_1ap_1_1posix__help__format.html#af61dc67357e888f92c9a686a39a3cc52", null ],
+    [ "pad_long_names", "structauspicious__library_1_1ap_1_1posix__help__format.html#af3e3cac914886fe99735347becb1a81c", null ],
+    [ "pad_subcommand", "structauspicious__library_1_1ap_1_1posix__help__format.html#aa05543258e8dbf05eb82fd045e282980", null ],
+    [ "pad_parameters_wrapped", "structauspicious__library_1_1ap_1_1posix__help__format.html#acebbe55f6492c66907369f8284e9670d", null ],
+    [ "pad_description", "structauspicious__library_1_1ap_1_1posix__help__format.html#aec95ea7a5772ea67cfbc7fd3810fd91e", null ],
+    [ "pad_description_wrapped", "structauspicious__library_1_1ap_1_1posix__help__format.html#ad27d8c8a3869c20bab244178517e3a53", null ],
+    [ "short_name_prefix_style", "structauspicious__library_1_1ap_1_1posix__help__format.html#aa6e210fa22334ed4331e50e66bb62ac9", null ],
+    [ "short_name_style", "structauspicious__library_1_1ap_1_1posix__help__format.html#a4821042221ede7efe89cd6649ceff7f3", null ],
+    [ "long_name_prefix_style", "structauspicious__library_1_1ap_1_1posix__help__format.html#a85384642ba5b37ad2d0485c2540c7338", null ],
+    [ "long_name_style", "structauspicious__library_1_1ap_1_1posix__help__format.html#a44fa2643827ac200f8bc078831cdb2f2", null ],
+    [ "short_name_separator", "structauspicious__library_1_1ap_1_1posix__help__format.html#aedd6e04db852ba19f47baa0c16ac4335", null ],
+    [ "long_name_separator", "structauspicious__library_1_1ap_1_1posix__help__format.html#aba67f95e30de0e0a73415a502ef3959b", null ],
+    [ "short_n_long_name_separator", "structauspicious__library_1_1ap_1_1posix__help__format.html#a31c2aedaf911a01afbc3258086fd5b9c", null ],
+    [ "subcommand_style", "structauspicious__library_1_1ap_1_1posix__help__format.html#a401cfb94dc083c6d22e1fcfc1a138f17", null ],
+    [ "subcommand_separator", "structauspicious__library_1_1ap_1_1posix__help__format.html#ac1e9a3402caed77e730386e1d378b2ea", null ],
+    [ "parameter_prefix_first", "structauspicious__library_1_1ap_1_1posix__help__format.html#af42f55809215cf21ab764f121be8b965", null ],
+    [ "parameter_prefix", "structauspicious__library_1_1ap_1_1posix__help__format.html#a78d4dbf50c8dc6b831b58a9958f49208", null ],
+    [ "parameter_style", "structauspicious__library_1_1ap_1_1posix__help__format.html#a824e98442769f22a27637da1fe6592dd", null ],
+    [ "parameter_separator", "structauspicious__library_1_1ap_1_1posix__help__format.html#a6b474dbdf724c95fa02f85ee202dcb0d", null ],
+    [ "mandatory_parameter_enclose", "structauspicious__library_1_1ap_1_1posix__help__format.html#a53dcefb485dc582b14ecfc13ef36ccbc", null ],
+    [ "optional_parameter_enclose", "structauspicious__library_1_1ap_1_1posix__help__format.html#a2615feed0e7d86e33896c1155869e25b", null ],
+    [ "enclose_before_prefix", "structauspicious__library_1_1ap_1_1posix__help__format.html#a66b2e7e249df835829300ae7090e0659", null ],
+    [ "long_names_first", "structauspicious__library_1_1ap_1_1posix__help__format.html#a0db97aef20363e43f4005a4d0f2a4f9d", null ],
+    [ "option_n_subcommand_width", "structauspicious__library_1_1ap_1_1posix__help__format.html#a57e2bd238a628d9610658ceebbc747b3", null ],
+    [ "description_width", "structauspicious__library_1_1ap_1_1posix__help__format.html#a60680bda3f7e652c1153e6afea5f051e", null ]
+];

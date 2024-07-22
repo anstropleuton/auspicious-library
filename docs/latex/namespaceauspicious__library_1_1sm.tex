@@ -1,0 +1,419 @@
+\doxysection{auspicious\+\_\+library\+::sm Namespace Reference}
+\hypertarget{namespaceauspicious__library_1_1sm}{}\label{namespaceauspicious__library_1_1sm}\index{auspicious\_library::sm@{auspicious\_library::sm}}
+
+
+String Manipulators.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$cu\+::cu\+\_\+compatible Container, typename Converter $>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a6ba949956dc793812eacde5acc12fe8a}{to\+\_\+string}} (const Container \&container, Converter converter, std\+::string\+\_\+view separator="{}, "{}, std\+::string\+\_\+view prefix="{}"{}, std\+::string\+\_\+view suffix="{}"{})
+\begin{DoxyCompactList}\small\item\em Convert a container to comma separated string. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a5c493accfab65d14254ca1d979d95951}{to\+\_\+string}} (const Container \&container, std\+::string\+\_\+view separator="{}, "{}, std\+::string\+\_\+view prefix="{}"{}, std\+::string\+\_\+view suffix="{}"{})
+\begin{DoxyCompactList}\small\item\em Convert a container to comma separated string. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
+requires std\+::is\+\_\+same\+\_\+v$<$\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{cu\+::value\+\_\+type}}$<$Container$>$, char$>$}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a385aea0016f3aa4c6a072d4257dee8e0}{to\+\_\+string}} (const Container \&container, std\+::string\+\_\+view separator="{}, "{}, std\+::string\+\_\+view prefix="{}\textbackslash{}\textquotesingle{}"{}, std\+::string\+\_\+view suffix="{}\textbackslash{}\textquotesingle{}"{})
+\begin{DoxyCompactList}\small\item\em Convert a container of char to string with single-\/quoted elements separated by comma. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
+requires std\+::is\+\_\+same\+\_\+v$<$\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{cu\+::value\+\_\+type}}$<$Container$>$, std\+::string$>$}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_aa34321aadd328ebb2cbcd8e5122865d1}{to\+\_\+string}} (const Container \&container, std\+::string\+\_\+view separator="{}, "{}, std\+::string\+\_\+view prefix="{}\textbackslash{}"{}"{}, std\+::string\+\_\+view suffix="{}\textbackslash{}"{}"{})
+\begin{DoxyCompactList}\small\item\em Convert a container of std\+::string to string with double-\/quoted elements separated by comma. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
+requires std\+::is\+\_\+same\+\_\+v$<$\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{cu\+::value\+\_\+type}}$<$Container$>$, char$>$}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{chars\+\_\+to\+\_\+string}} (const Container \&container)
+\begin{DoxyCompactList}\small\item\em Convert a container of char to a regular string. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a557e590ecf315060dbbe49015d5e90fb}{word\+\_\+wrap}} (std\+::string\+\_\+view string, std\+::size\+\_\+t width, bool force=false, std\+::string\+\_\+view delims="{} \textbackslash{}t\textbackslash{}r\textbackslash{}n\textbackslash{}f\textbackslash{}v\textbackslash{}b"{})
+\begin{DoxyCompactList}\small\item\em Word-\/wrap a string at width or before width depending on the delim. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a91e4f4e6edfccde8c0964cf8f2fc09eb}{trim\+\_\+left}} (std\+::string\+\_\+view string, std\+::string\+\_\+view delims="{} \textbackslash{}t\textbackslash{}r\textbackslash{}n\textbackslash{}f\textbackslash{}v\textbackslash{}b"{})
+\begin{DoxyCompactList}\small\item\em Trim a string (only from left side) using delimiters (usually whitespace). \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a55b2357d69a9c2aca3c664a11edef447}{trim\+\_\+right}} (std\+::string\+\_\+view string, std\+::string\+\_\+view delims="{} \textbackslash{}t\textbackslash{}r\textbackslash{}n\textbackslash{}f\textbackslash{}v\textbackslash{}b"{})
+\begin{DoxyCompactList}\small\item\em Trim a string (only from right side) using delimiters (usually whitespace). \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a20d0b77f9560412bb418469be0280f4a}{trim}} (std\+::string\+\_\+view string, std\+::string\+\_\+view delims="{} \textbackslash{}t\textbackslash{}r\textbackslash{}n\textbackslash{}f\textbackslash{}v\textbackslash{}b"{})
+\begin{DoxyCompactList}\small\item\em Trim a string using delimiters (usually whitespace). \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a83d4984eda2a08277292831d76fccf0b}{to\+\_\+upper}} (std\+::string\+\_\+view string)
+\begin{DoxyCompactList}\small\item\em Convert string to uppercase. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a1d6a54aba13267a7eef4c6307136b3d7}{to\+\_\+lower}} (std\+::string\+\_\+view string)
+\begin{DoxyCompactList}\small\item\em Convert string to lowercase. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_af23bd2edd640c97d609a98b62b5a0121}{to\+\_\+upper}} (char character)
+\begin{DoxyCompactList}\small\item\em Convert character to uppercase (exists for consistency). \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ae91f1d7fc07d8afd94da46aae6426d84}{to\+\_\+lower}} (char character)
+\begin{DoxyCompactList}\small\item\em Convert character to lowercase (exists for consistency). \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_aae67781b035e596bb886e7980aae5863}{is\+\_\+equal\+\_\+ins}} (std\+::string\+\_\+view a, std\+::string\+\_\+view b)
+\begin{DoxyCompactList}\small\item\em Compare string, case insensitivity. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a317943d42d623b6e8daa2de8fed89a64}{is\+\_\+equal\+\_\+ins}} (char a, char b)
+\begin{DoxyCompactList}\small\item\em Compare character, case insensitivity (exists for consistency). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+String Manipulators. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceauspicious__library_1_1sm_a6ba949956dc793812eacde5acc12fe8a}\index{auspicious\_library::sm@{auspicious\_library::sm}!to\_string@{to\_string}}
+\index{to\_string@{to\_string}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a6ba949956dc793812eacde5acc12fe8a} 
+template$<$cu\+::cu\+\_\+compatible Container, typename Converter $>$ \\
+auto auspicious\+\_\+library\+::sm\+::to\+\_\+string (\begin{DoxyParamCaption}\item[{const Container \&}]{container}{, }\item[{Converter}]{converter}{, }\item[{std\+::string\+\_\+view}]{separator}{ = {\ttfamily "{},~"{}}, }\item[{std\+::string\+\_\+view}]{prefix}{ = {\ttfamily "{}"{}}, }\item[{std\+::string\+\_\+view}]{suffix}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Convert a container to comma separated string. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Container} & Compatible container type. \\
+\hline
+{\em Converter} & Element conversion function type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em container} & Container. \\
+\hline
+{\em converter} & Element conversion function. \\
+\hline
+{\em separator} & Separator between elements (optional). \\
+\hline
+{\em prefix} & Prefix to the element (optional). \\
+\hline
+{\em suffix} & Suffix to the element (optional). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String representation of all elements.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The string is comma AND space separated by default. 
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000005}{Todo}}]Remove this cast when C++26 comes out. \end{DoxyRefDesc}
+\Hypertarget{namespaceauspicious__library_1_1sm_a5c493accfab65d14254ca1d979d95951}\index{auspicious\_library::sm@{auspicious\_library::sm}!to\_string@{to\_string}}
+\index{to\_string@{to\_string}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a5c493accfab65d14254ca1d979d95951} 
+template$<$cu\+::cu\+\_\+compatible Container$>$ \\
+auto auspicious\+\_\+library\+::sm\+::to\+\_\+string (\begin{DoxyParamCaption}\item[{const Container \&}]{container}{, }\item[{std\+::string\+\_\+view}]{separator}{ = {\ttfamily "{},~"{}}, }\item[{std\+::string\+\_\+view}]{prefix}{ = {\ttfamily "{}"{}}, }\item[{std\+::string\+\_\+view}]{suffix}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Convert a container to comma separated string. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Container} & Compatible container type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em container} & Container. \\
+\hline
+{\em separator} & Separator between elements (optional). \\
+\hline
+{\em prefix} & Prefix to the element (optional). \\
+\hline
+{\em suffix} & Suffix to the element (optional). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String representation of all elements.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The string is comma AND space separated by default. 
+\end{DoxyNote}
+\Hypertarget{namespaceauspicious__library_1_1sm_a385aea0016f3aa4c6a072d4257dee8e0}\index{auspicious\_library::sm@{auspicious\_library::sm}!to\_string@{to\_string}}
+\index{to\_string@{to\_string}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a385aea0016f3aa4c6a072d4257dee8e0} 
+template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
+requires std\+::is\+\_\+same\+\_\+v$<$\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{cu\+::value\+\_\+type}}$<$Container$>$, char$>$\\
+auto auspicious\+\_\+library\+::sm\+::to\+\_\+string (\begin{DoxyParamCaption}\item[{const Container \&}]{container}{, }\item[{std\+::string\+\_\+view}]{separator}{ = {\ttfamily "{},~"{}}, }\item[{std\+::string\+\_\+view}]{prefix}{ = {\ttfamily "{}\textbackslash{}\textquotesingle{}"{}}, }\item[{std\+::string\+\_\+view}]{suffix}{ = {\ttfamily "{}\textbackslash{}\textquotesingle{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Convert a container of char to string with single-\/quoted elements separated by comma. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Container} & Compatible container type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em container} & Container. \\
+\hline
+{\em separator} & Separator between elements (optional). \\
+\hline
+{\em prefix} & Prefix to the element (optional). \\
+\hline
+{\em suffix} & Suffix to the element (optional). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String representation of all elements.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The string is comma AND space separated by default. 
+\end{DoxyNote}
+\Hypertarget{namespaceauspicious__library_1_1sm_aa34321aadd328ebb2cbcd8e5122865d1}\index{auspicious\_library::sm@{auspicious\_library::sm}!to\_string@{to\_string}}
+\index{to\_string@{to\_string}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_aa34321aadd328ebb2cbcd8e5122865d1} 
+template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
+requires std\+::is\+\_\+same\+\_\+v$<$\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{cu\+::value\+\_\+type}}$<$Container$>$, std\+::string$>$\\
+auto auspicious\+\_\+library\+::sm\+::to\+\_\+string (\begin{DoxyParamCaption}\item[{const Container \&}]{container}{, }\item[{std\+::string\+\_\+view}]{separator}{ = {\ttfamily "{},~"{}}, }\item[{std\+::string\+\_\+view}]{prefix}{ = {\ttfamily "{}\textbackslash{}"{}"{}}, }\item[{std\+::string\+\_\+view}]{suffix}{ = {\ttfamily "{}\textbackslash{}"{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Convert a container of std\+::string to string with double-\/quoted elements separated by comma. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Container} & Compatible container type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em container} & Container. \\
+\hline
+{\em separator} & Separator between elements (optional). \\
+\hline
+{\em prefix} & Prefix to the element (optional). \\
+\hline
+{\em suffix} & Suffix to the element (optional). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String representation of all elements.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The string is comma AND space separated by default. 
+\end{DoxyNote}
+\Hypertarget{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}\index{auspicious\_library::sm@{auspicious\_library::sm}!chars\_to\_string@{chars\_to\_string}}
+\index{chars\_to\_string@{chars\_to\_string}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{chars\_to\_string()}{chars\_to\_string()}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60} 
+template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
+requires std\+::is\+\_\+same\+\_\+v$<$\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{cu\+::value\+\_\+type}}$<$Container$>$, char$>$\\
+auto auspicious\+\_\+library\+::sm\+::chars\+\_\+to\+\_\+string (\begin{DoxyParamCaption}\item[{const Container \&}]{container}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Convert a container of char to a regular string. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Container} & Compatible container type with char element type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em container} & Container. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String of all chars. 
+\end{DoxyReturn}
+\Hypertarget{namespaceauspicious__library_1_1sm_a557e590ecf315060dbbe49015d5e90fb}\index{auspicious\_library::sm@{auspicious\_library::sm}!word\_wrap@{word\_wrap}}
+\index{word\_wrap@{word\_wrap}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{word\_wrap()}{word\_wrap()}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a557e590ecf315060dbbe49015d5e90fb} 
+auto auspicious\+\_\+library\+::sm\+::word\+\_\+wrap (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{std\+::size\+\_\+t}]{width}{, }\item[{bool}]{force}{ = {\ttfamily false}, }\item[{std\+::string\+\_\+view}]{delims}{ = {\ttfamily "{}~\textbackslash{}t\textbackslash{}r\textbackslash{}n\textbackslash{}f\textbackslash{}v\textbackslash{}b"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Word-\/wrap a string at width or before width depending on the delim. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]Add to\+\_\+string for std\+::string and char for consistency. \end{DoxyRefDesc}
+
+
+The string is tried to be split at the width if the character at the width is one of the delimiter. If not, the split occurs at the character before the width that is one of the delimiter. This process is repeated until the string is less than the size of width. If a word is longer than the specified width, the word is kept as is. If you use force, the word will be split.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String to word-\/wrap. \\
+\hline
+{\em width} & Word-\/wrap width. \\
+\hline
+{\em force} & Force the string to always be less than or equal to width (optional). \\
+\hline
+{\em delims} & Delimiters, usually whitespace (optional). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector of word-\/wrapped lines.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+word-\/wrapped lines can be larger than width. 
+\end{DoxyNote}
+\Hypertarget{namespaceauspicious__library_1_1sm_a91e4f4e6edfccde8c0964cf8f2fc09eb}\index{auspicious\_library::sm@{auspicious\_library::sm}!trim\_left@{trim\_left}}
+\index{trim\_left@{trim\_left}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{trim\_left()}{trim\_left()}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a91e4f4e6edfccde8c0964cf8f2fc09eb} 
+auto auspicious\+\_\+library\+::sm\+::trim\+\_\+left (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{std\+::string\+\_\+view}]{delims}{ = {\ttfamily "{}~\textbackslash{}t\textbackslash{}r\textbackslash{}n\textbackslash{}f\textbackslash{}v\textbackslash{}b"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Trim a string (only from left side) using delimiters (usually whitespace). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String to trim from left. \\
+\hline
+{\em delims} & Delimiters, usually whitespace (optional). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Trimmed string. 
+\end{DoxyReturn}
+\Hypertarget{namespaceauspicious__library_1_1sm_a55b2357d69a9c2aca3c664a11edef447}\index{auspicious\_library::sm@{auspicious\_library::sm}!trim\_right@{trim\_right}}
+\index{trim\_right@{trim\_right}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{trim\_right()}{trim\_right()}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a55b2357d69a9c2aca3c664a11edef447} 
+auto auspicious\+\_\+library\+::sm\+::trim\+\_\+right (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{std\+::string\+\_\+view}]{delims}{ = {\ttfamily "{}~\textbackslash{}t\textbackslash{}r\textbackslash{}n\textbackslash{}f\textbackslash{}v\textbackslash{}b"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Trim a string (only from right side) using delimiters (usually whitespace). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String to trim from right. \\
+\hline
+{\em delims} & Delimiters, usually whitespace (optional). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Trimmed string. 
+\end{DoxyReturn}
+\Hypertarget{namespaceauspicious__library_1_1sm_a20d0b77f9560412bb418469be0280f4a}\index{auspicious\_library::sm@{auspicious\_library::sm}!trim@{trim}}
+\index{trim@{trim}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{trim()}{trim()}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a20d0b77f9560412bb418469be0280f4a} 
+auto auspicious\+\_\+library\+::sm\+::trim (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{std\+::string\+\_\+view}]{delims}{ = {\ttfamily "{}~\textbackslash{}t\textbackslash{}r\textbackslash{}n\textbackslash{}f\textbackslash{}v\textbackslash{}b"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Trim a string using delimiters (usually whitespace). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String to trim. \\
+\hline
+{\em delims} & Delimiters, usually whitespace (optional). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Trimmed string. 
+\end{DoxyReturn}
+\Hypertarget{namespaceauspicious__library_1_1sm_a83d4984eda2a08277292831d76fccf0b}\index{auspicious\_library::sm@{auspicious\_library::sm}!to\_upper@{to\_upper}}
+\index{to\_upper@{to\_upper}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{to\_upper()}{to\_upper()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a83d4984eda2a08277292831d76fccf0b} 
+auto auspicious\+\_\+library\+::sm\+::to\+\_\+upper (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Convert string to uppercase. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Uppercase string. 
+\end{DoxyReturn}
+\Hypertarget{namespaceauspicious__library_1_1sm_a1d6a54aba13267a7eef4c6307136b3d7}\index{auspicious\_library::sm@{auspicious\_library::sm}!to\_lower@{to\_lower}}
+\index{to\_lower@{to\_lower}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{to\_lower()}{to\_lower()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a1d6a54aba13267a7eef4c6307136b3d7} 
+auto auspicious\+\_\+library\+::sm\+::to\+\_\+lower (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Convert string to lowercase. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Lowercase string. 
+\end{DoxyReturn}
+\Hypertarget{namespaceauspicious__library_1_1sm_af23bd2edd640c97d609a98b62b5a0121}\index{auspicious\_library::sm@{auspicious\_library::sm}!to\_upper@{to\_upper}}
+\index{to\_upper@{to\_upper}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{to\_upper()}{to\_upper()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_af23bd2edd640c97d609a98b62b5a0121} 
+auto auspicious\+\_\+library\+::sm\+::to\+\_\+upper (\begin{DoxyParamCaption}\item[{char}]{character}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Convert character to uppercase (exists for consistency). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em character} & Character to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Uppercase character. 
+\end{DoxyReturn}
+\Hypertarget{namespaceauspicious__library_1_1sm_ae91f1d7fc07d8afd94da46aae6426d84}\index{auspicious\_library::sm@{auspicious\_library::sm}!to\_lower@{to\_lower}}
+\index{to\_lower@{to\_lower}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{to\_lower()}{to\_lower()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_ae91f1d7fc07d8afd94da46aae6426d84} 
+auto auspicious\+\_\+library\+::sm\+::to\+\_\+lower (\begin{DoxyParamCaption}\item[{char}]{character}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Convert character to lowercase (exists for consistency). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em character} & Character to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Lowercase character. 
+\end{DoxyReturn}
+\Hypertarget{namespaceauspicious__library_1_1sm_aae67781b035e596bb886e7980aae5863}\index{auspicious\_library::sm@{auspicious\_library::sm}!is\_equal\_ins@{is\_equal\_ins}}
+\index{is\_equal\_ins@{is\_equal\_ins}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{is\_equal\_ins()}{is\_equal\_ins()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_aae67781b035e596bb886e7980aae5863} 
+auto auspicious\+\_\+library\+::sm\+::is\+\_\+equal\+\_\+ins (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{a}{, }\item[{std\+::string\+\_\+view}]{b}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Compare string, case insensitivity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & First string. \\
+\hline
+{\em b} & Second string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if they are equal, case insensitively. 
+\end{DoxyReturn}
+\Hypertarget{namespaceauspicious__library_1_1sm_a317943d42d623b6e8daa2de8fed89a64}\index{auspicious\_library::sm@{auspicious\_library::sm}!is\_equal\_ins@{is\_equal\_ins}}
+\index{is\_equal\_ins@{is\_equal\_ins}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{is\_equal\_ins()}{is\_equal\_ins()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a317943d42d623b6e8daa2de8fed89a64} 
+auto auspicious\+\_\+library\+::sm\+::is\+\_\+equal\+\_\+ins (\begin{DoxyParamCaption}\item[{char}]{a}{, }\item[{char}]{b}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Compare character, case insensitivity (exists for consistency). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & First character. \\
+\hline
+{\em b} & Second character. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if they are equal, case insensitively. 
+\end{DoxyReturn}

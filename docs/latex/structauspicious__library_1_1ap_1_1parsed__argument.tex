@@ -1,0 +1,100 @@
+\doxysection{auspicious\+\_\+library\+::ap\+::parsed\+\_\+argument Struct Reference}
+\hypertarget{structauspicious__library_1_1ap_1_1parsed__argument}{}\label{structauspicious__library_1_1ap_1_1parsed__argument}\index{auspicious\_library::ap::parsed\_argument@{auspicious\_library::ap::parsed\_argument}}
+
+
+Parsed argument.  
+
+
+
+
+{\ttfamily \#include $<$argument\+\_\+parser.\+hpp$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structauspicious__library_1_1ap_1_1mod__argument}{mod\+\_\+argument}} \mbox{\hyperlink{structauspicious__library_1_1ap_1_1parsed__argument_a1312992b8783d78a6ecda036743919d5}{argument}}
+\begin{DoxyCompactList}\small\item\em Command line argument, intact and internally modified, as a reference. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838}{validity}} \mbox{\hyperlink{structauspicious__library_1_1ap_1_1parsed__argument_abec47b6e072bca8e094db21b0a0aca46}{valid}}
+\begin{DoxyCompactList}\small\item\em Can contain invalid arguments. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structauspicious__library_1_1ap_1_1parsed__argument_a2e2025a0da77b33cde959df7df80d1e6}{is\+\_\+parsed}}
+\begin{DoxyCompactList}\small\item\em Can be raw if just "{}-\/-\/"{} as argument was found. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1option__template}{option\+\_\+template}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structauspicious__library_1_1ap_1_1parsed__argument_a854f53cfa4dbc2a0197d0e18d2587991}{ref\+\_\+option}}
+\begin{DoxyCompactList}\small\item\em Reference to option/switch if this parsed argument belongs to. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1subcommand__template}{subcommand\+\_\+template}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structauspicious__library_1_1ap_1_1parsed__argument_aa8efc55d8ab7c296d38e9128bb5b971d}{ref\+\_\+subcommand}}
+\begin{DoxyCompactList}\small\item\em Reference to subcommand if this parsed argument belongs to. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{structauspicious__library_1_1ap_1_1parsed__argument_a11ec8c20d9d83e2e29f99dbe2aa0c781}{values}}
+\begin{DoxyCompactList}\small\item\em Values for parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Parsed argument. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structauspicious__library_1_1ap_1_1parsed__argument_a1312992b8783d78a6ecda036743919d5}\index{auspicious\_library::ap::parsed\_argument@{auspicious\_library::ap::parsed\_argument}!argument@{argument}}
+\index{argument@{argument}!auspicious\_library::ap::parsed\_argument@{auspicious\_library::ap::parsed\_argument}}
+\doxysubsubsection{\texorpdfstring{argument}{argument}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1ap_1_1parsed__argument_a1312992b8783d78a6ecda036743919d5} 
+\mbox{\hyperlink{structauspicious__library_1_1ap_1_1mod__argument}{mod\+\_\+argument}} auspicious\+\_\+library\+::ap\+::parsed\+\_\+argument\+::argument}
+
+
+
+Command line argument, intact and internally modified, as a reference. 
+
+\Hypertarget{structauspicious__library_1_1ap_1_1parsed__argument_abec47b6e072bca8e094db21b0a0aca46}\index{auspicious\_library::ap::parsed\_argument@{auspicious\_library::ap::parsed\_argument}!valid@{valid}}
+\index{valid@{valid}!auspicious\_library::ap::parsed\_argument@{auspicious\_library::ap::parsed\_argument}}
+\doxysubsubsection{\texorpdfstring{valid}{valid}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1ap_1_1parsed__argument_abec47b6e072bca8e094db21b0a0aca46} 
+\mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838}{validity}} auspicious\+\_\+library\+::ap\+::parsed\+\_\+argument\+::valid}
+
+
+
+Can contain invalid arguments. 
+
+\Hypertarget{structauspicious__library_1_1ap_1_1parsed__argument_a2e2025a0da77b33cde959df7df80d1e6}\index{auspicious\_library::ap::parsed\_argument@{auspicious\_library::ap::parsed\_argument}!is\_parsed@{is\_parsed}}
+\index{is\_parsed@{is\_parsed}!auspicious\_library::ap::parsed\_argument@{auspicious\_library::ap::parsed\_argument}}
+\doxysubsubsection{\texorpdfstring{is\_parsed}{is\_parsed}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1ap_1_1parsed__argument_a2e2025a0da77b33cde959df7df80d1e6} 
+bool auspicious\+\_\+library\+::ap\+::parsed\+\_\+argument\+::is\+\_\+parsed}
+
+
+
+Can be raw if just "{}-\/-\/"{} as argument was found. 
+
+\begin{DoxyNote}{Note}
+{\ttfamily valid} will be set to valid when the argument is not parsed. 
+\end{DoxyNote}
+\Hypertarget{structauspicious__library_1_1ap_1_1parsed__argument_a854f53cfa4dbc2a0197d0e18d2587991}\index{auspicious\_library::ap::parsed\_argument@{auspicious\_library::ap::parsed\_argument}!ref\_option@{ref\_option}}
+\index{ref\_option@{ref\_option}!auspicious\_library::ap::parsed\_argument@{auspicious\_library::ap::parsed\_argument}}
+\doxysubsubsection{\texorpdfstring{ref\_option}{ref\_option}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1ap_1_1parsed__argument_a854f53cfa4dbc2a0197d0e18d2587991} 
+const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1option__template}{option\+\_\+template}}\texorpdfstring{$\ast$}{*} auspicious\+\_\+library\+::ap\+::parsed\+\_\+argument\+::ref\+\_\+option}
+
+
+
+Reference to option/switch if this parsed argument belongs to. 
+
+\Hypertarget{structauspicious__library_1_1ap_1_1parsed__argument_aa8efc55d8ab7c296d38e9128bb5b971d}\index{auspicious\_library::ap::parsed\_argument@{auspicious\_library::ap::parsed\_argument}!ref\_subcommand@{ref\_subcommand}}
+\index{ref\_subcommand@{ref\_subcommand}!auspicious\_library::ap::parsed\_argument@{auspicious\_library::ap::parsed\_argument}}
+\doxysubsubsection{\texorpdfstring{ref\_subcommand}{ref\_subcommand}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1ap_1_1parsed__argument_aa8efc55d8ab7c296d38e9128bb5b971d} 
+const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1subcommand__template}{subcommand\+\_\+template}}\texorpdfstring{$\ast$}{*} auspicious\+\_\+library\+::ap\+::parsed\+\_\+argument\+::ref\+\_\+subcommand}
+
+
+
+Reference to subcommand if this parsed argument belongs to. 
+
+\Hypertarget{structauspicious__library_1_1ap_1_1parsed__argument_a11ec8c20d9d83e2e29f99dbe2aa0c781}\index{auspicious\_library::ap::parsed\_argument@{auspicious\_library::ap::parsed\_argument}!values@{values}}
+\index{values@{values}!auspicious\_library::ap::parsed\_argument@{auspicious\_library::ap::parsed\_argument}}
+\doxysubsubsection{\texorpdfstring{values}{values}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1ap_1_1parsed__argument_a11ec8c20d9d83e2e29f99dbe2aa0c781} 
+std\+::vector$<$std\+::string$>$ auspicious\+\_\+library\+::ap\+::parsed\+\_\+argument\+::values}
+
+
+
+Values for parameters. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{argument__parser_8hpp}{argument\+\_\+parser.\+hpp}}\end{DoxyCompactItemize}

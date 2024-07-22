@@ -1,0 +1,166 @@
+\doxysection{auspicious\+\_\+library\+::sm\+\_\+operators Namespace Reference}
+\hypertarget{namespaceauspicious__library_1_1sm__operators}{}\label{namespaceauspicious__library_1_1sm__operators}\index{auspicious\_library::sm\_operators@{auspicious\_library::sm\_operators}}
+
+
+String Manipulators, operators version.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_a37747241ff634a46ec7d3c51529312ea}{operator-\/}} (std\+::string\+\_\+view string, std\+::string\+\_\+view values)
+\begin{DoxyCompactList}\small\item\em Filter out the occurrences of sequence from the string. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_aeb658d3144f0a370f91f8461ec17c5b2}{operator-\/}} (std\+::string\+\_\+view string, char value)
+\begin{DoxyCompactList}\small\item\em Filter out the occurrences of value from the string. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_ade2cae3d13c20704ca4c478083470141}{operator\texorpdfstring{$\ast$}{*}}} (std\+::string\+\_\+view string, std\+::size\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Repeat string using operator. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_a6bcdbcc35657032459dcb9e4dd49a0c5}{operator\texorpdfstring{$\ast$}{*}}} (std\+::string\+\_\+view string, long double n)
+\begin{DoxyCompactList}\small\item\em Repeat string {\itshape n.\+n} times. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_acbd16f06d2b7028804b2886e2de60318}{operator/}} (std\+::string\+\_\+view string, std\+::string\+\_\+view pattern)
+\begin{DoxyCompactList}\small\item\em Split the string with pattern. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_ad31cdfef6d9a0d4a500135fb9b67a98a}{operator/}} (std\+::string\+\_\+view string, char value)
+\begin{DoxyCompactList}\small\item\em Split the string with value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+String Manipulators, operators version. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceauspicious__library_1_1sm__operators_a37747241ff634a46ec7d3c51529312ea}\index{auspicious\_library::sm\_operators@{auspicious\_library::sm\_operators}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!auspicious\_library::sm\_operators@{auspicious\_library::sm\_operators}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm__operators_a37747241ff634a46ec7d3c51529312ea} 
+auto auspicious\+\_\+library\+::sm\+\_\+operators\+::operator-\/ (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{std\+::string\+\_\+view}]{values}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Filter out the occurrences of sequence from the string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String. \\
+\hline
+{\em values} & Sequence to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Filtered string as std\+::vector.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_a9a7ac5acb03ece68064d6715bff18fb6}{cu\+::filter\+\_\+out\+\_\+seq}. 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1sm__operators_aeb658d3144f0a370f91f8461ec17c5b2}\index{auspicious\_library::sm\_operators@{auspicious\_library::sm\_operators}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!auspicious\_library::sm\_operators@{auspicious\_library::sm\_operators}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm__operators_aeb658d3144f0a370f91f8461ec17c5b2} 
+auto auspicious\+\_\+library\+::sm\+\_\+operators\+::operator-\/ (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{char}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Filter out the occurrences of value from the string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String. \\
+\hline
+{\em value} & Value to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Filtered string as std\+::vector.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_a3d0869d9e35bc3f395f91a5cbde0345e}{cu\+::filter\+\_\+out}. 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1sm__operators_ade2cae3d13c20704ca4c478083470141}\index{auspicious\_library::sm\_operators@{auspicious\_library::sm\_operators}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!auspicious\_library::sm\_operators@{auspicious\_library::sm\_operators}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm__operators_ade2cae3d13c20704ca4c478083470141} 
+auto auspicious\+\_\+library\+::sm\+\_\+operators\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{std\+::size\+\_\+t}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Repeat string using operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String. \\
+\hline
+{\em n} & Repeat times. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Repeated string as std\+::vector.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{cu\+::repeat}. 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1sm__operators_a6bcdbcc35657032459dcb9e4dd49a0c5}\index{auspicious\_library::sm\_operators@{auspicious\_library::sm\_operators}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!auspicious\_library::sm\_operators@{auspicious\_library::sm\_operators}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm__operators_a6bcdbcc35657032459dcb9e4dd49a0c5} 
+auto auspicious\+\_\+library\+::sm\+\_\+operators\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{long double}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Repeat string {\itshape n.\+n} times. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String. \\
+\hline
+{\em n} & Repeat times. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Repeated string as std\+::vector.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{cu\+::repeat}. 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1sm__operators_acbd16f06d2b7028804b2886e2de60318}\index{auspicious\_library::sm\_operators@{auspicious\_library::sm\_operators}!operator/@{operator/}}
+\index{operator/@{operator/}!auspicious\_library::sm\_operators@{auspicious\_library::sm\_operators}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm__operators_acbd16f06d2b7028804b2886e2de60318} 
+auto auspicious\+\_\+library\+::sm\+\_\+operators\+::operator/ (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{std\+::string\+\_\+view}]{pattern}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Split the string with pattern. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String. \\
+\hline
+{\em pattern} & Pattern to split with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Split string as std\+::vector of std\+::vector.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_ab9f44279e734a8b0963ba9a1a1d805b9}{cu\+::split}. 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1sm__operators_ad31cdfef6d9a0d4a500135fb9b67a98a}\index{auspicious\_library::sm\_operators@{auspicious\_library::sm\_operators}!operator/@{operator/}}
+\index{operator/@{operator/}!auspicious\_library::sm\_operators@{auspicious\_library::sm\_operators}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm__operators_ad31cdfef6d9a0d4a500135fb9b67a98a} 
+auto auspicious\+\_\+library\+::sm\+\_\+operators\+::operator/ (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{char}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Split the string with value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String. \\
+\hline
+{\em value} & Value to split with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Split string as std\+::vector of std\+::vector.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_ab9f44279e734a8b0963ba9a1a1d805b9}{cu\+::split}. 
+\end{DoxySeeAlso}

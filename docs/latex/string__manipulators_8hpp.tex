@@ -1,0 +1,66 @@
+\doxysection{include/string\+\_\+manipulators.hpp File Reference}
+\hypertarget{string__manipulators_8hpp}{}\label{string__manipulators_8hpp}\index{include/string\_manipulators.hpp@{include/string\_manipulators.hpp}}
+{\ttfamily \#include $<$cctype$>$}\newline
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$ranges$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}container\+\_\+utilities.\+hpp"{}}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceauspicious__library}{auspicious\+\_\+library}}
+\begin{DoxyCompactList}\small\item\em All Auspicious Library\textquotesingle{}s contents in this namespace. Do not {\ttfamily using namespace \doxylink{namespaceauspicious__library}{auspicious\+\_\+library};}. Instead, use this\+: \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceauspicious__library_1_1sm}{auspicious\+\_\+library\+::sm}}
+\begin{DoxyCompactList}\small\item\em String Manipulators. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators}{auspicious\+\_\+library\+::sm\+\_\+operators}}
+\begin{DoxyCompactList}\small\item\em String Manipulators, operators version. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$cu\+::cu\+\_\+compatible Container, typename Converter $>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a6ba949956dc793812eacde5acc12fe8a}{auspicious\+\_\+library\+::sm\+::to\+\_\+string}} (const Container \&container, Converter converter, std\+::string\+\_\+view separator="{}, "{}, std\+::string\+\_\+view prefix="{}"{}, std\+::string\+\_\+view suffix="{}"{})
+\begin{DoxyCompactList}\small\item\em Convert a container to comma separated string. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a5c493accfab65d14254ca1d979d95951}{auspicious\+\_\+library\+::sm\+::to\+\_\+string}} (const Container \&container, std\+::string\+\_\+view separator="{}, "{}, std\+::string\+\_\+view prefix="{}"{}, std\+::string\+\_\+view suffix="{}"{})
+\begin{DoxyCompactList}\small\item\em Convert a container to comma separated string. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
+requires std\+::is\+\_\+same\+\_\+v$<$\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{cu\+::value\+\_\+type}}$<$Container$>$, char$>$}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a385aea0016f3aa4c6a072d4257dee8e0}{auspicious\+\_\+library\+::sm\+::to\+\_\+string}} (const Container \&container, std\+::string\+\_\+view separator="{}, "{}, std\+::string\+\_\+view prefix="{}\textbackslash{}\textquotesingle{}"{}, std\+::string\+\_\+view suffix="{}\textbackslash{}\textquotesingle{}"{})
+\begin{DoxyCompactList}\small\item\em Convert a container of char to string with single-\/quoted elements separated by comma. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
+requires std\+::is\+\_\+same\+\_\+v$<$\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{cu\+::value\+\_\+type}}$<$Container$>$, std\+::string$>$}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_aa34321aadd328ebb2cbcd8e5122865d1}{auspicious\+\_\+library\+::sm\+::to\+\_\+string}} (const Container \&container, std\+::string\+\_\+view separator="{}, "{}, std\+::string\+\_\+view prefix="{}\textbackslash{}"{}"{}, std\+::string\+\_\+view suffix="{}\textbackslash{}"{}"{})
+\begin{DoxyCompactList}\small\item\em Convert a container of std\+::string to string with double-\/quoted elements separated by comma. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
+requires std\+::is\+\_\+same\+\_\+v$<$\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{cu\+::value\+\_\+type}}$<$Container$>$, char$>$}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{auspicious\+\_\+library\+::sm\+::chars\+\_\+to\+\_\+string}} (const Container \&container)
+\begin{DoxyCompactList}\small\item\em Convert a container of char to a regular string. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a557e590ecf315060dbbe49015d5e90fb}{auspicious\+\_\+library\+::sm\+::word\+\_\+wrap}} (std\+::string\+\_\+view string, std\+::size\+\_\+t width, bool force=false, std\+::string\+\_\+view delims="{} \textbackslash{}t\textbackslash{}r\textbackslash{}n\textbackslash{}f\textbackslash{}v\textbackslash{}b"{})
+\begin{DoxyCompactList}\small\item\em Word-\/wrap a string at width or before width depending on the delim. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a91e4f4e6edfccde8c0964cf8f2fc09eb}{auspicious\+\_\+library\+::sm\+::trim\+\_\+left}} (std\+::string\+\_\+view string, std\+::string\+\_\+view delims="{} \textbackslash{}t\textbackslash{}r\textbackslash{}n\textbackslash{}f\textbackslash{}v\textbackslash{}b"{})
+\begin{DoxyCompactList}\small\item\em Trim a string (only from left side) using delimiters (usually whitespace). \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a55b2357d69a9c2aca3c664a11edef447}{auspicious\+\_\+library\+::sm\+::trim\+\_\+right}} (std\+::string\+\_\+view string, std\+::string\+\_\+view delims="{} \textbackslash{}t\textbackslash{}r\textbackslash{}n\textbackslash{}f\textbackslash{}v\textbackslash{}b"{})
+\begin{DoxyCompactList}\small\item\em Trim a string (only from right side) using delimiters (usually whitespace). \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a20d0b77f9560412bb418469be0280f4a}{auspicious\+\_\+library\+::sm\+::trim}} (std\+::string\+\_\+view string, std\+::string\+\_\+view delims="{} \textbackslash{}t\textbackslash{}r\textbackslash{}n\textbackslash{}f\textbackslash{}v\textbackslash{}b"{})
+\begin{DoxyCompactList}\small\item\em Trim a string using delimiters (usually whitespace). \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a83d4984eda2a08277292831d76fccf0b}{auspicious\+\_\+library\+::sm\+::to\+\_\+upper}} (std\+::string\+\_\+view string)
+\begin{DoxyCompactList}\small\item\em Convert string to uppercase. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a1d6a54aba13267a7eef4c6307136b3d7}{auspicious\+\_\+library\+::sm\+::to\+\_\+lower}} (std\+::string\+\_\+view string)
+\begin{DoxyCompactList}\small\item\em Convert string to lowercase. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_af23bd2edd640c97d609a98b62b5a0121}{auspicious\+\_\+library\+::sm\+::to\+\_\+upper}} (char character)
+\begin{DoxyCompactList}\small\item\em Convert character to uppercase (exists for consistency). \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ae91f1d7fc07d8afd94da46aae6426d84}{auspicious\+\_\+library\+::sm\+::to\+\_\+lower}} (char character)
+\begin{DoxyCompactList}\small\item\em Convert character to lowercase (exists for consistency). \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_aae67781b035e596bb886e7980aae5863}{auspicious\+\_\+library\+::sm\+::is\+\_\+equal\+\_\+ins}} (std\+::string\+\_\+view a, std\+::string\+\_\+view b)
+\begin{DoxyCompactList}\small\item\em Compare string, case insensitivity. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a317943d42d623b6e8daa2de8fed89a64}{auspicious\+\_\+library\+::sm\+::is\+\_\+equal\+\_\+ins}} (char a, char b)
+\begin{DoxyCompactList}\small\item\em Compare character, case insensitivity (exists for consistency). \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_a37747241ff634a46ec7d3c51529312ea}{auspicious\+\_\+library\+::sm\+\_\+operators\+::operator-\/}} (std\+::string\+\_\+view string, std\+::string\+\_\+view values)
+\begin{DoxyCompactList}\small\item\em Filter out the occurrences of sequence from the string. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_aeb658d3144f0a370f91f8461ec17c5b2}{auspicious\+\_\+library\+::sm\+\_\+operators\+::operator-\/}} (std\+::string\+\_\+view string, char value)
+\begin{DoxyCompactList}\small\item\em Filter out the occurrences of value from the string. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_ade2cae3d13c20704ca4c478083470141}{auspicious\+\_\+library\+::sm\+\_\+operators\+::operator\texorpdfstring{$\ast$}{*}}} (std\+::string\+\_\+view string, std\+::size\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Repeat string using operator. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_a6bcdbcc35657032459dcb9e4dd49a0c5}{auspicious\+\_\+library\+::sm\+\_\+operators\+::operator\texorpdfstring{$\ast$}{*}}} (std\+::string\+\_\+view string, long double n)
+\begin{DoxyCompactList}\small\item\em Repeat string {\itshape n.\+n} times. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_acbd16f06d2b7028804b2886e2de60318}{auspicious\+\_\+library\+::sm\+\_\+operators\+::operator/}} (std\+::string\+\_\+view string, std\+::string\+\_\+view pattern)
+\begin{DoxyCompactList}\small\item\em Split the string with pattern. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_ad31cdfef6d9a0d4a500135fb9b67a98a}{auspicious\+\_\+library\+::sm\+\_\+operators\+::operator/}} (std\+::string\+\_\+view string, char value)
+\begin{DoxyCompactList}\small\item\em Split the string with value. \end{DoxyCompactList}\end{DoxyCompactItemize}
