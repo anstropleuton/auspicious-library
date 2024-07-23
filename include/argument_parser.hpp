@@ -260,18 +260,26 @@ enum class argument_type {
  */
 [[nodiscard]] inline constexpr auto get_argument_type(std::string_view argument)
 {
-    // I should probably refactor this to make it more readable rather than
-    // making it never-nester-friendly
-    if (argument.size() == 0) return argument_type::regular_argument;
-    if (argument[0] == '/') return argument_type::microsoft_switch;
-    if (argument[0] != '-') return argument_type::regular_argument;
-    if (argument.size() == 1) return argument_type::single_hyphen;
-    if (argument[1] == '-')
+    if (argument.size() == 0) return argument_type::empty;
+
+    if (argument.starts_with("--"))
     {
-        if (argument.size() == 2) return argument_type::double_hyphen;
-        return argument_type::long_option;
+        if (argument.size() > 2) return argument_type::long_option;
+        else return argument_type::double_hyphen;
     }
-    return argument_type::short_option;
+
+    if (argument.starts_with("-"))
+    {
+        if (argument.size() > 2) return argument_type::short_option;
+        else return argument_type::single_hyphen;
+    }
+
+    if (argument.starts_with("/"))
+    {
+        return argument_type::microsoft_switch;
+    }
+
+    return argument_type::regular_argument;
 }
 
 /**

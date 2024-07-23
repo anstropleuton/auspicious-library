@@ -34,6 +34,11 @@
 
 #include <string_view>
 
+#include "ansi_escape_codes.hpp" // IWYU pragma: keep
+#include "argument_parser.hpp" // IWYU pragma: keep
+#include "container_utilities.hpp" // IWYU pragma: keep
+#include "string_manipulators.hpp" // IWYU pragma: keep
+
 /**
  *  @brief  All Auspicious Library's contents in this namespace. Do not
  *          `using namespace auspicious_library;`.  Instead, use this:
@@ -52,8 +57,3 @@
 namespace auspicious_library {
 inline constinit std::string_view auspicious_library_version = "0.0.1";
 } // namespace auspicious_library
-
-#include "ansi_escape_codes.hpp" // IWYU pragma: keep
-#include "argument_parser.hpp" // IWYU pragma: keep
-#include "container_utilities.hpp" // IWYU pragma: keep
-#include "string_manipulators.hpp" // IWYU pragma: keep
