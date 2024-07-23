@@ -136,7 +136,7 @@ struct option_template {
     /**
      *  @brief  Long option names, such as "version" for argument "--version".
      *
-     *  @see  Detauld Description of namespace @c ap.
+     *  @see  Detailed Description of namespace @c ap.
      *
      *  @note  It is recommended that each name be at least 2 characters long.
      *         This is to prevent name clashing for Microsoft-styled switches.
@@ -155,7 +155,7 @@ struct option_template {
      *  @brief  Name of parameters required by the option/switch, such as
      *          "filename".
      *
-     *  @see  Detauld Description of namespace @c ap.
+     *  @see  Detailed Description of namespace @c ap.
      *
      *  @note  When variadic parameter is used, @c defaults_from_back is ignored
      *         entirely.
@@ -440,7 +440,7 @@ struct parsed_argument {
 /**
  *  @brief  Parse command line arguments.
  *
- *  @see  Detauld Description of namespace @c ap.
+ *  @see  Detailed Description of namespace @c ap.
  *
  *  @param  args         All excluding first (usually program name) command
  *                       line arguments.
@@ -463,7 +463,7 @@ struct parsed_argument {
 /**
  *  @brief  Parse command line arguments.
  *
- *  @see  Detauld Description of namespace @c ap.
+ *  @see  Detailed Description of namespace @c ap.
  *
  *  @param  argc         Arguments count from main().
  *  @param  argv         Argument values from main().
