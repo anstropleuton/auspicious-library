@@ -28,8 +28,11 @@
 
 #define AUSPICIOUS_LIBRARY_HPP_INCLUDED
 
+#include <string_view>
+
 /**
- *  @brief  Use the below piece of code to make using this library easier
+ *  @brief  All Auspicious Library's contents in this namespace. Do not
+ *          `using namespace auspicious_library;`.  Instead, use this:
     ```cpp
     namespace al {
     using namespace auspicious_library::aec;
@@ -42,6 +45,9 @@
     using namespace auspicious_library::sm_operators;
     ```
  */
+namespace auspicious_library {
+inline constinit std::string_view auspicious_library_version = "0.0.1";
+} // namespace auspicious_library
 
 #include "ansi_escape_codes.hpp" // IWYU pragma: keep
 #include "argument_parser.hpp" // IWYU pragma: keep
