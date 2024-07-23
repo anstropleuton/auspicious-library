@@ -1,7 +1,8 @@
-/*
- *  @file    argument_parser.cpp
+/**
+ *  @file    al_argument_parser.cpp
  *  @author  Anstro Pleuton (https://github.com/anstropleuton)
- *  @brief   Implementations for non-inline functions in argument_parser.hpp.
+ *  @brief   Implementations for non-inline functions from
+ *           al_argument_parser.hpp.
  *
  *  @copyright  Copyright (c) 2024 Anstro Pleuton
  *
@@ -32,19 +33,18 @@
  *  @brief  Prevent warning for directly including module header file.
  */
 #define AUSPICIOUS_LIBRARY_NO_INCLUSION_WARN
-#include "argument_parser.hpp"
-
 #include <algorithm>
 #include <print>
 #include <stdexcept>
 #include <string>
 #include <vector>
 
-#include "string_manipulators.hpp"
+#include "al_argument_parser.hpp"
+#include "al_string_manipulators.hpp"
 
-namespace ap   = auspicious_library::ap;
-namespace sm   = auspicious_library::sm;
-namespace cu   = auspicious_library::cu;
+namespace ap = auspicious_library::ap;
+namespace sm = auspicious_library::sm;
+namespace cu = auspicious_library::cu;
 
 using namespace std::string_literals;
 using namespace auspicious_library::sm_operators;
@@ -359,7 +359,8 @@ static inline constexpr auto subcommands_sanity_checker(
 
         auto first  = arg.substr(0, pos);
         auto second = arg.substr(pos + 1);
-        mod_args_1.emplace_back(arg, first, arg_type, 0, pos, 0, first.size());
+        mod_args_1.emplace_back(arg, first, arg_type, 0, pos, 0,
+            first.size());
         mod_args_1.emplace_back(arg, second, arg_type, pos + 1, second.size(),
             0, second.size());
     }
@@ -389,7 +390,7 @@ static inline constexpr auto subcommands_sanity_checker(
         {
             mod_args_2.emplace_back(mod_arg.original,
                 "-"s + mod_arg.modified[i], mod_arg.arg_type,
-                mod_arg.org_pos + i, 1, 1, 1 );
+                mod_arg.org_pos + i, 1, 1, 1);
         }
     }
 

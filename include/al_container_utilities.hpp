@@ -1,5 +1,5 @@
 /**
- *  @file    container_utilities.hpp
+ *  @file    al_container_utilities.hpp
  *  @author  Anstro Pleuton (https://github.com/anstropleuton)
  *  @brief   General functionality for container types with operators.
  *
@@ -251,7 +251,8 @@ template<cu_compatible Container>
  *
  *  Considering integer part of the number @c n as @c i, and fraction part as
  *  @c f, the container is repeated @c i.0 times, and then the container is
- *  added with subset of the container with size @c round(0.f * container.size()).
+ *  added with subordinate container with `round(0.f * container.size())`
+ *  elements from the beginning.
  *
  *  @tparam  Container  Compatible container type.
  *  @param   container  Container.

@@ -32,7 +32,7 @@
 #include <print>
 
 #define AUSPICIOUS_LIBRARY_NO_INCLUSION_WARN
-#include "ansi_escape_codes.hpp"
+#include "al_ansi_escape_codes.hpp"
 
 namespace al {
 using namespace auspicious_library::aec;

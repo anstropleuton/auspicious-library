@@ -35,7 +35,7 @@
 #include <string_view>
 
 #define AUSPICIOUS_LIBRARY_NO_INCLUSION_WARN
-#include "string_manipulators.hpp"
+#include "al_string_manipulators.hpp"
 #include "tester.hpp"
 
 namespace al {

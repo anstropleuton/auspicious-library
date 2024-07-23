@@ -1,0 +1,129 @@
+\doxysection{include/al\+\_\+argument\+\_\+parser.hpp File Reference}
+\hypertarget{al__argument__parser_8hpp}{}\label{al__argument__parser_8hpp}\index{include/al\_argument\_parser.hpp@{include/al\_argument\_parser.hpp}}
+
+
+Functionality to parse Command Line Arguments.  
+
+
+{\ttfamily \#include $<$print$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}al\+\_\+ansi\+\_\+escape\+\_\+codes.\+hpp"{}}\newline
+{\ttfamily \#include "{}al\+\_\+container\+\_\+utilities.\+hpp"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1option__template}{auspicious\+\_\+library\+::ap\+::option\+\_\+template}}
+\begin{DoxyCompactList}\small\item\em Predefined option. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1subcommand__template}{auspicious\+\_\+library\+::ap\+::subcommand\+\_\+template}}
+\begin{DoxyCompactList}\small\item\em Predefined subcommand. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1mod__argument}{auspicious\+\_\+library\+::ap\+::mod\+\_\+argument}}
+\begin{DoxyCompactList}\small\item\em Internally modifies arguments but has original argument intact for reference. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1parsed__argument}{auspicious\+\_\+library\+::ap\+::parsed\+\_\+argument}}
+\begin{DoxyCompactList}\small\item\em Parsed argument. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1help__combo__t}{auspicious\+\_\+library\+::ap\+::help\+\_\+combo\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Keep string and AEC separate for measurement purposes, for help message format. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1help__pad__t}{auspicious\+\_\+library\+::ap\+::help\+\_\+pad\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Padding before the content, for help message format. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1help__enclose__t}{auspicious\+\_\+library\+::ap\+::help\+\_\+enclose\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Surround the content with values, for help message format. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1posix__help__format}{auspicious\+\_\+library\+::ap\+::posix\+\_\+help\+\_\+format}}
+\begin{DoxyCompactList}\small\item\em POSIX-\/style format specifier for help message. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1microsoft__help__format}{auspicious\+\_\+library\+::ap\+::microsoft\+\_\+help\+\_\+format}}
+\begin{DoxyCompactList}\small\item\em Microsoft-\/style format specifier for help message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceauspicious__library}{auspicious\+\_\+library}}
+\begin{DoxyCompactList}\small\item\em All Auspicious Library\textquotesingle{}s contents in this namespace. Do not {\ttfamily using namespace \doxylink{namespaceauspicious__library}{auspicious\+\_\+library};}. Instead, use this\+: \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceauspicious__library_1_1ap}{auspicious\+\_\+library\+::ap}}
+\begin{DoxyCompactList}\small\item\em Command line argument parser. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7}{auspicious\+\_\+library\+::ap\+::argument\+\_\+type}} \{ \newline
+\mbox{\hyperlink{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7aad921d60486366258809553a3db49a4a}{auspicious\+\_\+library\+::ap\+::unknown}}
+, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7aa2e4822a98337283e39f7b60acf85ec9}{auspicious\+\_\+library\+::ap\+::empty}}
+, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7ac3dd701bb892f05ae6d6ef5957275c9f}{auspicious\+\_\+library\+::ap\+::short\+\_\+option}}
+, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7a274160f27f00ca8fbda3d84931e70a12}{auspicious\+\_\+library\+::ap\+::long\+\_\+option}}
+, \newline
+\mbox{\hyperlink{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7a797d63f1b8b7e884523a49aba3350d42}{auspicious\+\_\+library\+::ap\+::microsoft\+\_\+switch}}
+, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7ac55de9c24e0a63900ac49771f8e6aea0}{auspicious\+\_\+library\+::ap\+::single\+\_\+hyphen}}
+, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7aaf019a40ded0e664b4ff58a07a82dc1e}{auspicious\+\_\+library\+::ap\+::double\+\_\+hyphen}}
+, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7aa20e56bea0585638d84185a408b04378}{auspicious\+\_\+library\+::ap\+::regular\+\_\+argument}}
+ \}
+\begin{DoxyCompactList}\small\item\em Type for argument differentiation. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{namespaceauspicious__library_1_1ap_addac9e068fc6ed2aecf18adb9648b481}{auspicious\+\_\+library\+::ap\+::variadicity}} \{ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_addac9e068fc6ed2aecf18adb9648b481abd4e4b9e6b527091089949637b49dccc}{auspicious\+\_\+library\+::ap\+::not\+\_\+variadic}}
+, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_addac9e068fc6ed2aecf18adb9648b481ae89b690003f9258b7d29dd2e5e172505}{auspicious\+\_\+library\+::ap\+::zero\+\_\+or\+\_\+more}}
+, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_addac9e068fc6ed2aecf18adb9648b481a6ef720567b1860990b3d5b851d7e5d8d}{auspicious\+\_\+library\+::ap\+::one\+\_\+or\+\_\+more}}
+ \}
+\begin{DoxyCompactList}\small\item\em What type of variadic is it? \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838}{auspicious\+\_\+library\+::ap\+::validity}} \{ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a9f7d0ee82b6a6ca7ddeae841f3253059}{auspicious\+\_\+library\+::ap\+::valid}} = 0
+, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a41c3830d78a9c9c3999125a5441932de}{auspicious\+\_\+library\+::ap\+::unrecognized\+\_\+option}} = 1
+, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a71690c26ac3556e6e31ba5c92bc76188}{auspicious\+\_\+library\+::ap\+::unrecognized\+\_\+subcommand}} = 2
+, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a64a68ff871cac5f80f374fe513b30f92}{auspicious\+\_\+library\+::ap\+::not\+\_\+enough\+\_\+values}} = 4
+ \}
+\begin{DoxyCompactList}\small\item\em Parsed argument validity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a0d6683c3ae40660d05871f804da2cfe0}{auspicious\+\_\+library\+::ap\+::to\+\_\+string}} (\mbox{\hyperlink{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7}{argument\+\_\+type}} arg\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Convert {\ttfamily argument\+\_\+type} to string. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a081f7c6a5ae1824b2c08ef39eddbd983}{auspicious\+\_\+library\+::ap\+::get\+\_\+argument\+\_\+type}} (std\+::string\+\_\+view argument)
+\begin{DoxyCompactList}\small\item\em Get the type of argument from command line argument. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_adde20712869a89590d76d371a2546faa}{auspicious\+\_\+library\+::ap\+::to\+\_\+string}} (\mbox{\hyperlink{namespaceauspicious__library_1_1ap_addac9e068fc6ed2aecf18adb9648b481}{variadicity}} variadic)
+\begin{DoxyCompactList}\small\item\em Convert {\ttfamily variadicity} to string. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a6fef8062ae041506db90080894fc00cf}{auspicious\+\_\+library\+::ap\+::is\+\_\+parameters\+\_\+variadic}} (const std\+::vector$<$ std\+::string $>$ \&parameters)
+\begin{DoxyCompactList}\small\item\em Check if parameters is variadic. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_aac67ce8a3e1a31274b16b2f15b34dd40}{auspicious\+\_\+library\+::ap\+::to\+\_\+string}} (\mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838}{validity}} \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a9f7d0ee82b6a6ca7ddeae841f3253059}{valid}})
+\begin{DoxyCompactList}\small\item\em Convert {\ttfamily validity} to string. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a4511828073a79eb04a7aef0baac3d8db}{auspicious\+\_\+library\+::ap\+::parse\+\_\+arguments}} (const std\+::vector$<$ std\+::string $>$ \&args, const std\+::vector$<$ const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1option__template}{option\+\_\+template}} \texorpdfstring{$\ast$}{*} $>$ \&options, const std\+::vector$<$ const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1subcommand__template}{subcommand\+\_\+template}} \texorpdfstring{$\ast$}{*} $>$ \&subcommands, bool switch\+\_\+ins=true) -\/$>$ std\+::vector$<$ \mbox{\hyperlink{structauspicious__library_1_1ap_1_1parsed__argument}{parsed\+\_\+argument}} $>$
+\begin{DoxyCompactList}\small\item\em Parse command line arguments. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a2f90586401cf4979e91aa7ad22edd47b}{auspicious\+\_\+library\+::ap\+::parse\+\_\+arguments}} (int argc, const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv, const std\+::vector$<$ const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1option__template}{option\+\_\+template}} \texorpdfstring{$\ast$}{*} $>$ \&options, const std\+::vector$<$ const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1subcommand__template}{subcommand\+\_\+template}} \texorpdfstring{$\ast$}{*} $>$ \&subcommands, bool switch\+\_\+ins=true) -\/$>$ std\+::vector$<$ \mbox{\hyperlink{structauspicious__library_1_1ap_1_1parsed__argument}{parsed\+\_\+argument}} $>$
+\begin{DoxyCompactList}\small\item\em Parse command line arguments. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a760ffaa5d2627accbd8bf90ee8a73cb0}{auspicious\+\_\+library\+::ap\+::get\+\_\+help\+\_\+message}} (const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1option__template}{option\+\_\+template}} \&option, \mbox{\hyperlink{structauspicious__library_1_1ap_1_1posix__help__format}{posix\+\_\+help\+\_\+format}} format) -\/$>$ std\+::vector$<$ std\+::string $>$
+\begin{DoxyCompactList}\small\item\em Generate help message string from option and POSIX-\/style format. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a69b19c40537b66365048b5871983b71e}{auspicious\+\_\+library\+::ap\+::get\+\_\+help\+\_\+message}} (const std\+::vector$<$ \mbox{\hyperlink{structauspicious__library_1_1ap_1_1option__template}{option\+\_\+template}} $>$ \&options, \mbox{\hyperlink{structauspicious__library_1_1ap_1_1posix__help__format}{posix\+\_\+help\+\_\+format}} format) -\/$>$ std\+::vector$<$ std\+::string $>$
+\begin{DoxyCompactList}\small\item\em Generate help message string from options and POSIX-\/style format. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a90d0bc4d3b66198040eeb71c8788cb37}{auspicious\+\_\+library\+::ap\+::get\+\_\+help\+\_\+message}} (const std\+::vector$<$ const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1option__template}{option\+\_\+template}} \texorpdfstring{$\ast$}{*} $>$ \&options, \mbox{\hyperlink{structauspicious__library_1_1ap_1_1posix__help__format}{posix\+\_\+help\+\_\+format}} format) -\/$>$ std\+::vector$<$ std\+::string $>$
+\begin{DoxyCompactList}\small\item\em Generate help message string from options and POSIX-\/style format. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a8f91f5afac568a421ed27df2dd89f06f}{auspicious\+\_\+library\+::ap\+::get\+\_\+help\+\_\+message}} (const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1subcommand__template}{subcommand\+\_\+template}} \&subcommand, \mbox{\hyperlink{structauspicious__library_1_1ap_1_1posix__help__format}{posix\+\_\+help\+\_\+format}} format) -\/$>$ std\+::vector$<$ std\+::string $>$
+\begin{DoxyCompactList}\small\item\em Generate help message string from subcommand and POSIX-\/style format. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a6a70951e742ad3b4af7a63d1a664b90b}{auspicious\+\_\+library\+::ap\+::get\+\_\+help\+\_\+message}} (const std\+::vector$<$ \mbox{\hyperlink{structauspicious__library_1_1ap_1_1subcommand__template}{subcommand\+\_\+template}} $>$ \&subcommands, \mbox{\hyperlink{structauspicious__library_1_1ap_1_1posix__help__format}{posix\+\_\+help\+\_\+format}} format) -\/$>$ std\+::vector$<$ std\+::string $>$
+\begin{DoxyCompactList}\small\item\em Generate help message string from subcommands and POSIX-\/style format. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_adc0b2a8419f840ebddcf5fed261e3b5e}{auspicious\+\_\+library\+::ap\+::get\+\_\+help\+\_\+message}} (const std\+::vector$<$ const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1subcommand__template}{subcommand\+\_\+template}} \texorpdfstring{$\ast$}{*} $>$ \&subcommands, \mbox{\hyperlink{structauspicious__library_1_1ap_1_1posix__help__format}{posix\+\_\+help\+\_\+format}} format) -\/$>$ std\+::vector$<$ std\+::string $>$
+\begin{DoxyCompactList}\small\item\em Generate help message string from subcommands and POSIX-\/style format. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a605264f237351903b71eece5bd3bea27}{auspicious\+\_\+library\+::ap\+::get\+\_\+help\+\_\+message}} (const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1option__template}{option\+\_\+template}} \&option, \mbox{\hyperlink{structauspicious__library_1_1ap_1_1microsoft__help__format}{microsoft\+\_\+help\+\_\+format}} format) -\/$>$ std\+::vector$<$ std\+::string $>$
+\begin{DoxyCompactList}\small\item\em Generate help message string from option (switch) and Microsoft-\/style format. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a04d42c1ec7aba4cb83c64abc3f27868c}{auspicious\+\_\+library\+::ap\+::get\+\_\+help\+\_\+message}} (const std\+::vector$<$ \mbox{\hyperlink{structauspicious__library_1_1ap_1_1option__template}{option\+\_\+template}} $>$ \&options, \mbox{\hyperlink{structauspicious__library_1_1ap_1_1microsoft__help__format}{microsoft\+\_\+help\+\_\+format}} format) -\/$>$ std\+::vector$<$ std\+::string $>$
+\begin{DoxyCompactList}\small\item\em Generate help message string from options (switches) and Microsoft-\/style format. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a44d3e8ff37156da6fea02aef970ea798}{auspicious\+\_\+library\+::ap\+::get\+\_\+help\+\_\+message}} (const std\+::vector$<$ const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1option__template}{option\+\_\+template}} \texorpdfstring{$\ast$}{*} $>$ \&options, \mbox{\hyperlink{structauspicious__library_1_1ap_1_1microsoft__help__format}{microsoft\+\_\+help\+\_\+format}} format) -\/$>$ std\+::vector$<$ std\+::string $>$
+\begin{DoxyCompactList}\small\item\em Generate help message string from options (switches) and Microsoft-\/style format. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a7cda2b0bbeb7e4c981a6128ced249b5f}{auspicious\+\_\+library\+::ap\+::get\+\_\+help\+\_\+message}} (const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1subcommand__template}{subcommand\+\_\+template}} \&subcommand, \mbox{\hyperlink{structauspicious__library_1_1ap_1_1microsoft__help__format}{microsoft\+\_\+help\+\_\+format}} format) -\/$>$ std\+::vector$<$ std\+::string $>$
+\begin{DoxyCompactList}\small\item\em Generate help message string from subcommand and Microsoft-\/style format. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ace4af81aa78f41e324bba102cf10e1b8}{auspicious\+\_\+library\+::ap\+::get\+\_\+help\+\_\+message}} (const std\+::vector$<$ \mbox{\hyperlink{structauspicious__library_1_1ap_1_1subcommand__template}{subcommand\+\_\+template}} $>$ \&subcommands, \mbox{\hyperlink{structauspicious__library_1_1ap_1_1microsoft__help__format}{microsoft\+\_\+help\+\_\+format}} format) -\/$>$ std\+::vector$<$ std\+::string $>$
+\begin{DoxyCompactList}\small\item\em Generate help message string from subcommands and Microsoft-\/style format. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_adf313724f117a4598402ebd4a2cb5118}{auspicious\+\_\+library\+::ap\+::get\+\_\+help\+\_\+message}} (const std\+::vector$<$ const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1subcommand__template}{subcommand\+\_\+template}} \texorpdfstring{$\ast$}{*} $>$ \&subcommands, \mbox{\hyperlink{structauspicious__library_1_1ap_1_1microsoft__help__format}{microsoft\+\_\+help\+\_\+format}} format) -\/$>$ std\+::vector$<$ std\+::string $>$
+\begin{DoxyCompactList}\small\item\em Generate help message string from subcommands and Microsoft-\/style format. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_af7ef9d26a4f2321a90e9093a52722b34}{auspicious\+\_\+library\+::ap\+::print\+\_\+help\+\_\+message}} (const std\+::vector$<$ std\+::string $>$ \&lines)
+\begin{DoxyCompactList}\small\item\em Helper to print all the help message lines. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functionality to parse Command Line Arguments. 
+
+\begin{DoxyAuthor}{Author}
+Anstro Pleuton (\href{https://github.com/anstropleuton}{\texttt{ https\+://github.\+com/anstropleuton}}) 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 Anstro Pleuton
+\end{DoxyCopyright}
+Auspicious Library is a collection of Utils for Anstro Pleuton\textquotesingle{}s programs.
+
+This software is licensed under the terms of MIT License.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "{}\+Software"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "{}\+AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 

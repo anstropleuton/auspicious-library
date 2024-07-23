@@ -33,8 +33,8 @@
 #include <vector>
 
 #define AUSPICIOUS_LIBRARY_NO_INCLUSION_WARN
-#include "argument_parser.hpp"
-#include "string_manipulators.hpp"
+#include "al_argument_parser.hpp"
+#include "al_string_manipulators.hpp"
 #include "tester.hpp"
 
 namespace al {

@@ -1,5 +1,5 @@
 /**
- *  @file    string_manipulators.hpp
+ *  @file    al_string_manipulators.hpp
  *  @author  Anstro Pleuton (https://github.com/anstropleuton)
  *  @brief   Functionality to manipulate and format strings.
  *
@@ -42,7 +42,7 @@
 #include <string>
 #include <vector>
 
-#include "container_utilities.hpp"
+#include "al_container_utilities.hpp"
 
 /**
  *  @brief  All Auspicious Library's contents in this namespace. Do not

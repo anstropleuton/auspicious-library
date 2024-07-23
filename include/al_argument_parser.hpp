@@ -1,5 +1,5 @@
 /**
- *  @file    argument_parser.hpp
+ *  @file    al_argument_parser.hpp
  *  @author  Anstro Pleuton (https://github.com/anstropleuton)
  *  @brief   Functionality to parse Command Line Arguments.
  *
@@ -38,8 +38,8 @@
 #include <string>
 #include <vector>
 
-#include "ansi_escape_codes.hpp"
-#include "container_utilities.hpp"
+#include "al_ansi_escape_codes.hpp"
+#include "al_container_utilities.hpp"
 
 /**
  *  @brief  All Auspicious Library's contents in this namespace. Do not
@@ -393,7 +393,8 @@ enum class validity {
     {
         case validity::valid: return "valid"s;
         case validity::unrecognized_option: return "unrecognized_option"s;
-        case validity::unrecognized_subcommand: return "unrecognized_subcommand"s;
+        case validity::unrecognized_subcommand: return
+                "unrecognized_subcommand"s;
         case validity::not_enough_values: return "not_enough_values"s;
     }
 }
@@ -623,9 +624,9 @@ struct posix_help_format {
      */
     help_pad_t pad_description_wrapped = {
 
-        .first = { " ",  aec::reset },
-        .mid   = { " ",  aec::reset },
-        .last  = { ". ", aec::reset },
+        .first = { " ",  aec::reset  },
+        .mid   = { " ",  aec::reset  },
+        .last  = { ". ", aec::reset  },
         .size  = 39 // Note the two characters in the `last` field
     };
 

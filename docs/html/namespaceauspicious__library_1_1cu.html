@@ -635,7 +635,7 @@ template&lt;cu_compatible Container&gt; </div>
 </div><div class="memdoc">
 
 <p>Repeat container <code>n</code> times. </p>
-<p>Considering integer part of the number <code>n</code> as <code>i</code>, and fraction part as <code>f</code>, the container is repeated <code>i.0</code> times, and then the container is added with subset of the container with size <code>round</code>(0.f * container.size()).</p>
+<p>Considering integer part of the number <code>n</code> as <code>i</code>, and fraction part as <code>f</code>, the container is repeated <code>i.0</code> times, and then the container is added with subordinate container with <code>round(0.f * container.size())</code> elements from the beginning.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Container</td><td>Compatible container type. </td></tr>

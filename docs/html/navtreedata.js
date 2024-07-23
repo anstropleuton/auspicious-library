@@ -139,8 +139,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"namespaceauspicious__library_1_1aec__operators.html#a23ce8a90425098f3ab9daec5f41b4ed9",
+"al__ansi__escape__codes_8hpp.html",
+"namespaceauspicious__library_1_1aec.html#a9309ff7933e3c1316eca3917247add70",
 "structauspicious__library_1_1ap_1_1posix__help__format.html"
 ];
 
