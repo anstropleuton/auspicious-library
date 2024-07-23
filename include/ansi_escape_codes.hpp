@@ -1,4 +1,4 @@
-/*
+/**
  *  @file    ansi_escape_codes.hpp
  *  @author  Anstro Pleuton (https://github.com/anstropleuton)
  *  @brief   Functionality to print ANSI Escape Code formatted text in terminal.

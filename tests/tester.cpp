@@ -1,4 +1,4 @@
-/*
+/**
  *  @file    tester.cpp
  *  @author  Anstro Pleuton (https://github.com/anstropleuton)
  *  @brief   Test all of Auspicious Library.

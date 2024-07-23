@@ -1,4 +1,4 @@
-/*
+/**
  *  @file    test_sm.cpp
  *  @author  Anstro Pleuton (https://github.com/anstropleuton)
  *  @brief   Test all of String Manipulators in Auspicious Library.

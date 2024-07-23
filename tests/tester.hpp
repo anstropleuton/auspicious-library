@@ -1,4 +1,4 @@
-/*
+/**
  *  @file    tester.hpp
  *  @author  Anstro Pleuton (https://github.com/anstropleuton)
  *  @brief   Custom simple testing framework.

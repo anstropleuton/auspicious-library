@@ -1,4 +1,4 @@
-/*
+/**
  *  @file    test_to_string.cpp
  *  @author  Anstro Pleuton (https://github.com/anstropleuton)
  *  @brief   Test all the @c to_string functions from String Manipulator.

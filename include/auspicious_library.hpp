@@ -1,4 +1,4 @@
-/*
+/**
  *  @file    auspicious_library.hpp
  *  @author  Anstro Pleuton (https://github.com/anstropleuton)
  *  @brief   The root header file to include everything in Auspicious Library.

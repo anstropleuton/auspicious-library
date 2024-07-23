@@ -1,4 +1,4 @@
-/*
+/**
  *  @file    argument_parser.hpp
  *  @author  Anstro Pleuton (https://github.com/anstropleuton)
  *  @brief   Functionality to parse Command Line Arguments.
