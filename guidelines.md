@@ -162,6 +162,7 @@
     /**
      *  This is a thing.  After that it does this.  So do that.
      */
+    type thing;
     ```
 
 ### Documentation Comments

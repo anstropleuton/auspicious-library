@@ -542,7 +542,7 @@ static inline constexpr auto subcommands_sanity_checker(
 /**
  *  @brief  Get padding's size.
  *
- *  We use a separate function because std::string::size() returns characters
+ *  We use a separate function because @c std::string::size() returns characters
  *  including the ANSI Escape Code style.
  *
  *  @param  pad  Padding.

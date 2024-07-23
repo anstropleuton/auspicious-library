@@ -228,10 +228,10 @@ enum class argument_type {
 };
 
 /**
- *  @brief  Convert argument_type to string.
+ *  @brief  Convert @c argument_type to string.
  *
  *  @param  arg_type  Argument type.
- *  @return  String representing argument_type enumeration.
+ *  @return  String representing @c argument_type enumeration.
  */
 [[nodiscard]] inline constexpr auto to_string(argument_type arg_type)
 {
@@ -280,10 +280,10 @@ enum class variadicity {
 };
 
 /**
- *  @brief  Convert variadicity to string.
+ *  @brief  Convert @c variadicity to string.
  *
  *  @param  variadic  Variadicity.
- *  @return  String representing variadicity enumeration.
+ *  @return  String representing @c variadicity enumeration.
  */
 [[nodiscard]] inline constexpr auto to_string(variadicity variadic)
 {
@@ -367,10 +367,10 @@ enum class validity {
 };
 
 /**
- *  @brief  Convert validity to string.
+ *  @brief  Convert @c validity to string.
  *
  *  @param  valid  Validity.
- *  @return  String representing validity enumeration.
+ *  @return  String representing @c validity enumeration.
  */
 [[nodiscard]] inline constexpr auto to_string(validity valid)
 {

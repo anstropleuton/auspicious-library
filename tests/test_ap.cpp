@@ -40,17 +40,20 @@ using namespace auspicious_library::sm;
 using namespace auspicious_library::sm_operators;
 
 using namespace std::string_literals;
+namespace stdr = std::ranges;
 
 /**
  *  @brief  Nothing... Just C-style array length expression that "just works".
+ *          This is the peak of C-like code you will ever see in this library.
+ *          ... maybe.
  */
 #define lenof(array_expr) sizeof ((array_expr)) / sizeof ((array_expr)[0])
 
 /**
- *  @brief  Convert parsed_argument to string.
+ *  @brief  Convert parsed argument to string.
  *
- *  @param parsed_argument
- *  @return constexpr auto
+ *  @param  parsed_argument  Parsed Argument.
+ *  @return  String representing parsed argument.
  */
 [[nodiscard]] inline constexpr auto to_string(
     const al::parsed_argument &parsed_argument
@@ -86,11 +89,43 @@ using namespace std::string_literals;
 }
 
 /**
- *  @brief  Compare all values of two parsed_arguments.
- *  
- *  @param a 
- *  @param b 
- *  @return constexpr auto 
+ *  @brief  Formatter for parsed argument.
+ */
+template<>
+struct std::formatter<al::parsed_argument> {
+    template<typename ParsedContext>
+    [[nodiscard]] inline constexpr auto parse(ParsedContext &pc)
+    {
+        auto it = pc.begin();
+        if (it == pc.end())
+        {
+            return it;
+        }
+
+        // Add format specifiers?
+
+        if (it != pc.end() && *it != '}')
+        {
+            throw std::format_error("Invalid format for al::parsed_argument");
+        }
+
+        return it;
+    }
+
+    template<typename FormatContext>
+    [[nodiscard]] inline constexpr auto format(
+        const al::parsed_argument &parsed_argument, FormatContext &fc)
+    {
+        stdr::copy(::to_string(parsed_argument), fc.out()).out;
+    }
+};
+
+/**
+ *  @brief  Compare all values of two parsed arguments.
+ *
+ *  @param  a  First parsed argument.
+ *  @param  b  Second parsed argument.
+ *  @return  True if they are equal.
  */
 [[nodiscard]] inline constexpr auto compare(
     const al::parsed_argument &a,
@@ -110,6 +145,14 @@ using namespace std::string_literals;
         && a.values == b.values;
 }
 
+/**
+ *  @brief  Compare all values of two parsed arguments, ignoring the values
+ *          member.
+ *
+ *  @param  a  First parsed argument.
+ *  @param  b  Second parsed argument.
+ *  @return  True if they are equal, except the values member.
+ */
 [[nodiscard]] inline constexpr auto compare_no_values(
     const al::parsed_argument &a,
     const al::parsed_argument &b
@@ -127,6 +170,13 @@ using namespace std::string_literals;
         && a.ref_subcommand == b.ref_subcommand;
 }
 
+/**
+ *  @brief  Compare the values member of two parsed arguments.
+ *
+ *  @param  a  First parsed argument.
+ *  @param  b  Second parsed argument.
+ *  @return  True if values member of them are equal.
+ */
 [[nodiscard]] inline constexpr auto compare_only_values(
     const al::parsed_argument &a,
     const al::parsed_argument &b
@@ -135,13 +185,24 @@ using namespace std::string_literals;
     return a.values == b.values;
 }
 
+/**
+ *  @brief  Compare all values of two parsed argument.
+ *
+ *  @param  a  First parsed argument.
+ *  @param  b  Second parsed argument.
+ *  @return  True if they are equal.
+ */
 [[nodiscard]] inline constexpr auto operator== (
     const al::parsed_argument &a,
     const al::parsed_argument &b
 )
 {
+    return compare(a, b);
 }
 
+/**
+ *  @brief  Option recognition test - Option 1.
+ */
 al::option_template ot_long_1 = {
     .description        = "OT Long Name 1",
     .long_names         = { "long-name-1" },
@@ -150,6 +211,9 @@ al::option_template ot_long_1 = {
     .defaults_from_back = {}
 };
 
+/**
+ *  @brief  Option recognition test - Option 2.
+ */
 al::option_template ot_long_2 = {
     .description        = "OT Long Name 2",
     .long_names         = { "long-name-2" },
@@ -158,6 +222,9 @@ al::option_template ot_long_2 = {
     .defaults_from_back = {}
 };
 
+/**
+ *  @brief  Option recognition test - Option 3.
+ */
 al::option_template ot_long_3 = {
     .description        = "OT Long Name 3",
     .long_names         = { "long-name-3" },
@@ -166,12 +233,22 @@ al::option_template ot_long_3 = {
     .defaults_from_back = {}
 };
 
+/**
+ *  @brief  All test options.
+ */
 std::vector<const al::option_template *> options = {
     &ot_long_1, &ot_long_2, &ot_long_3
 };
 
+/**
+ *  @brief  All test subcommands.
+ */
 std::vector<const al::subcommand_template *> subcommands = {};
 
+/**
+ *  @brief  Test 0: No arguments test.
+ *  @return  Number of errors.
+ */
 [[nodiscard]] static auto test_ap_no_args() -> std::size_t
 {
     T_BEGIN;
@@ -179,13 +256,14 @@ std::vector<const al::subcommand_template *> subcommands = {};
     const char *argv[] = { "./program" };
     int         argc   = lenof(argv);
 
-    std::vector<std::string> args = { argv + 1, argv + argc };
+    std::vector<std::string>         args     = { argv + 1, argv + argc };
+    std::vector<al::parsed_argument> expected = {};
 
     auto parsed_1 = al::parse_arguments(argc, argv, options, subcommands);
     auto parsed_2 = al::parse_arguments(args, options, subcommands);
 
-    T_ASSERT_SIZE(parsed_1, parsed_2);
-
+    T_ASSERT_CTR(parsed_1, expected);
+    T_ASSERT_CTR(parsed_2, expected);
     T_ASSERT_CTR(parsed_1, parsed_2);
 
     T_END;

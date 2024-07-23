@@ -154,7 +154,7 @@ requires std::is_same_v<cu::value_type<Container>, char>
 }
 
 /**
- *  @brief  Convert a container of std::string to string with double-quoted
+ *  @brief  Convert a container of @c std::string to string with double-quoted
  *          elements separated by comma.
  *
  *  @tparam  Container  Compatible container type.
@@ -409,7 +409,7 @@ namespace sm_operators {
  *
  *  @param  string  String.
  *  @param  values  Sequence to remove.
- *  @return  Filtered string as std::vector.
+ *  @return  Filtered string as std::string.
  *
  *  @see  cu::filter_out_seq.
  */
@@ -428,7 +428,7 @@ namespace sm_operators {
  *
  *  @param  string  String.
  *  @param  value   Value to remove.
- *  @return  Filtered string as std::vector.
+ *  @return  Filtered string as std::string.
  *
  *  @see  cu::filter_out.
  */
@@ -446,7 +446,7 @@ namespace sm_operators {
  *
  *  @param  string  String.
  *  @param  n       Repeat times.
- *  @return  Repeated string as std::vector.
+ *  @return  Repeated string as std::string.
  *
  *  @see  cu::repeat.
  */
@@ -460,11 +460,11 @@ namespace sm_operators {
 }
 
 /**
- *  @brief  Repeat string @a n.n times.
+ *  @brief  Repeat string @c n times.
  *
  *  @param  string  String.
  *  @param  n       Repeat times.
- *  @return  Repeated string as std::vector.
+ *  @return  Repeated string as std::string.
  *
  *  @see   cu::repeat.
  */
@@ -482,7 +482,7 @@ namespace sm_operators {
  *
  *  @param  string  String.
  *  @param  pattern Pattern to split with.
- *  @return  Split string as std::vector of std::vector.
+ *  @return  Split string as std::vector of std::string.
  *
  *  @see  cu::split.
  */
@@ -503,7 +503,7 @@ namespace sm_operators {
  *
  *  @param  string  String.
  *  @param  value   Value to split with.
- *  @return  Split string as std::vector of std::vector.
+ *  @return  Split string as std::vector of std::string.
  *
  *  @see  cu::split.
  */

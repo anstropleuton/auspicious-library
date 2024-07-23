@@ -166,11 +166,11 @@ Functions</h2></td></tr>
 <tr class="separator:a3d0869d9e35bc3f395f91a5cbde0345e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a420a931bdf075a5d34bbc908aafaae37" id="r_a420a931bdf075a5d34bbc908aafaae37"><td class="memTemplParams" colspan="2">template&lt;cu_compatible Container&gt; </td></tr>
 <tr class="memitem:a420a931bdf075a5d34bbc908aafaae37"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a420a931bdf075a5d34bbc908aafaae37">repeat</a> (const Container &amp;container, std::size_t n)</td></tr>
-<tr class="memdesc:a420a931bdf075a5d34bbc908aafaae37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repeat container <em>n</em> times.  <br /></td></tr>
+<tr class="memdesc:a420a931bdf075a5d34bbc908aafaae37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repeat container <code>n</code> times.  <br /></td></tr>
 <tr class="separator:a420a931bdf075a5d34bbc908aafaae37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01fbb9b65897848dc6d883266688a9f8" id="r_a01fbb9b65897848dc6d883266688a9f8"><td class="memTemplParams" colspan="2">template&lt;cu_compatible Container&gt; </td></tr>
 <tr class="memitem:a01fbb9b65897848dc6d883266688a9f8"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a01fbb9b65897848dc6d883266688a9f8">repeat</a> (const Container &amp;container, long double n)</td></tr>
-<tr class="memdesc:a01fbb9b65897848dc6d883266688a9f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repeat container <em>n.n</em> times.  <br /></td></tr>
+<tr class="memdesc:a01fbb9b65897848dc6d883266688a9f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repeat container <code>n</code> times.  <br /></td></tr>
 <tr class="separator:a01fbb9b65897848dc6d883266688a9f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02a640ca3898e63a8338b562d23a6ca7" id="r_a02a640ca3898e63a8338b562d23a6ca7"><td class="memTemplParams" colspan="2">template&lt;cu_compatible Container&gt; </td></tr>
 <tr class="memitem:a02a640ca3898e63a8338b562d23a6ca7"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a02a640ca3898e63a8338b562d23a6ca7">split_seq</a> (const Container &amp;container, const Container &amp;pattern)</td></tr>
@@ -310,7 +310,7 @@ template&lt;cu_compatible Container&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Subset of the container as std::vector. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Subset of the container as result_container. </dd></dl>
 
 </div>
 </div>
@@ -357,7 +357,7 @@ template&lt;cu_compatible Container&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Combined container as std::vector. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Combined container as result_container. </dd></dl>
 
 </div>
 </div>
@@ -404,7 +404,7 @@ template&lt;cu_compatible Container&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Value-appended container as std::vector. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Value-appended container as result_container. </dd></dl>
 
 </div>
 </div>
@@ -451,7 +451,7 @@ template&lt;cu_compatible Container&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Filtered container as std::vector. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Filtered container as result_container. </dd></dl>
 
 </div>
 </div>
@@ -498,7 +498,7 @@ template&lt;cu_compatible Container&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Filtered container as std::vector. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Filtered container as result_container. </dd></dl>
 
 </div>
 </div>
@@ -545,7 +545,7 @@ template&lt;cu_compatible Container&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Filtered container as std::vector. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Filtered container as result_container. </dd></dl>
 
 </div>
 </div>
@@ -578,7 +578,7 @@ template&lt;cu_compatible Container&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Repeat container <em>n</em> times. </p>
+<p>Repeat container <code>n</code> times. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Container</td><td>Compatible container type. </td></tr>
@@ -592,7 +592,7 @@ template&lt;cu_compatible Container&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Repeated container as std::vector. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Repeated container as result_container. </dd></dl>
 
 </div>
 </div>
@@ -625,8 +625,8 @@ template&lt;cu_compatible Container&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Repeat container <em>n.n</em> times. </p>
-<p>The container is repeated n.0 times, and then the container is added with subset of the container with size round(0.n * container.size()).</p>
+<p>Repeat container <code>n</code> times. </p>
+<p>Considering integer part of the number <code>n</code> as <code>i</code>, and fraction part as <code>f</code>, the container is repeated <code>i.0</code> times, and then the container is added with subset of the container with size <code>round</code>(0.f * container.size()).</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Container</td><td>Compatible container type. </td></tr>
@@ -640,7 +640,7 @@ template&lt;cu_compatible Container&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Repeated container as std::vector.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Repeated container as result_container.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This is scuffed. </dd></dl>
 
 </div>
@@ -688,7 +688,7 @@ template&lt;cu_compatible Container&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Split container as std::vector of std::vector. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Split container as result_container_nested. </dd></dl>
 
 </div>
 </div>
@@ -735,7 +735,7 @@ template&lt;cu_compatible Container&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Split container as std::vector of std::vector. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Split container as result_container_nested. </dd></dl>
 
 </div>
 </div>
@@ -782,7 +782,7 @@ template&lt;cu_compatible Container&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Split container as std::vector of std::vector. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Split container as result_container_nested. </dd></dl>
 
 </div>
 </div>

@@ -6,5 +6,6 @@ var searchData=
   ['ref_5fsubcommand_3',['ref_subcommand',['../structauspicious__library_1_1ap_1_1parsed__argument.html#aa8efc55d8ab7c296d38e9128bb5b971d',1,'auspicious_library::ap::parsed_argument']]],
   ['reset_4',['reset',['../namespaceauspicious__library_1_1aec.html#af8881b9d6d857581a4e1c5f7b482d715',1,'auspicious_library::aec']]],
   ['resetter_5',['resetter',['../structauspicious__library_1_1aec_1_1aec__t.html#aba6917cb0329eb9b0491e43fdd8b15fd',1,'auspicious_library::aec::aec_t']]],
-  ['reverse_5fvideo_6',['reverse_video',['../namespaceauspicious__library_1_1aec.html#aaaff0bd251ca373f1444487b959cd57f',1,'auspicious_library::aec']]]
+  ['reverse_5fvideo_6',['reverse_video',['../namespaceauspicious__library_1_1aec.html#aaaff0bd251ca373f1444487b959cd57f',1,'auspicious_library::aec']]],
+  ['run_5ffailed_7',['run_failed',['../structtest__suite.html#a7d0637462408eb4fa8f05c62e54aa0aa',1,'test_suite']]]
 ];

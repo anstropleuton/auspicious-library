@@ -35,9 +35,9 @@ concept \mbox{\hyperlink{conceptauspicious__library_1_1cu_1_1cu__compatible}{cu\
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a3d0869d9e35bc3f395f91a5cbde0345e}{filter\+\_\+out}} (const Container \&container, const \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{value\+\_\+type}}$<$ Container $>$ \&value)
 \begin{DoxyCompactList}\small\item\em Filter out the occurrences of value from the container. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{repeat}} (const Container \&container, std\+::size\+\_\+t n)
-\begin{DoxyCompactList}\small\item\em Repeat container {\itshape n} times. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a01fbb9b65897848dc6d883266688a9f8}{repeat}} (const Container \&container, long double n)
-\begin{DoxyCompactList}\small\item\em Repeat container {\itshape n.\+n} times. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a02a640ca3898e63a8338b562d23a6ca7}{split\+\_\+seq}} (const Container \&container, const Container \&pattern)
 \begin{DoxyCompactList}\small\item\em Split the container with pattern. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_acc1b463c87ef5ec1f72cd652c70f9b0d}{split\+\_\+occ}} (const Container \&container, const Container \&values)
@@ -127,7 +127,7 @@ Get the subset of the container\textquotesingle{}s elements.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Subset of the container as std\+::vector. 
+Subset of the container as result\+\_\+container. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1cu_a2cedb9f639f5066ee04304c33807ecbb}\index{auspicious\_library::cu@{auspicious\_library::cu}!combine@{combine}}
 \index{combine@{combine}!auspicious\_library::cu@{auspicious\_library::cu}}
@@ -153,7 +153,7 @@ Copy containers into one container.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Combined container as std\+::vector. 
+Combined container as result\+\_\+container. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1cu_ad5e419970d7868bbf33b03708f779f29}\index{auspicious\_library::cu@{auspicious\_library::cu}!combine@{combine}}
 \index{combine@{combine}!auspicious\_library::cu@{auspicious\_library::cu}}
@@ -179,7 +179,7 @@ Copy container and value into one container.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Value-\/appended container as std\+::vector. 
+Value-\/appended container as result\+\_\+container. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1cu_a9a7ac5acb03ece68064d6715bff18fb6}\index{auspicious\_library::cu@{auspicious\_library::cu}!filter\_out\_seq@{filter\_out\_seq}}
 \index{filter\_out\_seq@{filter\_out\_seq}!auspicious\_library::cu@{auspicious\_library::cu}}
@@ -205,7 +205,7 @@ Filter out the occurrences of sequence from the container.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Filtered container as std\+::vector. 
+Filtered container as result\+\_\+container. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1cu_a367b35bf13b81eac704c433070427e6d}\index{auspicious\_library::cu@{auspicious\_library::cu}!filter\_out\_occ@{filter\_out\_occ}}
 \index{filter\_out\_occ@{filter\_out\_occ}!auspicious\_library::cu@{auspicious\_library::cu}}
@@ -231,7 +231,7 @@ Filter out the occurrences of any of values from the container.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Filtered container as std\+::vector. 
+Filtered container as result\+\_\+container. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1cu_a3d0869d9e35bc3f395f91a5cbde0345e}\index{auspicious\_library::cu@{auspicious\_library::cu}!filter\_out@{filter\_out}}
 \index{filter\_out@{filter\_out}!auspicious\_library::cu@{auspicious\_library::cu}}
@@ -257,7 +257,7 @@ Filter out the occurrences of value from the container.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Filtered container as std\+::vector. 
+Filtered container as result\+\_\+container. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}\index{auspicious\_library::cu@{auspicious\_library::cu}!repeat@{repeat}}
 \index{repeat@{repeat}!auspicious\_library::cu@{auspicious\_library::cu}}
@@ -268,7 +268,7 @@ auto auspicious\+\_\+library\+::cu\+::repeat (\begin{DoxyParamCaption}\item[{con
 
 
 
-Repeat container {\itshape n} times. 
+Repeat container {\ttfamily n} times. 
 
 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -283,7 +283,7 @@ Repeat container {\itshape n} times.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Repeated container as std\+::vector. 
+Repeated container as result\+\_\+container. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1cu_a01fbb9b65897848dc6d883266688a9f8}\index{auspicious\_library::cu@{auspicious\_library::cu}!repeat@{repeat}}
 \index{repeat@{repeat}!auspicious\_library::cu@{auspicious\_library::cu}}
@@ -294,9 +294,9 @@ auto auspicious\+\_\+library\+::cu\+::repeat (\begin{DoxyParamCaption}\item[{con
 
 
 
-Repeat container {\itshape n.\+n} times. 
+Repeat container {\ttfamily n} times. 
 
-The container is repeated n.\+0 times, and then the container is added with subset of the container with size round(0.\+n \texorpdfstring{$\ast$}{*} container.\+size()).
+Considering integer part of the number {\ttfamily n} as {\ttfamily i}, and fraction part as {\ttfamily f}, the container is repeated {\ttfamily i.\+0} times, and then the container is added with subset of the container with size {\ttfamily round}(0.\+f \texorpdfstring{$\ast$}{*} container.\+size()).
 
 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -311,7 +311,7 @@ The container is repeated n.\+0 times, and then the container is added with subs
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Repeated container as std\+::vector.
+Repeated container as result\+\_\+container.
 \end{DoxyReturn}
 \begin{DoxyNote}{Note}
 This is scuffed. 
@@ -340,7 +340,7 @@ Split the container with pattern.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Split container as std\+::vector of std\+::vector. 
+Split container as result\+\_\+container\+\_\+nested. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1cu_acc1b463c87ef5ec1f72cd652c70f9b0d}\index{auspicious\_library::cu@{auspicious\_library::cu}!split\_occ@{split\_occ}}
 \index{split\_occ@{split\_occ}!auspicious\_library::cu@{auspicious\_library::cu}}
@@ -366,7 +366,7 @@ Split the container with occurrences.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Split container as std\+::vector of std\+::vector. 
+Split container as result\+\_\+container\+\_\+nested. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1cu_ab9f44279e734a8b0963ba9a1a1d805b9}\index{auspicious\_library::cu@{auspicious\_library::cu}!split@{split}}
 \index{split@{split}!auspicious\_library::cu@{auspicious\_library::cu}}
@@ -392,5 +392,5 @@ Split the container with value.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Split container as std\+::vector of std\+::vector. 
+Split container as result\+\_\+container\+\_\+nested. 
 \end{DoxyReturn}

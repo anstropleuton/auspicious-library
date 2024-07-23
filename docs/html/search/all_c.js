@@ -4,7 +4,7 @@ var searchData=
   ['magenta_1',['magenta',['../namespaceauspicious__library_1_1aec.html#ae568ef8dee72ced948c982c7d4e31bad',1,'auspicious_library::aec']]],
   ['magenta_5fbg_2',['magenta_bg',['../namespaceauspicious__library_1_1aec.html#a9c7e601cd3b288f98cc91f7c7386c7a1',1,'auspicious_library::aec']]],
   ['magic_20numbers_3',['Avoid Magic Numbers',['../md_guidelines.html#autotoc_md55',1,'']]],
-  ['makefile_4',['Makefile',['../Makefile.html',1,'']]],
+  ['main_4',['main',['../tester_8cpp.html#a72754cd5f3fb19e8241b13dd3f58a01a',1,'tester.cpp']]],
   ['mandatory_5fparameter_5fenclose_5',['mandatory_parameter_enclose',['../structauspicious__library_1_1ap_1_1posix__help__format.html#a53dcefb485dc582b14ecfc13ef36ccbc',1,'auspicious_library::ap::posix_help_format::mandatory_parameter_enclose'],['../structauspicious__library_1_1ap_1_1microsoft__help__format.html#a969828b1690480ebf3725631b8b2b13e',1,'auspicious_library::ap::microsoft_help_format::mandatory_parameter_enclose']]],
   ['max_20enum_20member_6',['Max Enum Member',['../md_guidelines.html#autotoc_md44',1,'']]],
   ['max_20width_7',['Max width',['../md_guidelines.html#autotoc_md18',1,'']]],

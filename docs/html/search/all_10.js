@@ -13,5 +13,7 @@ var searchData=
   ['resetter_10',['resetter',['../structauspicious__library_1_1aec_1_1aec__t.html#aba6917cb0329eb9b0491e43fdd8b15fd',1,'auspicious_library::aec::aec_t']]],
   ['result_5fcontainer_11',['result_container',['../namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096',1,'auspicious_library::cu']]],
   ['result_5fcontainer_5fnested_12',['result_container_nested',['../namespaceauspicious__library_1_1cu.html#ac397b67fa3b542036726c3514a4df4f0',1,'auspicious_library::cu']]],
-  ['reverse_5fvideo_13',['reverse_video',['../namespaceauspicious__library_1_1aec.html#aaaff0bd251ca373f1444487b959cd57f',1,'auspicious_library::aec']]]
+  ['reverse_5fvideo_13',['reverse_video',['../namespaceauspicious__library_1_1aec.html#aaaff0bd251ca373f1444487b959cd57f',1,'auspicious_library::aec']]],
+  ['run_14',['run',['../structtest.html#a64e5ccd7dd82e0e44e54152810996dd3',1,'test::run()'],['../structtest__suite.html#aef91e7df6b138ea3832e0576c4b93657',1,'test_suite::run()']]],
+  ['run_5ffailed_15',['run_failed',['../structtest__suite.html#a7d0637462408eb4fa8f05c62e54aa0aa',1,'test_suite']]]
 ];

@@ -10,10 +10,14 @@ var searchData=
   ['first_7',['first',['../structauspicious__library_1_1ap_1_1help__pad__t.html#a63c655e7104f2a437c7230ca28b9dec7',1,'auspicious_library::ap::help_pad_t']]],
   ['for_20all_20names_8',['For all names',['../md_guidelines.html#autotoc_md2',1,'']]],
   ['for_20loops_9',['Range-based For Loops',['../md_guidelines.html#autotoc_md53',1,'']]],
-  ['formatting_10',['Formatting',['../md_guidelines.html#autotoc_md11',1,'']]],
-  ['function_20declaration_11',['Function Declaration',['../md_guidelines.html#autotoc_md29',1,'(Member/) Function Declaration'],['../md_guidelines.html#autotoc_md30',1,'(Member/) Function Declaration']]],
-  ['function_20parameter_12',['Passing Instance of Newly Constructed Type to Function Parameter',['../md_guidelines.html#autotoc_md54',1,'']]],
-  ['functions_13',['Functions',['../md_guidelines.html#autotoc_md31',1,'Inline Functions'],['../md_guidelines.html#autotoc_md40',1,'Member Functions']]],
-  ['functions_20and_20lambdas_14',['(Member/) Functions and Lambdas',['../md_guidelines.html#autotoc_md28',1,'']]],
-  ['functions_20and_20methods_15',['Functions and Methods',['../md_guidelines.html#autotoc_md6',1,'']]]
+  ['format_10',['format',['../structstd_1_1formatter_3_01al_1_1parsed__argument_01_4.html#ade0b930bb686f6194f015744c4ce35e3',1,'std::formatter&lt; al::parsed_argument &gt;']]],
+  ['formatter_3c_20al_3a_3aparsed_5fargument_20_3e_11',['formatter&lt; al::parsed_argument &gt;',['../structstd_1_1formatter_3_01al_1_1parsed__argument_01_4.html',1,'std']]],
+  ['formatting_12',['Formatting',['../md_guidelines.html#autotoc_md11',1,'']]],
+  ['function_13',['function',['../structtest.html#a4c9d763f04d054a8ae440a7a86db1810',1,'test']]],
+  ['function_20declaration_14',['Function Declaration',['../md_guidelines.html#autotoc_md29',1,'(Member/) Function Declaration'],['../md_guidelines.html#autotoc_md30',1,'(Member/) Function Declaration']]],
+  ['function_20parameter_15',['Passing Instance of Newly Constructed Type to Function Parameter',['../md_guidelines.html#autotoc_md54',1,'']]],
+  ['function_5fname_16',['function_name',['../structtest.html#a11c01e56066e998536fe4001beed2688',1,'test']]],
+  ['functions_17',['Functions',['../md_guidelines.html#autotoc_md31',1,'Inline Functions'],['../md_guidelines.html#autotoc_md40',1,'Member Functions']]],
+  ['functions_20and_20lambdas_18',['(Member/) Functions and Lambdas',['../md_guidelines.html#autotoc_md28',1,'']]],
+  ['functions_20and_20methods_19',['Functions and Methods',['../md_guidelines.html#autotoc_md6',1,'']]]
 ];

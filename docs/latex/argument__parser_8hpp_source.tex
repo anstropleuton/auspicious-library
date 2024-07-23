@@ -198,23 +198,23 @@
 \DoxyCodeLine{00424\ }
 \DoxyCodeLine{00441\ [[nodiscard]]\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a4511828073a79eb04a7aef0baac3d8db}{parse\_arguments}}(}
 \DoxyCodeLine{00442\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::string>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&args,}
-\DoxyCodeLine{00443\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<const\ option\_template\ *>\ \ \ \ \ \&options,}
-\DoxyCodeLine{00444\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<const\ subcommand\_template\ *>\ \&subcommands,}
+\DoxyCodeLine{00443\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<const\ option\_template\ *>\ \ \ \ \ \&\mbox{\hyperlink{test__ap_8cpp_a2446a450aed68d847e2ee2e0ee318ebc}{options}},}
+\DoxyCodeLine{00444\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<const\ subcommand\_template\ *>\ \&\mbox{\hyperlink{test__ap_8cpp_a5e4278c81913cad9b6bcb40a75324c15}{subcommands}},}
 \DoxyCodeLine{00445\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ switch\_ins\ =\ \textcolor{keyword}{true}}
 \DoxyCodeLine{00446\ )\ -\/>\ std::vector<parsed\_argument>;}
 \DoxyCodeLine{00447\ }
 \DoxyCodeLine{00464\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a4511828073a79eb04a7aef0baac3d8db}{parse\_arguments}}(}
 \DoxyCodeLine{00465\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ argc,}
 \DoxyCodeLine{00466\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ **argv,}
-\DoxyCodeLine{00467\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<const\ option\_template\ *>\ \ \ \ \ \&options,}
-\DoxyCodeLine{00468\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<const\ subcommand\_template\ *>\ \&subcommands,}
+\DoxyCodeLine{00467\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<const\ option\_template\ *>\ \ \ \ \ \&\mbox{\hyperlink{test__ap_8cpp_a2446a450aed68d847e2ee2e0ee318ebc}{options}},}
+\DoxyCodeLine{00468\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<const\ subcommand\_template\ *>\ \&\mbox{\hyperlink{test__ap_8cpp_a5e4278c81913cad9b6bcb40a75324c15}{subcommands}},}
 \DoxyCodeLine{00469\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ switch\_ins\ =\ \textcolor{keyword}{true}}
 \DoxyCodeLine{00470\ )\ -\/>\ std::vector<parsed\_argument>}
 \DoxyCodeLine{00471\ \{}
 \DoxyCodeLine{00472\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 1)\ \textcolor{keywordflow}{return}\ \{\};}
 \DoxyCodeLine{00473\ }
 \DoxyCodeLine{00474\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a4511828073a79eb04a7aef0baac3d8db}{parse\_arguments}}(std::vector<std::string>(argv\ +\ 1,\ argv\ +\ argc),}
-\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ options,\ subcommands,\ switch\_ins);}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{test__ap_8cpp_a2446a450aed68d847e2ee2e0ee318ebc}{options}},\ \mbox{\hyperlink{test__ap_8cpp_a5e4278c81913cad9b6bcb40a75324c15}{subcommands}},\ switch\_ins);}
 \DoxyCodeLine{00476\ \}}
 \DoxyCodeLine{00477\ }
 \DoxyCodeLine{00482\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structauspicious__library_1_1ap_1_1help__combo__t}{help\_combo\_t}}\ \{}
@@ -434,12 +434,12 @@
 \DoxyCodeLine{00889\ )\ -\/>\ std::vector<std::string>;}
 \DoxyCodeLine{00890\ }
 \DoxyCodeLine{00898\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a760ffaa5d2627accbd8bf90ee8a73cb0}{get\_help\_message}}(}
-\DoxyCodeLine{00899\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<option\_template>\ \&options,}
+\DoxyCodeLine{00899\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<option\_template>\ \&\mbox{\hyperlink{test__ap_8cpp_a2446a450aed68d847e2ee2e0ee318ebc}{options}},}
 \DoxyCodeLine{00900\ \ \ \ \ \mbox{\hyperlink{structauspicious__library_1_1ap_1_1posix__help__format}{posix\_help\_format}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ format}
 \DoxyCodeLine{00901\ )\ -\/>\ std::vector<std::string>}
 \DoxyCodeLine{00902\ \{}
 \DoxyCodeLine{00903\ \ \ \ \ std::vector<std::string>\ result\ =\ \{\};}
-\DoxyCodeLine{00904\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&option\ :\ options)}
+\DoxyCodeLine{00904\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&option\ :\ \mbox{\hyperlink{test__ap_8cpp_a2446a450aed68d847e2ee2e0ee318ebc}{options}})}
 \DoxyCodeLine{00905\ \ \ \ \ \{}
 \DoxyCodeLine{00906\ \ \ \ \ \ \ \ \ result\ =\ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a2cedb9f639f5066ee04304c33807ecbb}{cu::combine}}(result,\ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a760ffaa5d2627accbd8bf90ee8a73cb0}{get\_help\_message}}(option,\ format));}
 \DoxyCodeLine{00907\ \ \ \ \ \}}
@@ -447,12 +447,12 @@
 \DoxyCodeLine{00909\ \}}
 \DoxyCodeLine{00910\ }
 \DoxyCodeLine{00918\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a760ffaa5d2627accbd8bf90ee8a73cb0}{get\_help\_message}}(}
-\DoxyCodeLine{00919\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<const\ option\_template\ *>\ \&options,}
+\DoxyCodeLine{00919\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<const\ option\_template\ *>\ \&\mbox{\hyperlink{test__ap_8cpp_a2446a450aed68d847e2ee2e0ee318ebc}{options}},}
 \DoxyCodeLine{00920\ \ \ \ \ \mbox{\hyperlink{structauspicious__library_1_1ap_1_1posix__help__format}{posix\_help\_format}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ format}
 \DoxyCodeLine{00921\ )\ -\/>\ std::vector<std::string>}
 \DoxyCodeLine{00922\ \{}
 \DoxyCodeLine{00923\ \ \ \ \ std::vector<std::string>\ result\ =\ \{\};}
-\DoxyCodeLine{00924\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&option\ :\ options)}
+\DoxyCodeLine{00924\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&option\ :\ \mbox{\hyperlink{test__ap_8cpp_a2446a450aed68d847e2ee2e0ee318ebc}{options}})}
 \DoxyCodeLine{00925\ \ \ \ \ \{}
 \DoxyCodeLine{00926\ \ \ \ \ \ \ \ \ result\ =\ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a2cedb9f639f5066ee04304c33807ecbb}{cu::combine}}(result,\ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a760ffaa5d2627accbd8bf90ee8a73cb0}{get\_help\_message}}(*option,\ format));}
 \DoxyCodeLine{00927\ \ \ \ \ \}}
@@ -465,12 +465,12 @@
 \DoxyCodeLine{00941\ )\ -\/>\ std::vector<std::string>;}
 \DoxyCodeLine{00942\ }
 \DoxyCodeLine{00951\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a760ffaa5d2627accbd8bf90ee8a73cb0}{get\_help\_message}}(}
-\DoxyCodeLine{00952\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<subcommand\_template>\ \&subcommands,}
+\DoxyCodeLine{00952\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<subcommand\_template>\ \&\mbox{\hyperlink{test__ap_8cpp_a5e4278c81913cad9b6bcb40a75324c15}{subcommands}},}
 \DoxyCodeLine{00953\ \ \ \ \ \mbox{\hyperlink{structauspicious__library_1_1ap_1_1posix__help__format}{posix\_help\_format}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ format}
 \DoxyCodeLine{00954\ )\ -\/>\ std::vector<std::string>}
 \DoxyCodeLine{00955\ \{}
 \DoxyCodeLine{00956\ \ \ \ \ std::vector<std::string>\ result\ =\ \{\};}
-\DoxyCodeLine{00957\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&subcommand\ :\ subcommands)}
+\DoxyCodeLine{00957\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&subcommand\ :\ \mbox{\hyperlink{test__ap_8cpp_a5e4278c81913cad9b6bcb40a75324c15}{subcommands}})}
 \DoxyCodeLine{00958\ \ \ \ \ \{}
 \DoxyCodeLine{00959\ \ \ \ \ \ \ \ \ result\ =\ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a2cedb9f639f5066ee04304c33807ecbb}{cu::combine}}(result,\ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a760ffaa5d2627accbd8bf90ee8a73cb0}{get\_help\_message}}(subcommand,\ format));}
 \DoxyCodeLine{00960\ \ \ \ \ \}}
@@ -478,12 +478,12 @@
 \DoxyCodeLine{00962\ \}}
 \DoxyCodeLine{00963\ }
 \DoxyCodeLine{00972\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a760ffaa5d2627accbd8bf90ee8a73cb0}{get\_help\_message}}(}
-\DoxyCodeLine{00973\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<const\ subcommand\_template\ *>\ \&subcommands,}
+\DoxyCodeLine{00973\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<const\ subcommand\_template\ *>\ \&\mbox{\hyperlink{test__ap_8cpp_a5e4278c81913cad9b6bcb40a75324c15}{subcommands}},}
 \DoxyCodeLine{00974\ \ \ \ \ \mbox{\hyperlink{structauspicious__library_1_1ap_1_1posix__help__format}{posix\_help\_format}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ format}
 \DoxyCodeLine{00975\ )\ -\/>\ std::vector<std::string>}
 \DoxyCodeLine{00976\ \{}
 \DoxyCodeLine{00977\ \ \ \ \ std::vector<std::string>\ result\ =\ \{\};}
-\DoxyCodeLine{00978\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&subcommand\ :\ subcommands)}
+\DoxyCodeLine{00978\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&subcommand\ :\ \mbox{\hyperlink{test__ap_8cpp_a5e4278c81913cad9b6bcb40a75324c15}{subcommands}})}
 \DoxyCodeLine{00979\ \ \ \ \ \{}
 \DoxyCodeLine{00980\ \ \ \ \ \ \ \ \ result\ =\ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a2cedb9f639f5066ee04304c33807ecbb}{cu::combine}}(result,\ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a760ffaa5d2627accbd8bf90ee8a73cb0}{get\_help\_message}}(*subcommand,\ format));}
 \DoxyCodeLine{00981\ \ \ \ \ \}}
@@ -496,12 +496,12 @@
 \DoxyCodeLine{00996\ )\ -\/>\ std::vector<std::string>;}
 \DoxyCodeLine{00997\ }
 \DoxyCodeLine{01006\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a760ffaa5d2627accbd8bf90ee8a73cb0}{get\_help\_message}}(}
-\DoxyCodeLine{01007\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<option\_template>\ \&options,}
+\DoxyCodeLine{01007\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<option\_template>\ \&\mbox{\hyperlink{test__ap_8cpp_a2446a450aed68d847e2ee2e0ee318ebc}{options}},}
 \DoxyCodeLine{01008\ \ \ \ \ \mbox{\hyperlink{structauspicious__library_1_1ap_1_1microsoft__help__format}{microsoft\_help\_format}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ format}
 \DoxyCodeLine{01009\ )\ -\/>\ std::vector<std::string>}
 \DoxyCodeLine{01010\ \{}
 \DoxyCodeLine{01011\ \ \ \ \ std::vector<std::string>\ result\ =\ \{\};}
-\DoxyCodeLine{01012\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&option\ :\ options)}
+\DoxyCodeLine{01012\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&option\ :\ \mbox{\hyperlink{test__ap_8cpp_a2446a450aed68d847e2ee2e0ee318ebc}{options}})}
 \DoxyCodeLine{01013\ \ \ \ \ \{}
 \DoxyCodeLine{01014\ \ \ \ \ \ \ \ \ result\ =\ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a2cedb9f639f5066ee04304c33807ecbb}{cu::combine}}(result,\ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a760ffaa5d2627accbd8bf90ee8a73cb0}{get\_help\_message}}(option,\ format));}
 \DoxyCodeLine{01015\ \ \ \ \ \}}
@@ -509,12 +509,12 @@
 \DoxyCodeLine{01017\ \}}
 \DoxyCodeLine{01018\ }
 \DoxyCodeLine{01027\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a760ffaa5d2627accbd8bf90ee8a73cb0}{get\_help\_message}}(}
-\DoxyCodeLine{01028\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<const\ option\_template\ *>\ \&options,}
+\DoxyCodeLine{01028\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<const\ option\_template\ *>\ \&\mbox{\hyperlink{test__ap_8cpp_a2446a450aed68d847e2ee2e0ee318ebc}{options}},}
 \DoxyCodeLine{01029\ \ \ \ \ \mbox{\hyperlink{structauspicious__library_1_1ap_1_1microsoft__help__format}{microsoft\_help\_format}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ format}
 \DoxyCodeLine{01030\ )\ -\/>\ std::vector<std::string>}
 \DoxyCodeLine{01031\ \{}
 \DoxyCodeLine{01032\ \ \ \ \ std::vector<std::string>\ result\ =\ \{\};}
-\DoxyCodeLine{01033\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&option\ :\ options)}
+\DoxyCodeLine{01033\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&option\ :\ \mbox{\hyperlink{test__ap_8cpp_a2446a450aed68d847e2ee2e0ee318ebc}{options}})}
 \DoxyCodeLine{01034\ \ \ \ \ \{}
 \DoxyCodeLine{01035\ \ \ \ \ \ \ \ \ result\ =\ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a2cedb9f639f5066ee04304c33807ecbb}{cu::combine}}(result,\ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a760ffaa5d2627accbd8bf90ee8a73cb0}{get\_help\_message}}(*option,\ format));}
 \DoxyCodeLine{01036\ \ \ \ \ \}}
@@ -527,12 +527,12 @@
 \DoxyCodeLine{01051\ )\ -\/>\ std::vector<std::string>;}
 \DoxyCodeLine{01052\ }
 \DoxyCodeLine{01061\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a760ffaa5d2627accbd8bf90ee8a73cb0}{get\_help\_message}}(}
-\DoxyCodeLine{01062\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<subcommand\_template>\ \&subcommands,}
+\DoxyCodeLine{01062\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<subcommand\_template>\ \&\mbox{\hyperlink{test__ap_8cpp_a5e4278c81913cad9b6bcb40a75324c15}{subcommands}},}
 \DoxyCodeLine{01063\ \ \ \ \ \mbox{\hyperlink{structauspicious__library_1_1ap_1_1microsoft__help__format}{microsoft\_help\_format}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ format}
 \DoxyCodeLine{01064\ )\ -\/>\ std::vector<std::string>}
 \DoxyCodeLine{01065\ \{}
 \DoxyCodeLine{01066\ \ \ \ \ std::vector<std::string>\ result\ =\ \{\};}
-\DoxyCodeLine{01067\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&subcommand\ :\ subcommands)}
+\DoxyCodeLine{01067\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&subcommand\ :\ \mbox{\hyperlink{test__ap_8cpp_a5e4278c81913cad9b6bcb40a75324c15}{subcommands}})}
 \DoxyCodeLine{01068\ \ \ \ \ \{}
 \DoxyCodeLine{01069\ \ \ \ \ \ \ \ \ result\ =\ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a2cedb9f639f5066ee04304c33807ecbb}{cu::combine}}(result,\ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a760ffaa5d2627accbd8bf90ee8a73cb0}{get\_help\_message}}(subcommand,\ format));}
 \DoxyCodeLine{01070\ \ \ \ \ \}}
@@ -540,12 +540,12 @@
 \DoxyCodeLine{01072\ \}}
 \DoxyCodeLine{01073\ }
 \DoxyCodeLine{01082\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a760ffaa5d2627accbd8bf90ee8a73cb0}{get\_help\_message}}(}
-\DoxyCodeLine{01083\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<const\ subcommand\_template\ *>\ \&subcommands,}
+\DoxyCodeLine{01083\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<const\ subcommand\_template\ *>\ \&\mbox{\hyperlink{test__ap_8cpp_a5e4278c81913cad9b6bcb40a75324c15}{subcommands}},}
 \DoxyCodeLine{01084\ \ \ \ \ \mbox{\hyperlink{structauspicious__library_1_1ap_1_1microsoft__help__format}{microsoft\_help\_format}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ format}
 \DoxyCodeLine{01085\ )\ -\/>\ std::vector<std::string>}
 \DoxyCodeLine{01086\ \{}
 \DoxyCodeLine{01087\ \ \ \ \ std::vector<std::string>\ result\ =\ \{\};}
-\DoxyCodeLine{01088\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&subcommand\ :\ subcommands)}
+\DoxyCodeLine{01088\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&subcommand\ :\ \mbox{\hyperlink{test__ap_8cpp_a5e4278c81913cad9b6bcb40a75324c15}{subcommands}})}
 \DoxyCodeLine{01089\ \ \ \ \ \{}
 \DoxyCodeLine{01090\ \ \ \ \ \ \ \ \ result\ =\ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a2cedb9f639f5066ee04304c33807ecbb}{cu::combine}}(result,\ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a760ffaa5d2627accbd8bf90ee8a73cb0}{get\_help\_message}}(*subcommand,\ format));}
 \DoxyCodeLine{01091\ \ \ \ \ \}}

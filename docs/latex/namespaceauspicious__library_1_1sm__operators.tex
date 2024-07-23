@@ -15,7 +15,7 @@ constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_ae
 constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_ade2cae3d13c20704ca4c478083470141}{operator\texorpdfstring{$\ast$}{*}}} (std\+::string\+\_\+view string, std\+::size\+\_\+t n)
 \begin{DoxyCompactList}\small\item\em Repeat string using operator. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_a6bcdbcc35657032459dcb9e4dd49a0c5}{operator\texorpdfstring{$\ast$}{*}}} (std\+::string\+\_\+view string, long double n)
-\begin{DoxyCompactList}\small\item\em Repeat string {\itshape n.\+n} times. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Repeat string {\ttfamily n} times. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_acbd16f06d2b7028804b2886e2de60318}{operator/}} (std\+::string\+\_\+view string, std\+::string\+\_\+view pattern)
 \begin{DoxyCompactList}\small\item\em Split the string with pattern. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_ad31cdfef6d9a0d4a500135fb9b67a98a}{operator/}} (std\+::string\+\_\+view string, char value)
@@ -44,7 +44,7 @@ Filter out the occurrences of sequence from the string.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Filtered string as std\+::vector.
+Filtered string as std\+::string.
 \end{DoxyReturn}
 \begin{DoxySeeAlso}{See also}
 \doxylink{namespaceauspicious__library_1_1cu_a9a7ac5acb03ece68064d6715bff18fb6}{cu\+::filter\+\_\+out\+\_\+seq}. 
@@ -67,7 +67,7 @@ Filter out the occurrences of value from the string.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Filtered string as std\+::vector.
+Filtered string as std\+::string.
 \end{DoxyReturn}
 \begin{DoxySeeAlso}{See also}
 \doxylink{namespaceauspicious__library_1_1cu_a3d0869d9e35bc3f395f91a5cbde0345e}{cu\+::filter\+\_\+out}. 
@@ -90,7 +90,7 @@ Repeat string using operator.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Repeated string as std\+::vector.
+Repeated string as std\+::string.
 \end{DoxyReturn}
 \begin{DoxySeeAlso}{See also}
 \doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{cu\+::repeat}. 
@@ -103,7 +103,7 @@ auto auspicious\+\_\+library\+::sm\+\_\+operators\+::operator\texorpdfstring{$\a
 
 
 
-Repeat string {\itshape n.\+n} times. 
+Repeat string {\ttfamily n} times. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -113,7 +113,7 @@ Repeat string {\itshape n.\+n} times.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Repeated string as std\+::vector.
+Repeated string as std\+::string.
 \end{DoxyReturn}
 \begin{DoxySeeAlso}{See also}
 \doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{cu\+::repeat}. 
@@ -136,7 +136,7 @@ Split the string with pattern.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Split string as std\+::vector of std\+::vector.
+Split string as std\+::vector of std\+::string.
 \end{DoxyReturn}
 \begin{DoxySeeAlso}{See also}
 \doxylink{namespaceauspicious__library_1_1cu_ab9f44279e734a8b0963ba9a1a1d805b9}{cu\+::split}. 
@@ -159,7 +159,7 @@ Split the string with value.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Split string as std\+::vector of std\+::vector.
+Split string as std\+::vector of std\+::string.
 \end{DoxyReturn}
 \begin{DoxySeeAlso}{See also}
 \doxylink{namespaceauspicious__library_1_1cu_ab9f44279e734a8b0963ba9a1a1d805b9}{cu\+::split}. 

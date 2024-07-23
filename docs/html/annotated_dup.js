@@ -15,5 +15,10 @@ var annotated_dup =
         [ "posix_help_format", "structauspicious__library_1_1ap_1_1posix__help__format.html", "structauspicious__library_1_1ap_1_1posix__help__format" ],
         [ "subcommand_template", "structauspicious__library_1_1ap_1_1subcommand__template.html", "structauspicious__library_1_1ap_1_1subcommand__template" ]
       ] ]
-    ] ]
+    ] ],
+    [ "std", null, [
+      [ "formatter< al::parsed_argument >", "structstd_1_1formatter_3_01al_1_1parsed__argument_01_4.html", "structstd_1_1formatter_3_01al_1_1parsed__argument_01_4" ]
+    ] ],
+    [ "test", "structtest.html", "structtest" ],
+    [ "test_suite", "structtest__suite.html", "structtest__suite" ]
 ];

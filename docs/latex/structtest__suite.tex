@@ -1,0 +1,97 @@
+\doxysection{test\+\_\+suite Struct Reference}
+\hypertarget{structtest__suite}{}\label{structtest__suite}\index{test\_suite@{test\_suite}}
+
+
+A category of tests.  
+
+
+
+
+{\ttfamily \#include $<$tester.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr auto \mbox{\hyperlink{structtest__suite_aef91e7df6b138ea3832e0576c4b93657}{run}} ()
+\begin{DoxyCompactList}\small\item\em Run all tests. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ const \mbox{\hyperlink{structtest}{test}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{structtest__suite_a2ad388683adcd3c72d6293e52d1d05a1}{tests}}
+\begin{DoxyCompactList}\small\item\em All the tests. \end{DoxyCompactList}\item 
+std\+::function$<$ void(const \mbox{\hyperlink{structtest}{test}} \texorpdfstring{$\ast$}{*})$>$ \mbox{\hyperlink{structtest__suite_ac004e04a39e00e22b023d7f551a47874}{pre\+\_\+run}}
+\begin{DoxyCompactList}\small\item\em Function to execute before a test. \end{DoxyCompactList}\item 
+std\+::function$<$ void(const \mbox{\hyperlink{structtest}{test}} \texorpdfstring{$\ast$}{*}, std\+::size\+\_\+t)$>$ \mbox{\hyperlink{structtest__suite_ac7ee98f0058e8a4789476bc85963db69}{post\+\_\+run}}
+\begin{DoxyCompactList}\small\item\em Function to execute after a test. \end{DoxyCompactList}\item 
+std\+::function$<$ bool(const \mbox{\hyperlink{structtest}{test}} \texorpdfstring{$\ast$}{*}, std\+::size\+\_\+t)$>$ \mbox{\hyperlink{structtest__suite_a7d0637462408eb4fa8f05c62e54aa0aa}{run\+\_\+failed}}
+\begin{DoxyCompactList}\small\item\em Function to execute after a failed test. Return true to stop further tests. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A category of tests. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structtest__suite_aef91e7df6b138ea3832e0576c4b93657}\index{test\_suite@{test\_suite}!run@{run}}
+\index{run@{run}!test\_suite@{test\_suite}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily \label{structtest__suite_aef91e7df6b138ea3832e0576c4b93657} 
+auto test\+\_\+suite\+::run (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Run all tests. 
+
+\begin{DoxyReturn}{Returns}
+Titles and errors count of each failed test. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structtest__suite_a2ad388683adcd3c72d6293e52d1d05a1}\index{test\_suite@{test\_suite}!tests@{tests}}
+\index{tests@{tests}!test\_suite@{test\_suite}}
+\doxysubsubsection{\texorpdfstring{tests}{tests}}
+{\footnotesize\ttfamily \label{structtest__suite_a2ad388683adcd3c72d6293e52d1d05a1} 
+std\+::vector$<$const \mbox{\hyperlink{structtest}{test}} \texorpdfstring{$\ast$}{*}$>$ test\+\_\+suite\+::tests}
+
+
+
+All the tests. 
+
+\Hypertarget{structtest__suite_ac004e04a39e00e22b023d7f551a47874}\index{test\_suite@{test\_suite}!pre\_run@{pre\_run}}
+\index{pre\_run@{pre\_run}!test\_suite@{test\_suite}}
+\doxysubsubsection{\texorpdfstring{pre\_run}{pre\_run}}
+{\footnotesize\ttfamily \label{structtest__suite_ac004e04a39e00e22b023d7f551a47874} 
+std\+::function$<$void (const \mbox{\hyperlink{structtest}{test}} \texorpdfstring{$\ast$}{*})$>$ test\+\_\+suite\+::pre\+\_\+run}
+
+
+
+Function to execute before a test. 
+
+\Hypertarget{structtest__suite_ac7ee98f0058e8a4789476bc85963db69}\index{test\_suite@{test\_suite}!post\_run@{post\_run}}
+\index{post\_run@{post\_run}!test\_suite@{test\_suite}}
+\doxysubsubsection{\texorpdfstring{post\_run}{post\_run}}
+{\footnotesize\ttfamily \label{structtest__suite_ac7ee98f0058e8a4789476bc85963db69} 
+std\+::function$<$void (const \mbox{\hyperlink{structtest}{test}} \texorpdfstring{$\ast$}{*}, std\+::size\+\_\+t)$>$ test\+\_\+suite\+::post\+\_\+run}
+
+
+
+Function to execute after a test. 
+
+\Hypertarget{structtest__suite_a7d0637462408eb4fa8f05c62e54aa0aa}\index{test\_suite@{test\_suite}!run\_failed@{run\_failed}}
+\index{run\_failed@{run\_failed}!test\_suite@{test\_suite}}
+\doxysubsubsection{\texorpdfstring{run\_failed}{run\_failed}}
+{\footnotesize\ttfamily \label{structtest__suite_a7d0637462408eb4fa8f05c62e54aa0aa} 
+std\+::function$<$bool (const \mbox{\hyperlink{structtest}{test}} \texorpdfstring{$\ast$}{*}, std\+::size\+\_\+t)$>$ test\+\_\+suite\+::run\+\_\+failed}
+
+
+
+Function to execute after a failed test. Return true to stop further tests. 
+
+\begin{DoxyNote}{Note}
+Also executes {\ttfamily post\+\_\+run} 
+\end{DoxyNote}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+tests/\mbox{\hyperlink{tester_8hpp}{tester.\+hpp}}\end{DoxyCompactItemize}

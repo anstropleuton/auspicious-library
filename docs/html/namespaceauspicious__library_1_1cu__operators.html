@@ -139,7 +139,7 @@ Functions</h2></td></tr>
 <tr class="separator:aac7fa2332e50544c31e8f6c3f9d7222e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2da9e52f09a9d64c72b305f57c9fcd31" id="r_a2da9e52f09a9d64c72b305f57c9fcd31"><td class="memTemplParams" colspan="2">template&lt;cu::cu_compatible Container&gt; </td></tr>
 <tr class="memitem:a2da9e52f09a9d64c72b305f57c9fcd31"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a2da9e52f09a9d64c72b305f57c9fcd31">operator*</a> (const Container &amp;container, long double n)</td></tr>
-<tr class="memdesc:a2da9e52f09a9d64c72b305f57c9fcd31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repeat container <em>n.n</em> times.  <br /></td></tr>
+<tr class="memdesc:a2da9e52f09a9d64c72b305f57c9fcd31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repeat container <code>n</code> times.  <br /></td></tr>
 <tr class="separator:a2da9e52f09a9d64c72b305f57c9fcd31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf61ab8777d4117a0e934e0591c8b067" id="r_abf61ab8777d4117a0e934e0591c8b067"><td class="memTemplParams" colspan="2">template&lt;cu::cu_compatible Container&gt; </td></tr>
 <tr class="memitem:abf61ab8777d4117a0e934e0591c8b067"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#abf61ab8777d4117a0e934e0591c8b067">operator/</a> (const Container &amp;container, const Container &amp;pattern)</td></tr>
@@ -196,7 +196,7 @@ template&lt;cu::cu_compatible Container&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Combined container as std::vector.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Combined container as result_container.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceauspicious__library_1_1cu.html#a2cedb9f639f5066ee04304c33807ecbb" title="Copy containers into one container.">cu::combine</a>. </dd></dl>
 
 </div>
@@ -244,7 +244,7 @@ template&lt;cu::cu_compatible Container&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Value-appended container as std::vector.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Value-appended container as result_container.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceauspicious__library_1_1cu.html#a2cedb9f639f5066ee04304c33807ecbb" title="Copy containers into one container.">cu::combine</a>. </dd></dl>
 
 </div>
@@ -292,7 +292,7 @@ template&lt;cu::cu_compatible Container&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Filtered container as std::vector.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Filtered container as result_container.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceauspicious__library_1_1cu.html#a9a7ac5acb03ece68064d6715bff18fb6" title="Filter out the occurrences of sequence from the container.">cu::filter_out_seq</a>. </dd></dl>
 
 </div>
@@ -340,7 +340,7 @@ template&lt;cu::cu_compatible Container&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Filtered container as std::vector.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Filtered container as result_container.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceauspicious__library_1_1cu.html#a3d0869d9e35bc3f395f91a5cbde0345e" title="Filter out the occurrences of value from the container.">cu::filter_out</a>. </dd></dl>
 
 </div>
@@ -388,7 +388,7 @@ template&lt;cu::cu_compatible Container&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Repeated container as std::vector.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Repeated container as result_container.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37" title="Repeat container n times.">cu::repeat</a>. </dd></dl>
 
 </div>
@@ -422,7 +422,7 @@ template&lt;cu::cu_compatible Container&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Repeat container <em>n.n</em> times. </p>
+<p>Repeat container <code>n</code> times. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Container</td><td>Compatible container type. </td></tr>
@@ -436,7 +436,7 @@ template&lt;cu::cu_compatible Container&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Repeated container as std::vector.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Repeated container as result_container.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37" title="Repeat container n times.">cu::repeat</a>. </dd></dl>
 
 </div>
@@ -484,7 +484,7 @@ template&lt;cu::cu_compatible Container&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Split container as std::vector of std::vector.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Split container as result_container_nested.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceauspicious__library_1_1cu.html#ab9f44279e734a8b0963ba9a1a1d805b9" title="Split the container with value.">cu::split</a>. </dd></dl>
 
 </div>
@@ -532,7 +532,7 @@ template&lt;cu::cu_compatible Container&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Split container as std::vector of std::vector.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Split container as result_container_nested.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceauspicious__library_1_1cu.html#ab9f44279e734a8b0963ba9a1a1d805b9" title="Split the container with value.">cu::split</a>. </dd></dl>
 
 </div>
