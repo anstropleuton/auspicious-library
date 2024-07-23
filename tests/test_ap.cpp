@@ -213,7 +213,7 @@ struct std::formatter<al::parsed_argument> {
 }
 
 /**
- *  @brief  Option recognition test - Option 1.
+ *  @brief  Option with 1 long name.
  */
 al::option_template ot_long_1 = {
     .description        = "OT Long Name 1",
@@ -224,7 +224,7 @@ al::option_template ot_long_1 = {
 };
 
 /**
- *  @brief  Option recognition test - Option 2.
+ *  @brief  Option with 1 long name.
  */
 al::option_template ot_long_2 = {
     .description        = "OT Long Name 2",
@@ -235,12 +235,67 @@ al::option_template ot_long_2 = {
 };
 
 /**
- *  @brief  Option recognition test - Option 3.
+ *  @brief  Option with 1 long name.
  */
 al::option_template ot_long_3 = {
     .description        = "OT Long Name 3",
     .long_names         = { "long-name-3" },
     .short_names        = {},
+    .parameters         = {},
+    .defaults_from_back = {}
+};
+
+/**
+ *  @brief  Option with 2 long names.
+ */
+al::option_template ot_long_1_1 = {
+    .description        = "OT 2 Long Name 1",
+    .long_names         = { "2-long-name-1", "2-long-name-2" },
+    .short_names        = {},
+    .parameters         = {},
+    .defaults_from_back = {}
+};
+
+/**
+ *  @brief  Option with 2 long names.
+ */
+al::option_template ot_long_1_2 = {
+    .description        = "OT 2 Long Name 2",
+    .long_names         = { "2-long-name-3", "2-long-name-4" },
+    .short_names        = {},
+    .parameters         = {},
+    .defaults_from_back = {}
+};
+
+/**
+ *  @brief  Option with 1 short name.
+ */
+al::option_template ot_short_1 = {
+    .description        = "OT Short Name 1",
+    .long_names         = {},
+    .short_names        = { 'a' },
+    .parameters         = {},
+    .defaults_from_back = {}
+};
+
+/**
+ *  @brief  Option with 1 short name.
+ */
+al::option_template ot_short_2 = {
+    .description        = "OT Short Name 2",
+    .long_names         = {},
+    .short_names        = { 'b' },
+    .parameters         = {},
+    .defaults_from_back = {}
+};
+
+/**
+ *  @brief  Option with 1 short name.
+ */
+al::option_template ot_short_3 = {
+    .description        = "OT Short Name 3",
+    .long_names         = {},
+    .short_names        = { 'c' },
     .parameters         = {},
     .defaults_from_back = {}
 };
