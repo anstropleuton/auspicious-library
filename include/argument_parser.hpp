@@ -139,7 +139,10 @@ struct option_template {
      *  @see  Detauld Description of namespace @c ap.
      *
      *  @note  It is recommended that each name be at least 2 characters long.
-     *         This is to prevent naming clashing for Microsoft-styled switches.
+     *         This is to prevent name clashing for Microsoft-styled switches.
+     *         If you do however have a long option of 1 character, it is not
+     *         guaranteed whether the short name is matched first, or the long
+     *         name.
      */
     std::vector<std::string> long_names;
 
