@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['string_5fmanipulators_2ehpp_0',['string_manipulators.hpp',['../string__manipulators_8hpp.html',1,'']]]
+  ['readme_2emd_0',['Readme.md',['../Readme_8md.html',1,'']]]
 ];

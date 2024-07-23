@@ -1,9 +1,13 @@
 /*
+ *  @file    test_ap.cpp
+ *  @author  Anstro Pleuton (https://github.com/anstropleuton)
+ *  @brief   Test all of Argument Parser in Auspicious Library.
+ *
+ *  @copyright  Copyright (c) 2024 Anstro Pleuton
+ *
  *  Auspicious Library is a collection of Utils for Anstro Pleuton's programs.
  *
  *  This software is licensed under the terms of MIT License.
- *
- *  Copyright (C) 2024 Anstro Pleuton
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to
@@ -60,22 +64,26 @@ namespace stdr = std::ranges;
 )
 {
     return std::format(
-        "  arg:\n"
-        "    original: {}\n"
-        "              {}\n"
-        "    modified: {}\n"
-        "              {}\n"
-        "  validity: {}\n"
-        "  parsed? {}\n"
-        "  reference option description: {}\n"
-        "  reference subcommand description: {}\n"
-        "  values: {}\n",
+        "├── arg:\n"
+        "│   ├── original: {}\n"
+        "│   │             {}\n"
+        "│   └── modified: {}\n"
+        "│                 {}\n"
+        "├── validity: {}\n"
+        "├── parsed? {}\n"
+        "├── reference option description: {}\n"
+        "├── reference subcommand description: {}\n"
+        "└── values: {}\n",
         parsed_argument.argument.original,
         " "s * parsed_argument.argument.org_pos + "^"s
-        + "~"s * parsed_argument.argument.org_size,
+        + "~"s * (parsed_argument.argument.org_size == 0
+                  ? 0
+                  : parsed_argument.argument.org_size - 1),
         parsed_argument.argument.modified,
         " "s * parsed_argument.argument.mod_pos + "^"s
-        + "~"s * parsed_argument.argument.mod_size,
+        + "~"s * (parsed_argument.argument.mod_size == 0
+                  ? 0
+                  : parsed_argument.argument.mod_size - 1),
         al::to_string(parsed_argument.valid),
         parsed_argument.is_parsed,
         parsed_argument.ref_option
@@ -93,8 +101,8 @@ namespace stdr = std::ranges;
  */
 template<>
 struct std::formatter<al::parsed_argument> {
-    template<typename ParsedContext>
-    [[nodiscard]] inline constexpr auto parse(ParsedContext &pc)
+    template<typename ParseContext>
+    [[nodiscard]] inline constexpr auto parse(ParseContext &pc)
     {
         auto it = pc.begin();
         if (it == pc.end())
@@ -114,9 +122,11 @@ struct std::formatter<al::parsed_argument> {
 
     template<typename FormatContext>
     [[nodiscard]] inline constexpr auto format(
-        const al::parsed_argument &parsed_argument, FormatContext &fc)
+        const al::parsed_argument &parsed_argument, FormatContext &fc) const
     {
-        stdr::copy(::to_string(parsed_argument), fc.out()).out;
+        return std::format_to(fc.out(), "\"{}\" (\"{}\")",
+            parsed_argument.argument.original,
+            parsed_argument.argument.modified);
     }
 };
 
@@ -134,6 +144,7 @@ struct std::formatter<al::parsed_argument> {
 {
     return a.argument.original == b.argument.original
         && a.argument.modified == b.argument.modified
+        && a.argument.arg_type == b.argument.arg_type
         && a.argument.org_pos == b.argument.org_pos
         && a.argument.org_size == b.argument.org_size
         && a.argument.mod_pos == b.argument.mod_pos
@@ -160,6 +171,7 @@ struct std::formatter<al::parsed_argument> {
 {
     return a.argument.original == b.argument.original
         && a.argument.modified == b.argument.modified
+        && a.argument.arg_type == b.argument.arg_type
         && a.argument.org_pos == b.argument.org_pos
         && a.argument.org_size == b.argument.org_size
         && a.argument.mod_pos == b.argument.mod_pos
@@ -246,25 +258,162 @@ std::vector<const al::option_template *> options = {
 std::vector<const al::subcommand_template *> subcommands = {};
 
 /**
- *  @brief  Test 0: No arguments test.
+ *  @brief  AP Test 0: No arguments test.
  *  @return  Number of errors.
  */
-[[nodiscard]] static auto test_ap_no_args() -> std::size_t
+[[nodiscard]] static auto test_ap_0() -> std::size_t
 {
     T_BEGIN;
 
     const char *argv[] = { "./program" };
     int         argc   = lenof(argv);
 
-    std::vector<std::string>         args     = { argv + 1, argv + argc };
+    std::vector<std::string>         args(argv + 1, argv + argc);
     std::vector<al::parsed_argument> expected = {};
 
     auto parsed_1 = al::parse_arguments(argc, argv, options, subcommands);
     auto parsed_2 = al::parse_arguments(args, options, subcommands);
 
+    std::println("args: {}",        al::to_string(args));
+    std::println("parsed_1:\n{}\n", al::to_string(parsed_1, to_string, "\n"));
+    std::println("parsed_2:\n{}\n", al::to_string(parsed_2, to_string, "\n"));
+    std::println("expected:\n{}\n", al::to_string(expected, to_string, "\n"));
+
     T_ASSERT_CTR(parsed_1, expected);
     T_ASSERT_CTR(parsed_2, expected);
-    T_ASSERT_CTR(parsed_1, parsed_2);
+
+    T_END;
+}
+
+/**
+ *  @brief  AP Test 1.1: Option recognition test: Long name 1.
+ *  @return  Number of errors.
+ */
+[[nodiscard]] static auto test_ap_1_1() -> std::size_t
+{
+    T_BEGIN;
+
+    std::vector args     = { "--long-name-1"s };
+    std::vector expected = {
+        al::parsed_argument {
+            .argument     = {
+                .original = "--long-name-1",
+                .modified = "--long-name-1",
+                .arg_type = al::argument_type::long_option,
+                .org_pos  =                              0,
+                .org_size = "--long-name-1"s.size(),
+                .mod_pos  =                              0,
+                .mod_size = "--long-name-1"s.size()
+            },
+            .valid          = al::validity::valid,
+            .is_parsed      = true,
+            .ref_option     = &ot_long_1,
+            .ref_subcommand = nullptr,
+            .values         = {}
+        }
+    };
+
+    auto parsed = al::parse_arguments(args, options, subcommands);
+
+    std::println("args: {}",        al::to_string(args));
+    std::println("parsed_2:\n{}\n", al::to_string(parsed, to_string, "\n"));
+    std::println("expected:\n{}\n", al::to_string(expected, to_string, "\n"));
+
+    T_ASSERT_CTR(parsed, expected);
+
+    T_END;
+}
+
+/**
+ *  @brief  AP Test 1.2: Option recognition test: Long name 2.
+ *  @return  Number of errors.
+ */
+[[nodiscard]] static auto test_ap_1_2() -> std::size_t
+{
+    T_BEGIN;
+
+    std::vector args     = { "--long-name-2"s };
+    std::vector expected = {
+        al::parsed_argument {
+            .argument     = {
+                .original = "--long-name-2",
+                .modified = "--long-name-2",
+                .arg_type = al::argument_type::long_option,
+                .org_pos  =                              0,
+                .org_size = "--long-name-2"s.size(),
+                .mod_pos  =                              0,
+                .mod_size = "--long-name-2"s.size()
+            },
+            .valid          = al::validity::valid,
+            .is_parsed      = true,
+            .ref_option     = &ot_long_2,
+            .ref_subcommand = nullptr,
+            .values         = {}
+        }
+    };
+
+    auto parsed = al::parse_arguments(args, options, subcommands);
+
+    std::println("args: {}",        al::to_string(args));
+    std::println("parsed_2:\n{}\n", al::to_string(parsed, to_string, "\n"));
+    std::println("expected:\n{}\n", al::to_string(expected, to_string, "\n"));
+
+    T_ASSERT_CTR(parsed, expected);
+
+    T_END;
+}
+
+/**
+ *  @brief  AP Test 1.3: Option recognition test: Long name 2 and 3.
+ *  @return  Number of errors.
+ */
+[[nodiscard]] static auto test_ap_1_3() -> std::size_t
+{
+    T_BEGIN;
+
+    std::vector args     = { "--long-name-2"s, "--long-name-3"s };
+    std::vector expected = {
+        al::parsed_argument {
+            .argument     = {
+                .original = "--long-name-2",
+                .modified = "--long-name-2",
+                .arg_type = al::argument_type::long_option,
+                .org_pos  =                              0,
+                .org_size = "--long-name-2"s.size(),
+                .mod_pos  =                              0,
+                .mod_size = "--long-name-2"s.size()
+            },
+            .valid          = al::validity::valid,
+            .is_parsed      = true,
+            .ref_option     = &ot_long_2,
+            .ref_subcommand = nullptr,
+            .values         = {}
+        },
+        al::parsed_argument {
+            .argument     = {
+                .original = "--long-name-3",
+                .modified = "--long-name-3",
+                .arg_type = al::argument_type::long_option,
+                .org_pos  =                              0,
+                .org_size = "--long-name-3"s.size(),
+                .mod_pos  =                              0,
+                .mod_size = "--long-name-3"s.size()
+            },
+            .valid          = al::validity::valid,
+            .is_parsed      = true,
+            .ref_option     = &ot_long_3,
+            .ref_subcommand = nullptr,
+            .values         = {}
+        }
+    };
+
+    auto parsed = al::parse_arguments(args, options, subcommands);
+
+    std::println("args: {}",        al::to_string(args));
+    std::println("parsed_2:\n{}\n", al::to_string(parsed, to_string, "\n"));
+    std::println("expected:\n{}\n", al::to_string(expected, to_string, "\n"));
+
+    T_ASSERT_CTR(parsed, expected);
 
     T_END;
 }
@@ -275,5 +424,46 @@ std::vector<const al::subcommand_template *> subcommands = {};
  */
 [[nodiscard]] auto test_ap() -> std::size_t
 {
-    return 0;
+    test_suite suite;
+    suite.pre_run  = default_pre_runner('=', 3);
+    suite.post_run = default_post_runner('=', 3);
+    // suite.run_failed = default_run_failed_quitter();
+
+    // Scary memory management
+
+    suite.tests.emplace_back(new test {
+        "AP Test 0: No arguments test",
+        "test_ap_0",
+        test_ap_0
+    });
+
+    suite.tests.emplace_back(new test {
+        "AP Test 1.1: Option recognition test: Long name 1",
+        "test_ap_1_1",
+        test_ap_1_1
+    });
+
+    suite.tests.emplace_back(new test {
+        "AP Test 1.2: Option recognition test: Long name 2",
+        "test_ap_1_2",
+        test_ap_1_2
+    });
+
+    suite.tests.emplace_back(new test {
+        "AP Test 1.3: Option recognition test: Long name 2 and 3",
+        "test_ap_1_3",
+        test_ap_1_3
+    });
+
+    auto failed_tests = suite.run();
+
+    print_failed_tests(failed_tests);
+    auto errors = get_failed_tests_errors(failed_tests);
+
+    for (auto &test : suite.tests)
+    {
+        delete test;
+    }
+
+    return errors;
 }

@@ -1,9 +1,13 @@
 /*
+ *  @file    test_aec.cpp
+ *  @author  Anstro Pleuton (https://github.com/anstropleuton)
+ *  @brief   Test all of ANSI Escape Codes in Auspicious Library.
+ *
+ *  @copyright  Copyright (c) 2024 Anstro Pleuton
+ *
  *  Auspicious Library is a collection of Utils for Anstro Pleuton's programs.
  *
  *  This software is licensed under the terms of MIT License.
- *
- *  Copyright (C) 2024 Anstro Pleuton
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to

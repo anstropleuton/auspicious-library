@@ -1,9 +1,13 @@
 /*
+ *  @file    argument_parser.cpp
+ *  @author  Anstro Pleuton (https://github.com/anstropleuton)
+ *  @brief   Implementations for non-inline functions in argument_parser.hpp.
+ *
+ *  @copyright  Copyright (c) 2024 Anstro Pleuton
+ *
  *  Auspicious Library is a collection of Utils for Anstro Pleuton's programs.
  *
  *  This software is licensed under the terms of MIT License.
- *
- *  Copyright (C) 2024 Anstro Pleuton
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to

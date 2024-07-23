@@ -46,5 +46,6 @@ var namespaceauspicious__library =
       [ "operator*", "namespaceauspicious__library_1_1sm__operators.html#a6bcdbcc35657032459dcb9e4dd49a0c5", null ],
       [ "operator/", "namespaceauspicious__library_1_1sm__operators.html#acbd16f06d2b7028804b2886e2de60318", null ],
       [ "operator/", "namespaceauspicious__library_1_1sm__operators.html#ad31cdfef6d9a0d4a500135fb9b67a98a", null ]
-    ] ]
+    ] ],
+    [ "auspicious_library_version", "namespaceauspicious__library.html#a6c2435b48d6170e6b62581cc5459094a", null ]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['guidelines_0',['Coding Style Guidelines',['../md_guidelines.html',1,'']]]
+  ['guidelines_0',['Guidelines',['../md_Guidelines.html',1,'']]]
 ];

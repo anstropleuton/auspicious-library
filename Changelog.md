@@ -1,4 +1,4 @@
-# Changelogs
+# Changelog
 
 # v0.0.1 - July 22, 2024
 - Still working on it for first release.

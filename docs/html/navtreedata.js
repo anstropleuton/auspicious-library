@@ -25,81 +25,86 @@
 var NAVTREE =
 [
   [ "Auspicious Library", "index.html", [
-    [ "Sections", "index.html#autotoc_md61", null ],
-    [ "Planned Sections", "index.html#autotoc_md62", null ],
-    [ "Usage", "index.html#autotoc_md63", null ],
-    [ "Documentations", "index.html#autotoc_md64", null ],
-    [ "Contributing", "index.html#autotoc_md65", null ],
-    [ "Credits", "index.html#autotoc_md66", null ],
-    [ "License", "index.html#autotoc_md67", null ],
-    [ "Coding Style Guidelines", "md_guidelines.html", [
-      [ "Naming Conventions", "md_guidelines.html#autotoc_md1", [
-        [ "For all names", "md_guidelines.html#autotoc_md2", null ],
-        [ "Structs", "md_guidelines.html#autotoc_md3", null ],
-        [ "Variables", "md_guidelines.html#autotoc_md4", null ],
-        [ "Constants", "md_guidelines.html#autotoc_md5", null ],
-        [ "Functions and Methods", "md_guidelines.html#autotoc_md6", null ],
-        [ "Enumerations", "md_guidelines.html#autotoc_md7", null ],
-        [ "Namespaces", "md_guidelines.html#autotoc_md8", null ],
-        [ "Template Parameter", "md_guidelines.html#autotoc_md9", null ],
-        [ "Files", "md_guidelines.html#autotoc_md10", null ]
+    [ "Sections", "index.html#autotoc_md64", null ],
+    [ "Planned Sections", "index.html#autotoc_md65", null ],
+    [ "Usage", "index.html#autotoc_md66", null ],
+    [ "Documentations", "index.html#autotoc_md67", null ],
+    [ "Changelog", "index.html#autotoc_md68", null ],
+    [ "Contributing", "index.html#autotoc_md69", null ],
+    [ "Credits", "index.html#autotoc_md70", null ],
+    [ "License", "index.html#autotoc_md71", null ],
+    [ "Changelog", "md_Changelog.html", [
+      [ "v0.0.1 - July 22, 2024", "md_Changelog.html#autotoc_md1", null ]
+    ] ],
+    [ "Guidelines", "md_Guidelines.html", [
+      [ "Naming Conventions", "md_Guidelines.html#autotoc_md3", [
+        [ "For all names", "md_Guidelines.html#autotoc_md4", null ],
+        [ "Structs", "md_Guidelines.html#autotoc_md5", null ],
+        [ "Variables", "md_Guidelines.html#autotoc_md6", null ],
+        [ "Constants", "md_Guidelines.html#autotoc_md7", null ],
+        [ "Functions and Methods", "md_Guidelines.html#autotoc_md8", null ],
+        [ "Enumerations", "md_Guidelines.html#autotoc_md9", null ],
+        [ "Namespaces", "md_Guidelines.html#autotoc_md10", null ],
+        [ "Template Parameter", "md_Guidelines.html#autotoc_md11", null ],
+        [ "Files", "md_Guidelines.html#autotoc_md12", null ]
       ] ],
-      [ "Formatting", "md_guidelines.html#autotoc_md11", [
-        [ "Indentation", "md_guidelines.html#autotoc_md12", null ],
-        [ "Braces", "md_guidelines.html#autotoc_md13", null ],
-        [ "Line Length", "md_guidelines.html#autotoc_md14", null ],
-        [ "Spaces", "md_guidelines.html#autotoc_md15", null ],
-        [ "Blank Lines", "md_guidelines.html#autotoc_md16", null ],
-        [ "Variable Declaration", "md_guidelines.html#autotoc_md17", null ],
-        [ "Max width", "md_guidelines.html#autotoc_md18", null ]
+      [ "Formatting", "md_Guidelines.html#autotoc_md13", [
+        [ "Indentation", "md_Guidelines.html#autotoc_md14", null ],
+        [ "Braces", "md_Guidelines.html#autotoc_md15", null ],
+        [ "Line Length", "md_Guidelines.html#autotoc_md16", null ],
+        [ "Spaces", "md_Guidelines.html#autotoc_md17", null ],
+        [ "Blank Lines", "md_Guidelines.html#autotoc_md18", null ],
+        [ "Variable Declaration", "md_Guidelines.html#autotoc_md19", null ],
+        [ "Max width", "md_Guidelines.html#autotoc_md20", null ]
       ] ],
-      [ "Comments", "md_guidelines.html#autotoc_md19", [
-        [ "Single-line Comments", "md_guidelines.html#autotoc_md20", null ],
-        [ "Multi-line Comments", "md_guidelines.html#autotoc_md21", null ],
-        [ "Periods", "md_guidelines.html#autotoc_md22", null ],
-        [ "Documentation Comments", "md_guidelines.html#autotoc_md23", null ]
+      [ "Comments", "md_Guidelines.html#autotoc_md21", [
+        [ "Single-line Comments", "md_Guidelines.html#autotoc_md22", null ],
+        [ "Multi-line Comments", "md_Guidelines.html#autotoc_md23", null ],
+        [ "Periods", "md_Guidelines.html#autotoc_md24", null ],
+        [ "Documentation Comments", "md_Guidelines.html#autotoc_md25", null ]
       ] ],
-      [ "File Structure", "md_guidelines.html#autotoc_md24", [
-        [ "Header Files", "md_guidelines.html#autotoc_md25", null ],
-        [ "Source Files", "md_guidelines.html#autotoc_md26", null ],
-        [ "Avoid Utils or Misc files", "md_guidelines.html#autotoc_md27", null ]
+      [ "File Structure", "md_Guidelines.html#autotoc_md26", [
+        [ "Header Files", "md_Guidelines.html#autotoc_md27", null ],
+        [ "Source Files", "md_Guidelines.html#autotoc_md28", null ],
+        [ "Avoid Utils or Misc files", "md_Guidelines.html#autotoc_md29", null ]
       ] ],
-      [ "(Member/) Functions and Lambdas", "md_guidelines.html#autotoc_md28", [
-        [ "(Member/) Function Declaration", "md_guidelines.html#autotoc_md29", null ],
-        [ "(Member/) Function Declaration", "md_guidelines.html#autotoc_md30", null ],
-        [ "Inline Functions", "md_guidelines.html#autotoc_md31", null ],
-        [ "Lambdas", "md_guidelines.html#autotoc_md32", null ],
-        [ "Attributes", "md_guidelines.html#autotoc_md33", null ],
-        [ "Static", "md_guidelines.html#autotoc_md34", null ]
+      [ "(Member/) Functions and Lambdas", "md_Guidelines.html#autotoc_md30", [
+        [ "(Member/) Function Declaration", "md_Guidelines.html#autotoc_md31", null ],
+        [ "(Member/) Function Declaration", "md_Guidelines.html#autotoc_md32", null ],
+        [ "Inline Functions", "md_Guidelines.html#autotoc_md33", null ],
+        [ "Lambdas", "md_Guidelines.html#autotoc_md34", null ],
+        [ "Attributes", "md_Guidelines.html#autotoc_md35", null ],
+        [ "Static", "md_Guidelines.html#autotoc_md36", null ]
       ] ],
-      [ "Structs", "md_guidelines.html#autotoc_md35", [
-        [ "struct Organization", "md_guidelines.html#autotoc_md36", null ],
-        [ "Access Specifiers", "md_guidelines.html#autotoc_md37", null ],
-        [ "Member Variables", "md_guidelines.html#autotoc_md38", null ],
-        [ "Constructors", "md_guidelines.html#autotoc_md39", null ],
-        [ "Member Functions", "md_guidelines.html#autotoc_md40", null ],
-        [ "Operator Overloading", "md_guidelines.html#autotoc_md41", null ]
+      [ "Structs", "md_Guidelines.html#autotoc_md37", [
+        [ "struct Organization", "md_Guidelines.html#autotoc_md38", null ],
+        [ "Access Specifiers", "md_Guidelines.html#autotoc_md39", null ],
+        [ "Member Variables", "md_Guidelines.html#autotoc_md40", null ],
+        [ "Constructors", "md_Guidelines.html#autotoc_md41", null ],
+        [ "Member Functions", "md_Guidelines.html#autotoc_md42", null ],
+        [ "Operator Overloading", "md_Guidelines.html#autotoc_md43", null ]
       ] ],
-      [ "Miscellaneous", "md_guidelines.html#autotoc_md42", [
-        [ "Include Order", "md_guidelines.html#autotoc_md43", null ],
-        [ "Max Enum Member", "md_guidelines.html#autotoc_md44", null ],
-        [ "Error Handling", "md_guidelines.html#autotoc_md45", null ],
-        [ "Concepts", "md_guidelines.html#autotoc_md46", null ],
-        [ "Standard Library", "md_guidelines.html#autotoc_md47", null ],
-        [ "Pointer and Reference", "md_guidelines.html#autotoc_md48", null ],
-        [ "Constants and Literals", "md_guidelines.html#autotoc_md49", null ],
-        [ "Macros", "md_guidelines.html#autotoc_md50", null ],
-        [ "Lambdas", "md_guidelines.html#autotoc_md51", null ],
-        [ "Initialization", "md_guidelines.html#autotoc_md52", null ],
-        [ "Range-based For Loops", "md_guidelines.html#autotoc_md53", null ],
-        [ "Passing Instance of Newly Constructed Type to Function Parameter", "md_guidelines.html#autotoc_md54", null ],
-        [ "Avoid Magic Numbers", "md_guidelines.html#autotoc_md55", null ],
-        [ "Prefer auto Keyword", "md_guidelines.html#autotoc_md56", null ],
-        [ "Use nullptr", "md_guidelines.html#autotoc_md57", null ],
-        [ "Prefix ::", "md_guidelines.html#autotoc_md58", null ],
-        [ "Long names", "md_guidelines.html#autotoc_md59", null ]
+      [ "Miscellaneous", "md_Guidelines.html#autotoc_md44", [
+        [ "Include Order", "md_Guidelines.html#autotoc_md45", null ],
+        [ "Max Enum Member", "md_Guidelines.html#autotoc_md46", null ],
+        [ "Error Handling", "md_Guidelines.html#autotoc_md47", null ],
+        [ "Concepts", "md_Guidelines.html#autotoc_md48", null ],
+        [ "Standard Library", "md_Guidelines.html#autotoc_md49", null ],
+        [ "Pointer and Reference", "md_Guidelines.html#autotoc_md50", null ],
+        [ "Constants and Literals", "md_Guidelines.html#autotoc_md51", null ],
+        [ "Macros", "md_Guidelines.html#autotoc_md52", null ],
+        [ "Lambdas", "md_Guidelines.html#autotoc_md53", null ],
+        [ "Initialization", "md_Guidelines.html#autotoc_md54", null ],
+        [ "Range-based For Loops", "md_Guidelines.html#autotoc_md55", null ],
+        [ "Passing Instance of Newly Constructed Type to Function Parameter", "md_Guidelines.html#autotoc_md56", null ],
+        [ "Avoid Magic Numbers", "md_Guidelines.html#autotoc_md57", null ],
+        [ "Prefer auto Keyword", "md_Guidelines.html#autotoc_md58", null ],
+        [ "Use nullptr", "md_Guidelines.html#autotoc_md59", null ],
+        [ "Prefix ::", "md_Guidelines.html#autotoc_md60", null ],
+        [ "Long names", "md_Guidelines.html#autotoc_md61", null ]
       ] ]
     ] ],
+    [ "License", "md_License.html", null ],
     [ "Todo List", "todo.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -125,8 +130,6 @@ var NAVTREE =
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ],
-        [ "Variables", "globals_vars.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -136,8 +139,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"namespaceauspicious__library_1_1aec__operators.html#a23ce8a90425098f3ab9daec5f41b4ed9",
-"structauspicious__library_1_1ap_1_1posix__help__format.html"
+"namespaceauspicious__library_1_1aec__operators.html#a674d8ef1fe191cc572782008a394ea4b",
+"structauspicious__library_1_1ap_1_1posix__help__format.html#a0db97aef20363e43f4005a4d0f2a4f9d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

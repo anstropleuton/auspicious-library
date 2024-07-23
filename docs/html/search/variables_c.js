@@ -12,7 +12,5 @@ var searchData=
   ['parameter_5fseparator_9',['parameter_separator',['../structauspicious__library_1_1ap_1_1posix__help__format.html#a6b474dbdf724c95fa02f85ee202dcb0d',1,'auspicious_library::ap::posix_help_format::parameter_separator'],['../structauspicious__library_1_1ap_1_1microsoft__help__format.html#ab5ef040a775715d35c28223cb2449ac8',1,'auspicious_library::ap::microsoft_help_format::parameter_separator']]],
   ['parameter_5fstyle_10',['parameter_style',['../structauspicious__library_1_1ap_1_1posix__help__format.html#a824e98442769f22a27637da1fe6592dd',1,'auspicious_library::ap::posix_help_format::parameter_style'],['../structauspicious__library_1_1ap_1_1microsoft__help__format.html#a564dc8a19631a267d10ecb2427039f1c',1,'auspicious_library::ap::microsoft_help_format::parameter_style']]],
   ['parameters_11',['parameters',['../structauspicious__library_1_1ap_1_1option__template.html#a5feadf9a2a7e671a78ed12c55e7d38b5',1,'auspicious_library::ap::option_template::parameters'],['../structauspicious__library_1_1ap_1_1subcommand__template.html#a2f4d5135eb57296a88bb14bb9a72ff3f',1,'auspicious_library::ap::subcommand_template::parameters']]],
-  ['post_5frun_12',['post_run',['../structtest__suite.html#ac7ee98f0058e8a4789476bc85963db69',1,'test_suite']]],
-  ['pre_5frun_13',['pre_run',['../structtest__suite.html#ac004e04a39e00e22b023d7f551a47874',1,'test_suite']]],
-  ['prefix_14',['prefix',['../structauspicious__library_1_1ap_1_1help__enclose__t.html#a1feb00e2a12315adc213d3d45ed33ce3',1,'auspicious_library::ap::help_enclose_t']]]
+  ['prefix_12',['prefix',['../structauspicious__library_1_1ap_1_1help__enclose__t.html#a1feb00e2a12315adc213d3d45ed33ce3',1,'auspicious_library::ap::help_enclose_t']]]
 ];

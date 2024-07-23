@@ -25,6 +25,8 @@
 <meta property="og:title" content="Auspicious Library">
 <meta property="og:description" content="Auspicious Library is a collection of Utils for Anstro Pleuton's programs.">
 <meta property="og:image" content="https://anstropleuton.github.io/auspicious-library/background.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
 <meta property="og:url" content="https://anstropleuton.github.io/auspicious-library">
 <meta property="og:type" content="website">
 </head>
@@ -194,46 +196,46 @@ Functions</h2></td></tr>
 <tr class="memitem:aac67ce8a3e1a31274b16b2f15b34dd40" id="r_aac67ce8a3e1a31274b16b2f15b34dd40"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac67ce8a3e1a31274b16b2f15b34dd40">to_string</a> (<a class="el" href="#ac9c4f83edd8349c71b6993a56ce5a838">validity</a> <a class="el" href="#ac9c4f83edd8349c71b6993a56ce5a838a9f7d0ee82b6a6ca7ddeae841f3253059">valid</a>)</td></tr>
 <tr class="memdesc:aac67ce8a3e1a31274b16b2f15b34dd40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert <code>validity</code> to string.  <br /></td></tr>
 <tr class="separator:aac67ce8a3e1a31274b16b2f15b34dd40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4511828073a79eb04a7aef0baac3d8db" id="r_a4511828073a79eb04a7aef0baac3d8db"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4511828073a79eb04a7aef0baac3d8db">parse_arguments</a> (const std::vector&lt; std::string &gt; &amp;args, const std::vector&lt; const <a class="el" href="structauspicious__library_1_1ap_1_1option__template.html">option_template</a> * &gt; &amp;<a class="el" href="test__ap_8cpp.html#a2446a450aed68d847e2ee2e0ee318ebc">options</a>, const std::vector&lt; const <a class="el" href="structauspicious__library_1_1ap_1_1subcommand__template.html">subcommand_template</a> * &gt; &amp;<a class="el" href="test__ap_8cpp.html#a5e4278c81913cad9b6bcb40a75324c15">subcommands</a>, bool switch_ins=true) -&gt; std::vector&lt; <a class="el" href="structauspicious__library_1_1ap_1_1parsed__argument.html">parsed_argument</a> &gt;</td></tr>
+<tr class="memitem:a4511828073a79eb04a7aef0baac3d8db" id="r_a4511828073a79eb04a7aef0baac3d8db"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4511828073a79eb04a7aef0baac3d8db">parse_arguments</a> (const std::vector&lt; std::string &gt; &amp;args, const std::vector&lt; const <a class="el" href="structauspicious__library_1_1ap_1_1option__template.html">option_template</a> * &gt; &amp;options, const std::vector&lt; const <a class="el" href="structauspicious__library_1_1ap_1_1subcommand__template.html">subcommand_template</a> * &gt; &amp;subcommands, bool switch_ins=true) -&gt; std::vector&lt; <a class="el" href="structauspicious__library_1_1ap_1_1parsed__argument.html">parsed_argument</a> &gt;</td></tr>
 <tr class="memdesc:a4511828073a79eb04a7aef0baac3d8db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse command line arguments.  <br /></td></tr>
 <tr class="separator:a4511828073a79eb04a7aef0baac3d8db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f90586401cf4979e91aa7ad22edd47b" id="r_a2f90586401cf4979e91aa7ad22edd47b"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f90586401cf4979e91aa7ad22edd47b">parse_arguments</a> (int argc, const char **argv, const std::vector&lt; const <a class="el" href="structauspicious__library_1_1ap_1_1option__template.html">option_template</a> * &gt; &amp;<a class="el" href="test__ap_8cpp.html#a2446a450aed68d847e2ee2e0ee318ebc">options</a>, const std::vector&lt; const <a class="el" href="structauspicious__library_1_1ap_1_1subcommand__template.html">subcommand_template</a> * &gt; &amp;<a class="el" href="test__ap_8cpp.html#a5e4278c81913cad9b6bcb40a75324c15">subcommands</a>, bool switch_ins=true) -&gt; std::vector&lt; <a class="el" href="structauspicious__library_1_1ap_1_1parsed__argument.html">parsed_argument</a> &gt;</td></tr>
+<tr class="memitem:a2f90586401cf4979e91aa7ad22edd47b" id="r_a2f90586401cf4979e91aa7ad22edd47b"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f90586401cf4979e91aa7ad22edd47b">parse_arguments</a> (int argc, const char **argv, const std::vector&lt; const <a class="el" href="structauspicious__library_1_1ap_1_1option__template.html">option_template</a> * &gt; &amp;options, const std::vector&lt; const <a class="el" href="structauspicious__library_1_1ap_1_1subcommand__template.html">subcommand_template</a> * &gt; &amp;subcommands, bool switch_ins=true) -&gt; std::vector&lt; <a class="el" href="structauspicious__library_1_1ap_1_1parsed__argument.html">parsed_argument</a> &gt;</td></tr>
 <tr class="memdesc:a2f90586401cf4979e91aa7ad22edd47b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse command line arguments.  <br /></td></tr>
 <tr class="separator:a2f90586401cf4979e91aa7ad22edd47b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a760ffaa5d2627accbd8bf90ee8a73cb0" id="r_a760ffaa5d2627accbd8bf90ee8a73cb0"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a760ffaa5d2627accbd8bf90ee8a73cb0">get_help_message</a> (const <a class="el" href="structauspicious__library_1_1ap_1_1option__template.html">option_template</a> &amp;option, <a class="el" href="structauspicious__library_1_1ap_1_1posix__help__format.html">posix_help_format</a> format) -&gt; std::vector&lt; std::string &gt;</td></tr>
 <tr class="memdesc:a760ffaa5d2627accbd8bf90ee8a73cb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate help message string from option and POSIX-style format.  <br /></td></tr>
 <tr class="separator:a760ffaa5d2627accbd8bf90ee8a73cb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69b19c40537b66365048b5871983b71e" id="r_a69b19c40537b66365048b5871983b71e"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69b19c40537b66365048b5871983b71e">get_help_message</a> (const std::vector&lt; <a class="el" href="structauspicious__library_1_1ap_1_1option__template.html">option_template</a> &gt; &amp;<a class="el" href="test__ap_8cpp.html#a2446a450aed68d847e2ee2e0ee318ebc">options</a>, <a class="el" href="structauspicious__library_1_1ap_1_1posix__help__format.html">posix_help_format</a> format) -&gt; std::vector&lt; std::string &gt;</td></tr>
+<tr class="memitem:a69b19c40537b66365048b5871983b71e" id="r_a69b19c40537b66365048b5871983b71e"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69b19c40537b66365048b5871983b71e">get_help_message</a> (const std::vector&lt; <a class="el" href="structauspicious__library_1_1ap_1_1option__template.html">option_template</a> &gt; &amp;options, <a class="el" href="structauspicious__library_1_1ap_1_1posix__help__format.html">posix_help_format</a> format) -&gt; std::vector&lt; std::string &gt;</td></tr>
 <tr class="memdesc:a69b19c40537b66365048b5871983b71e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate help message string from options and POSIX-style format.  <br /></td></tr>
 <tr class="separator:a69b19c40537b66365048b5871983b71e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90d0bc4d3b66198040eeb71c8788cb37" id="r_a90d0bc4d3b66198040eeb71c8788cb37"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90d0bc4d3b66198040eeb71c8788cb37">get_help_message</a> (const std::vector&lt; const <a class="el" href="structauspicious__library_1_1ap_1_1option__template.html">option_template</a> * &gt; &amp;<a class="el" href="test__ap_8cpp.html#a2446a450aed68d847e2ee2e0ee318ebc">options</a>, <a class="el" href="structauspicious__library_1_1ap_1_1posix__help__format.html">posix_help_format</a> format) -&gt; std::vector&lt; std::string &gt;</td></tr>
+<tr class="memitem:a90d0bc4d3b66198040eeb71c8788cb37" id="r_a90d0bc4d3b66198040eeb71c8788cb37"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90d0bc4d3b66198040eeb71c8788cb37">get_help_message</a> (const std::vector&lt; const <a class="el" href="structauspicious__library_1_1ap_1_1option__template.html">option_template</a> * &gt; &amp;options, <a class="el" href="structauspicious__library_1_1ap_1_1posix__help__format.html">posix_help_format</a> format) -&gt; std::vector&lt; std::string &gt;</td></tr>
 <tr class="memdesc:a90d0bc4d3b66198040eeb71c8788cb37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate help message string from options and POSIX-style format.  <br /></td></tr>
 <tr class="separator:a90d0bc4d3b66198040eeb71c8788cb37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f91f5afac568a421ed27df2dd89f06f" id="r_a8f91f5afac568a421ed27df2dd89f06f"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f91f5afac568a421ed27df2dd89f06f">get_help_message</a> (const <a class="el" href="structauspicious__library_1_1ap_1_1subcommand__template.html">subcommand_template</a> &amp;subcommand, <a class="el" href="structauspicious__library_1_1ap_1_1posix__help__format.html">posix_help_format</a> format) -&gt; std::vector&lt; std::string &gt;</td></tr>
 <tr class="memdesc:a8f91f5afac568a421ed27df2dd89f06f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate help message string from subcommand and POSIX-style format.  <br /></td></tr>
 <tr class="separator:a8f91f5afac568a421ed27df2dd89f06f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a70951e742ad3b4af7a63d1a664b90b" id="r_a6a70951e742ad3b4af7a63d1a664b90b"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a70951e742ad3b4af7a63d1a664b90b">get_help_message</a> (const std::vector&lt; <a class="el" href="structauspicious__library_1_1ap_1_1subcommand__template.html">subcommand_template</a> &gt; &amp;<a class="el" href="test__ap_8cpp.html#a5e4278c81913cad9b6bcb40a75324c15">subcommands</a>, <a class="el" href="structauspicious__library_1_1ap_1_1posix__help__format.html">posix_help_format</a> format) -&gt; std::vector&lt; std::string &gt;</td></tr>
+<tr class="memitem:a6a70951e742ad3b4af7a63d1a664b90b" id="r_a6a70951e742ad3b4af7a63d1a664b90b"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a70951e742ad3b4af7a63d1a664b90b">get_help_message</a> (const std::vector&lt; <a class="el" href="structauspicious__library_1_1ap_1_1subcommand__template.html">subcommand_template</a> &gt; &amp;subcommands, <a class="el" href="structauspicious__library_1_1ap_1_1posix__help__format.html">posix_help_format</a> format) -&gt; std::vector&lt; std::string &gt;</td></tr>
 <tr class="memdesc:a6a70951e742ad3b4af7a63d1a664b90b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate help message string from subcommands and POSIX-style format.  <br /></td></tr>
 <tr class="separator:a6a70951e742ad3b4af7a63d1a664b90b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc0b2a8419f840ebddcf5fed261e3b5e" id="r_adc0b2a8419f840ebddcf5fed261e3b5e"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc0b2a8419f840ebddcf5fed261e3b5e">get_help_message</a> (const std::vector&lt; const <a class="el" href="structauspicious__library_1_1ap_1_1subcommand__template.html">subcommand_template</a> * &gt; &amp;<a class="el" href="test__ap_8cpp.html#a5e4278c81913cad9b6bcb40a75324c15">subcommands</a>, <a class="el" href="structauspicious__library_1_1ap_1_1posix__help__format.html">posix_help_format</a> format) -&gt; std::vector&lt; std::string &gt;</td></tr>
+<tr class="memitem:adc0b2a8419f840ebddcf5fed261e3b5e" id="r_adc0b2a8419f840ebddcf5fed261e3b5e"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc0b2a8419f840ebddcf5fed261e3b5e">get_help_message</a> (const std::vector&lt; const <a class="el" href="structauspicious__library_1_1ap_1_1subcommand__template.html">subcommand_template</a> * &gt; &amp;subcommands, <a class="el" href="structauspicious__library_1_1ap_1_1posix__help__format.html">posix_help_format</a> format) -&gt; std::vector&lt; std::string &gt;</td></tr>
 <tr class="memdesc:adc0b2a8419f840ebddcf5fed261e3b5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate help message string from subcommands and POSIX-style format.  <br /></td></tr>
 <tr class="separator:adc0b2a8419f840ebddcf5fed261e3b5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a605264f237351903b71eece5bd3bea27" id="r_a605264f237351903b71eece5bd3bea27"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a605264f237351903b71eece5bd3bea27">get_help_message</a> (const <a class="el" href="structauspicious__library_1_1ap_1_1option__template.html">option_template</a> &amp;option, <a class="el" href="structauspicious__library_1_1ap_1_1microsoft__help__format.html">microsoft_help_format</a> format) -&gt; std::vector&lt; std::string &gt;</td></tr>
 <tr class="memdesc:a605264f237351903b71eece5bd3bea27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate help message string from option (switch) and Microsoft-style format.  <br /></td></tr>
 <tr class="separator:a605264f237351903b71eece5bd3bea27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04d42c1ec7aba4cb83c64abc3f27868c" id="r_a04d42c1ec7aba4cb83c64abc3f27868c"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04d42c1ec7aba4cb83c64abc3f27868c">get_help_message</a> (const std::vector&lt; <a class="el" href="structauspicious__library_1_1ap_1_1option__template.html">option_template</a> &gt; &amp;<a class="el" href="test__ap_8cpp.html#a2446a450aed68d847e2ee2e0ee318ebc">options</a>, <a class="el" href="structauspicious__library_1_1ap_1_1microsoft__help__format.html">microsoft_help_format</a> format) -&gt; std::vector&lt; std::string &gt;</td></tr>
+<tr class="memitem:a04d42c1ec7aba4cb83c64abc3f27868c" id="r_a04d42c1ec7aba4cb83c64abc3f27868c"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04d42c1ec7aba4cb83c64abc3f27868c">get_help_message</a> (const std::vector&lt; <a class="el" href="structauspicious__library_1_1ap_1_1option__template.html">option_template</a> &gt; &amp;options, <a class="el" href="structauspicious__library_1_1ap_1_1microsoft__help__format.html">microsoft_help_format</a> format) -&gt; std::vector&lt; std::string &gt;</td></tr>
 <tr class="memdesc:a04d42c1ec7aba4cb83c64abc3f27868c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate help message string from options (switches) and Microsoft-style format.  <br /></td></tr>
 <tr class="separator:a04d42c1ec7aba4cb83c64abc3f27868c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44d3e8ff37156da6fea02aef970ea798" id="r_a44d3e8ff37156da6fea02aef970ea798"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44d3e8ff37156da6fea02aef970ea798">get_help_message</a> (const std::vector&lt; const <a class="el" href="structauspicious__library_1_1ap_1_1option__template.html">option_template</a> * &gt; &amp;<a class="el" href="test__ap_8cpp.html#a2446a450aed68d847e2ee2e0ee318ebc">options</a>, <a class="el" href="structauspicious__library_1_1ap_1_1microsoft__help__format.html">microsoft_help_format</a> format) -&gt; std::vector&lt; std::string &gt;</td></tr>
+<tr class="memitem:a44d3e8ff37156da6fea02aef970ea798" id="r_a44d3e8ff37156da6fea02aef970ea798"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44d3e8ff37156da6fea02aef970ea798">get_help_message</a> (const std::vector&lt; const <a class="el" href="structauspicious__library_1_1ap_1_1option__template.html">option_template</a> * &gt; &amp;options, <a class="el" href="structauspicious__library_1_1ap_1_1microsoft__help__format.html">microsoft_help_format</a> format) -&gt; std::vector&lt; std::string &gt;</td></tr>
 <tr class="memdesc:a44d3e8ff37156da6fea02aef970ea798"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate help message string from options (switches) and Microsoft-style format.  <br /></td></tr>
 <tr class="separator:a44d3e8ff37156da6fea02aef970ea798"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cda2b0bbeb7e4c981a6128ced249b5f" id="r_a7cda2b0bbeb7e4c981a6128ced249b5f"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cda2b0bbeb7e4c981a6128ced249b5f">get_help_message</a> (const <a class="el" href="structauspicious__library_1_1ap_1_1subcommand__template.html">subcommand_template</a> &amp;subcommand, <a class="el" href="structauspicious__library_1_1ap_1_1microsoft__help__format.html">microsoft_help_format</a> format) -&gt; std::vector&lt; std::string &gt;</td></tr>
 <tr class="memdesc:a7cda2b0bbeb7e4c981a6128ced249b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate help message string from subcommand and Microsoft-style format.  <br /></td></tr>
 <tr class="separator:a7cda2b0bbeb7e4c981a6128ced249b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace4af81aa78f41e324bba102cf10e1b8" id="r_ace4af81aa78f41e324bba102cf10e1b8"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace4af81aa78f41e324bba102cf10e1b8">get_help_message</a> (const std::vector&lt; <a class="el" href="structauspicious__library_1_1ap_1_1subcommand__template.html">subcommand_template</a> &gt; &amp;<a class="el" href="test__ap_8cpp.html#a5e4278c81913cad9b6bcb40a75324c15">subcommands</a>, <a class="el" href="structauspicious__library_1_1ap_1_1microsoft__help__format.html">microsoft_help_format</a> format) -&gt; std::vector&lt; std::string &gt;</td></tr>
+<tr class="memitem:ace4af81aa78f41e324bba102cf10e1b8" id="r_ace4af81aa78f41e324bba102cf10e1b8"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace4af81aa78f41e324bba102cf10e1b8">get_help_message</a> (const std::vector&lt; <a class="el" href="structauspicious__library_1_1ap_1_1subcommand__template.html">subcommand_template</a> &gt; &amp;subcommands, <a class="el" href="structauspicious__library_1_1ap_1_1microsoft__help__format.html">microsoft_help_format</a> format) -&gt; std::vector&lt; std::string &gt;</td></tr>
 <tr class="memdesc:ace4af81aa78f41e324bba102cf10e1b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate help message string from subcommands and Microsoft-style format.  <br /></td></tr>
 <tr class="separator:ace4af81aa78f41e324bba102cf10e1b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf313724f117a4598402ebd4a2cb5118" id="r_adf313724f117a4598402ebd4a2cb5118"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf313724f117a4598402ebd4a2cb5118">get_help_message</a> (const std::vector&lt; const <a class="el" href="structauspicious__library_1_1ap_1_1subcommand__template.html">subcommand_template</a> * &gt; &amp;<a class="el" href="test__ap_8cpp.html#a5e4278c81913cad9b6bcb40a75324c15">subcommands</a>, <a class="el" href="structauspicious__library_1_1ap_1_1microsoft__help__format.html">microsoft_help_format</a> format) -&gt; std::vector&lt; std::string &gt;</td></tr>
+<tr class="memitem:adf313724f117a4598402ebd4a2cb5118" id="r_adf313724f117a4598402ebd4a2cb5118"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf313724f117a4598402ebd4a2cb5118">get_help_message</a> (const std::vector&lt; const <a class="el" href="structauspicious__library_1_1ap_1_1subcommand__template.html">subcommand_template</a> * &gt; &amp;subcommands, <a class="el" href="structauspicious__library_1_1ap_1_1microsoft__help__format.html">microsoft_help_format</a> format) -&gt; std::vector&lt; std::string &gt;</td></tr>
 <tr class="memdesc:adf313724f117a4598402ebd4a2cb5118"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate help message string from subcommands and Microsoft-style format.  <br /></td></tr>
 <tr class="separator:adf313724f117a4598402ebd4a2cb5118"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7ef9d26a4f2321a90e9093a52722b34" id="r_af7ef9d26a4f2321a90e9093a52722b34"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7ef9d26a4f2321a90e9093a52722b34">print_help_message</a> (const std::vector&lt; std::string &gt; &amp;lines)</td></tr>
@@ -555,7 +557,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>switch_ins</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>&#160;) -&gt; std::vector&lt;<a class="el" href="structauspicious__library_1_1ap_1_1parsed__argument.html">parsed_argument</a>&gt;</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>switch_ins</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>&#160;) -&gt;  std::vector&lt; <a class="el" href="structauspicious__library_1_1ap_1_1parsed__argument.html">parsed_argument</a> &gt;</td>
         </tr>
       </table>
   </td>
@@ -573,17 +575,6 @@ Functions</h2></td></tr>
     <tr><td class="paramname">options</td><td>Options/Switches. </td></tr>
     <tr><td class="paramname">subcommands</td><td>Subcommands. </td></tr>
     <tr><td class="paramname">switch_ins</td><td>Match Microsoft-style switches case insensitively (optional). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Parsed argument information.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Do not pass dynamically allocated memory directly as <code>options</code> or <code>subcommands</code>. This should point to user managed memory.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd>Document written on top of this section's namespace.</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">args</td><td>All excluding first (usually program name) command line arguments. </td></tr>
-    <tr><td class="paramname">options</td><td>Options. </td></tr>
-    <tr><td class="paramname">subcommands</td><td>Subcommands. </td></tr>
   </table>
   </dd>
 </dl>
@@ -639,8 +630,8 @@ Functions</h2></td></tr>
 <dl class="section see"><dt>See also</dt><dd>Detauld Description of namespace <code><a class="el" href="namespaceauspicious__library_1_1ap.html" title="Command line argument parser.">ap</a></code>.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">argc</td><td>Arguments count from <a class="el" href="tester_8cpp.html#a72754cd5f3fb19e8241b13dd3f58a01a" title="The biggie.">main()</a>. </td></tr>
-    <tr><td class="paramname">argv</td><td>Argument values from <a class="el" href="tester_8cpp.html#a72754cd5f3fb19e8241b13dd3f58a01a" title="The biggie.">main()</a>. </td></tr>
+    <tr><td class="paramname">argc</td><td>Arguments count from main(). </td></tr>
+    <tr><td class="paramname">argv</td><td>Argument values from main(). </td></tr>
     <tr><td class="paramname">options</td><td>Options. </td></tr>
     <tr><td class="paramname">subcommands</td><td>Subcommands. </td></tr>
     <tr><td class="paramname">switch_ins</td><td>Match Microsoft-style switches case insensitively (optional). </td></tr>
@@ -669,7 +660,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structauspicious__library_1_1ap_1_1posix__help__format.html">posix_help_format</a></td>          <td class="paramname"><span class="paramname"><em>format</em></span>&#160;) -&gt; std::vector&lt;std::string&gt;</td>
+          <td class="paramtype"><a class="el" href="structauspicious__library_1_1ap_1_1posix__help__format.html">posix_help_format</a></td>          <td class="paramname"><span class="paramname"><em>format</em></span>&#160;) -&gt;  std::vector&lt; std::string &gt;</td>
         </tr>
       </table>
   </td>
@@ -788,7 +779,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structauspicious__library_1_1ap_1_1posix__help__format.html">posix_help_format</a></td>          <td class="paramname"><span class="paramname"><em>format</em></span>&#160;) -&gt; std::vector&lt;std::string&gt;</td>
+          <td class="paramtype"><a class="el" href="structauspicious__library_1_1ap_1_1posix__help__format.html">posix_help_format</a></td>          <td class="paramname"><span class="paramname"><em>format</em></span>&#160;) -&gt;  std::vector&lt; std::string &gt;</td>
         </tr>
       </table>
   </td>
@@ -907,7 +898,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structauspicious__library_1_1ap_1_1microsoft__help__format.html">microsoft_help_format</a></td>          <td class="paramname"><span class="paramname"><em>format</em></span>&#160;) -&gt; std::vector&lt;std::string&gt;</td>
+          <td class="paramtype"><a class="el" href="structauspicious__library_1_1ap_1_1microsoft__help__format.html">microsoft_help_format</a></td>          <td class="paramname"><span class="paramname"><em>format</em></span>&#160;) -&gt;  std::vector&lt; std::string &gt;</td>
         </tr>
       </table>
   </td>
@@ -1026,7 +1017,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structauspicious__library_1_1ap_1_1microsoft__help__format.html">microsoft_help_format</a></td>          <td class="paramname"><span class="paramname"><em>format</em></span>&#160;) -&gt; std::vector&lt;std::string&gt;</td>
+          <td class="paramtype"><a class="el" href="structauspicious__library_1_1ap_1_1microsoft__help__format.html">microsoft_help_format</a></td>          <td class="paramname"><span class="paramname"><em>format</em></span>&#160;) -&gt;  std::vector&lt; std::string &gt;</td>
         </tr>
       </table>
   </td>

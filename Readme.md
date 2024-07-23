@@ -23,16 +23,19 @@ If you are not Anstro Pleuton, which you probably are, here is a quick guide to 
 ```cpp
 #include "auspicious_library.hpp"
 ```
- 3. Go through [documentation](docs/html/index.html) (or [header files](include/auspicious_library.hpp)) to get a grasp on what you can do using my library.
+ 3. Go through [documentation](https://anstropleuton.github.io/auspicious-library) (or [header files](include/auspicious_library.hpp)) to get a grasp on what you can do using my library.
 
 # Documentations
-Refer to the [documentation](docs/html/index.html) (or [header files](include/auspicious_library.hpp)) to get a grasp on what you can do using my library.
+Refer to the [documentation](https://anstropleuton.github.io/auspicious-library) (or [header files](include/auspicious_library.hpp)) to get a grasp on what you can do using my library.
+
+# Changelog
+Refer to the [Changelog](Changelog.md) for info about changes in each version.
 
 # Contributing
-Check out [guidelines](guidelines.md) before you submit your code! Make sure to create a branch with one task with the name of the category of your task (i.e., "features/" or "fixes/") your task before you change the code.
+Check out [Guidelines](Guidelines.md) before you submit your code! Make sure to create a branch with one task with the name of the category of your task (i.e., "features/", "bugfix/", etc.) your task before you change the code.
 
 # Credits
 Thanks to [jothepro](https://github.com/jothepro) for the stylesheet [Doxygen Awesome](https://github.com/jothepro/doxygen-awesome-css) for Doxygen.
 
 # License
-This project is licensed under the terms of MIT License, see [LICENSE](LICENSE).
+This project is licensed under the terms of MIT License, see [License](License.md).

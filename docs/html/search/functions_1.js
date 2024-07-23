@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['default_5fpost_5frunner_0',['default_post_runner',['../tester_8hpp.html#ac626cda2a869e89c73cd1b9c56aad4f3',1,'tester.hpp']]],
-  ['default_5fpre_5frunner_1',['default_pre_runner',['../tester_8hpp.html#a488281c6a316dd2586fb8e37c64be0a3',1,'tester.hpp']]],
-  ['default_5frun_5ffailed_5fquitter_2',['default_run_failed_quitter',['../tester_8hpp.html#af0d0e19a2e8d9e0b422ebe9da9b97f4b',1,'tester.hpp']]]
+  ['filter_5fout_0',['filter_out',['../namespaceauspicious__library_1_1cu.html#a3d0869d9e35bc3f395f91a5cbde0345e',1,'auspicious_library::cu']]],
+  ['filter_5fout_5focc_1',['filter_out_occ',['../namespaceauspicious__library_1_1cu.html#a367b35bf13b81eac704c433070427e6d',1,'auspicious_library::cu']]],
+  ['filter_5fout_5fseq_2',['filter_out_seq',['../namespaceauspicious__library_1_1cu.html#a9a7ac5acb03ece68064d6715bff18fb6',1,'auspicious_library::cu']]]
 ];

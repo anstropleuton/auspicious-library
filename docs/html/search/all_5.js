@@ -1,8 +1,25 @@
 var searchData=
 [
-  ['empty_0',['empty',['../namespaceauspicious__library_1_1ap.html#a7826ca13d78fe36b6181fdf84773b7e7aa2e4822a98337283e39f7b60acf85ec9',1,'auspicious_library::ap']]],
-  ['enclose_5fbefore_5fprefix_1',['enclose_before_prefix',['../structauspicious__library_1_1ap_1_1posix__help__format.html#a66b2e7e249df835829300ae7090e0659',1,'auspicious_library::ap::posix_help_format::enclose_before_prefix'],['../structauspicious__library_1_1ap_1_1microsoft__help__format.html#acc1f71b8bafb2daf44011f6da0ea37cd',1,'auspicious_library::ap::microsoft_help_format::enclose_before_prefix']]],
-  ['enum_20member_2',['Max Enum Member',['../md_guidelines.html#autotoc_md44',1,'']]],
-  ['enumerations_3',['Enumerations',['../md_guidelines.html#autotoc_md7',1,'']]],
-  ['error_20handling_4',['Error Handling',['../md_guidelines.html#autotoc_md45',1,'']]]
+  ['based_20for_20loops_0',['Range-based For Loops',['../md_Guidelines.html#autotoc_md55',1,'']]],
+  ['black_1',['black',['../namespaceauspicious__library_1_1aec.html#a86dc3ae86a865eb1fd873e790f7f8bb3',1,'auspicious_library::aec']]],
+  ['black_5fbg_2',['black_bg',['../namespaceauspicious__library_1_1aec.html#ae821ccfb380096ccbfa6b731ef456bd6',1,'auspicious_library::aec']]],
+  ['blank_20lines_3',['Blank Lines',['../md_Guidelines.html#autotoc_md18',1,'']]],
+  ['blue_4',['blue',['../namespaceauspicious__library_1_1aec.html#ab2c85bfdeb9a71b5d3f94d940e1b07e6',1,'auspicious_library::aec']]],
+  ['blue_5fbg_5',['blue_bg',['../namespaceauspicious__library_1_1aec.html#a9309ff7933e3c1316eca3917247add70',1,'auspicious_library::aec']]],
+  ['bold_6',['bold',['../namespaceauspicious__library_1_1aec.html#ad827180e0ad02ea031a83d72d2b89f8c',1,'auspicious_library::aec']]],
+  ['braces_7',['Braces',['../md_Guidelines.html#autotoc_md15',1,'']]],
+  ['bright_5fblue_8',['bright_blue',['../namespaceauspicious__library_1_1aec.html#a0b1635414a7df0651467556f7db8f920',1,'auspicious_library::aec']]],
+  ['bright_5fblue_5fbg_9',['bright_blue_bg',['../namespaceauspicious__library_1_1aec.html#ac0359741f70d7208837a5ee5e13b9a07',1,'auspicious_library::aec']]],
+  ['bright_5fcyan_10',['bright_cyan',['../namespaceauspicious__library_1_1aec.html#aeaadfbf2296d657e815b9758c9e613e4',1,'auspicious_library::aec']]],
+  ['bright_5fcyan_5fbg_11',['bright_cyan_bg',['../namespaceauspicious__library_1_1aec.html#a36654bc6dc8c38cb4b96e01cfc92ff83',1,'auspicious_library::aec']]],
+  ['bright_5fgreen_12',['bright_green',['../namespaceauspicious__library_1_1aec.html#aedadb1347d25825a564b71126a6c80f1',1,'auspicious_library::aec']]],
+  ['bright_5fgreen_5fbg_13',['bright_green_bg',['../namespaceauspicious__library_1_1aec.html#a274c9574dde415b78845d60c76af7eff',1,'auspicious_library::aec']]],
+  ['bright_5fmagenta_14',['bright_magenta',['../namespaceauspicious__library_1_1aec.html#a13c98c4ca6db3462ffa87cf4972ca1fd',1,'auspicious_library::aec']]],
+  ['bright_5fmagenta_5fbg_15',['bright_magenta_bg',['../namespaceauspicious__library_1_1aec.html#ab45961108f64818bf56f2164ab34be73',1,'auspicious_library::aec']]],
+  ['bright_5fred_16',['bright_red',['../namespaceauspicious__library_1_1aec.html#a506e0eb4e64d40c48d11ffbfab19784b',1,'auspicious_library::aec']]],
+  ['bright_5fred_5fbg_17',['bright_red_bg',['../namespaceauspicious__library_1_1aec.html#a093ca3f5f37914707c94d708713c57b5',1,'auspicious_library::aec']]],
+  ['bright_5fwhite_18',['bright_white',['../namespaceauspicious__library_1_1aec.html#a897c51b855cd1e91945d1d5a43736a2b',1,'auspicious_library::aec']]],
+  ['bright_5fwhite_5fbg_19',['bright_white_bg',['../namespaceauspicious__library_1_1aec.html#a2d0dfe2426284d149b274cad69553f47',1,'auspicious_library::aec']]],
+  ['bright_5fyellow_20',['bright_yellow',['../namespaceauspicious__library_1_1aec.html#a004c8693b471b5f687fa636b18b16e24',1,'auspicious_library::aec']]],
+  ['bright_5fyellow_5fbg_21',['bright_yellow_bg',['../namespaceauspicious__library_1_1aec.html#a27cde231e2a2ef043e061c27872dc3c8',1,'auspicious_library::aec']]]
 ];

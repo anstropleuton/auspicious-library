@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_3a_3a_0',['Prefix ::',['../md_guidelines.html#autotoc_md58',1,'']]]
+  ['0_201_20july_2022_202024_0',['v0.0.1 - July 22, 2024',['../md_Changelog.html#autotoc_md1',1,'']]]
 ];
