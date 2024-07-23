@@ -33,6 +33,7 @@ var NAVTREE =
     [ "Contributing", "index.html#autotoc_md69", null ],
     [ "Credits", "index.html#autotoc_md70", null ],
     [ "License", "index.html#autotoc_md71", null ],
+    [ "Doxygen", "index.html#autotoc_md72", null ],
     [ "Changelog", "md_Changelog.html", [
       [ "v0.0.1 - July 22, 2024", "md_Changelog.html#autotoc_md1", null ]
     ] ],
@@ -139,8 +140,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"namespaceauspicious__library_1_1aec__operators.html#a674d8ef1fe191cc572782008a394ea4b",
-"structauspicious__library_1_1ap_1_1posix__help__format.html#a0db97aef20363e43f4005a4d0f2a4f9d"
+"namespaceauspicious__library_1_1aec__operators.html#a23ce8a90425098f3ab9daec5f41b4ed9",
+"structauspicious__library_1_1ap_1_1posix__help__format.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

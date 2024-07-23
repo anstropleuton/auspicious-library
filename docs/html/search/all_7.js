@@ -6,5 +6,6 @@ var searchData=
   ['description_5fwidth_3',['description_width',['../structauspicious__library_1_1ap_1_1posix__help__format.html#a60680bda3f7e652c1153e6afea5f051e',1,'auspicious_library::ap::posix_help_format::description_width'],['../structauspicious__library_1_1ap_1_1microsoft__help__format.html#a6d3b5edfa60232de41810c968b54feec',1,'auspicious_library::ap::microsoft_help_format::description_width']]],
   ['documentation_20comments_4',['Documentation Comments',['../md_Guidelines.html#autotoc_md25',1,'']]],
   ['documentations_5',['Documentations',['../index.html#autotoc_md67',1,'']]],
-  ['double_5fhyphen_6',['double_hyphen',['../namespaceauspicious__library_1_1ap.html#a7826ca13d78fe36b6181fdf84773b7e7aaf019a40ded0e664b4ff58a07a82dc1e',1,'auspicious_library::ap']]]
+  ['double_5fhyphen_6',['double_hyphen',['../namespaceauspicious__library_1_1ap.html#a7826ca13d78fe36b6181fdf84773b7e7aaf019a40ded0e664b4ff58a07a82dc1e',1,'auspicious_library::ap']]],
+  ['doxygen_7',['Doxygen',['../index.html#autotoc_md72',1,'']]]
 ];

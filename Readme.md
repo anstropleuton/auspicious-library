@@ -18,15 +18,15 @@ If you are not Anstro Pleuton, which you probably are, here is a quick guide to 
 
  1. Setup:
     - Clone this repository.
-    - Set up include path to the [include](include/) folder.
+    - Set up include path to the [include](include/)[*](#Doxygen) folder.
  2. Include the library to include all functionality:
 ```cpp
 #include "auspicious_library.hpp"
 ```
- 3. Go through [documentation](https://anstropleuton.github.io/auspicious-library) (or [header files](include/auspicious_library.hpp)) to get a grasp on what you can do using my library.
+ 3. Go through [documentation](https://anstropleuton.github.io/auspicious-library) (or [header files](include/auspicious_library.hpp)[*](#Doxygen)) to get a grasp on what you can do using my library.
 
 # Documentations
-Refer to the [documentation](https://anstropleuton.github.io/auspicious-library) (or [header files](include/auspicious_library.hpp)) to get a grasp on what you can do using my library.
+Refer to the [documentation](https://anstropleuton.github.io/auspicious-library) (or [header files](include/auspicious_library.hpp)[*](#Doxygen)) to get a grasp on what you can do using my library.
 
 # Changelog
 Refer to the [Changelog](Changelog.md) for info about changes in each version.
@@ -39,3 +39,8 @@ Thanks to [jothepro](https://github.com/jothepro) for the stylesheet [Doxygen Aw
 
 # License
 This project is licensed under the terms of MIT License, see [License](License.md).
+
+# Doxygen
+\*: Due to some limitations on how files link in Markdown, not all hyperlinks from this file link properly, so refer to:
+- [header files](https://anstropleuton.github.io/auspicious-library/docs/html/auspicious__library_8hpp_source.html)
+- [include](https://anstropleuton.github.io/auspicious-library/docs/html/dir_d44c64559bbebec7f509842c48db8b23.html)
