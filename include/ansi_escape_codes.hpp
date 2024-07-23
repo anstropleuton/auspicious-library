@@ -75,7 +75,7 @@ inline constinit std::string_view csi = "\x1b\x5b";
  */
 [[nodiscard]] inline constexpr auto sgr(std::string_view code)
 {
-    /// @todo After C++26 remove this cast to std::string.
+    ///  @todo  After C++26 remove this cast to std::string.
     return std::string(csi) + std::string(code) + "m";
 }
 
@@ -89,7 +89,7 @@ inline constinit std::string_view csi = "\x1b\x5b";
     std::cout << bold << "Bolded text" << !bold << std::endl;
     ```
  *
- *  @todo Make ! and ~ operators return reverse object, if possible, to allow:
+ *  @todo  Make ! and ~ operators return reverse object, if possible, to allow:
     ```cpp
     std::cout << bold << "Bold text " << ~bold("Not bold text ")
               << "Still bold text" << ~bold << std::endl;
@@ -119,7 +119,7 @@ struct aec_t {
      */
     [[nodiscard]] inline constexpr auto operator() (std::string_view text) const
     {
-        /// @todo After C++26 remove this cast to std::string.
+        ///  @todo  After C++26 remove this cast to std::string.
         return setter + std::string(text) + resetter;
     }
 
@@ -172,7 +172,7 @@ struct aec_t {
     return aec_t { a.setter + b.setter, a.resetter + b.resetter };
 }
 
-/// @todo Add more AECs.
+///  @todo  Add more AECs.
 
 inline const aec_t reset         = { sgr("0"), sgr("0") };
 inline const aec_t bold          = { sgr("1"), sgr("22") };

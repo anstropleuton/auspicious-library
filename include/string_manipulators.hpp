@@ -94,7 +94,7 @@ template<cu::cu_compatible Container, typename Converter>
 {
     auto transformer = [&](const cu::value_type<Container> &element)
     {
-        /// @todo Remove this cast when C++26 comes out.
+        ///  @todo  Remove this cast when C++26 comes out.
         return std::string(prefix) + converter(element) + std::string(suffix);
     };
 
@@ -196,7 +196,7 @@ requires std::is_same_v<cu::value_type<Container>, char>
     return std::string(std::begin(container), std::end(container));
 }
 
-/// @todo Add to_string for std::string and char for consistency.
+///  @todo  Add to_string for std::string and char for consistency.
 
 /**
  *  @brief  Word-wrap a string at width or before width depending on the delim.
