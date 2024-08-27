@@ -23,7 +23,7 @@ var namespaceauspicious__library =
       [ "operator/", "namespaceauspicious__library_1_1cu__operators.html#a3778dae9d7adb0c79f96bd301394fba3", null ]
     ] ],
     [ "sm", "namespaceauspicious__library_1_1sm.html", [
-      [ "to_string", "namespaceauspicious__library_1_1sm.html#a6ba949956dc793812eacde5acc12fe8a", null ],
+      [ "to_string", "namespaceauspicious__library_1_1sm.html#af4d2d6d72a9c765f4fe02a0462d35bcf", null ],
       [ "to_string", "namespaceauspicious__library_1_1sm.html#a5c493accfab65d14254ca1d979d95951", null ],
       [ "to_string", "namespaceauspicious__library_1_1sm.html#a385aea0016f3aa4c6a072d4257dee8e0", null ],
       [ "to_string", "namespaceauspicious__library_1_1sm.html#aa34321aadd328ebb2cbcd8e5122865d1", null ],

@@ -27,13 +27,14 @@ var NAVTREE =
   [ "Auspicious Library", "index.html", [
     [ "Sections", "index.html#autotoc_md64", null ],
     [ "Planned Sections", "index.html#autotoc_md65", null ],
-    [ "Usage", "index.html#autotoc_md66", null ],
-    [ "Documentations", "index.html#autotoc_md67", null ],
-    [ "Changelog", "index.html#autotoc_md68", null ],
-    [ "Contributing", "index.html#autotoc_md69", null ],
-    [ "Credits", "index.html#autotoc_md70", null ],
-    [ "License", "index.html#autotoc_md71", null ],
-    [ "Doxygen", "index.html#autotoc_md72", null ],
+    [ "Prerequisite", "index.html#autotoc_md66", null ],
+    [ "Usage", "index.html#autotoc_md67", null ],
+    [ "Documentations", "index.html#autotoc_md68", null ],
+    [ "Changelog", "index.html#autotoc_md69", null ],
+    [ "Contributing", "index.html#autotoc_md70", null ],
+    [ "Credits", "index.html#autotoc_md71", null ],
+    [ "License", "index.html#autotoc_md72", null ],
+    [ "Doxygen", "index.html#autotoc_md73", null ],
     [ "Changelog", "md_Changelog.html", [
       [ "v0.0.1 - July 22, 2024", "md_Changelog.html#autotoc_md1", null ]
     ] ],
@@ -140,8 +141,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "al__ansi__escape__codes_8hpp.html",
-"namespaceauspicious__library_1_1aec.html#a9309ff7933e3c1316eca3917247add70",
-"structauspicious__library_1_1ap_1_1posix__help__format.html"
+"namespaceauspicious__library_1_1aec.html#a86dc3ae86a865eb1fd873e790f7f8bb3",
+"structauspicious__library_1_1ap_1_1parsed__argument.html#abec47b6e072bca8e094db21b0a0aca46"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -57,11 +57,14 @@ enum class \mbox{\hyperlink{namespaceauspicious__library_1_1ap_addac9e068fc6ed2a
 , \mbox{\hyperlink{namespaceauspicious__library_1_1ap_addac9e068fc6ed2aecf18adb9648b481ae89b690003f9258b7d29dd2e5e172505}{auspicious\+\_\+library\+::ap\+::zero\+\_\+or\+\_\+more}}
 , \mbox{\hyperlink{namespaceauspicious__library_1_1ap_addac9e068fc6ed2aecf18adb9648b481a6ef720567b1860990b3d5b851d7e5d8d}{auspicious\+\_\+library\+::ap\+::one\+\_\+or\+\_\+more}}
  \}
-\begin{DoxyCompactList}\small\item\em What type of variadic is it? \end{DoxyCompactList}\item 
-enum class \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838}{auspicious\+\_\+library\+::ap\+::validity}} \{ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a9f7d0ee82b6a6ca7ddeae841f3253059}{auspicious\+\_\+library\+::ap\+::valid}} = 0
-, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a41c3830d78a9c9c3999125a5441932de}{auspicious\+\_\+library\+::ap\+::unrecognized\+\_\+option}} = 1
-, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a71690c26ac3556e6e31ba5c92bc76188}{auspicious\+\_\+library\+::ap\+::unrecognized\+\_\+subcommand}} = 2
-, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a64a68ff871cac5f80f374fe513b30f92}{auspicious\+\_\+library\+::ap\+::not\+\_\+enough\+\_\+values}} = 4
+\begin{DoxyCompactList}\small\item\em What type of variadic is the parameter? \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838}{auspicious\+\_\+library\+::ap\+::validity}} \{ \newline
+\mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838aad921d60486366258809553a3db49a4a}{auspicious\+\_\+library\+::ap\+::unknown}}
+, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a9f7d0ee82b6a6ca7ddeae841f3253059}{auspicious\+\_\+library\+::ap\+::valid}}
+, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a41c3830d78a9c9c3999125a5441932de}{auspicious\+\_\+library\+::ap\+::unrecognized\+\_\+option}}
+, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a71690c26ac3556e6e31ba5c92bc76188}{auspicious\+\_\+library\+::ap\+::unrecognized\+\_\+subcommand}}
+, \newline
+\mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a64a68ff871cac5f80f374fe513b30f92}{auspicious\+\_\+library\+::ap\+::not\+\_\+enough\+\_\+values}}
  \}
 \begin{DoxyCompactList}\small\item\em Parsed argument validity. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
@@ -73,8 +76,8 @@ constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a081f7c6a5ae1
 \begin{DoxyCompactList}\small\item\em Get the type of argument from command line argument. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_adde20712869a89590d76d371a2546faa}{auspicious\+\_\+library\+::ap\+::to\+\_\+string}} (\mbox{\hyperlink{namespaceauspicious__library_1_1ap_addac9e068fc6ed2aecf18adb9648b481}{variadicity}} variadic)
 \begin{DoxyCompactList}\small\item\em Convert {\ttfamily variadicity} to string. \end{DoxyCompactList}\item 
-constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a6fef8062ae041506db90080894fc00cf}{auspicious\+\_\+library\+::ap\+::is\+\_\+parameters\+\_\+variadic}} (const std\+::vector$<$ std\+::string $>$ \&parameters)
-\begin{DoxyCompactList}\small\item\em Check if parameters is variadic. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a30d6179bf07ee65216882c60e3046c49}{auspicious\+\_\+library\+::ap\+::is\+\_\+parameter\+\_\+variadic}} (std\+::string\+\_\+view parameter)
+\begin{DoxyCompactList}\small\item\em Check if a parameter is variadic. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_aac67ce8a3e1a31274b16b2f15b34dd40}{auspicious\+\_\+library\+::ap\+::to\+\_\+string}} (\mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838}{validity}} \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a9f7d0ee82b6a6ca7ddeae841f3253059}{valid}})
 \begin{DoxyCompactList}\small\item\em Convert {\ttfamily validity} to string. \end{DoxyCompactList}\item 
 auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a4511828073a79eb04a7aef0baac3d8db}{auspicious\+\_\+library\+::ap\+::parse\+\_\+arguments}} (const std\+::vector$<$ std\+::string $>$ \&args, const std\+::vector$<$ const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1option__template}{option\+\_\+template}} \texorpdfstring{$\ast$}{*} $>$ \&options, const std\+::vector$<$ const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1subcommand__template}{subcommand\+\_\+template}} \texorpdfstring{$\ast$}{*} $>$ \&subcommands, bool switch\+\_\+ins=true) -\/$>$ std\+::vector$<$ \mbox{\hyperlink{structauspicious__library_1_1ap_1_1parsed__argument}{parsed\+\_\+argument}} $>$
@@ -116,9 +119,11 @@ Functionality to parse Command Line Arguments.
 Anstro Pleuton (\href{https://github.com/anstropleuton}{\texttt{ https\+://github.\+com/anstropleuton}}) 
 \end{DoxyAuthor}
 \begin{DoxyCopyright}{Copyright}
-Copyright (c) 2024 Anstro Pleuton
+Copyright (c) 2024 Anstro Pleuton \begin{DoxyVerb}_                   _      _
+\end{DoxyVerb}
+ / \textbackslash{} \+\_\+ \+\_\+ \+\_\+\+\_\+\+\_\+ \+\_\+ \+\_\+\+\_\+ (\+\_\+) \+\_\+\+\_\+\+\_\+(\+\_\+) \+\_\+\+\_\+\+\_\+ \+\_\+ \+\_\+ \+\_\+\+\_\+\+\_\+ / \+\_\+ $|$ \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} / \+\_\+\+\_\+\texorpdfstring{$\vert$}{|} \textquotesingle{}\+\_\+ $|$ \texorpdfstring{$\vert$}{|}/ \+\_\+\+\_\+\texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|}/ \+\_\+ $|$ \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} / \+\_\+\+\_\+\texorpdfstring{$\vert$}{|} / \+\_\+\+\_\+\+\_\+ \textbackslash{} \texorpdfstring{$\vert$}{|}\+\_\+\texorpdfstring{$\vert$}{|} \+\_\+\+\_\+ \textbackslash{} \texorpdfstring{$\vert$}{|}\+\_\+) \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} (\+\_\+\+\_\+\texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} (\+\_\+) \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|}\+\_\+\texorpdfstring{$\vert$}{|} \+\_\+\+\_\+ \textbackslash{} /\+\_\+/ \+\_\+\+\_\+\+\_\+,\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+/ .\+\_\+\+\_\+/\texorpdfstring{$\vert$}{|}\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+/ \+\_\+\+\_\+,\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+/ \texorpdfstring{$\vert$}{|}\+\_\+\texorpdfstring{$\vert$}{|} \+\_\+ \+\_\+\+\_\+\+\_\+ \+\_\+\+\_\+\+\_\+ \+\_\+\+\_\+\+\_\+ \+\_\+ \+\_\+\+\_\+\+\_\+\+\_\+\+\_\+ \+\_\+\+\_\+ \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|}\+\_\+ \+\_\+\texorpdfstring{$\vert$}{|} \+\_\+ ) \+\_\+ \textbackslash{} /\+\_\+\textbackslash{} \texorpdfstring{$\vert$}{|} \+\_\+ \textbackslash{} \textbackslash{} / / \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|}\+\_\+\+\_\+ \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} \+\_\+ \textbackslash{} / / \+\_\+ $|$ /\textbackslash{} V / \texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+/\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\textbackslash{}/\+\_\+/ \+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\textbackslash{} \texorpdfstring{$\vert$}{|}\+\_\+\texorpdfstring{$\vert$}{|}
 \end{DoxyCopyright}
-Auspicious Library is a collection of Utils for Anstro Pleuton\textquotesingle{}s programs.
+Auspicious Library is a collection of utils for Anstro Pleuton\textquotesingle{}s programs.
 
 This software is licensed under the terms of MIT License.
 
@@ -126,4 +131,9 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "{}\+AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+THE SOFTWARE IS PROVIDED "{}\+AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Credits where credit\textquotesingle{}s due\+:
+\begin{DoxyItemize}
+\item ASCII Art generated using \href{https://www.patorjk.com/software/taag}{\texttt{ https\+://www.\+patorjk.\+com/software/taag}} with font "{}\+Standard"{} (for "{}\+Auspicious"{}) and "{}\+Small"{} (for "{}\+LIBRARY"{}). 
+\end{DoxyItemize}

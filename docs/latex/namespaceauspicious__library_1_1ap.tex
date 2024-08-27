@@ -45,11 +45,14 @@ enum class \mbox{\hyperlink{namespaceauspicious__library_1_1ap_addac9e068fc6ed2a
 , \mbox{\hyperlink{namespaceauspicious__library_1_1ap_addac9e068fc6ed2aecf18adb9648b481ae89b690003f9258b7d29dd2e5e172505}{zero\+\_\+or\+\_\+more}}
 , \mbox{\hyperlink{namespaceauspicious__library_1_1ap_addac9e068fc6ed2aecf18adb9648b481a6ef720567b1860990b3d5b851d7e5d8d}{one\+\_\+or\+\_\+more}}
  \}
-\begin{DoxyCompactList}\small\item\em What type of variadic is it? \end{DoxyCompactList}\item 
-enum class \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838}{validity}} \{ \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a9f7d0ee82b6a6ca7ddeae841f3253059}{valid}} = 0
-, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a41c3830d78a9c9c3999125a5441932de}{unrecognized\+\_\+option}} = 1
-, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a71690c26ac3556e6e31ba5c92bc76188}{unrecognized\+\_\+subcommand}} = 2
-, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a64a68ff871cac5f80f374fe513b30f92}{not\+\_\+enough\+\_\+values}} = 4
+\begin{DoxyCompactList}\small\item\em What type of variadic is the parameter? \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838}{validity}} \{ \newline
+\mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838aad921d60486366258809553a3db49a4a}{unknown}}
+, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a9f7d0ee82b6a6ca7ddeae841f3253059}{valid}}
+, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a41c3830d78a9c9c3999125a5441932de}{unrecognized\+\_\+option}}
+, \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a71690c26ac3556e6e31ba5c92bc76188}{unrecognized\+\_\+subcommand}}
+, \newline
+\mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a64a68ff871cac5f80f374fe513b30f92}{not\+\_\+enough\+\_\+values}}
  \}
 \begin{DoxyCompactList}\small\item\em Parsed argument validity. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
@@ -61,8 +64,8 @@ constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a081f7c6a5ae1
 \begin{DoxyCompactList}\small\item\em Get the type of argument from command line argument. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_adde20712869a89590d76d371a2546faa}{to\+\_\+string}} (\mbox{\hyperlink{namespaceauspicious__library_1_1ap_addac9e068fc6ed2aecf18adb9648b481}{variadicity}} variadic)
 \begin{DoxyCompactList}\small\item\em Convert {\ttfamily variadicity} to string. \end{DoxyCompactList}\item 
-constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a6fef8062ae041506db90080894fc00cf}{is\+\_\+parameters\+\_\+variadic}} (const std\+::vector$<$ std\+::string $>$ \&parameters)
-\begin{DoxyCompactList}\small\item\em Check if parameters is variadic. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a30d6179bf07ee65216882c60e3046c49}{is\+\_\+parameter\+\_\+variadic}} (std\+::string\+\_\+view parameter)
+\begin{DoxyCompactList}\small\item\em Check if a parameter is variadic. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_aac67ce8a3e1a31274b16b2f15b34dd40}{to\+\_\+string}} (\mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838}{validity}} \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a9f7d0ee82b6a6ca7ddeae841f3253059}{valid}})
 \begin{DoxyCompactList}\small\item\em Convert {\ttfamily validity} to string. \end{DoxyCompactList}\item 
 auto \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a4511828073a79eb04a7aef0baac3d8db}{parse\+\_\+arguments}} (const std\+::vector$<$ std\+::string $>$ \&args, const std\+::vector$<$ const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1option__template}{option\+\_\+template}} \texorpdfstring{$\ast$}{*} $>$ \&options, const std\+::vector$<$ const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1subcommand__template}{subcommand\+\_\+template}} \texorpdfstring{$\ast$}{*} $>$ \&subcommands, bool switch\+\_\+ins=true) -\/$>$ std\+::vector$<$ \mbox{\hyperlink{structauspicious__library_1_1ap_1_1parsed__argument}{parsed\+\_\+argument}} $>$
@@ -104,20 +107,20 @@ This supports both the new POSIX-\/style arguments and the old Microsoft-\/style
 
 New POSIX-\/style arguments\+:
 \begin{DoxyItemize}
-\item Long Argument\+: Each long argument starts with two hyphen ({\ttfamily -\/-\/}) and consists of one or more characters for recognition. Such as {\ttfamily -\/-\/long-\/argument}. The allowed characters are not an {\ttfamily =} sign or a {\ttfamily \+:} symbol. If used, the behavior is undefined.
-\item Short Argument\+: Each short argument starts with one hyphen ({\ttfamily -\/}) and consists of one character for recognition. Such as {\ttfamily -\/a}. If multiple characters are found, such as {\ttfamily -\/abc}, it internally splits each character as its own separate short arguments, such as {\ttfamily -\/a}, {\ttfamily -\/b}, {\ttfamily -\/c}. The allowed characters are not an {\ttfamily =} sign or a {\ttfamily \+:} symbol. If used, the behavior is undefined.
-\item Use of a {\ttfamily -\/-\/} with no additional characters indicates end of parsing and rest of the arguments are unparsed.
+\item Long Argument\+: Each long argument starts with two hyphen ("{}-\/-\/"{}) and consists of one or more characters for recognition. Such as "{}-\/-\/long-\/argument"{}. The allowed characters are not an "{}="{} sign or a "{}\+:"{} symbol. If used, the behavior is undefined.
+\item Short Argument\+: Each short argument starts with one hyphen ("{}-\/"{}) and consists of one character for recognition. Such as "{}-\/a"{}. If multiple characters are found, such as "{}-\/abc"{}, it internally splits each character as its own separate short arguments, such as "{}-\/a"{}, "{}-\/b"{}, "{}-\/c"{}. The allowed characters are not an "{}="{} sign or a "{}\+:"{} symbol. If used, the behavior is undefined.
+\item Use of a "{}-\/-\/"{} with no additional characters indicates end of parsing and rest of the arguments are unparsed.
 \end{DoxyItemize}
 
 Old Microsoft-\/style arguments\+:
 \begin{DoxyItemize}
 \item There is no dedicated section for the old Microsoft-\/style arguments, often known as "{}switches"{}.
-\item Instead, each switch is treated as a long option if the switch is more than one character for recognition, such as {\ttfamily /switch}.
-\item If a switch is one character for recognition, such as {\ttfamily /s}, it is treated both as a long option and a short option (short name is matched first).
+\item Instead, each switch is treated as a long option if the switch is more than one character for recognition, such as "{}/switch"{}.
+\item If a switch is one character for recognition, such as "{}/s"{}, it is treated both as a long option and a short option (short name is matched first).
 \item If a switch is not matched, you can optionally make it try to match case insensitively.
 \end{DoxyItemize}
 
-In both cases, arguments that contain an {\ttfamily =} sign or a {\ttfamily \+:} symbol, such as --option=value, -\/o\+:value, /switch=value or /s\+:value, are internally split from with the first found {\ttfamily =} sign or {\ttfamily \+:} symbol.
+In both cases, arguments that contain an \textquotesingle{}=\textquotesingle{} sign or a \textquotesingle{}\+:\textquotesingle{} symbol, such as --option=value, -\/o\+:value, /switch=value or /s\+:value, are internally split with the first found \textquotesingle{}=\textquotesingle{} sign or \textquotesingle{}\+:\textquotesingle{} symbol. This is only done when the option or switch is defined to have parameters.
 
 Each option or switch can have one or more value parameter. Each argument after an option or switch that do contain value parameter will be treated as the value to associate with an option or a switch. If an argument that is to be treated as a value looked like an option or a switch, it will not be treated as value associated to the previously appeared option or switch. In that case, if default argument is provided, it will use that. For example, let\textquotesingle{}s say you have parameter as such\+: 
 \begin{DoxyCode}{0}
@@ -136,7 +139,11 @@ Each option or switch can have one or more value parameter. Each argument after 
  This will make ID and Password parameter as a mandatory parameter. \begin{DoxySeeAlso}{See also}
 \doxylink{structauspicious__library_1_1ap_1_1option__template}{option\+\_\+template}.
 \end{DoxySeeAlso}
-You can use "{}..."{} as the last parameter if you want variadic parameters. i.\+e., all parameters not detected as option will be added to this vector. Use "{}parameter-\/name..."{} if you want to have at least one value. 
+You can use "{}..."{} as the last parameter if you want variadic parameters. i.\+e., all parameters not detected as option will be added to this vector. Use "{}parameter-\/name..."{} if you want to have at least one value.
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000005}{Todo}}]Proper internationalization support? Currently std\+::string is used, which is a string of char, char cannot hold any more than 1 byte. Hence internal counting characters will count the multi-\/byte character and international characters for short option is out of the window. \end{DoxyRefDesc}
+
 
 \doxysubsection{Enumeration Type Documentation}
 \Hypertarget{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7}\index{auspicious\_library::ap@{auspicious\_library::ap}!argument\_type@{argument\_type}}
@@ -151,35 +158,35 @@ Type for argument differentiation.
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{unknown@{unknown}!auspicious\_library::ap@{auspicious\_library::ap}}\index{auspicious\_library::ap@{auspicious\_library::ap}!unknown@{unknown}}}\Hypertarget{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7aad921d60486366258809553a3db49a4a}\label{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7} 
-unknown&\\
+unknown&Argument type cannot be determined. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{empty@{empty}!auspicious\_library::ap@{auspicious\_library::ap}}\index{auspicious\_library::ap@{auspicious\_library::ap}!empty@{empty}}}\Hypertarget{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7aa2e4822a98337283e39f7b60acf85ec9}\label{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7} 
-empty&\\
+empty&Argument is empty. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{short\_option@{short\_option}!auspicious\_library::ap@{auspicious\_library::ap}}\index{auspicious\_library::ap@{auspicious\_library::ap}!short\_option@{short\_option}}}\Hypertarget{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7ac3dd701bb892f05ae6d6ef5957275c9f}\label{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7} 
-short\+\_\+option&\\
+short\+\_\+option&Argument is in form of "{}-\/a"{}, "{}-\/abc=value"{}, etc. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{long\_option@{long\_option}!auspicious\_library::ap@{auspicious\_library::ap}}\index{auspicious\_library::ap@{auspicious\_library::ap}!long\_option@{long\_option}}}\Hypertarget{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7a274160f27f00ca8fbda3d84931e70a12}\label{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7} 
-long\+\_\+option&\\
+long\+\_\+option&Argument is in form of "{}-\/-\/argument"{}, "{}-\/-\/argument=value"{}, etc. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{microsoft\_switch@{microsoft\_switch}!auspicious\_library::ap@{auspicious\_library::ap}}\index{auspicious\_library::ap@{auspicious\_library::ap}!microsoft\_switch@{microsoft\_switch}}}\Hypertarget{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7a797d63f1b8b7e884523a49aba3350d42}\label{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7} 
-microsoft\+\_\+switch&\\
+microsoft\+\_\+switch&Argument is in form of "{}/argument"{}, "{}/argument\+:value"{}, etc. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{single\_hyphen@{single\_hyphen}!auspicious\_library::ap@{auspicious\_library::ap}}\index{auspicious\_library::ap@{auspicious\_library::ap}!single\_hyphen@{single\_hyphen}}}\Hypertarget{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7ac55de9c24e0a63900ac49771f8e6aea0}\label{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7} 
-single\+\_\+hyphen&\\
+single\+\_\+hyphen&Argument is "{}-\/"{}. This is treated just as regular argument. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{double\_hyphen@{double\_hyphen}!auspicious\_library::ap@{auspicious\_library::ap}}\index{auspicious\_library::ap@{auspicious\_library::ap}!double\_hyphen@{double\_hyphen}}}\Hypertarget{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7aaf019a40ded0e664b4ff58a07a82dc1e}\label{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7} 
-double\+\_\+hyphen&\\
+double\+\_\+hyphen&Argument is "{}-\/-\/"{}. End of parsing. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{regular\_argument@{regular\_argument}!auspicious\_library::ap@{auspicious\_library::ap}}\index{auspicious\_library::ap@{auspicious\_library::ap}!regular\_argument@{regular\_argument}}}\Hypertarget{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7aa20e56bea0585638d84185a408b04378}\label{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7} 
-regular\+\_\+argument&\\
+regular\+\_\+argument&Argument is in form of "{}argument"{}, etc. \\
 \hline
 
 \end{DoxyEnumFields}
@@ -191,19 +198,19 @@ enum class \mbox{\hyperlink{namespaceauspicious__library_1_1ap_addac9e068fc6ed2a
 
 
 
-What type of variadic is it? 
+What type of variadic is the parameter? 
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{not\_variadic@{not\_variadic}!auspicious\_library::ap@{auspicious\_library::ap}}\index{auspicious\_library::ap@{auspicious\_library::ap}!not\_variadic@{not\_variadic}}}\Hypertarget{namespaceauspicious__library_1_1ap_addac9e068fc6ed2aecf18adb9648b481abd4e4b9e6b527091089949637b49dccc}\label{namespaceauspicious__library_1_1ap_addac9e068fc6ed2aecf18adb9648b481} 
-not\+\_\+variadic&\\
+not\+\_\+variadic&Parameter is not variadic. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{zero\_or\_more@{zero\_or\_more}!auspicious\_library::ap@{auspicious\_library::ap}}\index{auspicious\_library::ap@{auspicious\_library::ap}!zero\_or\_more@{zero\_or\_more}}}\Hypertarget{namespaceauspicious__library_1_1ap_addac9e068fc6ed2aecf18adb9648b481ae89b690003f9258b7d29dd2e5e172505}\label{namespaceauspicious__library_1_1ap_addac9e068fc6ed2aecf18adb9648b481} 
-zero\+\_\+or\+\_\+more&\\
+zero\+\_\+or\+\_\+more&Parameter is "{}..."{}. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{one\_or\_more@{one\_or\_more}!auspicious\_library::ap@{auspicious\_library::ap}}\index{auspicious\_library::ap@{auspicious\_library::ap}!one\_or\_more@{one\_or\_more}}}\Hypertarget{namespaceauspicious__library_1_1ap_addac9e068fc6ed2aecf18adb9648b481a6ef720567b1860990b3d5b851d7e5d8d}\label{namespaceauspicious__library_1_1ap_addac9e068fc6ed2aecf18adb9648b481} 
-one\+\_\+or\+\_\+more&\\
+one\+\_\+or\+\_\+more&Parameter is in form "{}parameter..."{}. \\
 \hline
 
 \end{DoxyEnumFields}
@@ -218,20 +225,24 @@ enum class \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c7
 Parsed argument validity. 
 
 \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{unknown@{unknown}!auspicious\_library::ap@{auspicious\_library::ap}}\index{auspicious\_library::ap@{auspicious\_library::ap}!unknown@{unknown}}}\Hypertarget{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838aad921d60486366258809553a3db49a4a}\label{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838} 
+unknown&Something definitely has gone wrong. \\
+\hline
+
 \raisebox{\heightof{T}}[0pt][0pt]{\index{valid@{valid}!auspicious\_library::ap@{auspicious\_library::ap}}\index{auspicious\_library::ap@{auspicious\_library::ap}!valid@{valid}}}\Hypertarget{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a9f7d0ee82b6a6ca7ddeae841f3253059}\label{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838} 
-valid&\\
+valid&Everything that can go right, gone right. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{unrecognized\_option@{unrecognized\_option}!auspicious\_library::ap@{auspicious\_library::ap}}\index{auspicious\_library::ap@{auspicious\_library::ap}!unrecognized\_option@{unrecognized\_option}}}\Hypertarget{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a41c3830d78a9c9c3999125a5441932de}\label{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838} 
-unrecognized\+\_\+option&\\
+unrecognized\+\_\+option&Option is unrecognized. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{unrecognized\_subcommand@{unrecognized\_subcommand}!auspicious\_library::ap@{auspicious\_library::ap}}\index{auspicious\_library::ap@{auspicious\_library::ap}!unrecognized\_subcommand@{unrecognized\_subcommand}}}\Hypertarget{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a71690c26ac3556e6e31ba5c92bc76188}\label{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838} 
-unrecognized\+\_\+subcommand&\\
+unrecognized\+\_\+subcommand&Subcommand is unrecognized. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{not\_enough\_values@{not\_enough\_values}!auspicious\_library::ap@{auspicious\_library::ap}}\index{auspicious\_library::ap@{auspicious\_library::ap}!not\_enough\_values@{not\_enough\_values}}}\Hypertarget{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838a64a68ff871cac5f80f374fe513b30f92}\label{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838} 
-not\+\_\+enough\+\_\+values&\\
+not\+\_\+enough\+\_\+values&Option or subcommand\textquotesingle{}s parameters requirement is not met. \\
 \hline
 
 \end{DoxyEnumFields}
@@ -292,23 +303,23 @@ Convert {\ttfamily variadicity} to string.
 \begin{DoxyReturn}{Returns}
 String representing {\ttfamily variadicity} enumeration. 
 \end{DoxyReturn}
-\Hypertarget{namespaceauspicious__library_1_1ap_a6fef8062ae041506db90080894fc00cf}\index{auspicious\_library::ap@{auspicious\_library::ap}!is\_parameters\_variadic@{is\_parameters\_variadic}}
-\index{is\_parameters\_variadic@{is\_parameters\_variadic}!auspicious\_library::ap@{auspicious\_library::ap}}
-\doxysubsubsection{\texorpdfstring{is\_parameters\_variadic()}{is\_parameters\_variadic()}}
-{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1ap_a6fef8062ae041506db90080894fc00cf} 
-auto auspicious\+\_\+library\+::ap\+::is\+\_\+parameters\+\_\+variadic (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{parameters}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+\Hypertarget{namespaceauspicious__library_1_1ap_a30d6179bf07ee65216882c60e3046c49}\index{auspicious\_library::ap@{auspicious\_library::ap}!is\_parameter\_variadic@{is\_parameter\_variadic}}
+\index{is\_parameter\_variadic@{is\_parameter\_variadic}!auspicious\_library::ap@{auspicious\_library::ap}}
+\doxysubsubsection{\texorpdfstring{is\_parameter\_variadic()}{is\_parameter\_variadic()}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1ap_a30d6179bf07ee65216882c60e3046c49} 
+auto auspicious\+\_\+library\+::ap\+::is\+\_\+parameter\+\_\+variadic (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{parameter}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
 
 
 
-Check if parameters is variadic. 
+Check if a parameter is variadic. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em parameters} & Parameters. \\
+{\em parameter} & Parameter. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-True if parameters is variadic. 
+True if a parameter is variadic. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1ap_aac67ce8a3e1a31274b16b2f15b34dd40}\index{auspicious\_library::ap@{auspicious\_library::ap}!to\_string@{to\_string}}
 \index{to\_string@{to\_string}!auspicious\_library::ap@{auspicious\_library::ap}}

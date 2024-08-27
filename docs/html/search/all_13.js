@@ -23,5 +23,6 @@ var searchData=
   ['prefer_20auto_20keyword_20',['Prefer auto Keyword',['../md_Guidelines.html#autotoc_md58',1,'']]],
   ['prefix_21',['prefix',['../structauspicious__library_1_1ap_1_1help__enclose__t.html#a1feb00e2a12315adc213d3d45ed33ce3',1,'auspicious_library::ap::help_enclose_t']]],
   ['prefix_20_3a_3a_22',['Prefix ::',['../md_Guidelines.html#autotoc_md60',1,'']]],
-  ['print_5fhelp_5fmessage_23',['print_help_message',['../namespaceauspicious__library_1_1ap.html#af7ef9d26a4f2321a90e9093a52722b34',1,'auspicious_library::ap']]]
+  ['prerequisite_23',['Prerequisite',['../index.html#autotoc_md66',1,'']]],
+  ['print_5fhelp_5fmessage_24',['print_help_message',['../namespaceauspicious__library_1_1ap.html#af7ef9d26a4f2321a90e9093a52722b34',1,'auspicious_library::ap']]]
 ];

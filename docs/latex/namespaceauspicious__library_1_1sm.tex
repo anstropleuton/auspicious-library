@@ -8,7 +8,8 @@ String Manipulators.
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$cu\+::cu\+\_\+compatible Container, typename Converter $>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a6ba949956dc793812eacde5acc12fe8a}{to\+\_\+string}} (const Container \&container, Converter converter, std\+::string\+\_\+view separator="{}, "{}, std\+::string\+\_\+view prefix="{}"{}, std\+::string\+\_\+view suffix="{}"{})
+{\footnotesize template$<$cu\+::cu\+\_\+compatible Container, typename Converter $>$ \newline
+requires (!std\+::is\+\_\+same\+\_\+v$<$Converter, std\+::string$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_af4d2d6d72a9c765f4fe02a0462d35bcf}{to\+\_\+string}} (const Container \&container, Converter converter, std\+::string\+\_\+view separator="{}, "{}, std\+::string\+\_\+view prefix="{}"{}, std\+::string\+\_\+view suffix="{}"{})
 \begin{DoxyCompactList}\small\item\em Convert a container to comma separated string. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a5c493accfab65d14254ca1d979d95951}{to\+\_\+string}} (const Container \&container, std\+::string\+\_\+view separator="{}, "{}, std\+::string\+\_\+view prefix="{}"{}, std\+::string\+\_\+view suffix="{}"{})
 \begin{DoxyCompactList}\small\item\em Convert a container to comma separated string. \end{DoxyCompactList}\item 
@@ -47,11 +48,12 @@ constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a317943d42d62
 String Manipulators. 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{namespaceauspicious__library_1_1sm_a6ba949956dc793812eacde5acc12fe8a}\index{auspicious\_library::sm@{auspicious\_library::sm}!to\_string@{to\_string}}
+\Hypertarget{namespaceauspicious__library_1_1sm_af4d2d6d72a9c765f4fe02a0462d35bcf}\index{auspicious\_library::sm@{auspicious\_library::sm}!to\_string@{to\_string}}
 \index{to\_string@{to\_string}!auspicious\_library::sm@{auspicious\_library::sm}}
 \doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
-{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a6ba949956dc793812eacde5acc12fe8a} 
-template$<$cu\+::cu\+\_\+compatible Container, typename Converter $>$ \\
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_af4d2d6d72a9c765f4fe02a0462d35bcf} 
+template$<$cu\+::cu\+\_\+compatible Container, typename Converter $>$ \newline
+requires (!std\+::is\+\_\+same\+\_\+v$<$Converter, std\+::string$>$)\\
 auto auspicious\+\_\+library\+::sm\+::to\+\_\+string (\begin{DoxyParamCaption}\item[{const Container \&}]{container}{, }\item[{Converter}]{converter}{, }\item[{std\+::string\+\_\+view}]{separator}{ = {\ttfamily "{},~"{}}, }\item[{std\+::string\+\_\+view}]{prefix}{ = {\ttfamily "{}"{}}, }\item[{std\+::string\+\_\+view}]{suffix}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
 
 
@@ -85,7 +87,7 @@ String representation of all elements.
 The string is comma AND space separated by default. 
 \end{DoxyNote}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000005}{Todo}}]Remove this cast when C++26 comes out. \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]Remove this cast when C++26 comes out. \end{DoxyRefDesc}
 \Hypertarget{namespaceauspicious__library_1_1sm_a5c493accfab65d14254ca1d979d95951}\index{auspicious\_library::sm@{auspicious\_library::sm}!to\_string@{to\_string}}
 \index{to\_string@{to\_string}!auspicious\_library::sm@{auspicious\_library::sm}}
 \doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
@@ -223,7 +225,7 @@ auto auspicious\+\_\+library\+::sm\+::word\+\_\+wrap (\begin{DoxyParamCaption}\i
 Word-\/wrap a string at width or before width depending on the delim. 
 
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]Add to\+\_\+string for std\+::string and char for consistency. \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000007}{Todo}}]Add to\+\_\+string for std\+::string and char for consistency. \end{DoxyRefDesc}
 
 
 The string is tried to be split at the width if the character at the width is one of the delimiter. If not, the split occurs at the character before the width that is one of the delimiter. This process is repeated until the string is less than the size of width. If a word is longer than the specified width, the word is kept as is. If you use force, the word will be split.

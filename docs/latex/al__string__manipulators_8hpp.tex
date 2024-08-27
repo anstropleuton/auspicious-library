@@ -5,6 +5,7 @@
 Functionality to manipulate and format strings.  
 
 
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
 {\ttfamily \#include $<$cctype$>$}\newline
 {\ttfamily \#include $<$cstddef$>$}\newline
 {\ttfamily \#include $<$iterator$>$}\newline
@@ -24,7 +25,8 @@ namespace \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators}{auspic
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$cu\+::cu\+\_\+compatible Container, typename Converter $>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a6ba949956dc793812eacde5acc12fe8a}{auspicious\+\_\+library\+::sm\+::to\+\_\+string}} (const Container \&container, Converter converter, std\+::string\+\_\+view separator="{}, "{}, std\+::string\+\_\+view prefix="{}"{}, std\+::string\+\_\+view suffix="{}"{})
+{\footnotesize template$<$cu\+::cu\+\_\+compatible Container, typename Converter $>$ \newline
+requires (!std\+::is\+\_\+same\+\_\+v$<$Converter, std\+::string$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_af4d2d6d72a9c765f4fe02a0462d35bcf}{auspicious\+\_\+library\+::sm\+::to\+\_\+string}} (const Container \&container, Converter converter, std\+::string\+\_\+view separator="{}, "{}, std\+::string\+\_\+view prefix="{}"{}, std\+::string\+\_\+view suffix="{}"{})
 \begin{DoxyCompactList}\small\item\em Convert a container to comma separated string. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a5c493accfab65d14254ca1d979d95951}{auspicious\+\_\+library\+::sm\+::to\+\_\+string}} (const Container \&container, std\+::string\+\_\+view separator="{}, "{}, std\+::string\+\_\+view prefix="{}"{}, std\+::string\+\_\+view suffix="{}"{})
 \begin{DoxyCompactList}\small\item\em Convert a container to comma separated string. \end{DoxyCompactList}\item 
@@ -78,9 +80,11 @@ Functionality to manipulate and format strings.
 Anstro Pleuton (\href{https://github.com/anstropleuton}{\texttt{ https\+://github.\+com/anstropleuton}}) 
 \end{DoxyAuthor}
 \begin{DoxyCopyright}{Copyright}
-Copyright (c) 2024 Anstro Pleuton
+Copyright (c) 2024 Anstro Pleuton \begin{DoxyVerb}_                   _      _
+\end{DoxyVerb}
+ / \textbackslash{} \+\_\+ \+\_\+ \+\_\+\+\_\+\+\_\+ \+\_\+ \+\_\+\+\_\+ (\+\_\+) \+\_\+\+\_\+\+\_\+(\+\_\+) \+\_\+\+\_\+\+\_\+ \+\_\+ \+\_\+ \+\_\+\+\_\+\+\_\+ / \+\_\+ $|$ \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} / \+\_\+\+\_\+\texorpdfstring{$\vert$}{|} \textquotesingle{}\+\_\+ $|$ \texorpdfstring{$\vert$}{|}/ \+\_\+\+\_\+\texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|}/ \+\_\+ $|$ \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} / \+\_\+\+\_\+\texorpdfstring{$\vert$}{|} / \+\_\+\+\_\+\+\_\+ \textbackslash{} \texorpdfstring{$\vert$}{|}\+\_\+\texorpdfstring{$\vert$}{|} \+\_\+\+\_\+ \textbackslash{} \texorpdfstring{$\vert$}{|}\+\_\+) \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} (\+\_\+\+\_\+\texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} (\+\_\+) \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|}\+\_\+\texorpdfstring{$\vert$}{|} \+\_\+\+\_\+ \textbackslash{} /\+\_\+/ \+\_\+\+\_\+\+\_\+,\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+/ .\+\_\+\+\_\+/\texorpdfstring{$\vert$}{|}\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+/ \+\_\+\+\_\+,\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+/ \texorpdfstring{$\vert$}{|}\+\_\+\texorpdfstring{$\vert$}{|} \+\_\+ \+\_\+\+\_\+\+\_\+ \+\_\+\+\_\+\+\_\+ \+\_\+\+\_\+\+\_\+ \+\_\+ \+\_\+\+\_\+\+\_\+\+\_\+\+\_\+ \+\_\+\+\_\+ \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|}\+\_\+ \+\_\+\texorpdfstring{$\vert$}{|} \+\_\+ ) \+\_\+ \textbackslash{} /\+\_\+\textbackslash{} \texorpdfstring{$\vert$}{|} \+\_\+ \textbackslash{} \textbackslash{} / / \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|}\+\_\+\+\_\+ \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} \+\_\+ \textbackslash{} / / \+\_\+ $|$ /\textbackslash{} V / \texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+/\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\textbackslash{}/\+\_\+/ \+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\textbackslash{} \texorpdfstring{$\vert$}{|}\+\_\+\texorpdfstring{$\vert$}{|}
 \end{DoxyCopyright}
-Auspicious Library is a collection of Utils for Anstro Pleuton\textquotesingle{}s programs.
+Auspicious Library is a collection of utils for Anstro Pleuton\textquotesingle{}s programs.
 
 This software is licensed under the terms of MIT License.
 
@@ -88,4 +92,9 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "{}\+AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+THE SOFTWARE IS PROVIDED "{}\+AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Credits where credit\textquotesingle{}s due\+:
+\begin{DoxyItemize}
+\item ASCII Art generated using \href{https://www.patorjk.com/software/taag}{\texttt{ https\+://www.\+patorjk.\+com/software/taag}} with font "{}\+Standard"{} (for "{}\+Auspicious"{}) and "{}\+Small"{} (for "{}\+LIBRARY"{}). 
+\end{DoxyItemize}

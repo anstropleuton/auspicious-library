@@ -25,6 +25,7 @@ var al__argument__parser_8hpp =
       [ "one_or_more", "al__argument__parser_8hpp.html#addac9e068fc6ed2aecf18adb9648b481a6ef720567b1860990b3d5b851d7e5d8d", null ]
     ] ],
     [ "validity", "al__argument__parser_8hpp.html#ac9c4f83edd8349c71b6993a56ce5a838", [
+      [ "unknown", "al__argument__parser_8hpp.html#ac9c4f83edd8349c71b6993a56ce5a838aad921d60486366258809553a3db49a4a", null ],
       [ "valid", "al__argument__parser_8hpp.html#ac9c4f83edd8349c71b6993a56ce5a838a9f7d0ee82b6a6ca7ddeae841f3253059", null ],
       [ "unrecognized_option", "al__argument__parser_8hpp.html#ac9c4f83edd8349c71b6993a56ce5a838a41c3830d78a9c9c3999125a5441932de", null ],
       [ "unrecognized_subcommand", "al__argument__parser_8hpp.html#ac9c4f83edd8349c71b6993a56ce5a838a71690c26ac3556e6e31ba5c92bc76188", null ],
@@ -33,7 +34,7 @@ var al__argument__parser_8hpp =
     [ "to_string", "al__argument__parser_8hpp.html#a0d6683c3ae40660d05871f804da2cfe0", null ],
     [ "get_argument_type", "al__argument__parser_8hpp.html#a081f7c6a5ae1824b2c08ef39eddbd983", null ],
     [ "to_string", "al__argument__parser_8hpp.html#adde20712869a89590d76d371a2546faa", null ],
-    [ "is_parameters_variadic", "al__argument__parser_8hpp.html#a6fef8062ae041506db90080894fc00cf", null ],
+    [ "is_parameter_variadic", "al__argument__parser_8hpp.html#a30d6179bf07ee65216882c60e3046c49", null ],
     [ "to_string", "al__argument__parser_8hpp.html#aac67ce8a3e1a31274b16b2f15b34dd40", null ],
     [ "parse_arguments", "al__argument__parser_8hpp.html#a4511828073a79eb04a7aef0baac3d8db", null ],
     [ "parse_arguments", "al__argument__parser_8hpp.html#a2f90586401cf4979e91aa7ad22edd47b", null ],

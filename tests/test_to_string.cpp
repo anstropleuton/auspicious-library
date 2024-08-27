@@ -5,7 +5,17 @@
  *
  *  @copyright  Copyright (c) 2024 Anstro Pleuton
  *
- *  Auspicious Library is a collection of Utils for Anstro Pleuton's programs.
+ *      _                   _      _
+ *     / \  _   _ ___ _ __ (_) ___(_) ___  _   _ ___
+ *    / _ \| | | / __| '_ \| |/ __| |/ _ \| | | / __|
+ *   / ___ \ |_| \__ \ |_) | | (__| | (_) | |_| \__ \
+ *  /_/   \_\__,_|___/ .__/|_|\___|_|\___/ \__,_|___/
+ *                   |_|  _    ___ ___ ___    _   _____   __
+ *                       | |  |_ _| _ ) _ \  /_\ | _ \ \ / /
+ *                       | |__ | || _ \   / / _ \|   /\ V /
+ *                       |____|___|___/_|_\/_/ \_\_|_\ |_|
+ *
+ *  Auspicious Library is a collection of utils for Anstro Pleuton's programs.
  *
  *  This software is licensed under the terms of MIT License.
  *
@@ -26,6 +36,10 @@
  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  *  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  *  IN THE SOFTWARE.
+ *
+ *  Credits where credit's due:
+ *  - ASCII Art generated using https://www.patorjk.com/software/taag with font
+ *    "Standard" (for "Auspicious") and "Small" (for "LIBRARY").
  */
 
 #include <cstddef>
@@ -60,8 +74,8 @@ using namespace std::string_view_literals;
 
     auto string = al::to_string(vector, converter, "... ", "<", ">");
 
-    std::println("string: {}",   string);
-    std::println("expected: {}", expected);
+    logln("string: {}",   string);
+    logln("expected: {}", expected);
 
     T_ASSERT_CTR(string, expected);
 
@@ -81,8 +95,8 @@ using namespace std::string_view_literals;
 
     auto string = al::to_string(vector);
 
-    std::println("string: {}",   string);
-    std::println("expected: {}", expected);
+    logln("string: {}",   string);
+    logln("expected: {}", expected);
 
     T_ASSERT_CTR(string, expected);
 
@@ -102,8 +116,8 @@ using namespace std::string_view_literals;
 
     auto string = al::to_string(vector);
 
-    std::println("string: {}",   string);
-    std::println("expected: {}", expected);
+    logln("string: {}",   string);
+    logln("expected: {}", expected);
 
     T_ASSERT_CTR(string, expected);
 
@@ -125,8 +139,8 @@ using namespace std::string_view_literals;
 
     auto string = al::to_string(vector);
 
-    std::println("string: {}",   string);
-    std::println("expected: {}", expected);
+    logln("string: {}",   string);
+    logln("expected: {}", expected);
 
     T_ASSERT_CTR(string, expected);
 
@@ -150,8 +164,8 @@ using namespace std::string_view_literals;
 
     auto string = al::chars_to_string(vector);
 
-    std::println("string: {}",   string);
-    std::println("expected: {}", expected);
+    logln("string: {}",   string);
+    logln("expected: {}", expected);
 
     T_ASSERT_CTR(string, expected);
 
@@ -201,10 +215,22 @@ using namespace std::string_view_literals;
         test_sm_chars_to_string
     });
 
-    auto failed_tests = suite.run();
+    std::size_t errors = (std::size_t)-1;
+    try
+    {
+        auto failed_tests = suite.run();
 
-    print_failed_tests(failed_tests);
-    auto errors = get_failed_tests_errors(failed_tests);
+        print_failed_tests(failed_tests);
+        errors = get_failed_tests_errors(failed_tests);
+    }
+    catch (const std::exception &e)
+    {
+        logln("Exception occurred during test: {}", e.what());
+    }
+    catch (...)
+    {
+        logln("Unknown exception occurred during test");
+    }
 
     for (auto &test : suite.tests)
     {

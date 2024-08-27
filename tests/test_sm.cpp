@@ -5,7 +5,17 @@
  *
  *  @copyright  Copyright (c) 2024 Anstro Pleuton
  *
- *  Auspicious Library is a collection of Utils for Anstro Pleuton's programs.
+ *      _                   _      _
+ *     / \  _   _ ___ _ __ (_) ___(_) ___  _   _ ___
+ *    / _ \| | | / __| '_ \| |/ __| |/ _ \| | | / __|
+ *   / ___ \ |_| \__ \ |_) | | (__| | (_) | |_| \__ \
+ *  /_/   \_\__,_|___/ .__/|_|\___|_|\___/ \__,_|___/
+ *                   |_|  _    ___ ___ ___    _   _____   __
+ *                       | |  |_ _| _ ) _ \  /_\ | _ \ \ / /
+ *                       | |__ | || _ \   / / _ \|   /\ V /
+ *                       |____|___|___/_|_\/_/ \_\_|_\ |_|
+ *
+ *  Auspicious Library is a collection of utils for Anstro Pleuton's programs.
  *
  *  This software is licensed under the terms of MIT License.
  *
@@ -26,6 +36,10 @@
  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  *  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  *  IN THE SOFTWARE.
+ *
+ *  Credits where credit's due:
+ *  - ASCII Art generated using https://www.patorjk.com/software/taag with font
+ *    "Standard" (for "Auspicious") and "Small" (for "LIBRARY").
  */
 
 #include <cstddef>
@@ -90,15 +104,15 @@ using namespace std::string_view_literals;
     auto wrapped_1 = al::word_wrap(long_string, 40);
     auto wrapped_2 = al::word_wrap(long_string, 40, true);
 
-    std::println("long_string:\n{}", long_string);
+    logln("long_string:\n{}", long_string);
 
     T_ASSERT_SIZE(wrapped_1, wrapped_1);
     T_ASSERT_SIZE(wrapped_2, wrapped_2);
 
-    std::println("wrapped_1:\n{}",  al::to_string(wrapped_1, "\n"sv, "  \""));
-    std::println("expected_1:\n{}", al::to_string(expected_1, "\n"sv, "  \""));
-    std::println("wrapped_2:\n{}",  al::to_string(wrapped_2, "\n"sv, "  \""));
-    std::println("expected_2:\n{}", al::to_string(expected_2, "\n"sv, "  \""));
+    logln("wrapped_1:\n{}",  al::to_string(wrapped_1, "\n"sv, "  \""));
+    logln("expected_1:\n{}", al::to_string(expected_1, "\n"sv, "  \""));
+    logln("wrapped_2:\n{}",  al::to_string(wrapped_2, "\n"sv, "  \""));
+    logln("expected_2:\n{}", al::to_string(expected_2, "\n"sv, "  \""));
 
     T_ASSERT_SIZE(wrapped_1, expected_1);
 
@@ -120,9 +134,9 @@ using namespace std::string_view_literals;
 
     auto trimmed = al::trim_left(string);
 
-    std::println("string: {}",   string);
-    std::println("trimmed: {}",  trimmed);
-    std::println("expected: {}", expected);
+    logln("string: {}",   string);
+    logln("trimmed: {}",  trimmed);
+    logln("expected: {}", expected);
 
     T_ASSERT_CTR(trimmed, expected);
 
@@ -142,9 +156,9 @@ using namespace std::string_view_literals;
 
     auto trimmed = al::trim_right(string);
 
-    std::println("string: {}",   string);
-    std::println("trimmed: {}",  trimmed);
-    std::println("expected: {}", expected);
+    logln("string: {}",   string);
+    logln("trimmed: {}",  trimmed);
+    logln("expected: {}", expected);
 
     T_ASSERT_CTR(trimmed, expected);
 
@@ -164,9 +178,9 @@ using namespace std::string_view_literals;
 
     auto trimmed = al::trim(string);
 
-    std::println("string: {}",   string);
-    std::println("trimmed: {}",  trimmed);
-    std::println("expected: {}", expected);
+    logln("string: {}",   string);
+    logln("trimmed: {}",  trimmed);
+    logln("expected: {}", expected);
 
     T_ASSERT_CTR(trimmed, expected);
 
@@ -186,9 +200,9 @@ using namespace std::string_view_literals;
 
     auto upper = al::to_upper(string);
 
-    std::println("string: {}",   string);
-    std::println("upper: {}",    upper);
-    std::println("expected: {}", expected);
+    logln("string: {}",   string);
+    logln("upper: {}",    upper);
+    logln("expected: {}", expected);
 
     T_ASSERT_CTR(upper, expected);
 
@@ -208,9 +222,9 @@ using namespace std::string_view_literals;
 
     auto lower = al::to_lower(string);
 
-    std::println("string: {}",   string);
-    std::println("lower: {}",    lower);
-    std::println("expected: {}", expected);
+    logln("string: {}",   string);
+    logln("lower: {}",    lower);
+    logln("expected: {}", expected);
 
     T_ASSERT_CTR(lower, expected);
 
@@ -230,9 +244,9 @@ using namespace std::string_view_literals;
 
     auto upper = al::to_upper(character);
 
-    std::println("character: {}", character);
-    std::println("upper: {}",     upper);
-    std::println("expected: {}",  expected);
+    logln("character: {}", character);
+    logln("upper: {}",     upper);
+    logln("expected: {}",  expected);
 
     T_ASSERT(upper, expected, "Invalid result");
 
@@ -252,9 +266,9 @@ using namespace std::string_view_literals;
 
     auto lower = al::to_lower(character);
 
-    std::println("character: {}", character);
-    std::println("lower: {}",     lower);
-    std::println("expected: {}",  expected);
+    logln("character: {}", character);
+    logln("lower: {}",     lower);
+    logln("expected: {}",  expected);
 
     T_ASSERT(lower, expected, "Invalid result");
 
@@ -279,10 +293,10 @@ using namespace std::string_view_literals;
     auto value_1 = al::is_equal_ins(a_1, b_1);
     auto value_2 = al::is_equal_ins(a_2, b_2);
 
-    std::println("a_1: {}, b_1: {}", a_1, b_1);
-    std::println("a_2: {}, b_2: {}", a_2, b_2);
-    std::println("value_1: {}, expected_1: {}", value_1, expected_1);
-    std::println("value_2: {}, expected_2: {}", value_2, expected_2);
+    logln("a_1: {}, b_1: {}", a_1, b_1);
+    logln("a_2: {}, b_2: {}", a_2, b_2);
+    logln("value_1: {}, expected_1: {}", value_1, expected_1);
+    logln("value_2: {}, expected_2: {}", value_2, expected_2);
 
     T_ASSERT(value_1, expected_1, "Invalid result");
     T_ASSERT(value_2, expected_2, "Invalid result");
@@ -308,10 +322,10 @@ using namespace std::string_view_literals;
     auto value_1 = al::is_equal_ins(a_1, b_1);
     auto value_2 = al::is_equal_ins(a_2, b_2);
 
-    std::println("a_1: {}, b_1: {}", a_1, b_1);
-    std::println("a_2: {}, b_2: {}", a_2, b_2);
-    std::println("value_1: {}, expected_1: {}", value_1, expected_1);
-    std::println("value_2: {}, expected_2: {}", value_2, expected_2);
+    logln("a_1: {}, b_1: {}", a_1, b_1);
+    logln("a_2: {}, b_2: {}", a_2, b_2);
+    logln("value_1: {}, expected_1: {}", value_1, expected_1);
+    logln("value_2: {}, expected_2: {}", value_2, expected_2);
 
     T_ASSERT(value_1, expected_1, "Invalid result");
     T_ASSERT(value_2, expected_2, "Invalid result");
@@ -337,10 +351,10 @@ using namespace std::string_view_literals;
 
     auto filtered = string - filter;
 
-    std::println("string: {}",   string);
-    std::println("filter: {}",   filter);
-    std::println("filtered: {}", filtered);
-    std::println("expected: {}", expected);
+    logln("string: {}",   string);
+    logln("filter: {}",   filter);
+    logln("filtered: {}", filtered);
+    logln("expected: {}", expected);
 
     T_ASSERT_CTR(filtered, expected);
 
@@ -361,10 +375,10 @@ using namespace std::string_view_literals;
 
     auto filtered = string - filter;
 
-    std::println("string: {}",   string);
-    std::println("filter: '{}'", filter);
-    std::println("filtered: {}", filtered);
-    std::println("expected: {}", expected);
+    logln("string: {}",   string);
+    logln("filter: '{}'", filter);
+    logln("filtered: {}", filtered);
+    logln("expected: {}", expected);
 
     T_ASSERT_CTR(filtered, expected);
 
@@ -386,10 +400,10 @@ using namespace std::string_view_literals;
 
     auto repeated = string * repeat;
 
-    std::println("string: {}",   string);
-    std::println("repeat: {}",   repeat);
-    std::println("repeated: {}", repeated);
-    std::println("expected: {}", expected);
+    logln("string: {}",   string);
+    logln("repeat: {}",   repeat);
+    logln("repeated: {}", repeated);
+    logln("expected: {}", expected);
 
     T_ASSERT_CTR(repeated, expected);
 
@@ -412,10 +426,10 @@ using namespace std::string_view_literals;
 
     auto repeated = string * repeat;
 
-    std::println("string: {}",   string);
-    std::println("repeat: {}",   repeat);
-    std::println("repeated: {}", repeated);
-    std::println("expected: {}", expected);
+    logln("string: {}",   string);
+    logln("repeat: {}",   repeat);
+    logln("repeated: {}", repeated);
+    logln("expected: {}", expected);
 
     T_ASSERT_CTR(repeated, expected);
 
@@ -442,19 +456,19 @@ using namespace std::string_view_literals;
 
     auto splitted = string / pattern;
 
-    std::println("string: {}",  string);
-    std::println("pattern: {}", pattern);
+    logln("string: {}",  string);
+    logln("pattern: {}", pattern);
 
     T_ASSERT_SIZE(splitted, expected);
 
     for (std::size_t i = 0; i < splitted.size(); i++)
     {
-        std::println("splitted[{}]: {}", i, splitted[i]);
+        logln("splitted[{}]: {}", i, splitted[i]);
     }
 
     for (std::size_t i = 0; i < expected.size(); i++)
     {
-        std::println("expected[{}]: {}", i, expected[i]);
+        logln("expected[{}]: {}", i, expected[i]);
     }
 
     T_ASSERT_NEST_CTR(splitted, expected);
@@ -484,19 +498,19 @@ using namespace std::string_view_literals;
 
     auto splitted = string / splitter;
 
-    std::println("string: {}",   string);
-    std::println("splitter: {}", splitter);
+    logln("string: {}",     string);
+    logln("splitter: '{}'", splitter);
 
     T_ASSERT_SIZE(splitted, expected);
 
     for (std::size_t i = 0; i < splitted.size(); i++)
     {
-        std::println("splitted[{}]: {}", i, splitted[i]);
+        logln("splitted[{}]: {}", i, splitted[i]);
     }
 
     for (std::size_t i = 0; i < expected.size(); i++)
     {
-        std::println("expected[{}]: {}", i, expected[i]);
+        logln("expected[{}]: {}", i, expected[i]);
     }
 
     T_ASSERT_NEST_CTR(splitted, expected);
@@ -613,10 +627,22 @@ using namespace std::string_view_literals;
         test_sm_operator_slash_2
     });
 
-    auto failed_tests = suite.run();
+    std::size_t errors = (std::size_t)-1;
+    try
+    {
+        auto failed_tests = suite.run();
 
-    print_failed_tests(failed_tests);
-    auto errors = get_failed_tests_errors(failed_tests);
+        print_failed_tests(failed_tests);
+        errors = get_failed_tests_errors(failed_tests);
+    }
+    catch (const std::exception &e)
+    {
+        logln("Exception occurred during test: {}", e.what());
+    }
+    catch (...)
+    {
+        logln("Unknown exception occurred during test");
+    }
 
     for (auto &test : suite.tests)
     {

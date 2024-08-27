@@ -5,7 +5,17 @@
  *
  *  @copyright  Copyright (c) 2024 Anstro Pleuton
  *
- *  Auspicious Library is a collection of Utils for Anstro Pleuton's programs.
+ *      _                   _      _
+ *     / \  _   _ ___ _ __ (_) ___(_) ___  _   _ ___
+ *    / _ \| | | / __| '_ \| |/ __| |/ _ \| | | / __|
+ *   / ___ \ |_| \__ \ |_) | | (__| | (_) | |_| \__ \
+ *  /_/   \_\__,_|___/ .__/|_|\___|_|\___/ \__,_|___/
+ *                   |_|  _    ___ ___ ___    _   _____   __
+ *                       | |  |_ _| _ ) _ \  /_\ | _ \ \ / /
+ *                       | |__ | || _ \   / / _ \|   /\ V /
+ *                       |____|___|___/_|_\/_/ \_\_|_\ |_|
+ *
+ *  Auspicious Library is a collection of utils for Anstro Pleuton's programs.
  *
  *  This software is licensed under the terms of MIT License.
  *
@@ -26,10 +36,15 @@
  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  *  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  *  IN THE SOFTWARE.
+ *
+ *  Credits where credit's due:
+ *  - ASCII Art generated using https://www.patorjk.com/software/taag with font
+ *    "Standard" (for "Auspicious") and "Small" (for "LIBRARY").
  */
 
 #pragma once
 
+#include <type_traits>
 #if !defined(AUSPICIOUS_LIBRARY_HPP_INCLUDED) \
  && !defined(AUSPICIOUS_LIBRARY_NO_INCLUSION_WARN)
     #warning Its recommended to include auspicious_library.hpp instead.
@@ -84,6 +99,7 @@ namespace sm {
  *  @note  The string is comma AND space separated by default.
  */
 template<cu::cu_compatible Container, typename Converter>
+requires(!std::is_same_v<Converter, std::string>)
 [[nodiscard]] inline constexpr auto to_string(
     const Container &container,
     Converter        converter,
@@ -249,7 +265,7 @@ requires std::is_same_v<cu::value_type<Container>, char>
             // If not, first non-delim character after width
             pos = string.substr(width + 1).find_first_of(delims);
 
-            // If still not, eof reached? Prevent overflow
+            // If still not, eof reached?  Prevent overflow
             if (pos == std::string_view::npos) pos--;
             else pos += width + 1;
         }

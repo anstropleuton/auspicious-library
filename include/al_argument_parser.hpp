@@ -5,7 +5,17 @@
  *
  *  @copyright  Copyright (c) 2024 Anstro Pleuton
  *
- *  Auspicious Library is a collection of Utils for Anstro Pleuton's programs.
+ *      _                   _      _
+ *     / \  _   _ ___ _ __ (_) ___(_) ___  _   _ ___
+ *    / _ \| | | / __| '_ \| |/ __| |/ _ \| | | / __|
+ *   / ___ \ |_| \__ \ |_) | | (__| | (_) | |_| \__ \
+ *  /_/   \_\__,_|___/ .__/|_|\___|_|\___/ \__,_|___/
+ *                   |_|  _    ___ ___ ___    _   _____   __
+ *                       | |  |_ _| _ ) _ \  /_\ | _ \ \ / /
+ *                       | |__ | || _ \   / / _ \|   /\ V /
+ *                       |____|___|___/_|_\/_/ \_\_|_\ |_|
+ *
+ *  Auspicious Library is a collection of utils for Anstro Pleuton's programs.
  *
  *  This software is licensed under the terms of MIT License.
  *
@@ -26,6 +36,10 @@
  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  *  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  *  IN THE SOFTWARE.
+ *
+ *  Credits where credit's due:
+ *  - ASCII Art generated using https://www.patorjk.com/software/taag with font
+ *    "Standard" (for "Auspicious") and "Small" (for "LIBRARY").
  */
 
 #pragma once
@@ -68,32 +82,33 @@ using namespace std::string_literals;
  *  modified internally for interpretation.
  *
  *  New POSIX-style arguments:
- *  - Long Argument: Each long argument starts with two hyphen (`--`) and
+ *  - Long Argument: Each long argument starts with two hyphen ("--") and
  *    consists of one or more characters for recognition.  Such as
- *    `--long-argument`.  The allowed characters are not an `=` sign or a `:`
+ *    "--long-argument".  The allowed characters are not an "=" sign or a ":"
  *    symbol.  If used, the behavior is undefined.
- *  - Short Argument: Each short argument starts with one hyphen (`-`) and
+ *  - Short Argument: Each short argument starts with one hyphen ("-") and
  *    consists of one character for recognition.  Such as
- *    `-a`.  If multiple characters are found, such as `-abc`, it internally
+ *    "-a".  If multiple characters are found, such as "-abc", it internally
  *    splits each character as its own separate short arguments, such as
- *    `-a`, `-b`, `-c`.  The allowed characters are not an `=` sign or a `:`
+ *    "-a", "-b", "-c".  The allowed characters are not an "=" sign or a ":"
  *    symbol.  If used, the behavior is undefined.
- *  - Use of a `--` with no additional characters indicates end of parsing and
+ *  - Use of a "--" with no additional characters indicates end of parsing and
  *    rest of the arguments are unparsed.
  *
  *  Old Microsoft-style arguments:
  *  - There is no dedicated section for the old Microsoft-style arguments, often
  *    known as "switches".
  *  - Instead, each switch is treated as a long option if the switch is more
- *    than one character for recognition, such as `/switch`.
- *  - If a switch is one character for recognition, such as `/s`, it is treated
+ *    than one character for recognition, such as "/switch".
+ *  - If a switch is one character for recognition, such as "/s", it is treated
  *    both as a long option and a short option (short name is matched first).
  *  - If a switch is not matched, you can optionally make it try to match case
  *    insensitively.
  *
- *  In both cases, arguments that contain an `=` sign or a `:` symbol, such as
+ *  In both cases, arguments that contain an '=' sign or a ':' symbol, such as
  *  --option=value, -o:value, /switch=value or /s:value, are internally split
- *  from with the first found `=` sign or `:` symbol.
+ *  with the first found '=' sign or ':' symbol.  This is only done when the
+ *  option or switch is defined to have parameters.
  *
  *  Each option or switch can have one or more value parameter.  Each argument
  *  after an option or switch that do contain value parameter will be treated as
@@ -120,6 +135,12 @@ using namespace std::string_literals;
  *  You can use "..." as the last parameter if you want variadic parameters.
  *  i.e., all parameters not detected as option will be added to this vector.
  *  Use "parameter-name..." if you want to have at least one value.
+ *
+ *  @todo  Proper internationalization support?  Currently std::string is used,
+ *         which is a string of char, char cannot hold any more than 1 byte.
+ *         Hence internal counting characters will count the multi-byte
+ *         character and international characters for short option is out of the
+ *         window.
  */
 namespace ap {
 
@@ -224,13 +245,37 @@ struct subcommand_template {
  *  @brief  Type for argument differentiation.
  */
 enum class argument_type {
+    /**
+     *  @brief  Argument type cannot be determined.
+     */
     unknown,
+    /**
+     *  @brief  Argument is empty.
+     */
     empty,
+    /**
+     *  @brief  Argument is in form of "-a", "-abc=value", etc.
+     */
     short_option,
+    /**
+     *  @brief  Argument is in form of "--argument", "--argument=value", etc.
+     */
     long_option,
+    /**
+     *  @brief  Argument is in form of "/argument", "/argument:value", etc.
+     */
     microsoft_switch,
-    single_hyphen, // Not treaded specially, just as regular argument
+    /**
+     *  @brief  Argument is "-".  This is treated just as regular argument.
+     */
+    single_hyphen,
+    /**
+     *  @brief  Argument is "--".  End of parsing.
+     */
     double_hyphen,
+    /**
+     *  @brief  Argument is in form of "argument", etc.
+     */
     regular_argument
 };
 
@@ -253,6 +298,7 @@ enum class argument_type {
         case argument_type::double_hyphen: return "double_hyphen"s;
         case argument_type::regular_argument: return "regular_argument"s;
     }
+    return ""s;
 }
 
 /**
@@ -273,7 +319,7 @@ enum class argument_type {
 
     if (argument.starts_with("-"))
     {
-        if (argument.size() > 2) return argument_type::short_option;
+        if (argument.size() > 1) return argument_type::short_option;
         else return argument_type::single_hyphen;
     }
 
@@ -286,11 +332,20 @@ enum class argument_type {
 }
 
 /**
- *  @brief  What type of variadic is it?
+ *  @brief  What type of variadic is the parameter?
  */
 enum class variadicity {
+    /**
+     *  @brief  Parameter is not variadic.
+     */
     not_variadic,
+    /**
+     *  @brief  Parameter is "...".
+     */
     zero_or_more,
+    /**
+     *  @brief  Parameter is in form "parameter...".
+     */
     one_or_more
 };
 
@@ -308,24 +363,21 @@ enum class variadicity {
         case variadicity::zero_or_more: return "zero_or_more"s;
         case variadicity::one_or_more: return "one_or_more"s;
     }
+    return ""s;
 }
 
 /**
- *  @brief  Check if parameters is variadic.
+ *  @brief  Check if a parameter is variadic.
  *
- *  @param  parameters  Parameters.
- *  @return  True if parameters is variadic.
+ *  @param  parameter  Parameter.
+ *  @return  True if a parameter is variadic.
  */
-[[nodiscard]] inline constexpr auto is_parameters_variadic(
-    const std::vector<std::string> &parameters
+[[nodiscard]] inline constexpr auto is_parameter_variadic(
+    std::string_view parameter
 )
 {
-    if (parameters.empty())
-        return variadicity::not_variadic;
-    if (parameters.back() == "...")
-        return variadicity::zero_or_more;
-    if (parameters.back().ends_with("..."))
-        return variadicity::one_or_more;
+    if (parameter == "...") return variadicity::zero_or_more;
+    if (parameter.ends_with("...")) return variadicity::one_or_more;
     return variadicity::not_variadic;
 }
 
@@ -375,10 +427,26 @@ struct mod_argument {
  *  @brief  Parsed argument validity.
  */
 enum class validity {
-    valid = 0,
-    unrecognized_option     = 1,
-    unrecognized_subcommand = 2,
-    not_enough_values       = 4
+    /**
+     *  @brief  Something definitely has gone wrong.
+     */
+    unknown,
+    /**
+     *  @brief  Everything that can go right, gone right.
+     */
+    valid,
+    /**
+     *  @brief  Option is unrecognized.
+     */
+    unrecognized_option,
+    /**
+     *  @brief  Subcommand is unrecognized.
+     */
+    unrecognized_subcommand,
+    /**
+     *  @brief  Option or subcommand's parameters requirement is not met.
+     */
+    not_enough_values
 };
 
 /**
@@ -391,12 +459,14 @@ enum class validity {
 {
     switch (valid)
     {
+        case validity::unknown: return "unknown"s;
         case validity::valid: return "valid"s;
         case validity::unrecognized_option: return "unrecognized_option"s;
         case validity::unrecognized_subcommand: return
                 "unrecognized_subcommand"s;
         case validity::not_enough_values: return "not_enough_values"s;
     }
+    return ""s;
 }
 
 /**
@@ -631,7 +701,7 @@ struct posix_help_format {
     };
 
     /**
-     *  @brief  Style for the `-` prefix before the short name.
+     *  @brief  Style for the "-" prefix before the short name.
      */
     aec::aec_t short_name_prefix_style = aec::reset;
 
@@ -641,7 +711,7 @@ struct posix_help_format {
     aec::aec_t short_name_style = aec::reset;
 
     /**
-     *  @brief  Style for the `--` prefix before the long name.
+     *  @brief  Style for the "--" prefix before the long name.
      */
     aec::aec_t long_name_prefix_style = aec::reset;
 
@@ -800,7 +870,7 @@ struct microsoft_help_format {
     };
 
     /**
-     *  @brief  Style for the `/` prefix before the switch name.
+     *  @brief  Style for the "/" prefix before the switch name.
      */
     aec::aec_t switch_prefix_style = aec::reset;
 

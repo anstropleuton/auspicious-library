@@ -6,7 +6,17 @@
  *
  *  @copyright  Copyright (c) 2024 Anstro Pleuton
  *
- *  Auspicious Library is a collection of Utils for Anstro Pleuton's programs.
+ *      _                   _      _
+ *     / \  _   _ ___ _ __ (_) ___(_) ___  _   _ ___
+ *    / _ \| | | / __| '_ \| |/ __| |/ _ \| | | / __|
+ *   / ___ \ |_| \__ \ |_) | | (__| | (_) | |_| \__ \
+ *  /_/   \_\__,_|___/ .__/|_|\___|_|\___/ \__,_|___/
+ *                   |_|  _    ___ ___ ___    _   _____   __
+ *                       | |  |_ _| _ ) _ \  /_\ | _ \ \ / /
+ *                       | |__ | || _ \   / / _ \|   /\ V /
+ *                       |____|___|___/_|_\/_/ \_\_|_\ |_|
+ *
+ *  Auspicious Library is a collection of utils for Anstro Pleuton's programs.
  *
  *  This software is licensed under the terms of MIT License.
  *
@@ -27,13 +37,17 @@
  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  *  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  *  IN THE SOFTWARE.
+ *
+ *  Credits where credit's due:
+ *  - ASCII Art generated using https://www.patorjk.com/software/taag with font
+ *    "Standard" (for "Auspicious") and "Small" (for "LIBRARY").
  */
 
 /**
  *  @brief  Prevent warning for directly including module header file.
  */
 #define AUSPICIOUS_LIBRARY_NO_INCLUSION_WARN
-#include <algorithm>
+
 #include <print>
 #include <stdexcept>
 #include <string>
@@ -64,8 +78,45 @@ static inline constexpr auto options_sanity_checker(
         auto &option = options[i];
         if (!option)
         {
-            throw std::runtime_error(
-                std::format("Option cannot be null (at index {})", i)
+            throw std::invalid_argument(
+                std::format("Option cannot be null (at index: {})", i)
+            );
+        }
+
+        if (!option->parameters.empty())
+        {
+            for (std::size_t j = 0; j < option->parameters.size() - 1; j++)
+            {
+                if (ap::is_parameter_variadic(option->parameters[j])
+                 != ap::variadicity::not_variadic)
+                {
+                    throw std::invalid_argument(
+                        std::format("Option's non-last parameter cannot be "
+                            "variadic (at index: {}, parameter index: {})", i,
+                            j)
+                    );
+                }
+            }
+        }
+
+        if (option->defaults_from_back.size() > option->parameters.size())
+        {
+            throw std::invalid_argument(
+                std::format("Option cannot have more default values than "
+                    "parameters (defaults: {}, parameters: {}, at index: {})",
+                    option->defaults_from_back.size(),
+                    option->parameters.size(), i)
+            );
+        }
+
+        if (!option->parameters.empty()
+         && !option->defaults_from_back.empty()
+         && ap::is_parameter_variadic(option->parameters.back())
+         != ap::variadicity::not_variadic)
+        {
+            throw std::invalid_argument(
+                std::format("Option cannot have default values when last "
+                    "parameter is variadic (at index: {})", i)
             );
         }
     }
@@ -80,30 +131,83 @@ static inline constexpr auto options_sanity_checker(
  */
 static inline constexpr auto subcommands_sanity_checker(
     const std::vector<const ap::subcommand_template *> &subcommands,
-    std::size_t                                         level = 0
+    std::vector<std::size_t>                            nesting_indices
 ) -> void
 {
     for (std::size_t i = 0; i < subcommands.size(); i++)
     {
+        nesting_indices.emplace_back(i);
         auto &subcommand = subcommands[i];
         if (!subcommand)
         {
-            throw std::runtime_error(std::format(
-                "Subcommand cannot be null (nesting level {})",
-                level
+            throw std::invalid_argument(std::format(
+                "Subcommand cannot be null (nesting indices: {})",
+                sm::to_string(nesting_indices)
             ));
         }
 
+        if (!subcommand->parameters.empty())
+        {
+            for (std::size_t j = 0; j < subcommand->parameters.size() - 1; j++)
+            {
+                if (ap::is_parameter_variadic(subcommand->parameters[j])
+                 != ap::variadicity::not_variadic)
+                {
+                    throw std::invalid_argument(
+                        std::format("Subcommand's non-last parameter cannot be "
+                            "variadic (nesting indices: {}, parameter index: "
+                            "{})", sm::to_string(nesting_indices), j)
+                    );
+                }
+            }
+        }
+
+        if (subcommand->defaults_from_back.size()
+          > subcommand->parameters.size())
+        {
+            throw std::invalid_argument(
+                std::format("Subcommand cannot have more default values than "
+                    "parameters (defaults: {}, parameters: {}, nesting indices:"
+                    " {})", subcommand->defaults_from_back.size(),
+                    subcommand->parameters.size(), i)
+            );
+        }
+
+        if (!subcommand->parameters.empty()
+         && !subcommand->defaults_from_back.empty()
+         && ap::is_parameter_variadic(subcommand->parameters.back())
+         != ap::variadicity::not_variadic)
+        {
+            throw std::invalid_argument(
+                std::format("Subcommand cannot have default values when last "
+                    "parameter is variadic (nesting indices: {})",
+                    sm::to_string(nesting_indices))
+            );
+        }
+
+        if (!subcommand->parameters.empty()
+         && !subcommand->subcommands.empty()
+         && ap::is_parameter_variadic(subcommand->parameters.back())
+         != ap::variadicity::not_variadic)
+        {
+            throw std::invalid_argument(
+                std::format("Subcommands cannot have nested subcommands when "
+                    "last parameter is variadic (nesting indices: {})",
+                    sm::to_string(nesting_indices))
+            );
+        }
+
         options_sanity_checker(subcommand->subcommand_options);
-        subcommands_sanity_checker(subcommand->subcommands, level + 1);
+        subcommands_sanity_checker(subcommand->subcommands, nesting_indices);
+        nesting_indices.pop_back();
     }
 }
 
 /**
  *  @brief  Check if argument matches the long names of the options/switches.
  *
- *  @param  options    Options.
- *  @param  long_name  Long name to match.
+ *  @param  options     Options.
+ *  @param  long_name   Long name to match.
  *  @param  switch_ins  Match Microsoft-style switches case insensitively
  *                      (optional).
  *  @return  Nullable pointer to matched option/switch.
@@ -251,15 +355,22 @@ static inline constexpr auto subcommands_sanity_checker(
     std::size_t                        &i,
     const std::vector<ap::mod_argument> mod_args,
     const std::vector<std::string>     &parameters,
-    const std::vector<std::string>     &default_args
+    const std::vector<std::string>     &default_args,
+    ap::validity                       &valid
 )
 {
     std::vector<std::string> collected_values = {};
 
-    auto is_variadic = ap::is_parameters_variadic(parameters);
+    auto is_variadic = ap::variadicity::not_variadic;
+    if (!parameters.empty())
+    {
+        is_variadic = ap::is_parameter_variadic(parameters.back());
+    }
 
-    // Refactor this code? I added variadic feature after I made this
+    // Refactor this code?  I added variadic feature after I made this
+    valid         = ap::validity::valid;
     std::size_t j = 0;
+
     if (is_variadic == ap::variadicity::not_variadic)
     {
         for (; j < parameters.size() && i + j + 1 < mod_args.size(); j++)
@@ -271,11 +382,9 @@ static inline constexpr auto subcommands_sanity_checker(
                 break;
             }
 
-            collected_values.emplace_back(mod_arg.original);
+            collected_values.emplace_back(mod_arg.modified);
         }
 
-        // Assumption: Default Arguments is less than or equal to Additional
-        // Arguments
         auto defaults_provided = j - parameters.size() + default_args.size();
         auto first = defaults_provided;
         auto last  = default_args.size();
@@ -283,6 +392,12 @@ static inline constexpr auto subcommands_sanity_checker(
         {
             auto defaults    = cu::subordinate(default_args, first, last);
             collected_values = cu::combine(collected_values, defaults);
+        }
+
+        // Validity check
+        if (collected_values.size() != parameters.size())
+        {
+            valid = ap::validity::not_enough_values;
         }
     }
     else
@@ -296,7 +411,22 @@ static inline constexpr auto subcommands_sanity_checker(
                 break;
             }
 
-            collected_values.emplace_back(mod_arg.original);
+            collected_values.emplace_back(mod_arg.modified);
+        }
+
+        // Validity check
+        switch (is_variadic)
+        {
+            case auspicious_library::ap::variadicity::not_variadic:
+                break;
+            case auspicious_library::ap::variadicity::zero_or_more:
+                break;
+            case auspicious_library::ap::variadicity::one_or_more:
+                if (collected_values.size() < 1)
+                {
+                    valid = ap::validity::not_enough_values;
+                }
+                break;
         }
     }
 
@@ -326,7 +456,7 @@ static inline constexpr auto subcommands_sanity_checker(
 ) -> std::vector<parsed_argument>
 {
     options_sanity_checker(options);
-    subcommands_sanity_checker(subcommands);
+    subcommands_sanity_checker(subcommands, {});
 
     // Split with '=' or ':' based on argument
     std::vector<mod_argument> mod_args_1 = {};
@@ -337,16 +467,21 @@ static inline constexpr auto subcommands_sanity_checker(
         argument_type arg_type = get_argument_type(arg);
         auto          pos      = std::string::npos;
 
-        if (arg_type == argument_type::double_hyphen)
+        if (arg_type == argument_type::double_hyphen
+         || arg_type == argument_type::unknown)
         {
             break;
         }
 
         if (arg_type == argument_type::long_option
-         || arg_type == argument_type::short_option
-         || arg_type == argument_type::microsoft_switch)
+         || arg_type == argument_type::short_option)
         {
-            pos = std::min(arg.find_first_of('='), arg.find_first_of(':'));
+            pos = arg.find_first_of('=');
+        }
+
+        if (arg_type == argument_type::microsoft_switch)
+        {
+            pos = arg.find_first_of(':');
         }
 
         if (pos == std::string::npos)
@@ -361,8 +496,8 @@ static inline constexpr auto subcommands_sanity_checker(
         auto second = arg.substr(pos + 1);
         mod_args_1.emplace_back(arg, first, arg_type, 0, pos, 0,
             first.size());
-        mod_args_1.emplace_back(arg, second, arg_type, pos + 1, second.size(),
-            0, second.size());
+        mod_args_1.emplace_back(arg, second, argument_type::regular_argument,
+            pos + 1, second.size(), 0, second.size());
     }
 
     // Unparsed
@@ -380,6 +515,13 @@ static inline constexpr auto subcommands_sanity_checker(
     for (; mod_i_2 < mod_args_1.size(); mod_i_2++)
     {
         auto &mod_arg = mod_args_1[mod_i_2];
+
+        if (mod_arg.arg_type == argument_type::double_hyphen
+         || mod_arg.arg_type == argument_type::unknown)
+        {
+            break;
+        }
+
         if (mod_arg.arg_type != argument_type::short_option)
         {
             mod_args_2.emplace_back(mod_arg);
@@ -394,8 +536,57 @@ static inline constexpr auto subcommands_sanity_checker(
         }
     }
 
+    // Unparsed
+    for (; mod_i_2 < args.size(); mod_i_2++)
+    {
+        auto &arg = args[mod_i_2];
+        mod_args_2.emplace_back(
+            arg, arg, argument_type::unknown, 0, arg.size(), 0, arg.size()
+        );
+    }
+
+    // Adjust pos and size for long names and Microsoft-style names
+    std::vector<mod_argument> mod_args_3 = {};
+    std::size_t mod_i_3 = 0;
+    for (; mod_i_3 < mod_args_2.size(); mod_i_3++)
+    {
+        auto &mod_arg = mod_args_2[mod_i_3];
+
+        if (mod_arg.arg_type == argument_type::double_hyphen
+         || mod_arg.arg_type == argument_type::unknown)
+        {
+            break;
+        }
+
+        if (mod_arg.arg_type == argument_type::long_option)
+        {
+            mod_args_3.emplace_back(mod_arg.original, mod_arg.modified,
+                mod_arg.arg_type, 2, mod_arg.modified.size() - 2, 2,
+                mod_arg.modified.size() - 2);
+        }
+        else if (mod_arg.arg_type == argument_type::microsoft_switch)
+        {
+            mod_args_3.emplace_back(mod_arg.original, mod_arg.modified,
+                mod_arg.arg_type, 1, mod_arg.modified.size() - 1, 1,
+                mod_arg.modified.size() - 1);
+        }
+        else
+        {
+            mod_args_3.emplace_back(mod_arg);
+        }
+    }
+
+    // Unparsed
+    for (; mod_i_3 < args.size(); mod_i_3++)
+    {
+        auto &arg = args[mod_i_3];
+        mod_args_3.emplace_back(
+            arg, arg, argument_type::unknown, 0, arg.size(), 0, arg.size()
+        );
+    }
+
     // Latest modification
-    auto mod_args = mod_args_2;
+    auto mod_args = mod_args_3;
 
     // Nesting subcommands is a thing
     const subcommand_template *current_subcommand = nullptr;
@@ -407,16 +598,27 @@ static inline constexpr auto subcommands_sanity_checker(
     {
         auto &mod_arg = mod_args[i];
 
-        if (mod_arg.arg_type == argument_type::double_hyphen)
+        if (mod_arg.arg_type == argument_type::double_hyphen
+         || mod_arg.arg_type == argument_type::unknown)
         {
             break;
         }
-
         // First check for subcommand
-        if (mod_arg.arg_type == argument_type::regular_argument)
+        else if (mod_arg.arg_type == argument_type::regular_argument)
         {
-            auto matched_subcommand = match_subcommand(mod_arg.modified,
-                subcommands);
+            const subcommand_template *matched_subcommand = nullptr;
+            if (current_subcommand)
+            {
+                matched_subcommand = match_subcommand(mod_arg.modified,
+                    current_subcommand->subcommands);
+            }
+
+            if (!matched_subcommand)
+            {
+                current_subcommand = nullptr;
+                matched_subcommand = match_subcommand(mod_arg.modified,
+                    subcommands);
+            }
 
             if (!matched_subcommand)
             {
@@ -429,16 +631,10 @@ static inline constexpr auto subcommands_sanity_checker(
                 continue;
             }
 
-            auto collected_args = collect_values(i, mod_args,
+            validity valid          = validity::valid;
+            auto     collected_args = collect_values(i, mod_args,
                 matched_subcommand->parameters,
-                matched_subcommand->defaults_from_back);
-
-            validity valid = validity::valid;
-            if (collected_args.size()
-              < matched_subcommand->parameters.size())
-            {
-                valid = validity::not_enough_values;
-            }
+                matched_subcommand->defaults_from_back, valid);
 
             parsed_argument parsed_arg = {
                 mod_arg, valid, true, nullptr, matched_subcommand,
@@ -447,51 +643,59 @@ static inline constexpr auto subcommands_sanity_checker(
 
             result.emplace_back(parsed_arg);
             current_subcommand = matched_subcommand;
-            continue;
         }
-
-        // Then for options/switches within a subcommand if subcommand is
-        // available
-        const option_template *matched_option = nullptr;
-        if (current_subcommand)
+        else if (mod_arg.arg_type == argument_type::long_option
+              || mod_arg.arg_type == argument_type::short_option
+              || mod_arg.arg_type == argument_type::microsoft_switch)
         {
-            matched_option = match_option(mod_arg.modified, mod_arg.arg_type,
-                current_subcommand->subcommand_options, switch_ins);
-        }
+            // Then for options/switches within a subcommand if subcommand is
+            // available
+            const option_template *matched_option = nullptr;
+            if (current_subcommand)
+            {
+                matched_option = match_option(mod_arg.modified,
+                    mod_arg.arg_type, current_subcommand->subcommand_options,
+                    switch_ins);
+            }
 
-        // Then for options/switches that isn't part of any subcommand (global)
-        if (!matched_option)
-        {
-            matched_option = match_option(mod_arg.modified, mod_arg.arg_type,
-                options, switch_ins);
-        }
+            // Then for global options/switches
+            if (!matched_option)
+            {
+                matched_option = match_option(mod_arg.modified,
+                    mod_arg.arg_type, options, switch_ins);
+            }
 
-        if (!matched_option)
-        {
+            if (!matched_option)
+            {
+                parsed_argument parsed_arg = {
+                    mod_arg, validity::unrecognized_option, true, nullptr,
+                    nullptr, {}
+                };
+
+                result.emplace_back(parsed_arg);
+                continue;
+            }
+
+            validity valid = validity::valid;
+
+            auto collected_args = collect_values(i, mod_args,
+                matched_option->parameters,
+                matched_option->defaults_from_back, valid);
+
             parsed_argument parsed_arg = {
-                mod_arg, validity::unrecognized_option, true, nullptr, nullptr,
-                {}
+                mod_arg, valid, true, matched_option, nullptr, collected_args
             };
 
             result.emplace_back(parsed_arg);
-            continue;
         }
-
-        auto collected_args = collect_values(i, mod_args,
-            matched_option->parameters,
-            matched_option->defaults_from_back);
-
-        validity valid = validity::valid;
-        if (collected_args.size() < matched_option->parameters.size())
+        else
         {
-            valid = validity::not_enough_values;
+            parsed_argument parsed_arg = {
+                mod_arg, validity::unknown, true, nullptr, nullptr, {}
+            };
+
+            result.emplace_back(parsed_arg);
         }
-
-        parsed_argument parsed_arg = {
-            mod_arg, valid, true, matched_option, nullptr, collected_args
-        };
-
-        result.emplace_back(parsed_arg);
     }
 
     // Add all the unparsed arguments (as valid)

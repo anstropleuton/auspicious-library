@@ -26,9 +26,9 @@
 <meta name="twitter:site" content="@anstropleuton">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Auspicious Library">
-<meta name="twitter:description" content="Auspicious Library is a collection of Utils for Anstro Pleuton's programs.">
+<meta name="twitter:description" content="Auspicious Library is a collection of utils for Anstro Pleuton's programs.">
 <meta property="og:title" content="Auspicious Library">
-<meta property="og:description" content="Auspicious Library is a collection of Utils for Anstro Pleuton's programs.">
+<meta property="og:description" content="Auspicious Library is a collection of utils for Anstro Pleuton's programs.">
 <meta property="og:image" content="https://anstropleuton.github.io/auspicious-library/background.jpg">
 <meta property="og:image:alt" content="Auspicious Library background image (you don't want to know!)">
 <meta property="og:image:width" content="1200">
@@ -47,7 +47,7 @@
   <td id="projectalign">
    <div id="projectname">Auspicious Library<span id="projectnumber">&#160;0.0.1</span>
    </div>
-   <div id="projectbrief">Auspicious Library is a collection of Utils for Anstro Pleuton&#39;s programs.</div>
+   <div id="projectbrief">Auspicious Library is a collection of utils for Anstro Pleuton&#39;s programs.</div>
   </td>
  </tr>
  </tbody>
@@ -118,7 +118,7 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">Auspicious Library </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_Readme"></a>Auspicious Library is a collection of Utils for Anstro Pleuton's programs. This library contains several commonly used program artifacts in a simplified functions for ease of use.</p>
+<div class="textblock"><p><a class="anchor" id="md_Readme"></a>Auspicious Library is a collection of utils for Anstro Pleuton's programs. This library contains several commonly used program artifacts in a simplified functions for ease of use.</p>
 <h1><a class="anchor" id="autotoc_md64"></a>
 Sections</h1>
 <p>This library is subdivided into sections:</p><ul>
@@ -134,35 +134,58 @@ Planned Sections</h1>
 <li><b>Security</b> to contain encryption and decryption functions (yeah that's it).</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md66"></a>
+Prerequisite</h1>
+<ul>
+<li>Know to program in C++</li>
+<li>Know to program in C++23 (optional, recommended)</li>
+<li>Know to use third party C++ libraries</li>
+<li>Know to use CMake</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md67"></a>
 Usage</h1>
-<p>If you are not Anstro Pleuton, which you probably are, here is a quick guide to use my library:</p>
+<p>If you are not Anstro Pleuton, which you probably are, here is a quick and rough guide to use my library:</p>
 <ol type="1">
 <li>Setup:<ul>
-<li>Clone this repository.</li>
-<li>Set up include path to the <a href="include/">include</a>* folder.</li>
+<li>Clone this repository. <div class="fragment"><div class="line">git clone https://github.com/anstropleuton/auspicious-library</div>
+<div class="line">cd auspicious-library</div>
+</div><!-- fragment --></li>
+</ul>
+</li>
+<li>Build the library:<ul>
+<li>Make build folder: <div class="fragment"><div class="line">mkdir build</div>
+<div class="line">cd build</div>
+</div><!-- fragment --></li>
+<li>Build the project: <div class="fragment"><div class="line">cmake ..</div>
+<div class="line">cmake --build .</div>
+</div><!-- fragment --></li>
+</ul>
+</li>
+<li>Set up include path and C++ flags:<ul>
+<li>Depends on your development environment, generally include the <a href="include/">include</a> folder as include search path. Additionally, select C++23 as the C++ standard. In Clang++/G++, you can do as so: <div class="fragment"><div class="line">g++ -Iinclude -std=c++23</div>
+</div><!-- fragment --></li>
 </ul>
 </li>
 <li>Include the library to include all functionality: <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="auspicious__library_8hpp.html">auspicious_library.hpp</a>&quot;</span></div>
 <div class="ttc" id="aauspicious__library_8hpp_html"><div class="ttname"><a href="auspicious__library_8hpp.html">auspicious_library.hpp</a></div><div class="ttdoc">The root header file to include everything in Auspicious Library.</div></div>
 </div><!-- fragment --></li>
-<li>Go through <a href="https://anstropleuton.github.io/auspicious-library">documentation</a> (or <a href="include/auspicious_library.hpp">header files</a>*) to get a grasp on what you can do using my library.</li>
+<li>Go through <a href="https://anstropleuton.github.io/auspicious-library">documentation</a> (or <a href="include/auspicious_library.hpp">header files</a>*) to get a grasp on what you can do using my library. You can check out <a href="examples/">examples source files</a> for more usage information.</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md67"></a>
+<h1><a class="anchor" id="autotoc_md68"></a>
 Documentations</h1>
 <p>Refer to the <a href="https://anstropleuton.github.io/auspicious-library">documentation</a> (or <a href="include/auspicious_library.hpp">header files</a>*) to get a grasp on what you can do using my library.</p>
-<h1><a class="anchor" id="autotoc_md68"></a>
+<h1><a class="anchor" id="autotoc_md69"></a>
 Changelog</h1>
 <p>Refer to the <a class="el" href="md_Changelog.html">Changelog</a> for info about changes in each version.</p>
-<h1><a class="anchor" id="autotoc_md69"></a>
+<h1><a class="anchor" id="autotoc_md70"></a>
 Contributing</h1>
 <p>Check out <a class="el" href="md_Guidelines.html">Guidelines</a> before you submit your code! Make sure to create a branch with one task with the name of the category of your task (i.e., "features/", "bugfix/", etc.) your task before you change the code.</p>
-<h1><a class="anchor" id="autotoc_md70"></a>
+<h1><a class="anchor" id="autotoc_md71"></a>
 Credits</h1>
 <p>Thanks to <a href="https://github.com/jothepro">jothepro</a> for the stylesheet <a href="https://github.com/jothepro/doxygen-awesome-css">Doxygen Awesome</a> for Doxygen.</p>
-<h1><a class="anchor" id="autotoc_md71"></a>
+<h1><a class="anchor" id="autotoc_md72"></a>
 License</h1>
 <p>This project is licensed under the terms of MIT License, see <a class="el" href="md_License.html">License</a>.</p>
-<h1><a class="anchor" id="autotoc_md72"></a>
+<h1><a class="anchor" id="autotoc_md73"></a>
 Doxygen</h1>
 <p>*: Due to some limitations on how files link in Markdown, not all hyperlinks from this file link properly, so refer to:</p><ul>
 <li><a href="https://anstropleuton.github.io/auspicious-library/docs/html/auspicious__library_8hpp_source.html">header files</a></li>

@@ -26,9 +26,9 @@
 <meta name="twitter:site" content="@anstropleuton">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Auspicious Library">
-<meta name="twitter:description" content="Auspicious Library is a collection of Utils for Anstro Pleuton's programs.">
+<meta name="twitter:description" content="Auspicious Library is a collection of utils for Anstro Pleuton's programs.">
 <meta property="og:title" content="Auspicious Library">
-<meta property="og:description" content="Auspicious Library is a collection of Utils for Anstro Pleuton's programs.">
+<meta property="og:description" content="Auspicious Library is a collection of utils for Anstro Pleuton's programs.">
 <meta property="og:image" content="https://anstropleuton.github.io/auspicious-library/background.jpg">
 <meta property="og:image:alt" content="Auspicious Library background image (you don't want to know!)">
 <meta property="og:image:width" content="1200">
@@ -47,7 +47,7 @@
   <td id="projectalign">
    <div id="projectname">Auspicious Library<span id="projectnumber">&#160;0.0.1</span>
    </div>
-   <div id="projectbrief">Auspicious Library is a collection of Utils for Anstro Pleuton&#39;s programs.</div>
+   <div id="projectbrief">Auspicious Library is a collection of utils for Anstro Pleuton&#39;s programs.</div>
   </td>
  </tr>
  </tbody>
@@ -126,10 +126,11 @@ $(function(){initNavTree('namespaceauspicious__library_1_1sm.html',''); initResi
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6ba949956dc793812eacde5acc12fe8a" id="r_a6ba949956dc793812eacde5acc12fe8a"><td class="memTemplParams" colspan="2">template&lt;cu::cu_compatible Container, typename Converter &gt; </td></tr>
-<tr class="memitem:a6ba949956dc793812eacde5acc12fe8a"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a6ba949956dc793812eacde5acc12fe8a">to_string</a> (const Container &amp;container, Converter converter, std::string_view separator=&quot;, &quot;, std::string_view prefix=&quot;&quot;, std::string_view suffix=&quot;&quot;)</td></tr>
-<tr class="memdesc:a6ba949956dc793812eacde5acc12fe8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a container to comma separated string.  <br /></td></tr>
-<tr class="separator:a6ba949956dc793812eacde5acc12fe8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4d2d6d72a9c765f4fe02a0462d35bcf" id="r_af4d2d6d72a9c765f4fe02a0462d35bcf"><td class="memTemplParams" colspan="2">template&lt;cu::cu_compatible Container, typename Converter &gt; <br />
+requires (!std::is_same_v&lt;Converter, std::string&gt;)</td></tr>
+<tr class="memitem:af4d2d6d72a9c765f4fe02a0462d35bcf"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af4d2d6d72a9c765f4fe02a0462d35bcf">to_string</a> (const Container &amp;container, Converter converter, std::string_view separator=&quot;, &quot;, std::string_view prefix=&quot;&quot;, std::string_view suffix=&quot;&quot;)</td></tr>
+<tr class="memdesc:af4d2d6d72a9c765f4fe02a0462d35bcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a container to comma separated string.  <br /></td></tr>
+<tr class="separator:af4d2d6d72a9c765f4fe02a0462d35bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c493accfab65d14254ca1d979d95951" id="r_a5c493accfab65d14254ca1d979d95951"><td class="memTemplParams" colspan="2">template&lt;cu::cu_compatible Container&gt; </td></tr>
 <tr class="memitem:a5c493accfab65d14254ca1d979d95951"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5c493accfab65d14254ca1d979d95951">to_string</a> (const Container &amp;container, std::string_view separator=&quot;, &quot;, std::string_view prefix=&quot;&quot;, std::string_view suffix=&quot;&quot;)</td></tr>
 <tr class="memdesc:a5c493accfab65d14254ca1d979d95951"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a container to comma separated string.  <br /></td></tr>
@@ -183,13 +184,14 @@ requires std::is_same_v&lt;<a class="el" href="namespaceauspicious__library_1_1c
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>String Manipulators. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a6ba949956dc793812eacde5acc12fe8a" name="a6ba949956dc793812eacde5acc12fe8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ba949956dc793812eacde5acc12fe8a">&#9670;&#160;</a></span>to_string() <span class="overload">[1/4]</span></h2>
+<a id="af4d2d6d72a9c765f4fe02a0462d35bcf" name="af4d2d6d72a9c765f4fe02a0462d35bcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4d2d6d72a9c765f4fe02a0462d35bcf">&#9670;&#160;</a></span>to_string() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;cu::cu_compatible Container, typename Converter &gt; </div>
+template&lt;cu::cu_compatible Container, typename Converter &gt; <br />
+requires (!std::is_same_v&lt;Converter, std::string&gt;)</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -247,7 +249,7 @@ template&lt;cu::cu_compatible Container, typename Converter &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>String representation of all elements.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The string is comma AND space separated by default. </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo</a></b></dt><dd>Remove this cast when C++26 comes out. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo</a></b></dt><dd>Remove this cast when C++26 comes out. </dd></dl>
 
 </div>
 </div>
@@ -514,7 +516,7 @@ requires std::is_same_v&lt;<a class="el" href="namespaceauspicious__library_1_1c
 </div><div class="memdoc">
 
 <p>Word-wrap a string at width or before width depending on the delim. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo</a></b></dt><dd>Add to_string for std::string and char for consistency. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo</a></b></dt><dd>Add to_string for std::string and char for consistency. </dd></dl>
 <p>The string is tried to be split at the width if the character at the width is one of the delimiter. If not, the split occurs at the character before the width that is one of the delimiter. This process is repeated until the string is less than the size of width. If a word is longer than the specified width, the word is kept as is. If you use force, the word will be split.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

@@ -2,7 +2,7 @@
 \hypertarget{index}{}\label{index}\index{Auspicious Library@{Auspicious Library}}
 \label{index_md_Readme}%
 \Hypertarget{index_md_Readme}%
-Auspicious Library is a collection of Utils for Anstro Pleuton\textquotesingle{}s programs. This library contains several commonly used program artifacts in a simplified functions for ease of use.\hypertarget{index_autotoc_md64}{}\doxysection{\texorpdfstring{Sections}{Sections}}\label{index_autotoc_md64}
+Auspicious Library is a collection of utils for Anstro Pleuton\textquotesingle{}s programs. This library contains several commonly used program artifacts in a simplified functions for ease of use.\hypertarget{index_autotoc_md64}{}\doxysection{\texorpdfstring{Sections}{Sections}}\label{index_autotoc_md64}
 This library is subdivided into sections\+:
 \begin{DoxyItemize}
 \item {\bfseries{Container Utilities}} contains several utilities for container types (i.\+e., {\bfseries{std\+::vector}}, {\bfseries{std\+::array}}, etc. or custom compatible container types) which includes {\bfseries{appending elements}} (combining), {\bfseries{filtering elements out}}, etc. And several {\bfseries{operators}} for these operations.
@@ -14,15 +14,53 @@ There are several Utilities I am planning add to this library, notably\+:
 \begin{DoxyItemize}
 \item {\bfseries{Binary Files}} to contain several utilities for managing binary files to store and retrieve raw data.
 \item {\bfseries{Security}} to contain encryption and decryption functions (yeah that\textquotesingle{}s it).
-\end{DoxyItemize}\hypertarget{index_autotoc_md66}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{index_autotoc_md66}
-If you are not Anstro Pleuton, which you probably are, here is a quick guide to use my library\+:
+\end{DoxyItemize}\hypertarget{index_autotoc_md66}{}\doxysection{\texorpdfstring{Prerequisite}{Prerequisite}}\label{index_autotoc_md66}
+
+\begin{DoxyItemize}
+\item Know to program in C++
+\item Know to program in C++23 (optional, recommended)
+\item Know to use third party C++ libraries
+\item Know to use CMake
+\end{DoxyItemize}\hypertarget{index_autotoc_md67}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{index_autotoc_md67}
+If you are not Anstro Pleuton, which you probably are, here is a quick and rough guide to use my library\+:
 
 
 \begin{DoxyEnumerate}
 \item Setup\+:
 \begin{DoxyItemize}
-\item Clone this repository.
-\item Set up include path to the \href{include/}{\texttt{ include}}\texorpdfstring{$\ast$}{*} folder.
+\item Clone this repository. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ https://github.com/anstropleuton/auspicious-\/library}
+\DoxyCodeLine{cd\ auspicious-\/library}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+\item Build the library\+:
+\begin{DoxyItemize}
+\item Make build folder\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir\ build}
+\DoxyCodeLine{cd\ build}
+
+\end{DoxyCode}
+
+\item Build the project\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\ ..}
+\DoxyCodeLine{cmake\ -\/-\/build\ .}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+\item Set up include path and C++ flags\+:
+\begin{DoxyItemize}
+\item Depends on your development environment, generally include the \href{include/}{\texttt{ include}} folder as include search path. Additionally, select C++23 as the C++ standard. In Clang++/\+G++, you can do as so\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{g++\ -\/Iinclude\ -\/std=c++23}
+
+\end{DoxyCode}
+
 \end{DoxyItemize}
 \item Include the library to include all functionality\+: 
 \begin{DoxyCode}{0}
@@ -30,13 +68,13 @@ If you are not Anstro Pleuton, which you probably are, here is a quick guide to 
 
 \end{DoxyCode}
 
-\item Go through \href{https://anstropleuton.github.io/auspicious-library}{\texttt{ documentation}} (or \href{include/auspicious_library.hpp}{\texttt{ header files}}\texorpdfstring{$\ast$}{*}) to get a grasp on what you can do using my library.
-\end{DoxyEnumerate}\hypertarget{index_autotoc_md67}{}\doxysection{\texorpdfstring{Documentations}{Documentations}}\label{index_autotoc_md67}
-Refer to the \href{https://anstropleuton.github.io/auspicious-library}{\texttt{ documentation}} (or \href{include/auspicious_library.hpp}{\texttt{ header files}}\texorpdfstring{$\ast$}{*}) to get a grasp on what you can do using my library.\hypertarget{index_autotoc_md68}{}\doxysection{\texorpdfstring{Changelog}{Changelog}}\label{index_autotoc_md68}
-Refer to the \doxysectlink{md_Changelog}{Changelog}{0} for info about changes in each version.\hypertarget{index_autotoc_md69}{}\doxysection{\texorpdfstring{Contributing}{Contributing}}\label{index_autotoc_md69}
-Check out \doxysectlink{md_Guidelines}{Guidelines}{0} before you submit your code! Make sure to create a branch with one task with the name of the category of your task (i.\+e., "{}features/"{}, "{}bugfix/"{}, etc.) your task before you change the code.\hypertarget{index_autotoc_md70}{}\doxysection{\texorpdfstring{Credits}{Credits}}\label{index_autotoc_md70}
-Thanks to \href{https://github.com/jothepro}{\texttt{ jothepro}} for the stylesheet \href{https://github.com/jothepro/doxygen-awesome-css}{\texttt{ Doxygen Awesome}} for Doxygen.\hypertarget{index_autotoc_md71}{}\doxysection{\texorpdfstring{License}{License}}\label{index_autotoc_md71}
-This project is licensed under the terms of MIT License, see \doxysectlink{md_License}{License}{0}.\hypertarget{index_autotoc_md72}{}\doxysection{\texorpdfstring{Doxygen}{Doxygen}}\label{index_autotoc_md72}
+\item Go through \href{https://anstropleuton.github.io/auspicious-library}{\texttt{ documentation}} (or \href{include/auspicious_library.hpp}{\texttt{ header files}}\texorpdfstring{$\ast$}{*}) to get a grasp on what you can do using my library. You can check out \href{examples/}{\texttt{ examples source files}} for more usage information.
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md68}{}\doxysection{\texorpdfstring{Documentations}{Documentations}}\label{index_autotoc_md68}
+Refer to the \href{https://anstropleuton.github.io/auspicious-library}{\texttt{ documentation}} (or \href{include/auspicious_library.hpp}{\texttt{ header files}}\texorpdfstring{$\ast$}{*}) to get a grasp on what you can do using my library.\hypertarget{index_autotoc_md69}{}\doxysection{\texorpdfstring{Changelog}{Changelog}}\label{index_autotoc_md69}
+Refer to the \doxysectlink{md_Changelog}{Changelog}{0} for info about changes in each version.\hypertarget{index_autotoc_md70}{}\doxysection{\texorpdfstring{Contributing}{Contributing}}\label{index_autotoc_md70}
+Check out \doxysectlink{md_Guidelines}{Guidelines}{0} before you submit your code! Make sure to create a branch with one task with the name of the category of your task (i.\+e., "{}features/"{}, "{}bugfix/"{}, etc.) your task before you change the code.\hypertarget{index_autotoc_md71}{}\doxysection{\texorpdfstring{Credits}{Credits}}\label{index_autotoc_md71}
+Thanks to \href{https://github.com/jothepro}{\texttt{ jothepro}} for the stylesheet \href{https://github.com/jothepro/doxygen-awesome-css}{\texttt{ Doxygen Awesome}} for Doxygen.\hypertarget{index_autotoc_md72}{}\doxysection{\texorpdfstring{License}{License}}\label{index_autotoc_md72}
+This project is licensed under the terms of MIT License, see \doxysectlink{md_License}{License}{0}.\hypertarget{index_autotoc_md73}{}\doxysection{\texorpdfstring{Doxygen}{Doxygen}}\label{index_autotoc_md73}
 \texorpdfstring{$\ast$}{*}\+: Due to some limitations on how files link in Markdown, not all hyperlinks from this file link properly, so refer to\+:
 \begin{DoxyItemize}
 \item \href{https://anstropleuton.github.io/auspicious-library/docs/html/auspicious__library_8hpp_source.html}{\texttt{ header files}}

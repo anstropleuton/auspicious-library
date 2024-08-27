@@ -1,5 +1,5 @@
 # Auspicious Library
-Auspicious Library is a collection of Utils for Anstro Pleuton's programs. This library contains several commonly used program artifacts in a simplified functions for ease of use.
+Auspicious Library is a collection of utils for Anstro Pleuton's programs. This library contains several commonly used program artifacts in a simplified functions for ease of use.
 
 # Sections
 This library is subdivided into sections:
@@ -13,17 +13,42 @@ There are several Utilities I am planning add to this library, notably:
 - **Binary Files** to contain several utilities for managing binary files to store and retrieve raw data.
 - **Security** to contain encryption and decryption functions (yeah that's it).
 
+# Prerequisite
+- Know to program in C++
+- Know to program in C++23 (optional, recommended)
+- Know to use third party C++ libraries
+- Know to use CMake
+
 # Usage
-If you are not Anstro Pleuton, which you probably are, here is a quick guide to use my library:
+If you are not Anstro Pleuton, which you probably are, here is a quick and rough guide to use my library:
 
  1. Setup:
     - Clone this repository.
-    - Set up include path to the [include](include/)[*](#Doxygen) folder.
- 2. Include the library to include all functionality:
+```
+git clone https://github.com/anstropleuton/auspicious-library
+cd auspicious-library
+```
+ 2. Build the library:
+    - Make build folder:
+```bash
+mkdir build
+cd build
+```
+    - Build the project:
+```bash
+cmake ..
+cmake --build .
+```
+ 3. Set up include path and C++ flags:
+    - Depends on your development environment, generally include the [include](include/) folder as include search path. Additionally, select C++23 as the C++ standard. In Clang++/G++, you can do as so:
+```
+g++ -Iinclude -std=c++23
+```
+ 4. Include the library to include all functionality:
 ```cpp
 #include "auspicious_library.hpp"
 ```
- 3. Go through [documentation](https://anstropleuton.github.io/auspicious-library) (or [header files](include/auspicious_library.hpp)[*](#Doxygen)) to get a grasp on what you can do using my library.
+ 5. Go through [documentation](https://anstropleuton.github.io/auspicious-library) (or [header files](include/auspicious_library.hpp)[*](#Doxygen)) to get a grasp on what you can do using my library. You can check out [examples source files](examples/) for more usage information.
 
 # Documentations
 Refer to the [documentation](https://anstropleuton.github.io/auspicious-library) (or [header files](include/auspicious_library.hpp)[*](#Doxygen)) to get a grasp on what you can do using my library.

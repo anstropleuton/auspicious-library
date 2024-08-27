@@ -18,12 +18,16 @@ Add more AECs.
 \label{todo__todo000001}%
 \Hypertarget{todo__todo000001}%
 After C++26 remove this cast to std\+::string.  
-\item[Member \doxylink{namespaceauspicious__library_1_1sm_a6ba949956dc793812eacde5acc12fe8a}{auspicious\+\_\+library\+::sm\+::to\+\_\+string} (const Container \&container, Converter converter, std\+::string\+\_\+view separator="{}, "{}, std\+::string\+\_\+view prefix="{}"{}, std\+::string\+\_\+view suffix="{}"{})]\hfill \\
+\item[Namespace \doxylink{namespaceauspicious__library_1_1ap}{auspicious\+\_\+library\+::ap} ]\hfill \\
 \label{todo__todo000005}%
 \Hypertarget{todo__todo000005}%
-Remove this cast when C++26 comes out.  
-\item[Member \doxylink{namespaceauspicious__library_1_1sm_a557e590ecf315060dbbe49015d5e90fb}{auspicious\+\_\+library\+::sm\+::word\+\_\+wrap} (std\+::string\+\_\+view string, std\+::size\+\_\+t width, bool force=false, std\+::string\+\_\+view delims="{} \textbackslash{}\textbackslash{}t\textbackslash{}\textbackslash{}r\textbackslash{}\textbackslash{}n\textbackslash{}\textbackslash{}f\textbackslash{}\textbackslash{}v\textbackslash{}\textbackslash{}b"{})]\hfill \\
+Proper internationalization support? Currently std\+::string is used, which is a string of char, char cannot hold any more than 1 byte. Hence internal counting characters will count the multi-\/byte character and international characters for short option is out of the window.  
+\item[Member \doxylink{namespaceauspicious__library_1_1sm_af4d2d6d72a9c765f4fe02a0462d35bcf}{auspicious\+\_\+library\+::sm\+::to\+\_\+string} (const Container \&container, Converter converter, std\+::string\+\_\+view separator="{}, "{}, std\+::string\+\_\+view prefix="{}"{}, std\+::string\+\_\+view suffix="{}"{})]\hfill \\
 \label{todo__todo000006}%
 \Hypertarget{todo__todo000006}%
+Remove this cast when C++26 comes out.  
+\item[Member \doxylink{namespaceauspicious__library_1_1sm_a557e590ecf315060dbbe49015d5e90fb}{auspicious\+\_\+library\+::sm\+::word\+\_\+wrap} (std\+::string\+\_\+view string, std\+::size\+\_\+t width, bool force=false, std\+::string\+\_\+view delims="{} \textbackslash{}\textbackslash{}t\textbackslash{}\textbackslash{}r\textbackslash{}\textbackslash{}n\textbackslash{}\textbackslash{}f\textbackslash{}\textbackslash{}v\textbackslash{}\textbackslash{}b"{})]\hfill \\
+\label{todo__todo000007}%
+\Hypertarget{todo__todo000007}%
 Add to\+\_\+string for std\+::string and char for consistency. 
 \end{DoxyRefList}

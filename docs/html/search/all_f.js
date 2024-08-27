@@ -4,7 +4,7 @@ var searchData=
   ['last_1',['last',['../structauspicious__library_1_1ap_1_1help__pad__t.html#a451c2ed89480823b02155d1b1e425b3e',1,'auspicious_library::ap::help_pad_t']]],
   ['length_2',['Line Length',['../md_Guidelines.html#autotoc_md16',1,'']]],
   ['library_3',['Library',['../index.html',1,'Auspicious Library'],['../md_Guidelines.html#autotoc_md49',1,'Standard Library']]],
-  ['license_4',['License',['../md_License.html',1,'License'],['../index.html#autotoc_md71',1,'License']]],
+  ['license_4',['License',['../md_License.html',1,'License'],['../index.html#autotoc_md72',1,'License']]],
   ['license_2emd_5',['License.md',['../License_8md.html',1,'']]],
   ['line_20comments_6',['line Comments',['../md_Guidelines.html#autotoc_md23',1,'Multi-line Comments'],['../md_Guidelines.html#autotoc_md22',1,'Single-line Comments']]],
   ['line_20length_7',['Line Length',['../md_Guidelines.html#autotoc_md16',1,'']]],

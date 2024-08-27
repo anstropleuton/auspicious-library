@@ -67,6 +67,7 @@
     my_module.hpp
     my_module.cpp
     ```
+- Specificity first. For example, `animated_icon_texture.gif` instead of `texture_icon_animated.gif`.
 
 ## Formatting
 

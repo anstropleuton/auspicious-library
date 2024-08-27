@@ -5,7 +5,17 @@
  *
  *  @copyright  Copyright (c) 2024 Anstro Pleuton
  *
- *  Auspicious Library is a collection of Utils for Anstro Pleuton's programs.
+ *      _                   _      _
+ *     / \  _   _ ___ _ __ (_) ___(_) ___  _   _ ___
+ *    / _ \| | | / __| '_ \| |/ __| |/ _ \| | | / __|
+ *   / ___ \ |_| \__ \ |_) | | (__| | (_) | |_| \__ \
+ *  /_/   \_\__,_|___/ .__/|_|\___|_|\___/ \__,_|___/
+ *                   |_|  _    ___ ___ ___    _   _____   __
+ *                       | |  |_ _| _ ) _ \  /_\ | _ \ \ / /
+ *                       | |__ | || _ \   / / _ \|   /\ V /
+ *                       |____|___|___/_|_\/_/ \_\_|_\ |_|
+ *
+ *  Auspicious Library is a collection of utils for Anstro Pleuton's programs.
  *
  *  This software is licensed under the terms of MIT License.
  *
@@ -26,12 +36,18 @@
  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  *  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  *  IN THE SOFTWARE.
+ *
+ *  Credits where credit's due:
+ *  - ASCII Art generated using https://www.patorjk.com/software/taag with font
+ *    "Standard" (for "Auspicious") and "Small" (for "LIBRARY").
  */
 
 #pragma once
 
 #include <algorithm>
+#include <fstream>
 #include <functional>
+#include <iostream>
 #include <print>
 #include <ranges>
 #include <string>
@@ -46,7 +62,7 @@
 #define T_ASSERT_CODE_FMT(value, expected, code, fmt, ...) \
 if (value != expected)                                     \
 {                                                          \
-    std::println(fmt, __VA_ARGS__);                        \
+    logln(fmt, __VA_ARGS__);                               \
     T_ERRORS++;                                            \
     code;                                                  \
 }                                                          \
@@ -105,6 +121,55 @@ for (std::size_t i = 0; i < expected.size(); i++) \
     T_ASSERT_SUB_CTR(value, expected, i)          \
 }                                                 \
 do {} while (false)
+
+/**
+ *  @brief  Global variables are now available in header files!  Just define
+ *          @c gvar in *one* source file.
+ */
+#ifndef gvar
+#define gvar extern
+#endif // gvar
+
+/**
+ *  @brief  Open this file to redirect logging to a file.
+ */
+gvar std::ofstream log_file;
+
+/**
+ *  @brief  Log to std::cout or provided file.
+ *
+ *  @tparam  Args    Type of arguments.
+ *  @param   format  Format specifier.
+ *  @param   args    Arguments.
+ */
+template<typename... Args>
+[[nodiscard]] inline auto log(
+    std::format_string<Args...> format,
+    Args &&...                  args
+)
+{
+    // Print to stdout if no file is specified
+    std::ostream &stream = log_file.is_open() ? log_file : std::cout;
+    std::print(stream, format, std::forward<Args>(args)...);
+}
+
+/**
+ *  @brief  Log with newline to std::cout or provided file.
+ *
+ *  @tparam  Args    Type of arguments.
+ *  @param   format  Format specifier.
+ *  @param   args    Arguments.
+ */
+template<typename... Args>
+[[nodiscard]] inline auto logln(
+    std::format_string<Args...> format,
+    Args &&...                  args
+)
+{
+    // Print to stdout if no file is specified
+    std::ostream &stream = log_file.is_open() ? log_file : std::cout;
+    std::println(stream, format, std::forward<Args>(args)...);
+}
 
 /**
  *  @brief  Test the function.
@@ -203,7 +268,7 @@ struct test_suite {
     std::string decor = std::ranges::views::repeat(decor_char, decor_count)
                         | std::ranges::to<std::string>();
     return [=](const test *test) {
-        std::println("{} {} {}", decor, test->title, decor);
+        logln("{} {} {}", decor, test->title, decor);
     };
 }
 
@@ -221,7 +286,7 @@ struct test_suite {
     std::string decor = std::views::repeat(decor_char, decor_count)
                         | std::ranges::to<std::string>();
     return [=](const test *test, std::size_t errors) {
-        std::println("{} End of {}, {} errors {}\n", decor, test->title, errors,
+        logln("{} End of {}, {} errors {}\n", decor, test->title, errors,
             decor);
     };
 }
@@ -233,7 +298,7 @@ struct test_suite {
 [[nodiscard]] inline auto default_run_failed_quitter()
 {
     return [=](const test *test, std::size_t errors) {
-        std::println("{} failed, cannot conduct further tests.", test->title);
+        logln("{} failed, cannot conduct further tests.", test->title);
         return true;
     };
 }
@@ -249,11 +314,10 @@ inline auto print_failed_tests(
 {
     if (failed_tests.empty()) return;
 
-    std::println("Failed tests:");
+    logln("Failed tests:");
     for (auto &failed_test : failed_tests)
     {
-        std::println("  {}: {} errors", failed_test.first->title,
-            failed_test.second);
+        logln("  {}: {} errors", failed_test.first->title, failed_test.second);
     }
 }
 
