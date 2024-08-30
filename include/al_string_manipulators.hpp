@@ -44,7 +44,6 @@
 
 #pragma once
 
-#include <type_traits>
 #if !defined(AUSPICIOUS_LIBRARY_HPP_INCLUDED) \
  && !defined(AUSPICIOUS_LIBRARY_NO_INCLUSION_WARN)
     #warning Its recommended to include auspicious_library.hpp instead.
@@ -55,6 +54,7 @@
 #include <iterator>
 #include <ranges>
 #include <string>
+#include <type_traits>
 #include <vector>
 
 #include "al_container_utilities.hpp"
@@ -67,6 +67,7 @@
     using namespace auspicious_library::aec;
     using namespace auspicious_library::ap;
     using namespace auspicious_library::cu;
+    using namespace auspicious_library::fu;
     using namespace auspicious_library::sm;
     }
     using namespace auspicious_library::aec_operators;

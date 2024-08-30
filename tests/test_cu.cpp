@@ -45,16 +45,7 @@
 #include <cstddef>
 #include <functional>
 
-#define AUSPICIOUS_LIBRARY_NO_INCLUSION_WARN
-#include "al_container_utilities.hpp"
-#include "al_string_manipulators.hpp"
 #include "tester.hpp"
-
-namespace al {
-using namespace auspicious_library::cu;
-using namespace auspicious_library::sm;
-} // namespace al
-using namespace auspicious_library::cu_operators;
 
 /**
  *  @brief  Test CU's subordinate function.

@@ -1,7 +1,7 @@
 /**
- *  @file    auspicious_library.hpp
+ *  @file    test_aec.cpp
  *  @author  Anstro Pleuton (https://github.com/anstropleuton)
- *  @brief   The root header file to include everything in Auspicious Library.
+ *  @brief   Test all of File Utilities in Auspicious Library.
  *
  *  @copyright  Copyright (c) 2024 Anstro Pleuton
  *
@@ -42,34 +42,30 @@
  *    "Standard" (for "Auspicious") and "Small" (for "LIBRARY").
  */
 
-#pragma once
-
-#define AUSPICIOUS_LIBRARY_HPP_INCLUDED
-
-#include <string_view>
-
-#include "al_container_utilities.hpp" // IWYU pragma: keep
-#include "al_string_manipulators.hpp" // IWYU pragma: keep
-#include "al_ansi_escape_codes.hpp" // IWYU pragma: keep
-#include "al_argument_parser.hpp" // IWYU pragma: keep
-#include "al_file_utilities.hpp" // IWYU pragma: keep
+#include "tester.hpp"
 
 /**
- *  @brief  All Auspicious Library's contents in this namespace. Do not
- *          `using namespace auspicious_library;`.  Instead, use this:
-    ```cpp
-    namespace al {
-    using namespace auspicious_library::cu;
-    using namespace auspicious_library::sm;
-    using namespace auspicious_library::aec;
-    using namespace auspicious_library::ap;
-    using namespace auspicious_library::fu;
-    }
-    using namespace auspicious_library::cu_operators;
-    using namespace auspicious_library::sm_operators;
-    using namespace auspicious_library::aec_operators;
-    ```
+ *  @brief  Test File Utilities.
+ *  @return  Number of errors.
  */
-namespace auspicious_library {
-inline constinit std::string_view auspicious_library_version = "0.0.1";
-} // namespace auspicious_library
+[[nodiscard]] auto test_fu() -> std::size_t
+{
+    T_BEGIN;
+
+    std::string_view filename = "test_fu_read_all_file.txt";
+    std::string      expected = "Copyright (C) 2024 Anstro Pleuton\n"
+                                "\n"
+                                "This is a dummy file for testing File "
+                                "Utilities's read_all function which reads all "
+                                "the file contents at once.\n";
+
+    auto content = al::read_all(filename);
+
+    logln("filename: {}", filename);
+    logln("content: {}",  content);
+    logln("expected: {}", expected);
+
+    T_ASSERT_CTR(content, expected);
+
+    T_END;
+}

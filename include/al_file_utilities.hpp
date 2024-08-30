@@ -1,7 +1,7 @@
 /**
- *  @file    auspicious_library.hpp
+ *  @file    al_file_utilities.hpp
  *  @author  Anstro Pleuton (https://github.com/anstropleuton)
- *  @brief   The root header file to include everything in Auspicious Library.
+ *  @brief   General functionality to work with files.
  *
  *  @copyright  Copyright (c) 2024 Anstro Pleuton
  *
@@ -44,15 +44,17 @@
 
 #pragma once
 
-#define AUSPICIOUS_LIBRARY_HPP_INCLUDED
+#if !defined(AUSPICIOUS_LIBRARY_HPP_INCLUDED) \
+ && !defined(AUSPICIOUS_LIBRARY_NO_INCLUSION_WARN)
+    #warning Its recommended to include auspicious_library.hpp instead.
+#endif // ifndef AUSPICIOUS_LIBRARY_HPP_INCLUDED
 
-#include <string_view>
-
-#include "al_container_utilities.hpp" // IWYU pragma: keep
-#include "al_string_manipulators.hpp" // IWYU pragma: keep
-#include "al_ansi_escape_codes.hpp" // IWYU pragma: keep
-#include "al_argument_parser.hpp" // IWYU pragma: keep
-#include "al_file_utilities.hpp" // IWYU pragma: keep
+#include <bit>
+#include <cstring>
+#include <fstream>
+#include <ios>
+#include <stdexcept>
+#include <vector>
 
 /**
  *  @brief  All Auspicious Library's contents in this namespace. Do not
@@ -71,5 +73,36 @@
     ```
  */
 namespace auspicious_library {
-inline constinit std::string_view auspicious_library_version = "0.0.1";
+
+namespace stdr = std::ranges;
+namespace stdv = stdr::views;
+
+/**
+ *  @brief  File Utilities.  Not what you are thinking.
+ */
+namespace fu {
+
+/**
+ *  @brief  Read all the file's content at once and return @c std::string
+ *          representing the file's content.
+ *
+ *  @param  filename  Filename.
+ *  @return  @c std::string representing all the file's contents.
+ *
+ *  @note  Large files causes problems.
+ */
+[[nodiscard]] inline auto read_all(std::string_view filename)
+{
+    std::ifstream infile((std::string(filename)));
+    if (!infile)
+    {
+        throw std::runtime_error(std::format("Failed to open file {}",
+            filename));
+    }
+
+    return std::string(std::istreambuf_iterator(infile), {});
+}
+
+} // namespace fu
+
 } // namespace auspicious_library

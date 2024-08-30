@@ -84,6 +84,7 @@ $(OBJ_DIR):
 # Binary targets
 test: $(LIBRARY) $(TEST_OBJ_FILES) | $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(BIN_DIR)/tester $(TEST_OBJ_FILES) -L$(BUILD_DIR) -lauspicious_library
+	cp $(TESTS_DIR)/test_fu_read_all_file.txt $(BIN_DIR)/test_fu_read_all_file.txt
 
 examples: $(LIBRARY) $(EXAMPLE_TARGETS) | $(BIN_DIR)
 

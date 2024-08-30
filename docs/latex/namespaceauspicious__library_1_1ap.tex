@@ -366,6 +366,18 @@ Detailed Description of namespace {\ttfamily \doxylink{namespaceauspicious__libr
 \begin{DoxyReturn}{Returns}
 Parsed argument information.
 \end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & Thrown in the following cases\+:
+\begin{DoxyItemize}
+\item When a pointer is null.
+\item When there are more {\ttfamily defaults\+\_\+from\+\_\+back} than {\ttfamily parameters}.
+\item When {\ttfamily parameters} is variadic, and default values are provided.
+\item When {\ttfamily parameters} is variadic, and subcommands are provided.
+\item When a non-\/last parameter is variadic.
+\end{DoxyItemize}\\
+\hline
+\end{DoxyExceptions}
 \begin{DoxyNote}{Note}
 Do not pass dynamically allocated memory directly as {\ttfamily options} or {\ttfamily subcommands}. This should point to user managed memory. 
 \end{DoxyNote}
@@ -398,6 +410,18 @@ Detailed Description of namespace {\ttfamily \doxylink{namespaceauspicious__libr
 \begin{DoxyReturn}{Returns}
 Parsed argument information.
 \end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & Thrown in the following cases\+:
+\begin{DoxyItemize}
+\item When a pointer is null.
+\item When there are more {\ttfamily defaults\+\_\+from\+\_\+back} than {\ttfamily parameters}.
+\item When {\ttfamily parameters} is variadic, and default values are provided.
+\item When {\ttfamily parameters} is variadic, and subcommands are provided.
+\item When a non-\/last parameter is variadic.
+\end{DoxyItemize}\\
+\hline
+\end{DoxyExceptions}
 \begin{DoxyNote}{Note}
 Do not pass dynamically allocated memory directly as {\ttfamily options} or {\ttfamily subcommands}. This should point to user managed memory. 
 \end{DoxyNote}

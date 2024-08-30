@@ -61,14 +61,15 @@
  *          `using namespace auspicious_library;`.  Instead, use this:
     ```cpp
     namespace al {
-    using namespace auspicious_library::aec;
-    using namespace auspicious_library::ap;
     using namespace auspicious_library::cu;
     using namespace auspicious_library::sm;
+    using namespace auspicious_library::aec;
+    using namespace auspicious_library::ap;
+    using namespace auspicious_library::fu;
     }
-    using namespace auspicious_library::aec_operators;
     using namespace auspicious_library::cu_operators;
     using namespace auspicious_library::sm_operators;
+    using namespace auspicious_library::aec_operators;
     ```
  */
 namespace auspicious_library {
@@ -371,9 +372,14 @@ namespace cu_operators {
  *  @param   container_b  Second container.
  *  @return  Combined container as result_container.
  *
+ *  @note  Use String Manipulators' operators for std::string or
+ *         std::string_view.
+ *
  *  @see  cu::combine.
  */
 template<cu::cu_compatible Container>
+requires(!std::is_same_v<Container, std::string>
+      && !std::is_same_v<Container, std::string_view>)
 [[nodiscard]] inline constexpr auto operator+ (
     const Container &container_a,
     const Container &container_b
@@ -390,9 +396,14 @@ template<cu::cu_compatible Container>
  *  @param   value      Value.
  *  @return  Value-appended container as result_container.
  *
+ *  @note  Use String Manipulators' operators for std::string or
+ *         std::string_view.
+ *
  *  @see  cu::combine.
  */
 template<cu::cu_compatible Container>
+requires(!std::is_same_v<Container, std::string>
+      && !std::is_same_v<Container, std::string_view>)
 [[nodiscard]] inline constexpr auto operator+ (
     const Container                 &container_a,
     const cu::value_type<Container> &value
@@ -409,9 +420,14 @@ template<cu::cu_compatible Container>
  *  @param   values     Sequence to remove.
  *  @return  Filtered container as result_container.
  *
+ *  @note  Use String Manipulators' operators for std::string or
+ *         std::string_view.
+ *
  *  @see  cu::filter_out_seq.
  */
 template<cu::cu_compatible Container>
+requires(!std::is_same_v<Container, std::string>
+      && !std::is_same_v<Container, std::string_view>)
 [[nodiscard]] inline constexpr auto operator- (
     const Container &container,
     const Container &values
@@ -428,9 +444,14 @@ template<cu::cu_compatible Container>
  *  @param   value      Value to remove.
  *  @return  Filtered container as result_container.
  *
+ *  @note  Use String Manipulators' operators for std::string or
+ *         std::string_view.
+ *
  *  @see  cu::filter_out.
  */
 template<cu::cu_compatible Container>
+requires(!std::is_same_v<Container, std::string>
+      && !std::is_same_v<Container, std::string_view>)
 [[nodiscard]] inline constexpr auto operator- (
     const Container                 &container,
     const cu::value_type<Container> &value
@@ -447,9 +468,14 @@ template<cu::cu_compatible Container>
  *  @param   n          Repeat times.
  *  @return  Repeated container as result_container.
  *
+ *  @note  Use String Manipulators' operators for std::string or
+ *         std::string_view.
+ *
  *  @see  cu::repeat.
  */
 template<cu::cu_compatible Container>
+requires(!std::is_same_v<Container, std::string>
+      && !std::is_same_v<Container, std::string_view>)
 [[nodiscard]] inline constexpr auto operator* (
     const Container &container,
     std::size_t      n
@@ -466,9 +492,14 @@ template<cu::cu_compatible Container>
  *  @param   n          Repeat times.
  *  @return  Repeated container as result_container.
  *
+ *  @note  Use String Manipulators' operators for std::string or
+ *         std::string_view.
+ *
  *  @see   cu::repeat.
  */
 template<cu::cu_compatible Container>
+requires(!std::is_same_v<Container, std::string>
+      && !std::is_same_v<Container, std::string_view>)
 [[nodiscard]] inline constexpr auto operator* (
     const Container &container,
     long double      n
@@ -485,9 +516,14 @@ template<cu::cu_compatible Container>
  *  @param   pattern    Pattern to split with.
  *  @return  Split container as result_container_nested.
  *
+ *  @note  Use String Manipulators' operators for std::string or
+ *         std::string_view.
+ *
  *  @see  cu::split.
  */
 template<cu::cu_compatible Container>
+requires(!std::is_same_v<Container, std::string>
+      && !std::is_same_v<Container, std::string_view>)
 [[nodiscard]] inline constexpr auto operator/ (
     const Container &container,
     const Container &pattern
@@ -504,9 +540,14 @@ template<cu::cu_compatible Container>
  *  @param   value      Value to split with.
  *  @return  Split container as result_container_nested.
  *
+ *  @note  Use String Manipulators' operators for std::string or
+ *         std::string_view.
+ *
  *  @see  cu::split.
  */
 template<cu::cu_compatible Container>
+requires(!std::is_same_v<Container, std::string>
+      && !std::is_same_v<Container, std::string_view>)
 [[nodiscard]] inline constexpr auto operator/ (
     const Container                 &container,
     const cu::value_type<Container> &value

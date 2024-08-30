@@ -60,14 +60,15 @@
  *          `using namespace auspicious_library;`.  Instead, use this:
     ```cpp
     namespace al {
-    using namespace auspicious_library::aec;
-    using namespace auspicious_library::ap;
     using namespace auspicious_library::cu;
     using namespace auspicious_library::sm;
+    using namespace auspicious_library::aec;
+    using namespace auspicious_library::ap;
+    using namespace auspicious_library::fu;
     }
-    using namespace auspicious_library::aec_operators;
     using namespace auspicious_library::cu_operators;
     using namespace auspicious_library::sm_operators;
+    using namespace auspicious_library::aec_operators;
     ```
  */
 namespace auspicious_library {
@@ -521,6 +522,13 @@ struct parsed_argument {
  *                       (optional).
  *  @return  Parsed argument information.
  *
+ *  @exception  std::invalid_argument  Thrown in the following cases:
+ *   - When a pointer is null.
+ *   - When there are more @c defaults_from_back than @c parameters.
+ *   - When @c parameters is variadic, and default values are provided.
+ *   - When @c parameters is variadic, and subcommands are provided.
+ *   - When a non-last parameter is variadic.
+ *
  *  @note  Do not pass dynamically allocated memory directly as @c options or
  *         @c subcommands.  This should point to user managed memory.
  */
@@ -543,6 +551,13 @@ struct parsed_argument {
  *  @param  switch_ins   Match Microsoft-style switches case insensitively
  *                       (optional).
  *  @return  Parsed argument information.
+ *
+ *  @exception  std::invalid_argument  Thrown in the following cases:
+ *   - When a pointer is null.
+ *   - When there are more @c defaults_from_back than @c parameters.
+ *   - When @c parameters is variadic, and default values are provided.
+ *   - When @c parameters is variadic, and subcommands are provided.
+ *   - When a non-last parameter is variadic.
  *
  *  @note  Do not pass dynamically allocated memory directly as @c options or
  *         @c subcommands.  This should point to user managed memory.
@@ -603,7 +618,7 @@ struct help_pad_t {
      *
      *  1  -> Use only the mid.
      *  2  -> Use first and then last.
-     *  2+ -> Use first, n-2 times mid and then last.
+     *  3+ -> Use first, n-2 times mid and then last.
      */
     std::size_t size;
 };

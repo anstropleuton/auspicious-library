@@ -47,17 +47,7 @@
 #include <string>
 #include <string_view>
 
-#define AUSPICIOUS_LIBRARY_NO_INCLUSION_WARN
-#include "al_string_manipulators.hpp"
 #include "tester.hpp"
-
-namespace al {
-using namespace auspicious_library::sm;
-} // namespace al
-using namespace auspicious_library::sm_operators;
-
-using namespace std::string_literals;
-using namespace std::string_view_literals;
 
 /**
  *  @brief  Test SM's to_string function (overload 1).

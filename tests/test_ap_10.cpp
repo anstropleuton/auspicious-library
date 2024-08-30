@@ -44,13 +44,7 @@
  *    "Standard" (for "Auspicious") and "Small" (for "LIBRARY").
  */
 
-#include "al_container_utilities.hpp"
 #include "test_ap.hpp"
-
-namespace al {
-using namespace auspicious_library::cu;
-} // namespace al
-using namespace auspicious_library::cu_operators;
 
 /**
  *  @brief  AP Test 10: Variadic parameter recognition tests.

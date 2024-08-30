@@ -57,10 +57,10 @@
 [[nodiscard]] auto test_sm_to_string() -> std::size_t;
 
 /**
- *  @brief  Test Argument Parser.
+ *  @brief  Test... copper?  No wait, test Container Utilities.
  *  @return  Number of errors.
  */
-[[nodiscard]] auto test_ap() -> std::size_t;
+[[nodiscard]] auto test_cu() -> std::size_t;
 
 /**
  *  @brief  Test String Manipulators.
@@ -75,16 +75,16 @@
 [[nodiscard]] auto test_aec() -> std::size_t;
 
 /**
- *  @brief  Test... copper?  No wait, test Container Utilities.
- *  @return  Number of errors.
- */
-[[nodiscard]] auto test_cu() -> std::size_t;
-
-/**
  *  @brief  Test Argument Parser.
  *  @return  Number of errors.
  */
 [[nodiscard]] auto test_ap() -> std::size_t;
+
+/**
+ *  @brief  Test File Utilities.
+ *  @return  Number of errors.
+ */
+[[nodiscard]] auto test_fu() -> std::size_t;
 
 /**
  *  @brief  The biggie.
@@ -139,10 +139,17 @@ auto main() -> int try
         test_ap
     };
 
+    test fu_test = {
+        "Test File Utilities",
+        "test_fu",
+        test_fu
+    };
+
     suite.tests.emplace_back(&cu_test);
     suite.tests.emplace_back(&sm_test);
     suite.tests.emplace_back(&aec_test);
     suite.tests.emplace_back(&ap_test);
+    suite.tests.emplace_back(&fu_test);
 
     auto failed_tests = suite.run();
     log_file.open("tester.log");

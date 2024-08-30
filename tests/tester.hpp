@@ -123,12 +123,30 @@ for (std::size_t i = 0; i < expected.size(); i++) \
 do {} while (false)
 
 /**
- *  @brief  Global variables are now available in header files!  Just define
- *          @c gvar in *one* source file.
+ *  @brief  Global variables are now available in header files!  Just #define
+ *          @c gvar as empty in *one* source file.
  */
 #ifndef gvar
 #define gvar extern
 #endif // gvar
+
+#include "auspicious_library.hpp"
+
+namespace al {
+using namespace auspicious_library::cu;
+using namespace auspicious_library::sm;
+using namespace auspicious_library::aec;
+using namespace auspicious_library::ap;
+using namespace auspicious_library::fu;
+} // namespace al
+using namespace auspicious_library::cu_operators;
+using namespace auspicious_library::sm_operators;
+using namespace auspicious_library::aec_operators;
+
+using namespace std::string_literals;
+using namespace std::string_view_literals;
+namespace stdr = std::ranges;
+namespace stdv = stdr::views;
 
 /**
  *  @brief  Open this file to redirect logging to a file.

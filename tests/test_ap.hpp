@@ -64,24 +64,13 @@ static bool extensive_test = EXTENSIVE_TEST_VALUE;
  *          This is the peak of C-like code you will ever see in this library.
  *          ... maybe.
  */
-#define lenof(array_expr) sizeof ((array_expr)) / sizeof ((array_expr)[0])
+#define lenof(array_expr) sizeof (array_expr) / sizeof (array_expr)[0]
 
 #include <format>
 #include <print>
 #include <vector>
 
-#define AUSPICIOUS_LIBRARY_NO_INCLUSION_WARN
-#include "al_argument_parser.hpp"
-#include "al_string_manipulators.hpp"
 #include "tester.hpp"
-
-namespace al {
-using namespace auspicious_library::ap;
-using namespace auspicious_library::sm;
-} // namespace al
-using namespace auspicious_library::sm_operators;
-
-using namespace std::string_literals;
 
 using at  = al::argument_type;
 using vdt = al::validity;

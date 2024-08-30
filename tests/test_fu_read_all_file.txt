@@ -1,0 +1,3 @@
+Copyright (C) 2024 Anstro Pleuton
+
+This is a dummy file for testing File Utilities's read_all function which reads all the file contents at once.

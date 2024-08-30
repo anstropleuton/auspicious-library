@@ -608,6 +608,19 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Parsed argument information.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>Thrown in the following cases:<ul>
+<li>When a pointer is null.</li>
+<li>When there are more <code>defaults_from_back</code> than <code>parameters</code>.</li>
+<li>When <code>parameters</code> is variadic, and default values are provided.</li>
+<li>When <code>parameters</code> is variadic, and subcommands are provided.</li>
+<li>When a non-last parameter is variadic.</li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section note"><dt>Note</dt><dd>Do not pass dynamically allocated memory directly as <code>options</code> or <code>subcommands</code>. This should point to user managed memory. </dd></dl>
 
 </div>
@@ -668,6 +681,19 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Parsed argument information.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>Thrown in the following cases:<ul>
+<li>When a pointer is null.</li>
+<li>When there are more <code>defaults_from_back</code> than <code>parameters</code>.</li>
+<li>When <code>parameters</code> is variadic, and default values are provided.</li>
+<li>When <code>parameters</code> is variadic, and subcommands are provided.</li>
+<li>When a non-last parameter is variadic.</li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section note"><dt>Note</dt><dd>Do not pass dynamically allocated memory directly as <code>options</code> or <code>subcommands</code>. This should point to user managed memory. </dd></dl>
 
 </div>

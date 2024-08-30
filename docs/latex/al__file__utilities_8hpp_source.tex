@@ -1,0 +1,43 @@
+\doxysection{al\+\_\+file\+\_\+utilities.\+hpp}
+\hypertarget{al__file__utilities_8hpp_source}{}\label{al__file__utilities_8hpp_source}\index{include/al\_file\_utilities.hpp@{include/al\_file\_utilities.hpp}}
+\mbox{\hyperlink{al__file__utilities_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#if\ !defined(AUSPICIOUS\_LIBRARY\_HPP\_INCLUDED)\ \(\backslash\)}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\ \&\&\ !defined(AUSPICIOUS\_LIBRARY\_NO\_INCLUSION\_WARN)}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\ \ \ \ \#warning\ Its\ recommended\ to\ include\ auspicious\_library.hpp\ instead.}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ifndef\ AUSPICIOUS\_LIBRARY\_HPP\_INCLUDED}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ <bit>}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#include\ <ios>}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceauspicious__library}{auspicious\_library}}\ \{}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{namespace\ }stdr\ =\ std::ranges;}
+\DoxyCodeLine{00078\ \textcolor{keyword}{namespace\ }stdv\ =\ stdr::views;}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00083\ \textcolor{keyword}{namespace\ }fu\ \{}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00094\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1fu_a0ed8ef9dc19914c7f8d747f37234ddc4}{read\_all}}(std::string\_view\ filename)}
+\DoxyCodeLine{00095\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ std::ifstream\ infile((std::string(filename)));}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{if}\ (!infile)}
+\DoxyCodeLine{00098\ \ \ \ \ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(std::format(\textcolor{stringliteral}{"{}Failed\ to\ open\ file\ \{\}"{}},}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ filename));}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(std::istreambuf\_iterator(infile),\ \{\});}
+\DoxyCodeLine{00104\ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \}\ \textcolor{comment}{//\ namespace\ fu}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \}\ \textcolor{comment}{//\ namespace\ auspicious\_library}}
+
+\end{DoxyCode}

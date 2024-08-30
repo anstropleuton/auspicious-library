@@ -141,8 +141,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "al__ansi__escape__codes_8hpp.html",
-"namespaceauspicious__library_1_1aec.html#a86dc3ae86a865eb1fd873e790f7f8bb3",
-"structauspicious__library_1_1ap_1_1parsed__argument.html#abec47b6e072bca8e094db21b0a0aca46"
+"namespaceauspicious__library_1_1aec.html#a70ada230eeb1af46cc0faf3b87cc08aa",
+"structauspicious__library_1_1ap_1_1parsed__argument.html#a2e2025a0da77b33cde959df7df80d1e6"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

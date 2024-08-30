@@ -1,35 +1,32 @@
-\doxysection{include/auspicious\+\_\+library.hpp File Reference}
-\hypertarget{auspicious__library_8hpp}{}\label{auspicious__library_8hpp}\index{include/auspicious\_library.hpp@{include/auspicious\_library.hpp}}
+\doxysection{include/al\+\_\+file\+\_\+utilities.hpp File Reference}
+\hypertarget{al__file__utilities_8hpp}{}\label{al__file__utilities_8hpp}\index{include/al\_file\_utilities.hpp@{include/al\_file\_utilities.hpp}}
 
 
-The root header file to include everything in Auspicious Library.  
+General functionality to work with files.  
 
 
-{\ttfamily \#include $<$string\+\_\+view$>$}\newline
-{\ttfamily \#include "{}al\+\_\+container\+\_\+utilities.\+hpp"{}}\newline
-{\ttfamily \#include "{}al\+\_\+string\+\_\+manipulators.\+hpp"{}}\newline
-{\ttfamily \#include "{}al\+\_\+ansi\+\_\+escape\+\_\+codes.\+hpp"{}}\newline
-{\ttfamily \#include "{}al\+\_\+argument\+\_\+parser.\+hpp"{}}\newline
-{\ttfamily \#include "{}al\+\_\+file\+\_\+utilities.\+hpp"{}}\newline
+{\ttfamily \#include $<$bit$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$ios$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespaceauspicious__library}{auspicious\+\_\+library}}
-\begin{DoxyCompactList}\small\item\em All Auspicious Library\textquotesingle{}s contents in this namespace. Do not {\ttfamily using namespace \doxylink{namespaceauspicious__library}{auspicious\+\_\+library};}. Instead, use this\+: \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Macros}
+\begin{DoxyCompactList}\small\item\em All Auspicious Library\textquotesingle{}s contents in this namespace. Do not {\ttfamily using namespace \doxylink{namespaceauspicious__library}{auspicious\+\_\+library};}. Instead, use this\+: \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespaceauspicious__library_1_1fu}{auspicious\+\_\+library\+::fu}}
+\begin{DoxyCompactList}\small\item\em File Utilities. Not what you are thinking. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{auspicious__library_8hpp_a96e6325d4a7db1d94b9dcd5d08e9de7e}{AUSPICIOUS\+\_\+\+LIBRARY\+\_\+\+HPP\+\_\+\+INCLUDED}}
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-constinit std\+::string\+\_\+view \mbox{\hyperlink{namespaceauspicious__library_a6c2435b48d6170e6b62581cc5459094a}{auspicious\+\_\+library\+::auspicious\+\_\+library\+\_\+version}} = "{}0.\+0.\+1"{}
-\end{DoxyCompactItemize}
+auto \mbox{\hyperlink{namespaceauspicious__library_1_1fu_a0ed8ef9dc19914c7f8d747f37234ddc4}{auspicious\+\_\+library\+::fu\+::read\+\_\+all}} (std\+::string\+\_\+view filename)
+\begin{DoxyCompactList}\small\item\em Read all the file\textquotesingle{}s content at once and return {\ttfamily std\+::string} representing the file\textquotesingle{}s content. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-The root header file to include everything in Auspicious Library. 
+General functionality to work with files. 
 
 \begin{DoxyAuthor}{Author}
 Anstro Pleuton (\href{https://github.com/anstropleuton}{\texttt{ https\+://github.\+com/anstropleuton}}) 
@@ -53,11 +50,3 @@ Credits where credit\textquotesingle{}s due\+:
 \begin{DoxyItemize}
 \item ASCII Art generated using \href{https://www.patorjk.com/software/taag}{\texttt{ https\+://www.\+patorjk.\+com/software/taag}} with font "{}\+Standard"{} (for "{}\+Auspicious"{}) and "{}\+Small"{} (for "{}\+LIBRARY"{}). 
 \end{DoxyItemize}
-
-\doxysubsection{Macro Definition Documentation}
-\Hypertarget{auspicious__library_8hpp_a96e6325d4a7db1d94b9dcd5d08e9de7e}\index{auspicious\_library.hpp@{auspicious\_library.hpp}!AUSPICIOUS\_LIBRARY\_HPP\_INCLUDED@{AUSPICIOUS\_LIBRARY\_HPP\_INCLUDED}}
-\index{AUSPICIOUS\_LIBRARY\_HPP\_INCLUDED@{AUSPICIOUS\_LIBRARY\_HPP\_INCLUDED}!auspicious\_library.hpp@{auspicious\_library.hpp}}
-\doxysubsubsection{\texorpdfstring{AUSPICIOUS\_LIBRARY\_HPP\_INCLUDED}{AUSPICIOUS\_LIBRARY\_HPP\_INCLUDED}}
-{\footnotesize\ttfamily \label{auspicious__library_8hpp_a96e6325d4a7db1d94b9dcd5d08e9de7e} 
-\#define AUSPICIOUS\+\_\+\+LIBRARY\+\_\+\+HPP\+\_\+\+INCLUDED}
-

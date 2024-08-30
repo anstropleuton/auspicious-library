@@ -45,14 +45,7 @@
 #include <iostream>
 #include <print>
 
-#define AUSPICIOUS_LIBRARY_NO_INCLUSION_WARN
-#include "al_ansi_escape_codes.hpp"
 #include "tester.hpp"
-
-namespace al {
-using namespace auspicious_library::aec;
-} // namespace al
-using namespace auspicious_library::aec_operators;
 
 /**
  *  @brief  Test ANSI Escape Codes.

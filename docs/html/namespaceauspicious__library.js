@@ -13,14 +13,17 @@ var namespaceauspicious__library =
     [ "ap", "namespaceauspicious__library_1_1ap.html", "namespaceauspicious__library_1_1ap" ],
     [ "cu", "namespaceauspicious__library_1_1cu.html", "namespaceauspicious__library_1_1cu" ],
     [ "cu_operators", "namespaceauspicious__library_1_1cu__operators.html", [
-      [ "operator+", "namespaceauspicious__library_1_1cu__operators.html#a7c9b1295a4eaf31c55a71b3826149e40", null ],
-      [ "operator+", "namespaceauspicious__library_1_1cu__operators.html#a2e8efb3e7df5191bdfb5188176a3c3df", null ],
-      [ "operator-", "namespaceauspicious__library_1_1cu__operators.html#a7fd6f04745b906f8a97c8de543a361a7", null ],
-      [ "operator-", "namespaceauspicious__library_1_1cu__operators.html#a66518d8a3e0c5df29204ced3255c16b7", null ],
-      [ "operator*", "namespaceauspicious__library_1_1cu__operators.html#aac7fa2332e50544c31e8f6c3f9d7222e", null ],
-      [ "operator*", "namespaceauspicious__library_1_1cu__operators.html#a2da9e52f09a9d64c72b305f57c9fcd31", null ],
-      [ "operator/", "namespaceauspicious__library_1_1cu__operators.html#abf61ab8777d4117a0e934e0591c8b067", null ],
-      [ "operator/", "namespaceauspicious__library_1_1cu__operators.html#a3778dae9d7adb0c79f96bd301394fba3", null ]
+      [ "operator+", "namespaceauspicious__library_1_1cu__operators.html#a807dd1b3e0130a0e06f11905f66451fb", null ],
+      [ "operator+", "namespaceauspicious__library_1_1cu__operators.html#ab853b3af7c37412f62ff137839603845", null ],
+      [ "operator-", "namespaceauspicious__library_1_1cu__operators.html#ae1e05a49e0decac92bfef362858ccdbb", null ],
+      [ "operator-", "namespaceauspicious__library_1_1cu__operators.html#afa4d292db15db85521b037bd037daf21", null ],
+      [ "operator*", "namespaceauspicious__library_1_1cu__operators.html#aaa17bda2ec419e473439d07bc5cef7ee", null ],
+      [ "operator*", "namespaceauspicious__library_1_1cu__operators.html#ad23d0eeab43a44de13ab2e20b2bbf979", null ],
+      [ "operator/", "namespaceauspicious__library_1_1cu__operators.html#aee622dc0b6935d296ec23b659513dd90", null ],
+      [ "operator/", "namespaceauspicious__library_1_1cu__operators.html#a43b738ea3f4b39d612bbe2f54ba8a655", null ]
+    ] ],
+    [ "fu", "namespaceauspicious__library_1_1fu.html", [
+      [ "read_all", "namespaceauspicious__library_1_1fu.html#a0ed8ef9dc19914c7f8d747f37234ddc4", null ]
     ] ],
     [ "sm", "namespaceauspicious__library_1_1sm.html", [
       [ "to_string", "namespaceauspicious__library_1_1sm.html#af4d2d6d72a9c765f4fe02a0462d35bcf", null ],
