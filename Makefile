@@ -55,7 +55,7 @@ INCLUDEDIR ?= $(PREFIX)/include
 # Targets
 .PHONY: all clean test examples install
 
-all: $(LIBRARY) test
+all: $(LIBRARY)
 
 # Library target
 $(LIBRARY): $(OBJ_FILES)

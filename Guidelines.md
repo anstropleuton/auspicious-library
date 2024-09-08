@@ -339,18 +339,6 @@
 
 ## Miscellaneous
 
-### Include Order
-- Main Module Header
-- Local/Third-party Headers
-- System #includes
-    ```cpp
-    #include "my_module.hpp"
-
-    #include "raylib.h"
-
-    #include <vector>
-    ```
-
 ### Max Enum Member
 - Have a member named max in every enum types intended to be used as index.
 

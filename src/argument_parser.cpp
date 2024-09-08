@@ -56,11 +56,12 @@
 #include "al_argument_parser.hpp"
 #include "al_string_manipulators.hpp"
 
+using namespace std::string_literals;
+
 namespace ap = auspicious_library::ap;
 namespace sm = auspicious_library::sm;
 namespace cu = auspicious_library::cu;
 
-using namespace std::string_literals;
 using namespace auspicious_library::sm_operators;
 
 /**

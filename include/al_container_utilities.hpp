@@ -44,16 +44,26 @@
 
 #pragma once
 
+#include <functional>
+#include <initializer_list>
+#include <map>
+#include <numeric>
+#include <utility>
 #if !defined(AUSPICIOUS_LIBRARY_HPP_INCLUDED) \
  && !defined(AUSPICIOUS_LIBRARY_NO_INCLUSION_WARN)
     #warning Its recommended to include auspicious_library.hpp instead.
 #endif // ifndef AUSPICIOUS_LIBRARY_HPP_INCLUDED
 
 #include <algorithm>
+#include <array>
 #include <cmath>
 #include <cstddef>
 #include <iterator>
 #include <ranges>
+#include <span>
+#include <string>
+#include <string_view>
+#include <type_traits>
 #include <vector>
 
 /**
@@ -119,7 +129,6 @@ using result_container = std::vector<value_type<Container>>;
 /**
  *  @brief  All container utilities return this container if the result is
  *          nested.
- *
  *  @tparam  Container  Compatible container type.
  */
 template<cu_compatible Container>
@@ -356,6 +365,699 @@ template<cu_compatible Container>
     // Either of them will do...
     return split_seq(container, Container({ value }));
 }
+
+/**
+ *  @brief  Return element at index, or a default-constructed instance of the
+ *          value type if the index is invalid.
+ *
+ *  @tparam  Container  Compatible container type.
+ *  @param   container  Container.
+ *  @param   index      Value to split with.
+ *  @return  Element at index or default constructed instance of type.
+ */
+template<cu_compatible Container>
+[[nodiscard]] inline constexpr auto boundless_access(
+    const Container &container,
+    std::size_t      index
+)
+{
+    if (index >= container.size()) return value_type<Container>();
+    return *(container.begin() + index);
+}
+
+/**
+ *  @brief  A boundless vector.
+ *
+ *  Index-access of this vector always returns a default constructed element
+ *  when an invalid index is provided.  Requires a default-constructible type.
+ *
+ *  @tparam  T      Type of element.
+ *  @tparam  Alloc  Allocator type, defaults to @c std::allocator<T> .
+ */
+template<typename T, typename Alloc = std::allocator<T>>
+requires(std::is_default_constructible_v<T>)
+struct boundless_vector : std::vector<T, Alloc> {
+    using std::vector<T, Alloc>::vector;
+
+    /**
+     *  @brief  Get an element at index, or a default constructed instance of
+     *          the value type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Element at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto operator[] (std::size_t index) -> T &
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get an element at index, or a default constructed instance of
+     *          the value type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Element at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto operator[] (std::size_t index)
+    const -> const T &
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get an element at index, or a default constructed instance of
+     *          the value type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Element at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto at(std::size_t index) -> T &
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get an element at index, or a default constructed instance of
+     *          the value type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Element at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto at(std::size_t index) const -> const T &
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get the first element, or a default constructed instance of
+     *          the value type when the vector is empty.
+     *  @return  First element or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto front() -> T &
+    {
+        return boundless_access(*this, 0);
+    }
+
+    /**
+     *  @brief  Get the first element, or a default constructed instance of
+     *          the value type when the vector is empty.
+     *  @return  First element or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto front() const -> const T &
+    {
+        return boundless_access(*this, 0);
+    }
+
+    /**
+     *  @brief  Get the last element, or a default constructed instance of
+     *          the value type when the vector is empty.
+     *  @return  Last element or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto back() -> T &
+    {
+        return boundless_access(*this, this->size() - 1);
+    }
+
+    /**
+     *  @brief  Get the last element, or a default constructed instance of
+     *          the value type when the vector is empty.
+     *  @return  Last element or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto back() const -> const T &
+    {
+        return boundless_access(*this, this->size() - 1);
+    }
+};
+
+/**
+ *  @brief  A boundless array.
+ *
+ *  Index-access of this array always returns a default constructed element
+ *  when an invalid index is provided.  Requires a default-constructible type.
+ *
+ *  @tparam  T  Type of element.
+ *  @tparam  N  Size of array.
+ */
+template<typename T, std::size_t N>
+requires(std::is_default_constructible_v<T>)
+struct boundless_array : std::array<T, N> {
+    using std::array<T, N>::array;
+
+    /**
+     *  @brief  Get an element at index, or a default constructed instance of
+     *          the value type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Element at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto operator[] (std::size_t index) -> T &
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get an element at index, or a default constructed instance of
+     *          the value type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Element at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto operator[] (std::size_t index)
+    const -> const T &
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get an element at index, or a default constructed instance of
+     *          the value type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Element at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto at(std::size_t index) -> T &
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get an element at index, or a default constructed instance of
+     *          the value type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Element at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto at(std::size_t index) const -> const T &
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get the first element, or a default constructed instance of
+     *          the value type when the array is empty.
+     *  @return  First element or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto front() -> T &
+    {
+        return boundless_access(*this, 0);
+    }
+
+    /**
+     *  @brief  Get the first element, or a default constructed instance of
+     *          the value type when the array is empty.
+     *  @return  First element or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto front() const -> const T &
+    {
+        return boundless_access(*this, 0);
+    }
+
+    /**
+     *  @brief  Get the last element, or a default constructed instance of
+     *          the value type when the array is empty.
+     *  @return  Last element or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto back() -> T &
+    {
+        return boundless_access(*this, this->size() - 1);
+    }
+
+    /**
+     *  @brief  Get the last element, or a default constructed instance of
+     *          the value type when the array is empty.
+     *  @return  Last element or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto back() const -> const T &
+    {
+        return boundless_access(*this, this->size() - 1);
+    }
+};
+
+/**
+ *  @brief  A boundless span.
+ *
+ *  Index-access of this span always returns a default constructed element
+ *  when an invalid index is provided.  Requires a default-constructible type.
+ *
+ *  @tparam  T       Type of element.
+ *  @tparam  Extent  The number of elements in the sequence, or
+ *                   @c std::dynamic_extent if dynamic (default).
+ */
+template<typename T, std::size_t Extent = std::dynamic_extent>
+requires(std::is_default_constructible_v<T>)
+struct boundless_span : std::span<T, Extent> {
+    using std::span<T, Extent>::span;
+
+    /**
+     *  @brief  Get an element at index, or a default constructed instance of
+     *          the value type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Element at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto operator[] (std::size_t index) -> T &
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get an element at index, or a default constructed instance of
+     *          the value type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Element at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto operator[] (std::size_t index)
+    const -> const T &
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get an element at index, or a default constructed instance of
+     *          the value type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Element at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto at(std::size_t index) -> T &
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get an element at index, or a default constructed instance of
+     *          the value type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Element at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto at(std::size_t index) const -> const T &
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get the first element, or a default constructed instance of
+     *          the value type when the span is empty.
+     *  @return  First element or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto front() -> T &
+    {
+        return boundless_access(*this, 0);
+    }
+
+    /**
+     *  @brief  Get the first element, or a default constructed instance of
+     *          the value type when the span is empty.
+     *  @return  First element or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto front() const -> const T &
+    {
+        return boundless_access(*this, 0);
+    }
+
+    /**
+     *  @brief  Get the last element, or a default constructed instance of
+     *          the value type when the span is empty.
+     *  @return  Last element or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto back() -> T &
+    {
+        return boundless_access(*this, this->size() - 1);
+    }
+
+    /**
+     *  @brief  Get the last element, or a default constructed instance of
+     *          the value type when the span is empty.
+     *  @return  Last element or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto back() const -> const T &
+    {
+        return boundless_access(*this, this->size() - 1);
+    }
+};
+
+/**
+ *  @brief  A boundless basic string.
+ *
+ *  Index-access of this string always returns a default constructed element
+ *  when an invalid index is provided.  Requires a default-constructible type.
+ *
+ *  @tparam  CharT   Character type.
+ *  @tparam  Traits  Character traits type.
+ *  @tparam  Alloc   Allocator type, defaults to @c std::allocator<CharT> .
+ */
+template<typename CharT, typename Traits = std::char_traits<CharT>,
+    typename Alloc = std::allocator<CharT>>
+requires(std::is_default_constructible_v<CharT>)
+struct boundless_basic_string : std::basic_string<CharT, Traits, Alloc> {
+    using std::basic_string<CharT, Traits, Alloc>::basic_string;
+
+    /**
+     *  @brief  Get a character at index, or a default constructed instance of
+     *          the character type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Character at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto operator[] (
+        std::size_t index) -> CharT &
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get a character at index, or a default constructed instance of
+     *          the character type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Character at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto operator[] (
+        std::size_t index) const -> const CharT &
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get a character at index, or a default constructed instance of
+     *          the character type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Character at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto at(std::size_t index) -> CharT &
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get a character at index, or a default constructed instance of
+     *          the character type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Character at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto at(std::size_t index)
+    const -> const CharT &
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get the first character, or a default constructed instance of
+     *          the character type when the string is empty.
+     *  @return  First character or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto front() -> CharT &
+    {
+        return boundless_access(*this, 0);
+    }
+
+    /**
+     *  @brief  Get the first character, or a default constructed instance of
+     *          the character type when the string is empty.
+     *  @return  First character or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto front() const -> const CharT &
+    {
+        return boundless_access(*this, 0);
+    }
+
+    /**
+     *  @brief  Get the last character, or a default constructed instance of
+     *          the character type when the string is empty.
+     *  @return  Last character or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto back() -> CharT &
+    {
+        return boundless_access(*this, this->size() - 1);
+    }
+
+    /**
+     *  @brief  Get the last character, or a default constructed instance of
+     *          the character type when the string is empty.
+     *  @return  Last character or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto back() const -> const CharT &
+    {
+        return boundless_access(*this, this->size() - 1);
+    }
+};
+
+/**
+ *  @brief  A boundless basic string view.
+ *
+ *  Index-access of this string view always returns a default constructed element
+ *  when an invalid index is provided.  Requires a default-constructible type.
+ *
+ *  @tparam  CharT   Character type.
+ *  @tparam  Traits  Character traits type.
+ */
+template<typename CharT, typename Traits = std::char_traits<CharT>>
+requires(std::is_default_constructible_v<CharT>)
+struct boundless_basic_string_view : std::basic_string_view<CharT, Traits> {
+    using std::basic_string_view<CharT, Traits>::basic_string_view;
+
+    /**
+     *  @brief  Get a character at index, or a default constructed instance of
+     *          the character type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Character at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto operator[] (
+        std::size_t index) -> CharT &
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get a character at index, or a default constructed instance of
+     *          the character type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Character at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto operator[] (
+        std::size_t index) const -> const CharT &
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get a character at index, or a default constructed instance of
+     *          the character type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Character at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto at(std::size_t index) -> CharT &
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get a character at index, or a default constructed instance of
+     *          the character type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Character at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto at(std::size_t index)
+    const -> const CharT &
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get the first character, or a default constructed instance of
+     *          the character type when the view is empty.
+     *  @return  First character or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto front() -> CharT &
+    {
+        return boundless_access(*this, 0);
+    }
+
+    /**
+     *  @brief  Get the first character, or a default constructed instance of
+     *          the character type when the view is empty.
+     *  @return  First character or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto front() const -> const CharT &
+    {
+        return boundless_access(*this, 0);
+    }
+
+    /**
+     *  @brief  Get the last character, or a default constructed instance of
+     *          the character type when the view is empty.
+     *  @return  Last character or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto back() -> CharT &
+    {
+        return boundless_access(*this, this->size() - 1);
+    }
+
+    /**
+     *  @brief  Get the last character, or a default constructed instance of
+     *          the character type when the view is empty.
+     *  @return  Last character or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto back() const -> const CharT &
+    {
+        return boundless_access(*this, this->size() - 1);
+    }
+};
+
+/**
+ *  @brief  boundless_A string of @c char .
+ */
+using boundless_string = boundless_basic_string<char>;
+
+/**
+ *  @brief  boundless_A string of @c wchar_t .
+ */
+using boundless_wstring = boundless_basic_string<wchar_t>;
+
+/**
+ *  @brief  boundless_A string of @c char16_t .
+ */
+using boundless_u16string = boundless_basic_string<char16_t>;
+
+/**
+ *  @brief  boundless_A string of @c char32_t .
+ */
+using boundless_u32string = boundless_basic_string<char32_t>;
+
+/**
+ *  @brief  A non-owning @boundless_c string .
+ */
+using boundless_string_view = boundless_basic_string_view<char>;
+
+/**
+ *  @brief  A non-owning @c boundless_wstring .
+ */
+using boundless_wstring_view = boundless_basic_string_view<wchar_t>;
+
+/**
+ *  @brief  A non-owning @c boundless_u16string .
+ */
+using boundless_u16string_view = boundless_basic_string_view<char16_t>;
+
+/**
+ *  @brief  A non-owning @c boundless_u32string .
+ */
+using boundless_u32string_view = boundless_basic_string_view<char32_t>;
+
+/**
+ *  @brief  Container Utilities compatible enumerator for @c enumerated_array .
+ *
+ *  The type must be an enumerator with a @c max as a member.  The @c max member
+ *  must be the largest member in the enumerator (Implementation pending).
+ *
+ *  @tparam  E  Enumerator type.
+ *
+ *  @todo  After reflection support is introduced, iterate over all the members
+ *         and determine that the @c max member is the largest member.
+ */
+template<typename E>
+concept cu_compatible_enum = std::is_enum_v<E> && requires { { E::max }; };
+
+/**
+ *  @brief  Integral constant for the enumerator's member.
+ *  @tparam  E  Container Utilities compatible enumerator type.
+ */
+template<cu_compatible_enum E, E value>
+struct enum_value : std::integral_constant<int, std::to_underlying (value)> {};
+
+/**
+ *  @brief  Helper to get the value of the enumerator's member.
+ *  @tparam  E  Container Utilities compatible enumerator type.
+ */
+template<cu_compatible_enum E, E value>
+inline constexpr auto enum_value_v = enum_value<E, value>::value;
+
+/**
+ *  @brief  Integral constant for the enumerator's @c max member.
+ *  @tparam  E  Container Utilities compatible enumerator type.
+ */
+template<cu_compatible_enum E>
+struct enum_max : enum_value<E, E::max> {};
+
+/**
+ *  @brief  Helper to get the value of the enumerator's @c max member.
+ *  @tparam  E  Container Utilities compatible enumerator type.
+ */
+template<cu_compatible_enum E>
+inline constexpr auto enum_max_v = enum_max<E>::value;
+
+/**
+ *  @brief  Array with enumerator as index.
+ *
+ *  @tparam  T  Type of element.
+ *  @tparam  E  Container Utilities compatible enumerator type.
+ */
+template<typename T, cu_compatible_enum E>
+struct enumerated_array : std::array<E, enum_max_v<E>> {
+    /**
+     *  @brief  Base class, template arguments are long.
+     */
+    using base = std::array<E, enum_max_v<E>>;
+
+    using base::array;
+
+    /**
+     *  @brief  Get an element at index, or a default constructed instance of
+     *          the value type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Element at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto operator[] (E enumerator) -> T &
+    {
+        return base::operator[] (enum_value(enumerator));
+    }
+
+    /**
+     *  @brief  Get an element at index, or a default constructed instance of
+     *          the value type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Element at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto operator[] (E enumerator)
+    const -> const T &
+    {
+        return base::operator[] (enum_value(enumerator));
+    }
+
+    /**
+     *  @brief  Get an element at index, or a default constructed instance of
+     *          the value type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Element at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto at(E enumerator) -> T &
+    {
+        return base::at(enum_value(enumerator));
+    }
+
+    /**
+     *  @brief  Get an element at index, or a default constructed instance of
+     *          the value type when index is invalid.
+     *
+     *  @param  index  Index specifying element.
+     *  @return  Element at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto at(E enumerator) const -> const T &
+    {
+        return base::at(enum_value(enumerator));
+    }
+};
 
 } // namespace cu
 

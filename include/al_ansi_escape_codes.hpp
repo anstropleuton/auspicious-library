@@ -72,7 +72,6 @@ namespace auspicious_library {
 
 /**
  *  @brief  ANSI Escape Codes.
- *
  *  @see  https://en.wikipedia.org/wiki/Ansi_escape_code#Colors .
  */
 namespace aec {

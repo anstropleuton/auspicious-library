@@ -274,6 +274,7 @@ struct test_suite {
 
 /**
  *  @brief  Get fancy default pre-run function for decorated title output.
+ *
  *  @param  decor_char   Decoration character for before and after title.
  *  @param  decor_count  Decoration character count.
  *  @return  Decorator function.
@@ -292,6 +293,7 @@ struct test_suite {
 
 /**
  *  @brief  Get fancy default post-run function for decorated title output.
+ *
  *  @param  decor_char   Decoration character for before and after title.
  *  @param  decor_count  Decoration character count.
  *  @return  Decorator function.
@@ -340,7 +342,8 @@ inline auto print_failed_tests(
 }
 
 /**
- *  @brief  Get number of errors in total in all failed tests
+ *  @brief  Get number of errors in total in all failed tests.
+ *
  *  @param  failed_tests  Failed test results.
  *  @return  number of total errors.
  */

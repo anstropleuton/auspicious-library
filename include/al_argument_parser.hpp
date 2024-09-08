@@ -187,7 +187,6 @@ struct option_template {
     /**
      *  @brief  Default values for parameters from back, in forward
      *          order.
-     *
      *  @note  Must be less than or equal to parameters.
      */
     std::vector<std::string> defaults_from_back;
@@ -205,7 +204,6 @@ struct subcommand_template {
 
     /**
      *  @brief  Command names, such as "get" for command "program-name get".
-     *
      *  @see  option_template::names.
      */
     std::vector<std::string> names;
@@ -213,7 +211,6 @@ struct subcommand_template {
     /**
      *  @brief  Name of parameters required by the subcommand, such as
      *          "filename".
-     *
      *  @see  option_template::parameters.
      */
     std::vector<std::string> parameters;
@@ -221,14 +218,12 @@ struct subcommand_template {
     /**
      *  @brief  Default values for parameters from back, in forward
      *          order.
-     *
      *  @see  option_template::defaults_from_back.
      */
     std::vector<std::string> defaults_from_back;
 
     /**
      *  @brief  Subcommands for this subcommand (nesting).
-     *
      *  @note  When this vector is not empty, @c parameters is ignored
      *         entirely.
      */
@@ -236,7 +231,6 @@ struct subcommand_template {
 
     /**
      *  @brief  Subcommand specific options/switches.
-     *
      *  @note  overrides global option/switch.
      */
     std::vector<const option_template *> subcommand_options;
@@ -246,34 +240,42 @@ struct subcommand_template {
  *  @brief  Type for argument differentiation.
  */
 enum class argument_type {
+
     /**
      *  @brief  Argument type cannot be determined.
      */
     unknown,
+
     /**
      *  @brief  Argument is empty.
      */
     empty,
+
     /**
      *  @brief  Argument is in form of "-a", "-abc=value", etc.
      */
     short_option,
+
     /**
      *  @brief  Argument is in form of "--argument", "--argument=value", etc.
      */
     long_option,
+
     /**
      *  @brief  Argument is in form of "/argument", "/argument:value", etc.
      */
     microsoft_switch,
+
     /**
      *  @brief  Argument is "-".  This is treated just as regular argument.
      */
     single_hyphen,
+
     /**
      *  @brief  Argument is "--".  End of parsing.
      */
     double_hyphen,
+
     /**
      *  @brief  Argument is in form of "argument", etc.
      */
@@ -336,14 +338,17 @@ enum class argument_type {
  *  @brief  What type of variadic is the parameter?
  */
 enum class variadicity {
+
     /**
      *  @brief  Parameter is not variadic.
      */
     not_variadic,
+
     /**
      *  @brief  Parameter is "...".
      */
     zero_or_more,
+
     /**
      *  @brief  Parameter is in form "parameter...".
      */
@@ -428,22 +433,27 @@ struct mod_argument {
  *  @brief  Parsed argument validity.
  */
 enum class validity {
+
     /**
      *  @brief  Something definitely has gone wrong.
      */
     unknown,
+
     /**
      *  @brief  Everything that can go right, gone right.
      */
     valid,
+
     /**
      *  @brief  Option is unrecognized.
      */
     unrecognized_option,
+
     /**
      *  @brief  Subcommand is unrecognized.
      */
     unrecognized_subcommand,
+
     /**
      *  @brief  Option or subcommand's parameters requirement is not met.
      */
@@ -488,7 +498,6 @@ struct parsed_argument {
 
     /**
      *  @brief  Can be raw if just "--" as argument was found.
-     *
      *  @note  @c valid will be set to valid when the argument is not parsed.
      */
     bool is_parsed;
