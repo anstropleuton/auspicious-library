@@ -430,7 +430,7 @@ namespace sm_operators {
  *
  *  @param  string  String.
  *  @param  values  Sequence to remove.
- *  @return  Filtered string as std::string.
+ *  @return  Filtered string as @c std::string .
  *
  *  @see  cu::filter_out_seq.
  */
@@ -449,7 +449,7 @@ namespace sm_operators {
  *
  *  @param  string  String.
  *  @param  value   Value to remove.
- *  @return  Filtered string as std::string.
+ *  @return  Filtered string as @c std::string .
  *
  *  @see  cu::filter_out.
  */
@@ -467,7 +467,7 @@ namespace sm_operators {
  *
  *  @param  string  String.
  *  @param  n       Repeat times.
- *  @return  Repeated string as std::string.
+ *  @return  Repeated string as @c std::string .
  *
  *  @see  cu::repeat.
  */
@@ -485,7 +485,7 @@ namespace sm_operators {
  *
  *  @param  string  String.
  *  @param  n       Repeat times.
- *  @return  Repeated string as std::string.
+ *  @return  Repeated string as @c std::string .
  *
  *  @see   cu::repeat.
  */

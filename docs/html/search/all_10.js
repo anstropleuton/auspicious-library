@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['macros_0',['Macros',['../md_Guidelines.html#autotoc_md52',1,'']]],
+  ['macros_0',['Macros',['../md_Guidelines.html#autotoc_md51',1,'']]],
   ['magenta_1',['magenta',['../namespaceauspicious__library_1_1aec.html#ae568ef8dee72ced948c982c7d4e31bad',1,'auspicious_library::aec']]],
   ['magenta_5fbg_2',['magenta_bg',['../namespaceauspicious__library_1_1aec.html#a9c7e601cd3b288f98cc91f7c7386c7a1',1,'auspicious_library::aec']]],
-  ['magic_20numbers_3',['Avoid Magic Numbers',['../md_Guidelines.html#autotoc_md57',1,'']]],
+  ['magic_20numbers_3',['Avoid Magic Numbers',['../md_Guidelines.html#autotoc_md56',1,'']]],
   ['mandatory_5fparameter_5fenclose_4',['mandatory_parameter_enclose',['../structauspicious__library_1_1ap_1_1posix__help__format.html#a53dcefb485dc582b14ecfc13ef36ccbc',1,'auspicious_library::ap::posix_help_format::mandatory_parameter_enclose'],['../structauspicious__library_1_1ap_1_1microsoft__help__format.html#a969828b1690480ebf3725631b8b2b13e',1,'auspicious_library::ap::microsoft_help_format::mandatory_parameter_enclose']]],
-  ['max_20enum_20member_5',['Max Enum Member',['../md_Guidelines.html#autotoc_md46',1,'']]],
+  ['max_20enum_20member_5',['Max Enum Member',['../md_Guidelines.html#autotoc_md45',1,'']]],
   ['max_20width_6',['Max width',['../md_Guidelines.html#autotoc_md20',1,'']]],
-  ['member_7',['Max Enum Member',['../md_Guidelines.html#autotoc_md46',1,'']]],
+  ['member_7',['Max Enum Member',['../md_Guidelines.html#autotoc_md45',1,'']]],
   ['member_20function_20declaration_8',['Member Function Declaration',['../md_Guidelines.html#autotoc_md31',1,'(Member/) Function Declaration'],['../md_Guidelines.html#autotoc_md32',1,'(Member/) Function Declaration']]],
   ['member_20functions_9',['Member Functions',['../md_Guidelines.html#autotoc_md42',1,'']]],
   ['member_20functions_20and_20lambdas_10',['(Member/) Functions and Lambdas',['../md_Guidelines.html#autotoc_md30',1,'']]],

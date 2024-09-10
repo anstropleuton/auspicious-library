@@ -59,6 +59,9 @@
     std::vector<const al::option_template *>     options     = {};
     std::vector<const al::subcommand_template *> subcommands = {};
 
+    std::size_t test_index = 0;
+    std::vector<std::size_t> failed_tests = {};
+
     // Test throw when an option is null
     options.emplace_back(new al::option_template {
         .description        = "Test throw null option - 1",
@@ -75,9 +78,6 @@
         .parameters         = {},
         .defaults_from_back = {}
     });
-
-    std::size_t test_index = 0;
-    std::vector<std::size_t> failed_tests = {};
 
     try
     {
@@ -650,6 +650,9 @@
 
     options.clear();
     subcommands.clear();
+
+    logln("Failed tests:\n{}\n", al::to_string(failed_tests, ",\n"s,
+        " Test 11."));
 
     T_END;
 }

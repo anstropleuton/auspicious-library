@@ -315,5 +315,8 @@
         delete option;
     }
 
+    logln("Failed tests:\n{}\n", al::to_string(failed_tests, ",\n"s,
+        " Test 9."));
+
     T_END;
 }

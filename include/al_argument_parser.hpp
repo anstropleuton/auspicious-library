@@ -43,6 +43,7 @@
  */
 
 #pragma once
+
 #if !defined(AUSPICIOUS_LIBRARY_HPP_INCLUDED) \
  && !defined(AUSPICIOUS_LIBRARY_NO_INCLUSION_WARN)
     #warning Its recommended to include auspicious_library.hpp instead.
@@ -56,8 +57,9 @@
 #include "al_container_utilities.hpp"
 
 /**
- *  @brief  All Auspicious Library's contents in this namespace. Do not
- *          `using namespace auspicious_library;`.  Instead, use this:
+ *  @brief  All Auspicious Library's contents in this namespace.
+ *
+ *  Do not `using namespace auspicious_library;`.  Instead, use this:
     ```cpp
     namespace al {
     using namespace auspicious_library::cu;

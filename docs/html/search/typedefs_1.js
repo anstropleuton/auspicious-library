@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['value_5ftype_0',['value_type',['../namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1',1,'auspicious_library::cu']]]
+  ['result_5fcontainer_0',['result_container',['../namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096',1,'auspicious_library::cu']]],
+  ['result_5fcontainer_5fnested_1',['result_container_nested',['../namespaceauspicious__library_1_1cu.html#ac397b67fa3b542036726c3514a4df4f0',1,'auspicious_library::cu']]]
 ];

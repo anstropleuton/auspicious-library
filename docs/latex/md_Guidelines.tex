@@ -422,26 +422,11 @@
 \end{DoxyCode}
 
 \end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md44}{}\doxysection{\texorpdfstring{Miscellaneous}{Miscellaneous}}\label{md_Guidelines_autotoc_md44}
-\hypertarget{md_Guidelines_autotoc_md45}{}\doxysubsection{\texorpdfstring{Include Order}{Include Order}}\label{md_Guidelines_autotoc_md45}
-
-\begin{DoxyItemize}
-\item Main Module Header
-\item Local/\+Third-\/party Headers
-\item System \#includes 
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}my\_module.hpp"{}}}
-\DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}raylib.h"{}}}
-\DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <vector>}}
-
-\end{DoxyCode}
-
-\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md46}{}\doxysubsection{\texorpdfstring{Max Enum Member}{Max Enum Member}}\label{md_Guidelines_autotoc_md46}
+\hypertarget{md_Guidelines_autotoc_md45}{}\doxysubsection{\texorpdfstring{Max Enum Member}{Max Enum Member}}\label{md_Guidelines_autotoc_md45}
 
 \begin{DoxyItemize}
 \item Have a member named max in every enum types intended to be used as index.
-\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md47}{}\doxysubsection{\texorpdfstring{Error Handling}{Error Handling}}\label{md_Guidelines_autotoc_md47}
+\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md46}{}\doxysubsection{\texorpdfstring{Error Handling}{Error Handling}}\label{md_Guidelines_autotoc_md46}
 
 \begin{DoxyItemize}
 \item Use exceptions for error handling. 
@@ -451,12 +436,12 @@
 \end{DoxyCode}
 
 \item Do not use exceptions on performance-\/critical functions. Use returned error codes instead.
-\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md48}{}\doxysubsection{\texorpdfstring{Concepts}{Concepts}}\label{md_Guidelines_autotoc_md48}
+\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md47}{}\doxysubsection{\texorpdfstring{Concepts}{Concepts}}\label{md_Guidelines_autotoc_md47}
 
 \begin{DoxyItemize}
 \item Prefer using defined concept instead of {\ttfamily typename}.
 \item Prefer defining concept using standard library concepts instead of directly using standard library concepts.
-\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md49}{}\doxysubsection{\texorpdfstring{Standard Library}{Standard Library}}\label{md_Guidelines_autotoc_md49}
+\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md48}{}\doxysubsection{\texorpdfstring{Standard Library}{Standard Library}}\label{md_Guidelines_autotoc_md48}
 
 \begin{DoxyItemize}
 \item Prefer C++ standard library features over C-\/style counterparts. 
@@ -466,7 +451,7 @@
 
 \end{DoxyCode}
 
-\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md50}{}\doxysubsection{\texorpdfstring{Pointer and Reference}{Pointer and Reference}}\label{md_Guidelines_autotoc_md50}
+\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md49}{}\doxysubsection{\texorpdfstring{Pointer and Reference}{Pointer and Reference}}\label{md_Guidelines_autotoc_md49}
 
 \begin{DoxyItemize}
 \item Prefer using smart pointers ({\ttfamily std\+::unique\+\_\+ptr}, {\ttfamily std\+::shared\+\_\+ptr}) over raw pointers. 
@@ -481,7 +466,7 @@
 
 \end{DoxyCode}
 
-\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md51}{}\doxysubsection{\texorpdfstring{Constants and Literals}{Constants and Literals}}\label{md_Guidelines_autotoc_md51}
+\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md50}{}\doxysubsection{\texorpdfstring{Constants and Literals}{Constants and Literals}}\label{md_Guidelines_autotoc_md50}
 
 \begin{DoxyItemize}
 \item Use {\ttfamily constexpr} for compile-\/time constants. 
@@ -490,7 +475,7 @@
 
 \end{DoxyCode}
 
-\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md52}{}\doxysubsection{\texorpdfstring{Macros}{Macros}}\label{md_Guidelines_autotoc_md52}
+\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md51}{}\doxysubsection{\texorpdfstring{Macros}{Macros}}\label{md_Guidelines_autotoc_md51}
 
 \begin{DoxyItemize}
 \item Avoid using macros; prefer inline functions, {\ttfamily constexpr}, and templates. 
@@ -504,7 +489,7 @@
 \end{DoxyCode}
 
 \item If you do use macros, name it {\ttfamily UPPER\+\_\+\+SNAKE\+\_\+\+CASE}.
-\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md53}{}\doxysubsection{\texorpdfstring{Lambdas}{Lambdas}}\label{md_Guidelines_autotoc_md53}
+\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md52}{}\doxysubsection{\texorpdfstring{Lambdas}{Lambdas}}\label{md_Guidelines_autotoc_md52}
 
 \begin{DoxyItemize}
 \item Use lambdas defining functions inside of another function when this function is not intended to be used anywhere else. 
@@ -513,7 +498,7 @@
 
 \end{DoxyCode}
 
-\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md54}{}\doxysubsection{\texorpdfstring{Initialization}{Initialization}}\label{md_Guidelines_autotoc_md54}
+\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md53}{}\doxysubsection{\texorpdfstring{Initialization}{Initialization}}\label{md_Guidelines_autotoc_md53}
 
 \begin{DoxyItemize}
 \item Use {\ttfamily =} for initializing type. 
@@ -528,7 +513,7 @@
 
 \end{DoxyCode}
 
-\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md55}{}\doxysubsection{\texorpdfstring{Range-\/based For Loops}{Range-\/based For Loops}}\label{md_Guidelines_autotoc_md55}
+\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md54}{}\doxysubsection{\texorpdfstring{Range-\/based For Loops}{Range-\/based For Loops}}\label{md_Guidelines_autotoc_md54}
 
 \begin{DoxyItemize}
 \item Prefer range-\/based for loops over traditional loops.
@@ -542,7 +527,7 @@
 
 \end{DoxyCode}
 
-\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md56}{}\doxysubsection{\texorpdfstring{Passing Instance of Newly Constructed Type to Function Parameter}{Passing Instance of Newly Constructed Type to Function Parameter}}\label{md_Guidelines_autotoc_md56}
+\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md55}{}\doxysubsection{\texorpdfstring{Passing Instance of Newly Constructed Type to Function Parameter}{Passing Instance of Newly Constructed Type to Function Parameter}}\label{md_Guidelines_autotoc_md55}
 
 \begin{DoxyItemize}
 \item Use the {\ttfamily Type \{\}} syntax for passing an instance of a newly created type which uses initializer\+\_\+list. 
@@ -563,7 +548,7 @@
 
 \end{DoxyCode}
 
-\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md57}{}\doxysubsection{\texorpdfstring{Avoid Magic Numbers}{Avoid Magic Numbers}}\label{md_Guidelines_autotoc_md57}
+\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md56}{}\doxysubsection{\texorpdfstring{Avoid Magic Numbers}{Avoid Magic Numbers}}\label{md_Guidelines_autotoc_md56}
 
 \begin{DoxyItemize}
 \item Use named constants instead of magic numbers. 
@@ -573,7 +558,7 @@
 
 \end{DoxyCode}
 
-\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md58}{}\doxysubsection{\texorpdfstring{Prefer auto Keyword}{Prefer auto Keyword}}\label{md_Guidelines_autotoc_md58}
+\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md57}{}\doxysubsection{\texorpdfstring{Prefer auto Keyword}{Prefer auto Keyword}}\label{md_Guidelines_autotoc_md57}
 
 \begin{DoxyItemize}
 \item Use the {\ttfamily auto} keyword for variable declarations that are a result of an function. 
@@ -582,7 +567,7 @@
 
 \end{DoxyCode}
 
-\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md59}{}\doxysubsection{\texorpdfstring{Use nullptr}{Use nullptr}}\label{md_Guidelines_autotoc_md59}
+\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md58}{}\doxysubsection{\texorpdfstring{Use nullptr}{Use nullptr}}\label{md_Guidelines_autotoc_md58}
 
 \begin{DoxyItemize}
 \item Use {\ttfamily nullptr} instead of {\ttfamily NULL} or {\ttfamily 0} for pointer initialization. 
@@ -591,7 +576,7 @@
 
 \end{DoxyCode}
 
-\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md60}{}\doxysubsection{\texorpdfstring{Prefix \+::}{Prefix \+::}}\label{md_Guidelines_autotoc_md60}
+\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md59}{}\doxysubsection{\texorpdfstring{Prefix \+::}{Prefix \+::}}\label{md_Guidelines_autotoc_md59}
 
 \begin{DoxyItemize}
 \item Always prefix \+:: to indicate that you are using a C standard function. 
@@ -600,7 +585,7 @@
 
 \end{DoxyCode}
 
-\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md61}{}\doxysubsection{\texorpdfstring{Long names}{Long names}}\label{md_Guidelines_autotoc_md61}
+\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md60}{}\doxysubsection{\texorpdfstring{Long names}{Long names}}\label{md_Guidelines_autotoc_md60}
 
 \begin{DoxyItemize}
 \item Abbreviating long names such as {\ttfamily std\+::ranges} to {\ttfamily stdr} is okay if it is done in a source file. 

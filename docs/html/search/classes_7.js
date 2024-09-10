@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['test_0',['test',['../structtest.html',1,'']]],
-  ['test_5fsuite_1',['test_suite',['../structtest__suite.html',1,'']]]
+  ['subcommand_5ftemplate_0',['subcommand_template',['../structauspicious__library_1_1ap_1_1subcommand__template.html',1,'auspicious_library::ap']]]
 ];

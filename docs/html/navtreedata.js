@@ -25,16 +25,16 @@
 var NAVTREE =
 [
   [ "Auspicious Library", "index.html", [
-    [ "Sections", "index.html#autotoc_md64", null ],
-    [ "Planned Sections", "index.html#autotoc_md65", null ],
-    [ "Prerequisite", "index.html#autotoc_md66", null ],
-    [ "Usage", "index.html#autotoc_md67", null ],
-    [ "Documentations", "index.html#autotoc_md68", null ],
-    [ "Changelog", "index.html#autotoc_md69", null ],
-    [ "Contributing", "index.html#autotoc_md70", null ],
-    [ "Credits", "index.html#autotoc_md71", null ],
-    [ "License", "index.html#autotoc_md72", null ],
-    [ "Doxygen", "index.html#autotoc_md73", null ],
+    [ "Sections", "index.html#autotoc_md63", null ],
+    [ "Planned Sections", "index.html#autotoc_md64", null ],
+    [ "Prerequisite", "index.html#autotoc_md65", null ],
+    [ "Usage", "index.html#autotoc_md66", null ],
+    [ "Documentations", "index.html#autotoc_md67", null ],
+    [ "Changelog", "index.html#autotoc_md68", null ],
+    [ "Contributing", "index.html#autotoc_md69", null ],
+    [ "Credits", "index.html#autotoc_md70", null ],
+    [ "License", "index.html#autotoc_md71", null ],
+    [ "Doxygen", "index.html#autotoc_md72", null ],
     [ "Changelog", "md_Changelog.html", [
       [ "v0.0.1 - July 22, 2024", "md_Changelog.html#autotoc_md1", null ]
     ] ],
@@ -87,23 +87,22 @@ var NAVTREE =
         [ "Operator Overloading", "md_Guidelines.html#autotoc_md43", null ]
       ] ],
       [ "Miscellaneous", "md_Guidelines.html#autotoc_md44", [
-        [ "Include Order", "md_Guidelines.html#autotoc_md45", null ],
-        [ "Max Enum Member", "md_Guidelines.html#autotoc_md46", null ],
-        [ "Error Handling", "md_Guidelines.html#autotoc_md47", null ],
-        [ "Concepts", "md_Guidelines.html#autotoc_md48", null ],
-        [ "Standard Library", "md_Guidelines.html#autotoc_md49", null ],
-        [ "Pointer and Reference", "md_Guidelines.html#autotoc_md50", null ],
-        [ "Constants and Literals", "md_Guidelines.html#autotoc_md51", null ],
-        [ "Macros", "md_Guidelines.html#autotoc_md52", null ],
-        [ "Lambdas", "md_Guidelines.html#autotoc_md53", null ],
-        [ "Initialization", "md_Guidelines.html#autotoc_md54", null ],
-        [ "Range-based For Loops", "md_Guidelines.html#autotoc_md55", null ],
-        [ "Passing Instance of Newly Constructed Type to Function Parameter", "md_Guidelines.html#autotoc_md56", null ],
-        [ "Avoid Magic Numbers", "md_Guidelines.html#autotoc_md57", null ],
-        [ "Prefer auto Keyword", "md_Guidelines.html#autotoc_md58", null ],
-        [ "Use nullptr", "md_Guidelines.html#autotoc_md59", null ],
-        [ "Prefix ::", "md_Guidelines.html#autotoc_md60", null ],
-        [ "Long names", "md_Guidelines.html#autotoc_md61", null ]
+        [ "Max Enum Member", "md_Guidelines.html#autotoc_md45", null ],
+        [ "Error Handling", "md_Guidelines.html#autotoc_md46", null ],
+        [ "Concepts", "md_Guidelines.html#autotoc_md47", null ],
+        [ "Standard Library", "md_Guidelines.html#autotoc_md48", null ],
+        [ "Pointer and Reference", "md_Guidelines.html#autotoc_md49", null ],
+        [ "Constants and Literals", "md_Guidelines.html#autotoc_md50", null ],
+        [ "Macros", "md_Guidelines.html#autotoc_md51", null ],
+        [ "Lambdas", "md_Guidelines.html#autotoc_md52", null ],
+        [ "Initialization", "md_Guidelines.html#autotoc_md53", null ],
+        [ "Range-based For Loops", "md_Guidelines.html#autotoc_md54", null ],
+        [ "Passing Instance of Newly Constructed Type to Function Parameter", "md_Guidelines.html#autotoc_md55", null ],
+        [ "Avoid Magic Numbers", "md_Guidelines.html#autotoc_md56", null ],
+        [ "Prefer auto Keyword", "md_Guidelines.html#autotoc_md57", null ],
+        [ "Use nullptr", "md_Guidelines.html#autotoc_md58", null ],
+        [ "Prefix ::", "md_Guidelines.html#autotoc_md59", null ],
+        [ "Long names", "md_Guidelines.html#autotoc_md60", null ]
       ] ]
     ] ],
     [ "License", "md_License.html", null ],
@@ -122,10 +121,12 @@ var NAVTREE =
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ]
+        [ "Variables", "functions_vars.html", null ],
+        [ "Typedefs", "functions_type.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -141,8 +142,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "al__ansi__escape__codes_8hpp.html",
-"namespaceauspicious__library_1_1aec.html#a70ada230eeb1af46cc0faf3b87cc08aa",
-"structauspicious__library_1_1ap_1_1parsed__argument.html#a2e2025a0da77b33cde959df7df80d1e6"
+"namespaceauspicious__library.html",
+"structauspicious__library_1_1ap_1_1mod__argument.html#a3065446b690cfed1792af3c198011df8"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

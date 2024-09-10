@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['range_20based_20for_20loops_0',['Range-based For Loops',['../md_Guidelines.html#autotoc_md55',1,'']]],
+  ['range_20based_20for_20loops_0',['Range-based For Loops',['../md_Guidelines.html#autotoc_md54',1,'']]],
   ['read_5fall_1',['read_all',['../namespaceauspicious__library_1_1fu.html#a0ed8ef9dc19914c7f8d747f37234ddc4',1,'auspicious_library::fu']]],
   ['readme_2emd_2',['Readme.md',['../Readme_8md.html',1,'']]],
   ['red_3',['red',['../namespaceauspicious__library_1_1aec.html#aaaeb69ecac28fcf66e15ea9fe05aacc7',1,'auspicious_library::aec']]],
   ['red_5fbg_4',['red_bg',['../namespaceauspicious__library_1_1aec.html#a80e49e39e4a29210e16ac6f9879a8c1b',1,'auspicious_library::aec']]],
   ['ref_5foption_5',['ref_option',['../structauspicious__library_1_1ap_1_1parsed__argument.html#a854f53cfa4dbc2a0197d0e18d2587991',1,'auspicious_library::ap::parsed_argument']]],
   ['ref_5fsubcommand_6',['ref_subcommand',['../structauspicious__library_1_1ap_1_1parsed__argument.html#aa8efc55d8ab7c296d38e9128bb5b971d',1,'auspicious_library::ap::parsed_argument']]],
-  ['reference_7',['Pointer and Reference',['../md_Guidelines.html#autotoc_md50',1,'']]],
+  ['reference_7',['Pointer and Reference',['../md_Guidelines.html#autotoc_md49',1,'']]],
   ['regular_5fargument_8',['regular_argument',['../namespaceauspicious__library_1_1ap.html#a7826ca13d78fe36b6181fdf84773b7e7aa20e56bea0585638d84185a408b04378',1,'auspicious_library::ap']]],
   ['repeat_9',['repeat',['../namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37',1,'auspicious_library::cu::repeat(const Container &amp;container, std::size_t n)'],['../namespaceauspicious__library_1_1cu.html#a01fbb9b65897848dc6d883266688a9f8',1,'auspicious_library::cu::repeat(const Container &amp;container, long double n)']]],
   ['reset_10',['reset',['../namespaceauspicious__library_1_1aec.html#af8881b9d6d857581a4e1c5f7b482d715',1,'auspicious_library::aec']]],

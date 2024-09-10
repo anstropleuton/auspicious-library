@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['help_5fcombo_5ft_0',['help_combo_t',['../structauspicious__library_1_1ap_1_1help__combo__t.html',1,'auspicious_library::ap']]],
-  ['help_5fenclose_5ft_1',['help_enclose_t',['../structauspicious__library_1_1ap_1_1help__enclose__t.html',1,'auspicious_library::ap']]],
-  ['help_5fpad_5ft_2',['help_pad_t',['../structauspicious__library_1_1ap_1_1help__pad__t.html',1,'auspicious_library::ap']]]
+  ['boundless_5farray_0',['boundless_array',['../structauspicious__library_1_1cu_1_1boundless__array.html',1,'auspicious_library::cu']]],
+  ['boundless_5fbasic_5fstring_1',['boundless_basic_string',['../structauspicious__library_1_1cu_1_1boundless__basic__string.html',1,'auspicious_library::cu']]],
+  ['boundless_5fbasic_5fstring_5fview_2',['boundless_basic_string_view',['../structauspicious__library_1_1cu_1_1boundless__basic__string__view.html',1,'auspicious_library::cu']]],
+  ['boundless_5fspan_3',['boundless_span',['../structauspicious__library_1_1cu_1_1boundless__span.html',1,'auspicious_library::cu']]],
+  ['boundless_5fvector_4',['boundless_vector',['../structauspicious__library_1_1cu_1_1boundless__vector.html',1,'auspicious_library::cu']]]
 ];

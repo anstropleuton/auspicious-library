@@ -116,29 +116,68 @@ $(function(){initNavTree('al__container__utilities_8hpp.html',''); initResizable
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#concepts">Concepts</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">al_container_utilities.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>General functionality for container types with operators.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
+<div class="textblock"><code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;initializer_list&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
+<code>#include &lt;numeric&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;array&gt;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;cstddef&gt;</code><br />
 <code>#include &lt;iterator&gt;</code><br />
 <code>#include &lt;ranges&gt;</code><br />
+<code>#include &lt;span&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;string_view&gt;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div>
 <p><a href="al__container__utilities_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structauspicious__library_1_1cu_1_1boundless__vector.html">auspicious_library::cu::boundless_vector&lt; T, Alloc &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A boundless vector.  <a href="structauspicious__library_1_1cu_1_1boundless__vector.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structauspicious__library_1_1cu_1_1boundless__array.html">auspicious_library::cu::boundless_array&lt; T, N &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A boundless array.  <a href="structauspicious__library_1_1cu_1_1boundless__array.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structauspicious__library_1_1cu_1_1boundless__span.html">auspicious_library::cu::boundless_span&lt; T, Extent &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A boundless span.  <a href="structauspicious__library_1_1cu_1_1boundless__span.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structauspicious__library_1_1cu_1_1boundless__basic__string.html">auspicious_library::cu::boundless_basic_string&lt; CharT, Traits, Alloc &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A boundless basic string.  <a href="structauspicious__library_1_1cu_1_1boundless__basic__string.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structauspicious__library_1_1cu_1_1boundless__basic__string__view.html">auspicious_library::cu::boundless_basic_string_view&lt; CharT, Traits &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A boundless basic string view.  <a href="structauspicious__library_1_1cu_1_1boundless__basic__string__view.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structauspicious__library_1_1cu_1_1enum__value.html">auspicious_library::cu::enum_value&lt; E, value &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integral constant for the enumerator's member.  <a href="structauspicious__library_1_1cu_1_1enum__value.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structauspicious__library_1_1cu_1_1enum__max.html">auspicious_library::cu::enum_max&lt; E &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integral constant for the enumerator's <code>max</code> member.  <a href="structauspicious__library_1_1cu_1_1enum__max.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structauspicious__library_1_1cu_1_1enumerated__array.html">auspicious_library::cu::enumerated_array&lt; T, E &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array with enumerator as index.  <a href="structauspicious__library_1_1cu_1_1enumerated__array.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library.html">auspicious_library</a></td></tr>
-<tr class="memdesc:namespaceauspicious__library"><td class="mdescLeft">&#160;</td><td class="mdescRight">All Auspicious Library's contents in this namespace. Do not <code>using namespace <a class="el" href="namespaceauspicious__library.html" title="All Auspicious Library&#39;s contents in this namespace. Do not using namespace auspicious_library;....">auspicious_library</a>;</code>. Instead, use this: <br /></td></tr>
+<tr class="memdesc:namespaceauspicious__library"><td class="mdescLeft">&#160;</td><td class="mdescRight">All Auspicious Library's contents in this namespace. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html">auspicious_library::cu</a></td></tr>
 <tr class="memdesc:namespaceauspicious__library_1_1cu"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copper...? No wait, Container Utilities. <br /></td></tr>
@@ -152,6 +191,12 @@ Concepts</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptauspicious__library_1_1cu_1_1cu__compatible.html">auspicious_library::cu::cu_compatible</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container compatible for Container Utilities. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptauspicious__library_1_1cu_1_1cu__compatible__nested.html">auspicious_library::cu::cu_compatible_nested</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nested container compatible for Container Utilities. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptauspicious__library_1_1cu_1_1cu__compatible__enum.html">auspicious_library::cu::cu_compatible_enum</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container Utilities compatible enumerator for <code>enumerated_array</code> . <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -161,12 +206,36 @@ Typedefs</h2></td></tr>
 <tr class="separator:a0248de8b248ad5631f6331109b9aace1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60b2261436e0343c87c797ba6a750096" id="r_a60b2261436e0343c87c797ba6a750096"><td class="memTemplParams" colspan="2">template&lt;cu_compatible Container&gt; </td></tr>
 <tr class="memitem:a60b2261436e0343c87c797ba6a750096"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096">auspicious_library::cu::result_container</a> = std::vector&lt;<a class="el" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">value_type</a>&lt;Container&gt;&gt;</td></tr>
-<tr class="memdesc:a60b2261436e0343c87c797ba6a750096"><td class="mdescLeft">&#160;</td><td class="mdescRight">All container utilities return this container.  <br /></td></tr>
+<tr class="memdesc:a60b2261436e0343c87c797ba6a750096"><td class="mdescLeft">&#160;</td><td class="mdescRight">All Container Utilities return this container.  <br /></td></tr>
 <tr class="separator:a60b2261436e0343c87c797ba6a750096"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac397b67fa3b542036726c3514a4df4f0" id="r_ac397b67fa3b542036726c3514a4df4f0"><td class="memTemplParams" colspan="2">template&lt;cu_compatible Container&gt; </td></tr>
 <tr class="memitem:ac397b67fa3b542036726c3514a4df4f0"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#ac397b67fa3b542036726c3514a4df4f0">auspicious_library::cu::result_container_nested</a> = std::vector&lt;std::vector&lt;<a class="el" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">value_type</a>&lt;Container&gt;&gt;&gt;</td></tr>
-<tr class="memdesc:ac397b67fa3b542036726c3514a4df4f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">All container utilities return this container if the result is nested.  <br /></td></tr>
+<tr class="memdesc:ac397b67fa3b542036726c3514a4df4f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">All Container Utilities return this container if the result is nested.  <br /></td></tr>
 <tr class="separator:ac397b67fa3b542036726c3514a4df4f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0f48745ffc86475930f5ec468cadc96" id="r_ae0f48745ffc86475930f5ec468cadc96"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#ae0f48745ffc86475930f5ec468cadc96">auspicious_library::cu::boundless_string</a> = <a class="el" href="structauspicious__library_1_1cu_1_1boundless__basic__string.html">boundless_basic_string</a>&lt;char&gt;</td></tr>
+<tr class="memdesc:ae0f48745ffc86475930f5ec468cadc96"><td class="mdescLeft">&#160;</td><td class="mdescRight">boundless_A string of <code>char</code> .  <br /></td></tr>
+<tr class="separator:ae0f48745ffc86475930f5ec468cadc96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec46f54407896b3599b2ff4867562519" id="r_aec46f54407896b3599b2ff4867562519"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#aec46f54407896b3599b2ff4867562519">auspicious_library::cu::boundless_wstring</a> = <a class="el" href="structauspicious__library_1_1cu_1_1boundless__basic__string.html">boundless_basic_string</a>&lt;wchar_t&gt;</td></tr>
+<tr class="memdesc:aec46f54407896b3599b2ff4867562519"><td class="mdescLeft">&#160;</td><td class="mdescRight">boundless_A string of <code>wchar_t</code> .  <br /></td></tr>
+<tr class="separator:aec46f54407896b3599b2ff4867562519"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84504e019dfaf4fbf91c884c5313cd8f" id="r_a84504e019dfaf4fbf91c884c5313cd8f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#a84504e019dfaf4fbf91c884c5313cd8f">auspicious_library::cu::boundless_u16string</a> = <a class="el" href="structauspicious__library_1_1cu_1_1boundless__basic__string.html">boundless_basic_string</a>&lt;char16_t&gt;</td></tr>
+<tr class="memdesc:a84504e019dfaf4fbf91c884c5313cd8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">boundless_A string of <code>char16_t</code> .  <br /></td></tr>
+<tr class="separator:a84504e019dfaf4fbf91c884c5313cd8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65fee706c75b632288782726e9bc94a8" id="r_a65fee706c75b632288782726e9bc94a8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#a65fee706c75b632288782726e9bc94a8">auspicious_library::cu::boundless_u32string</a> = <a class="el" href="structauspicious__library_1_1cu_1_1boundless__basic__string.html">boundless_basic_string</a>&lt;char32_t&gt;</td></tr>
+<tr class="memdesc:a65fee706c75b632288782726e9bc94a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">boundless_A string of <code>char32_t</code> .  <br /></td></tr>
+<tr class="separator:a65fee706c75b632288782726e9bc94a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50fb16ceff830e174a73055f08b53fd0" id="r_a50fb16ceff830e174a73055f08b53fd0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#a50fb16ceff830e174a73055f08b53fd0">auspicious_library::cu::boundless_string_view</a> = <a class="el" href="structauspicious__library_1_1cu_1_1boundless__basic__string__view.html">boundless_basic_string_view</a>&lt;char&gt;</td></tr>
+<tr class="memdesc:a50fb16ceff830e174a73055f08b53fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">A non-owning @boundless_c string .  <br /></td></tr>
+<tr class="separator:a50fb16ceff830e174a73055f08b53fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ac891a794642e6e719d1f38c95894d9" id="r_a3ac891a794642e6e719d1f38c95894d9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#a3ac891a794642e6e719d1f38c95894d9">auspicious_library::cu::boundless_wstring_view</a> = <a class="el" href="structauspicious__library_1_1cu_1_1boundless__basic__string__view.html">boundless_basic_string_view</a>&lt;wchar_t&gt;</td></tr>
+<tr class="memdesc:a3ac891a794642e6e719d1f38c95894d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A non-owning <code>boundless_wstring</code> .  <br /></td></tr>
+<tr class="separator:a3ac891a794642e6e719d1f38c95894d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42271fa82a53b3b9ac973276dce9ddf4" id="r_a42271fa82a53b3b9ac973276dce9ddf4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#a42271fa82a53b3b9ac973276dce9ddf4">auspicious_library::cu::boundless_u16string_view</a> = <a class="el" href="structauspicious__library_1_1cu_1_1boundless__basic__string__view.html">boundless_basic_string_view</a>&lt;char16_t&gt;</td></tr>
+<tr class="memdesc:a42271fa82a53b3b9ac973276dce9ddf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A non-owning <code>boundless_u16string</code> .  <br /></td></tr>
+<tr class="separator:a42271fa82a53b3b9ac973276dce9ddf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeca1476cb8abdf2b1382ebcfb9359f9f" id="r_aeca1476cb8abdf2b1382ebcfb9359f9f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#aeca1476cb8abdf2b1382ebcfb9359f9f">auspicious_library::cu::boundless_u32string_view</a> = <a class="el" href="structauspicious__library_1_1cu_1_1boundless__basic__string__view.html">boundless_basic_string_view</a>&lt;char32_t&gt;</td></tr>
+<tr class="memdesc:aeca1476cb8abdf2b1382ebcfb9359f9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A non-owning <code>boundless_u32string</code> .  <br /></td></tr>
+<tr class="separator:aeca1476cb8abdf2b1382ebcfb9359f9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -182,14 +251,18 @@ Functions</h2></td></tr>
 <tr class="memitem:ad5e419970d7868bbf33b03708f779f29"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#ad5e419970d7868bbf33b03708f779f29">auspicious_library::cu::combine</a> (const Container &amp;container, const <a class="el" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">value_type</a>&lt; Container &gt; &amp;value)</td></tr>
 <tr class="memdesc:ad5e419970d7868bbf33b03708f779f29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy container and value into one container.  <br /></td></tr>
 <tr class="separator:ad5e419970d7868bbf33b03708f779f29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a7ac5acb03ece68064d6715bff18fb6" id="r_a9a7ac5acb03ece68064d6715bff18fb6"><td class="memTemplParams" colspan="2">template&lt;cu_compatible Container&gt; </td></tr>
-<tr class="memitem:a9a7ac5acb03ece68064d6715bff18fb6"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#a9a7ac5acb03ece68064d6715bff18fb6">auspicious_library::cu::filter_out_seq</a> (const Container &amp;container, const Container &amp;values)</td></tr>
-<tr class="memdesc:a9a7ac5acb03ece68064d6715bff18fb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filter out the occurrences of sequence from the container.  <br /></td></tr>
-<tr class="separator:a9a7ac5acb03ece68064d6715bff18fb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28c9c721c79f51cbf14c0c9c9e020293" id="r_a28c9c721c79f51cbf14c0c9c9e020293"><td class="memTemplParams" colspan="2">template&lt;cu_compatible Container&gt; </td></tr>
+<tr class="memitem:a28c9c721c79f51cbf14c0c9c9e020293"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#a28c9c721c79f51cbf14c0c9c9e020293">auspicious_library::cu::filter_out_seq</a> (const Container &amp;container, const Container &amp;pattern)</td></tr>
+<tr class="memdesc:a28c9c721c79f51cbf14c0c9c9e020293"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filter out the occurrences of sequence from the container.  <br /></td></tr>
+<tr class="separator:a28c9c721c79f51cbf14c0c9c9e020293"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a367b35bf13b81eac704c433070427e6d" id="r_a367b35bf13b81eac704c433070427e6d"><td class="memTemplParams" colspan="2">template&lt;cu_compatible Container&gt; </td></tr>
 <tr class="memitem:a367b35bf13b81eac704c433070427e6d"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#a367b35bf13b81eac704c433070427e6d">auspicious_library::cu::filter_out_occ</a> (const Container &amp;container, const Container &amp;values)</td></tr>
 <tr class="memdesc:a367b35bf13b81eac704c433070427e6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filter out the occurrences of any of values from the container.  <br /></td></tr>
 <tr class="separator:a367b35bf13b81eac704c433070427e6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e0d8bbb85dbc2dcd3af2f255c9a0b39" id="r_a0e0d8bbb85dbc2dcd3af2f255c9a0b39"><td class="memTemplParams" colspan="2">template&lt;cu_compatible Container, cu_compatible_nested NestedContainer&gt; </td></tr>
+<tr class="memitem:a0e0d8bbb85dbc2dcd3af2f255c9a0b39"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#a0e0d8bbb85dbc2dcd3af2f255c9a0b39">auspicious_library::cu::filter_out_occ_seq</a> (const Container &amp;container, const NestedContainer &amp;patterns)</td></tr>
+<tr class="memdesc:a0e0d8bbb85dbc2dcd3af2f255c9a0b39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filter out the occurrences of any of sequences from the container.  <br /></td></tr>
+<tr class="separator:a0e0d8bbb85dbc2dcd3af2f255c9a0b39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d0869d9e35bc3f395f91a5cbde0345e" id="r_a3d0869d9e35bc3f395f91a5cbde0345e"><td class="memTemplParams" colspan="2">template&lt;cu_compatible Container&gt; </td></tr>
 <tr class="memitem:a3d0869d9e35bc3f395f91a5cbde0345e"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#a3d0869d9e35bc3f395f91a5cbde0345e">auspicious_library::cu::filter_out</a> (const Container &amp;container, const <a class="el" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">value_type</a>&lt; Container &gt; &amp;value)</td></tr>
 <tr class="memdesc:a3d0869d9e35bc3f395f91a5cbde0345e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filter out the occurrences of value from the container.  <br /></td></tr>
@@ -208,12 +281,20 @@ Functions</h2></td></tr>
 <tr class="separator:a02a640ca3898e63a8338b562d23a6ca7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc1b463c87ef5ec1f72cd652c70f9b0d" id="r_acc1b463c87ef5ec1f72cd652c70f9b0d"><td class="memTemplParams" colspan="2">template&lt;cu_compatible Container&gt; </td></tr>
 <tr class="memitem:acc1b463c87ef5ec1f72cd652c70f9b0d"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#acc1b463c87ef5ec1f72cd652c70f9b0d">auspicious_library::cu::split_occ</a> (const Container &amp;container, const Container &amp;values)</td></tr>
-<tr class="memdesc:acc1b463c87ef5ec1f72cd652c70f9b0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split the container with occurrences.  <br /></td></tr>
+<tr class="memdesc:acc1b463c87ef5ec1f72cd652c70f9b0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split the container with occurrences of value.  <br /></td></tr>
 <tr class="separator:acc1b463c87ef5ec1f72cd652c70f9b0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c2c97e55ed45d82a370ac456aac90a0" id="r_a7c2c97e55ed45d82a370ac456aac90a0"><td class="memTemplParams" colspan="2">template&lt;cu_compatible Container, cu_compatible_nested NestedContainer&gt; </td></tr>
+<tr class="memitem:a7c2c97e55ed45d82a370ac456aac90a0"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#a7c2c97e55ed45d82a370ac456aac90a0">auspicious_library::cu::split_occ_seq</a> (const Container &amp;container, const NestedContainer &amp;patterns)</td></tr>
+<tr class="memdesc:a7c2c97e55ed45d82a370ac456aac90a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split the container with occurrences of any of pattern.  <br /></td></tr>
+<tr class="separator:a7c2c97e55ed45d82a370ac456aac90a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9f44279e734a8b0963ba9a1a1d805b9" id="r_ab9f44279e734a8b0963ba9a1a1d805b9"><td class="memTemplParams" colspan="2">template&lt;cu_compatible Container&gt; </td></tr>
 <tr class="memitem:ab9f44279e734a8b0963ba9a1a1d805b9"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#ab9f44279e734a8b0963ba9a1a1d805b9">auspicious_library::cu::split</a> (const Container &amp;container, const <a class="el" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">value_type</a>&lt; Container &gt; &amp;value)</td></tr>
 <tr class="memdesc:ab9f44279e734a8b0963ba9a1a1d805b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split the container with value.  <br /></td></tr>
 <tr class="separator:ab9f44279e734a8b0963ba9a1a1d805b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69393250ff2cb81e1361da2f06789324" id="r_a69393250ff2cb81e1361da2f06789324"><td class="memTemplParams" colspan="2">template&lt;cu_compatible Container&gt; </td></tr>
+<tr class="memitem:a69393250ff2cb81e1361da2f06789324"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#a69393250ff2cb81e1361da2f06789324">auspicious_library::cu::boundless_access</a> (const Container &amp;container, std::size_t index)</td></tr>
+<tr class="memdesc:a69393250ff2cb81e1361da2f06789324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return element at index, or a default-constructed instance of the value type if the index is invalid.  <br /></td></tr>
+<tr class="separator:a69393250ff2cb81e1361da2f06789324"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a807dd1b3e0130a0e06f11905f66451fb" id="r_a807dd1b3e0130a0e06f11905f66451fb"><td class="memTemplParams" colspan="2">template&lt;cu::cu_compatible Container&gt; <br />
 requires (!std::is_same_v&lt;Container, std::string&gt; &amp;&amp; !std::is_same_v&lt;Container, std::string_view&gt;)</td></tr>
 <tr class="memitem:a807dd1b3e0130a0e06f11905f66451fb"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu__operators.html#a807dd1b3e0130a0e06f11905f66451fb">auspicious_library::cu_operators::operator+</a> (const Container &amp;container_a, const Container &amp;container_b)</td></tr>
@@ -254,6 +335,17 @@ requires (!std::is_same_v&lt;Container, std::string&gt; &amp;&amp; !std::is_same
 <tr class="memitem:a43b738ea3f4b39d612bbe2f54ba8a655"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu__operators.html#a43b738ea3f4b39d612bbe2f54ba8a655">auspicious_library::cu_operators::operator/</a> (const Container &amp;container, const <a class="el" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">cu::value_type</a>&lt; Container &gt; &amp;value)</td></tr>
 <tr class="memdesc:a43b738ea3f4b39d612bbe2f54ba8a655"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split the container with value.  <br /></td></tr>
 <tr class="separator:a43b738ea3f4b39d612bbe2f54ba8a655"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:abfa1e0f596b9cc301dd78bbd0a47b7b1" id="r_abfa1e0f596b9cc301dd78bbd0a47b7b1"><td class="memTemplParams" colspan="2">template&lt;cu_compatible_enum E, E value&gt; </td></tr>
+<tr class="memitem:abfa1e0f596b9cc301dd78bbd0a47b7b1"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#abfa1e0f596b9cc301dd78bbd0a47b7b1">auspicious_library::cu::enum_value_v</a> = <a class="el" href="structauspicious__library_1_1cu_1_1enum__value.html">enum_value</a>&lt;E, value&gt;::value</td></tr>
+<tr class="memdesc:abfa1e0f596b9cc301dd78bbd0a47b7b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper to get the value of the enumerator's member.  <br /></td></tr>
+<tr class="separator:abfa1e0f596b9cc301dd78bbd0a47b7b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae709f48cb1ed1d1f54c5981801356aa3" id="r_ae709f48cb1ed1d1f54c5981801356aa3"><td class="memTemplParams" colspan="2">template&lt;cu_compatible_enum E&gt; </td></tr>
+<tr class="memitem:ae709f48cb1ed1d1f54c5981801356aa3"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#ae709f48cb1ed1d1f54c5981801356aa3">auspicious_library::cu::enum_max_v</a> = <a class="el" href="structauspicious__library_1_1cu_1_1enum__max.html">enum_max</a>&lt;E&gt;::value</td></tr>
+<tr class="memdesc:ae709f48cb1ed1d1f54c5981801356aa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper to get the value of the enumerator's <code>max</code> member.  <br /></td></tr>
+<tr class="separator:ae709f48cb1ed1d1f54c5981801356aa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>General functionality for container types with operators. </p>

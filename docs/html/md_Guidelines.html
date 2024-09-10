@@ -454,43 +454,31 @@ Operator Overloading</h2>
 <h1><a class="anchor" id="autotoc_md44"></a>
 Miscellaneous</h1>
 <h2><a class="anchor" id="autotoc_md45"></a>
-Include Order</h2>
-<ul>
-<li>Main Module Header</li>
-<li>Local/Third-party Headers</li>
-<li>System #includes <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;my_module.hpp&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &quot;raylib.h&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;vector&gt;</span></div>
-</div><!-- fragment --></li>
-</ul>
-<h2><a class="anchor" id="autotoc_md46"></a>
 Max Enum Member</h2>
 <ul>
 <li>Have a member named max in every enum types intended to be used as index.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md47"></a>
+<h2><a class="anchor" id="autotoc_md46"></a>
 Error Handling</h2>
 <ul>
 <li>Use exceptions for error handling. <div class="fragment"><div class="line"><span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Error message&quot;</span>);</div>
 </div><!-- fragment --></li>
 <li>Do not use exceptions on performance-critical functions. Use returned error codes instead.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md48"></a>
+<h2><a class="anchor" id="autotoc_md47"></a>
 Concepts</h2>
 <ul>
 <li>Prefer using defined concept instead of <code>typename</code>.</li>
 <li>Prefer defining concept using standard library concepts instead of directly using standard library concepts.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md49"></a>
+<h2><a class="anchor" id="autotoc_md48"></a>
 Standard Library</h2>
 <ul>
 <li>Prefer C++ standard library features over C-style counterparts. <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line">std::string my_string = <span class="stringliteral">&quot;Hello, World!&quot;</span>;</div>
 </div><!-- fragment --></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md50"></a>
+<h2><a class="anchor" id="autotoc_md49"></a>
 Pointer and Reference</h2>
 <ul>
 <li>Prefer using smart pointers (<code>std::unique_ptr</code>, <code>std::shared_ptr</code>) over raw pointers. <div class="fragment"><div class="line">std::unique_ptr&lt;my_struct&gt; ptr = std::make_unique&lt;my_struct&gt;();</div>
@@ -498,13 +486,13 @@ Pointer and Reference</h2>
 <li>Use references when the ownership of the object does not need to be changed. <div class="fragment"><div class="line"><span class="keywordtype">void</span> my_function(<span class="keyword">const</span> my_struct&amp; my_value);</div>
 </div><!-- fragment --></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md51"></a>
+<h2><a class="anchor" id="autotoc_md50"></a>
 Constants and Literals</h2>
 <ul>
 <li>Use <code>constexpr</code> for compile-time constants. <div class="fragment"><div class="line"><span class="keyword">constexpr</span> <span class="keywordtype">int</span> max_value = 100;</div>
 </div><!-- fragment --></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md52"></a>
+<h2><a class="anchor" id="autotoc_md51"></a>
 Macros</h2>
 <ul>
 <li>Avoid using macros; prefer inline functions, <code>constexpr</code>, and templates. <div class="fragment"><div class="line"><span class="preprocessor">#define MAX(a, b) ((a) &gt; (b) ? (a) : (b)) </span><span class="comment">// Avoid</span></div>
@@ -515,13 +503,13 @@ Macros</h2>
 </div><!-- fragment --></li>
 <li>If you do use macros, name it <code>UPPER_SNAKE_CASE</code>.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md53"></a>
+<h2><a class="anchor" id="autotoc_md52"></a>
 Lambdas</h2>
 <ul>
 <li>Use lambdas defining functions inside of another function when this function is not intended to be used anywhere else. <div class="fragment"><div class="line"><span class="keyword">auto</span> add = [](<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b) { <span class="keywordflow">return</span> a + b; };</div>
 </div><!-- fragment --></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md54"></a>
+<h2><a class="anchor" id="autotoc_md53"></a>
 Initialization</h2>
 <ul>
 <li>Use <code>=</code> for initializing type. <div class="fragment"><div class="line"><span class="keywordtype">int</span> value = 10;</div>
@@ -529,7 +517,7 @@ Initialization</h2>
 <li>Always initialize to <code>{}</code> for user defined types. <div class="fragment"><div class="line">Type value = {};</div>
 </div><!-- fragment --></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md55"></a>
+<h2><a class="anchor" id="autotoc_md54"></a>
 Range-based For Loops</h2>
 <ul>
 <li>Prefer range-based for loops over traditional loops.</li>
@@ -540,7 +528,7 @@ Range-based For Loops</h2>
 <div class="line">}</div>
 </div><!-- fragment --></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md56"></a>
+<h2><a class="anchor" id="autotoc_md55"></a>
 Passing Instance of Newly Constructed Type to Function Parameter</h2>
 <ul>
 <li>Use the <code>Type {}</code> syntax for passing an instance of a newly created type which uses initializer_list. <div class="fragment"><div class="line"><span class="keywordtype">void</span> print_vector(std::vector&lt;int&gt; { 1, 2, 3, 4, 5 });</div>
@@ -550,32 +538,32 @@ Passing Instance of Newly Constructed Type to Function Parameter</h2>
 <li>Use the <code>Type {}</code> syntax for default initializing a type. <div class="fragment"><div class="line"><span class="keywordtype">void</span> process_t_default(Type(parameters), Type {});</div>
 </div><!-- fragment --></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md57"></a>
+<h2><a class="anchor" id="autotoc_md56"></a>
 Avoid Magic Numbers</h2>
 <ul>
 <li>Use named constants instead of magic numbers. <div class="fragment"><div class="line"><span class="keyword">constexpr</span> <span class="keywordtype">int</span> max_array_size = 100;</div>
 <div class="line"><span class="keywordtype">int</span> array[max_array_size];</div>
 </div><!-- fragment --></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md58"></a>
+<h2><a class="anchor" id="autotoc_md57"></a>
 Prefer auto Keyword</h2>
 <ul>
 <li>Use the <code>auto</code> keyword for variable declarations that are a result of an function. <div class="fragment"><div class="line"><span class="keyword">auto</span> my_variable = get_value();</div>
 </div><!-- fragment --></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md59"></a>
+<h2><a class="anchor" id="autotoc_md58"></a>
 Use nullptr</h2>
 <ul>
 <li>Use <code>nullptr</code> instead of <code>NULL</code> or <code>0</code> for pointer initialization. <div class="fragment"><div class="line"><span class="keywordtype">int</span>* ptr = <span class="keyword">nullptr</span>;</div>
 </div><!-- fragment --></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md60"></a>
+<h2><a class="anchor" id="autotoc_md59"></a>
 Prefix ::</h2>
 <ul>
 <li>Always prefix :: to indicate that you are using a C standard function. <div class="fragment"><div class="line"><span class="keywordtype">char</span> lowered = ::tolower(my_letter);</div>
 </div><!-- fragment --></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md61"></a>
+<h2><a class="anchor" id="autotoc_md60"></a>
 Long names</h2>
 <ul>
 <li>Abbreviating long names such as <code>std::ranges</code> to <code>stdr</code> is okay if it is done in a source file. </li>

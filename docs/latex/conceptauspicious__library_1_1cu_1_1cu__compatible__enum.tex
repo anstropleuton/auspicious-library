@@ -1,0 +1,32 @@
+\doxysection{auspicious\+\_\+library\+::cu\+::cu\+\_\+compatible\+\_\+enum Concept Reference}
+\hypertarget{conceptauspicious__library_1_1cu_1_1cu__compatible__enum}{}\label{conceptauspicious__library_1_1cu_1_1cu__compatible__enum}\index{auspicious\_library::cu::cu\_compatible\_enum@{auspicious\_library::cu::cu\_compatible\_enum}}
+
+
+Container Utilities compatible enumerator for {\ttfamily enumerated\+\_\+array} .  
+
+
+
+
+{\ttfamily \#include $<$al\+\_\+container\+\_\+utilities.\+hpp$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ E>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptauspicious__library_1_1cu_1_1cu__compatible__enum}{auspicious\_library::cu::cu\_compatible\_enum}}\ =\ \ std::is\_enum\_v<E>\ \&\&\ \textcolor{keyword}{requires}\ \{\ \{\ E::max\ \};\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Container Utilities compatible enumerator for {\ttfamily enumerated\+\_\+array} . 
+
+The type must be an enumerator with a {\ttfamily max} as a member. The {\ttfamily max} member must be the largest member in the enumerator (Implementation pending).
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em E} & Enumerator type.\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]After reflection support is introduced, iterate over all the members and determine that the {\ttfamily max} member is the largest member. \end{DoxyRefDesc}

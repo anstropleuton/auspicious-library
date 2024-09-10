@@ -5,17 +5,46 @@
 General functionality for container types with operators.  
 
 
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$initializer\+\_\+list$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$numeric$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
 {\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
 {\ttfamily \#include $<$cmath$>$}\newline
 {\ttfamily \#include $<$cstddef$>$}\newline
 {\ttfamily \#include $<$iterator$>$}\newline
 {\ttfamily \#include $<$ranges$>$}\newline
+{\ttfamily \#include $<$span$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$string\+\_\+view$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__vector}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+vector$<$ T, Alloc $>$}}
+\begin{DoxyCompactList}\small\item\em A boundless vector. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__array}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+array$<$ T, N $>$}}
+\begin{DoxyCompactList}\small\item\em A boundless array. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__span}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+span$<$ T, Extent $>$}}
+\begin{DoxyCompactList}\small\item\em A boundless span. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+basic\+\_\+string$<$ Char\+T, Traits, Alloc $>$}}
+\begin{DoxyCompactList}\small\item\em A boundless basic string. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string__view}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+basic\+\_\+string\+\_\+view$<$ Char\+T, Traits $>$}}
+\begin{DoxyCompactList}\small\item\em A boundless basic string view. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enum__value}{auspicious\+\_\+library\+::cu\+::enum\+\_\+value$<$ E, value $>$}}
+\begin{DoxyCompactList}\small\item\em Integral constant for the enumerator\textquotesingle{}s member. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enum__max}{auspicious\+\_\+library\+::cu\+::enum\+\_\+max$<$ E $>$}}
+\begin{DoxyCompactList}\small\item\em Integral constant for the enumerator\textquotesingle{}s {\ttfamily max} member. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enumerated__array}{auspicious\+\_\+library\+::cu\+::enumerated\+\_\+array$<$ T, E $>$}}
+\begin{DoxyCompactList}\small\item\em Array with enumerator as index. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespaceauspicious__library}{auspicious\+\_\+library}}
-\begin{DoxyCompactList}\small\item\em All Auspicious Library\textquotesingle{}s contents in this namespace. Do not {\ttfamily using namespace \doxylink{namespaceauspicious__library}{auspicious\+\_\+library};}. Instead, use this\+: \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em All Auspicious Library\textquotesingle{}s contents in this namespace. \end{DoxyCompactList}\item 
 namespace \mbox{\hyperlink{namespaceauspicious__library_1_1cu}{auspicious\+\_\+library\+::cu}}
 \begin{DoxyCompactList}\small\item\em Copper...? No wait, Container Utilities. \end{DoxyCompactList}\item 
 namespace \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators}{auspicious\+\_\+library\+::cu\+\_\+operators}}
@@ -24,16 +53,36 @@ namespace \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators}{auspic
 \begin{DoxyCompactItemize}
 \item 
 concept \mbox{\hyperlink{conceptauspicious__library_1_1cu_1_1cu__compatible}{auspicious\+\_\+library\+::cu\+::cu\+\_\+compatible}}
-\begin{DoxyCompactList}\small\item\em Container compatible for Container Utilities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Container compatible for Container Utilities. \end{DoxyCompactList}\item 
+concept \mbox{\hyperlink{conceptauspicious__library_1_1cu_1_1cu__compatible__nested}{auspicious\+\_\+library\+::cu\+::cu\+\_\+compatible\+\_\+nested}}
+\begin{DoxyCompactList}\small\item\em Nested container compatible for Container Utilities. \end{DoxyCompactList}\item 
+concept \mbox{\hyperlink{conceptauspicious__library_1_1cu_1_1cu__compatible__enum}{auspicious\+\_\+library\+::cu\+::cu\+\_\+compatible\+\_\+enum}}
+\begin{DoxyCompactList}\small\item\em Container Utilities compatible enumerator for {\ttfamily enumerated\+\_\+array} . \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{auspicious\+\_\+library\+::cu\+::value\+\_\+type}} = Container\+::value\+\_\+type
 \begin{DoxyCompactList}\small\item\em Container\textquotesingle{}s value\+\_\+type member. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a60b2261436e0343c87c797ba6a750096}{auspicious\+\_\+library\+::cu\+::result\+\_\+container}} = std\+::vector$<$\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{value\+\_\+type}}$<$Container$>$$>$
-\begin{DoxyCompactList}\small\item\em All container utilities return this container. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em All Container Utilities return this container. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_ac397b67fa3b542036726c3514a4df4f0}{auspicious\+\_\+library\+::cu\+::result\+\_\+container\+\_\+nested}} = std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{value\+\_\+type}}$<$Container$>$$>$$>$
-\begin{DoxyCompactList}\small\item\em All container utilities return this container if the result is nested. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em All Container Utilities return this container if the result is nested. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_ae0f48745ffc86475930f5ec468cadc96}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+string}} = \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string}{boundless\+\_\+basic\+\_\+string}}$<$char$>$
+\begin{DoxyCompactList}\small\item\em boundless\+\_\+A string of {\ttfamily char} . \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_aec46f54407896b3599b2ff4867562519}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+wstring}} = \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string}{boundless\+\_\+basic\+\_\+string}}$<$wchar\+\_\+t$>$
+\begin{DoxyCompactList}\small\item\em boundless\+\_\+A string of {\ttfamily wchar\+\_\+t} . \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a84504e019dfaf4fbf91c884c5313cd8f}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+u16string}} = \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string}{boundless\+\_\+basic\+\_\+string}}$<$char16\+\_\+t$>$
+\begin{DoxyCompactList}\small\item\em boundless\+\_\+A string of {\ttfamily char16\+\_\+t} . \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a65fee706c75b632288782726e9bc94a8}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+u32string}} = \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string}{boundless\+\_\+basic\+\_\+string}}$<$char32\+\_\+t$>$
+\begin{DoxyCompactList}\small\item\em boundless\+\_\+A string of {\ttfamily char32\+\_\+t} . \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a50fb16ceff830e174a73055f08b53fd0}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+string\+\_\+view}} = \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string__view}{boundless\+\_\+basic\+\_\+string\+\_\+view}}$<$char$>$
+\begin{DoxyCompactList}\small\item\em A non-\/owning @boundless\+\_\+c string . \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a3ac891a794642e6e719d1f38c95894d9}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+wstring\+\_\+view}} = \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string__view}{boundless\+\_\+basic\+\_\+string\+\_\+view}}$<$wchar\+\_\+t$>$
+\begin{DoxyCompactList}\small\item\em A non-\/owning {\ttfamily boundless\+\_\+wstring} . \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a42271fa82a53b3b9ac973276dce9ddf4}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+u16string\+\_\+view}} = \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string__view}{boundless\+\_\+basic\+\_\+string\+\_\+view}}$<$char16\+\_\+t$>$
+\begin{DoxyCompactList}\small\item\em A non-\/owning {\ttfamily boundless\+\_\+u16string} . \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_aeca1476cb8abdf2b1382ebcfb9359f9f}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+u32string\+\_\+view}} = \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string__view}{boundless\+\_\+basic\+\_\+string\+\_\+view}}$<$char32\+\_\+t$>$
+\begin{DoxyCompactList}\small\item\em A non-\/owning {\ttfamily boundless\+\_\+u32string} . \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -43,10 +92,12 @@ concept \mbox{\hyperlink{conceptauspicious__library_1_1cu_1_1cu__compatible}{aus
 \begin{DoxyCompactList}\small\item\em Copy containers into one container. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_ad5e419970d7868bbf33b03708f779f29}{auspicious\+\_\+library\+::cu\+::combine}} (const Container \&container, const \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{value\+\_\+type}}$<$ Container $>$ \&value)
 \begin{DoxyCompactList}\small\item\em Copy container and value into one container. \end{DoxyCompactList}\item 
-{\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a9a7ac5acb03ece68064d6715bff18fb6}{auspicious\+\_\+library\+::cu\+::filter\+\_\+out\+\_\+seq}} (const Container \&container, const Container \&values)
+{\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a28c9c721c79f51cbf14c0c9c9e020293}{auspicious\+\_\+library\+::cu\+::filter\+\_\+out\+\_\+seq}} (const Container \&container, const Container \&pattern)
 \begin{DoxyCompactList}\small\item\em Filter out the occurrences of sequence from the container. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a367b35bf13b81eac704c433070427e6d}{auspicious\+\_\+library\+::cu\+::filter\+\_\+out\+\_\+occ}} (const Container \&container, const Container \&values)
 \begin{DoxyCompactList}\small\item\em Filter out the occurrences of any of values from the container. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+\_\+compatible Container, cu\+\_\+compatible\+\_\+nested Nested\+Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0e0d8bbb85dbc2dcd3af2f255c9a0b39}{auspicious\+\_\+library\+::cu\+::filter\+\_\+out\+\_\+occ\+\_\+seq}} (const Container \&container, const Nested\+Container \&patterns)
+\begin{DoxyCompactList}\small\item\em Filter out the occurrences of any of sequences from the container. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a3d0869d9e35bc3f395f91a5cbde0345e}{auspicious\+\_\+library\+::cu\+::filter\+\_\+out}} (const Container \&container, const \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{value\+\_\+type}}$<$ Container $>$ \&value)
 \begin{DoxyCompactList}\small\item\em Filter out the occurrences of value from the container. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{auspicious\+\_\+library\+::cu\+::repeat}} (const Container \&container, std\+::size\+\_\+t n)
@@ -56,9 +107,13 @@ concept \mbox{\hyperlink{conceptauspicious__library_1_1cu_1_1cu__compatible}{aus
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a02a640ca3898e63a8338b562d23a6ca7}{auspicious\+\_\+library\+::cu\+::split\+\_\+seq}} (const Container \&container, const Container \&pattern)
 \begin{DoxyCompactList}\small\item\em Split the container with pattern. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_acc1b463c87ef5ec1f72cd652c70f9b0d}{auspicious\+\_\+library\+::cu\+::split\+\_\+occ}} (const Container \&container, const Container \&values)
-\begin{DoxyCompactList}\small\item\em Split the container with occurrences. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Split the container with occurrences of value. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+\_\+compatible Container, cu\+\_\+compatible\+\_\+nested Nested\+Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a7c2c97e55ed45d82a370ac456aac90a0}{auspicious\+\_\+library\+::cu\+::split\+\_\+occ\+\_\+seq}} (const Container \&container, const Nested\+Container \&patterns)
+\begin{DoxyCompactList}\small\item\em Split the container with occurrences of any of pattern. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_ab9f44279e734a8b0963ba9a1a1d805b9}{auspicious\+\_\+library\+::cu\+::split}} (const Container \&container, const \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{value\+\_\+type}}$<$ Container $>$ \&value)
 \begin{DoxyCompactList}\small\item\em Split the container with value. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a69393250ff2cb81e1361da2f06789324}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+access}} (const Container \&container, std\+::size\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Return element at index, or a default-\/constructed instance of the value type if the index is invalid. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
 requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_a807dd1b3e0130a0e06f11905f66451fb}{auspicious\+\_\+library\+::cu\+\_\+operators\+::operator+}} (const Container \&container\+\_\+a, const Container \&container\+\_\+b)
 \begin{DoxyCompactList}\small\item\em Combine containers using operator. \end{DoxyCompactList}\item 
@@ -83,6 +138,13 @@ requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+:
 {\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
 requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_a43b738ea3f4b39d612bbe2f54ba8a655}{auspicious\+\_\+library\+::cu\+\_\+operators\+::operator/}} (const Container \&container, const \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{cu\+::value\+\_\+type}}$<$ Container $>$ \&value)
 \begin{DoxyCompactList}\small\item\em Split the container with value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$cu\+\_\+compatible\+\_\+enum E, E value$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_abfa1e0f596b9cc301dd78bbd0a47b7b1}{auspicious\+\_\+library\+::cu\+::enum\+\_\+value\+\_\+v}} = \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enum__value}{enum\+\_\+value}}$<$E, value$>$\+::value
+\begin{DoxyCompactList}\small\item\em Helper to get the value of the enumerator\textquotesingle{}s member. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+\_\+compatible\+\_\+enum E$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_ae709f48cb1ed1d1f54c5981801356aa3}{auspicious\+\_\+library\+::cu\+::enum\+\_\+max\+\_\+v}} = \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enum__max}{enum\+\_\+max}}$<$E$>$\+::value
+\begin{DoxyCompactList}\small\item\em Helper to get the value of the enumerator\textquotesingle{}s {\ttfamily max} member. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

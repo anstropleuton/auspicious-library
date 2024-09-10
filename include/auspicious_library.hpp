@@ -55,8 +55,9 @@
 #include "al_file_utilities.hpp" // IWYU pragma: keep
 
 /**
- *  @brief  All Auspicious Library's contents in this namespace. Do not
- *          `using namespace auspicious_library;`.  Instead, use this:
+ *  @brief  All Auspicious Library's contents in this namespace.
+ *
+ *  Do not `using namespace auspicious_library;`.  Instead, use this:
     ```cpp
     namespace al {
     using namespace auspicious_library::cu;

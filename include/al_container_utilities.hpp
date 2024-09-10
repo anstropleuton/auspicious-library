@@ -67,8 +67,9 @@
 #include <vector>
 
 /**
- *  @brief  All Auspicious Library's contents in this namespace. Do not
- *          `using namespace auspicious_library;`.  Instead, use this:
+ *  @brief  All Auspicious Library's contents in this namespace.
+ *
+ *  Do not `using namespace auspicious_library;`.  Instead, use this:
     ```cpp
     namespace al {
     using namespace auspicious_library::cu;
@@ -120,19 +121,27 @@ template<cu_compatible Container>
 using value_type = Container::value_type;
 
 /**
- *  @brief  All container utilities return this container.
+ *  @brief  All Container Utilities return this container.
  *  @tparam  Container  Compatible container type.
  */
 template<cu_compatible Container>
 using result_container = std::vector<value_type<Container>>;
 
 /**
- *  @brief  All container utilities return this container if the result is
+ *  @brief  All Container Utilities return this container if the result is
  *          nested.
  *  @tparam  Container  Compatible container type.
  */
 template<cu_compatible Container>
 using result_container_nested = std::vector<std::vector<value_type<Container>>>;
+
+/**
+ *  @brief  Nested container compatible for Container Utilities.
+ *  @tparam  Container  Compatible container type with value type also being a
+ *                      compatible container type.
+ */
+template<typename Container>
+concept cu_compatible_nested = cu_compatible<value_type<Container>>;
 
 /**
  *  @brief  Get the subset of the container's elements.
@@ -141,7 +150,7 @@ using result_container_nested = std::vector<std::vector<value_type<Container>>>;
  *  @param   container       Container.
  *  @param   first_inclusive First index (inclusive).
  *  @param   last_exclusive  Last index (exclusive).
- *  @return  Subset of the container as result_container.
+ *  @return  Subset of the container as @c result_container .
  */
 template<cu_compatible Container>
 [[nodiscard]] inline constexpr auto subordinate(
@@ -161,7 +170,7 @@ template<cu_compatible Container>
  *  @tparam  Container    Compatible container type.
  *  @param   container_a  First container.
  *  @param   container_b  Second container.
- *  @return  Combined container as result_container.
+ *  @return  Combined container as @c result_container .
  */
 template<cu_compatible Container>
 [[nodiscard]] inline constexpr auto combine(
@@ -180,7 +189,7 @@ template<cu_compatible Container>
  *  @tparam  Container  Compatible container type.
  *  @param   container  Container.
  *  @param   value      Value.
- *  @return  Value-appended container as result_container.
+ *  @return  Value-appended container as @c result_container .
  */
 template<cu_compatible Container>
 [[nodiscard]] inline constexpr auto combine(
@@ -196,16 +205,16 @@ template<cu_compatible Container>
  *
  *  @tparam  Container  Compatible container type.
  *  @param   container  Container.
- *  @param   values     Sequence to remove.
- *  @return  Filtered container as result_container.
+ *  @param   pattern     Sequence to remove.
+ *  @return  Filtered container as @c result_container .
  */
 template<cu_compatible Container>
 [[nodiscard]] inline constexpr auto filter_out_seq(
     const Container &container,
-    const Container &values
+    const Container &pattern
 )
 {
-    return stdv::split(container, values)
+    return stdv::split(container, pattern)
          | stdv::join
          | stdr::to<result_container<Container>>();
 }
@@ -215,8 +224,8 @@ template<cu_compatible Container>
  *
  *  @tparam  Container  Compatible container type.
  *  @param   container  Container.
- *  @param   values     Sequence to remove.
- *  @return  Filtered container as result_container.
+ *  @param   values     Elements to remove.
+ *  @return  Filtered container as @c result_container .
  */
 template<cu_compatible Container>
 [[nodiscard]] inline constexpr auto filter_out_occ(
@@ -234,12 +243,35 @@ template<cu_compatible Container>
 }
 
 /**
+ *  @brief  Filter out the occurrences of any of sequences from the container.
+ *
+ *  @tparam  Container        Compatible container type.
+ *  @tparam  NestedContainer  Compatible nested container type.
+ *  @param   container        Container.
+ *  @param   patterns         Sequences to remove.
+ *  @return  Filtered container as @c result_container .
+ */
+template<cu_compatible Container, cu_compatible_nested NestedContainer>
+[[nodiscard]] inline constexpr auto filter_out_occ_seq(
+    const Container       &container,
+    const NestedContainer &patterns
+)
+{
+    result_container<Container> result = container;
+    for (auto &pattern : patterns)
+    {
+        result = filter_out_seq(result, pattern);
+    }
+    return result;
+}
+
+/**
  *  @brief  Filter out the occurrences of value from the container.
  *
  *  @tparam  Container  Compatible container type.
  *  @param   container  Container.
  *  @param   value      Value to remove.
- *  @return  Filtered container as result_container.
+ *  @return  Filtered container as @c result_container .
  */
 template<cu_compatible Container>
 [[nodiscard]] inline constexpr auto filter_out(
@@ -247,7 +279,6 @@ template<cu_compatible Container>
     const value_type<Container> &value
 )
 {
-    // Either of them will do...
     return filter_out_seq(container, Container({ value }));
 }
 
@@ -257,7 +288,7 @@ template<cu_compatible Container>
  *  @tparam  Container  Compatible container type.
  *  @param   container  Container.
  *  @param   n          Repeat times.
- *  @return  Repeated container as result_container.
+ *  @return  Repeated container as @c result_container .
  */
 template<cu_compatible Container>
 [[nodiscard]] inline constexpr auto repeat(
@@ -281,7 +312,7 @@ template<cu_compatible Container>
  *  @tparam  Container  Compatible container type.
  *  @param   container  Container.
  *  @param   n          Repeat times.
- *  @return  Repeated container as result_container.
+ *  @return  Repeated container as @c result_container .
  *
  *  @note  This is scuffed.
  */
@@ -306,7 +337,7 @@ template<cu_compatible Container>
  *  @tparam  Container  Compatible container type.
  *  @param   container  Container.
  *  @param   pattern    Pattern to split with.
- *  @return  Split container as result_container_nested.
+ *  @return  Split container as @c result_container_nested .
  */
 template<cu_compatible Container>
 [[nodiscard]] inline constexpr auto split_seq(
@@ -319,12 +350,12 @@ template<cu_compatible Container>
 }
 
 /**
- *  @brief  Split the container with occurrences.
+ *  @brief  Split the container with occurrences of value.
  *
  *  @tparam  Container  Compatible container type.
  *  @param   container  Container.
  *  @param   Values     Values to split with.
- *  @return  Split container as result_container_nested.
+ *  @return  Split container as @c result_container_nested .
  */
 template<cu_compatible Container>
 [[nodiscard]] inline constexpr auto split_occ(
@@ -349,12 +380,35 @@ template<cu_compatible Container>
 }
 
 /**
+ *  @brief  Split the container with occurrences of any of pattern.
+ *
+ *  @tparam  Container        Compatible container type.
+ *  @tparam  NestedContainer  Compatible nested container type.
+ *  @param   container        Container.
+ *  @param   patterns         Patterns to split with.
+ *  @return  Split container as @c result_container_nested .
+ */
+template<cu_compatible Container, cu_compatible_nested NestedContainer>
+[[nodiscard]] inline constexpr auto split_occ_seq(
+    const Container       &container,
+    const NestedContainer &patterns
+)
+{
+    result_container_nested<Container> result;
+    for (auto &pattern : patterns)
+    {
+        result = cu::combine(result, split_seq(container, pattern));
+    }
+    return result;
+}
+
+/**
  *  @brief  Split the container with value.
  *
  *  @tparam  Container  Compatible container type.
  *  @param   container  Container.
  *  @param   value      Value to split with.
- *  @return  Split container as result_container_nested.
+ *  @return  Split container as @c result_container_nested .
  */
 template<cu_compatible Container>
 [[nodiscard]] inline constexpr auto split(
@@ -362,7 +416,6 @@ template<cu_compatible Container>
     const value_type<Container> &value
 )
 {
-    // Either of them will do...
     return split_seq(container, Container({ value }));
 }
 
@@ -1018,7 +1071,7 @@ struct enumerated_array : std::array<E, enum_max_v<E>> {
      */
     [[nodiscard]] inline constexpr auto operator[] (E enumerator) -> T &
     {
-        return base::operator[] (enum_value(enumerator));
+        return base::operator[] (enum_value (enumerator));
     }
 
     /**
@@ -1031,7 +1084,7 @@ struct enumerated_array : std::array<E, enum_max_v<E>> {
     [[nodiscard]] inline constexpr auto operator[] (E enumerator)
     const -> const T &
     {
-        return base::operator[] (enum_value(enumerator));
+        return base::operator[] (enum_value (enumerator));
     }
 
     /**
@@ -1072,10 +1125,10 @@ namespace cu_operators {
  *  @tparam  Container    Compatible container type.
  *  @param   container_a  First container.
  *  @param   container_b  Second container.
- *  @return  Combined container as result_container.
+ *  @return  Combined container as @c result_container .
  *
- *  @note  Use String Manipulators' operators for std::string or
- *         std::string_view.
+ *  @note  Use String Manipulators' operators for @c std::string or
+ *         @c std::string_view.
  *
  *  @see  cu::combine.
  */
@@ -1096,10 +1149,10 @@ requires(!std::is_same_v<Container, std::string>
  *  @tparam  Container  Compatible container type.
  *  @param   container  Container.
  *  @param   value      Value.
- *  @return  Value-appended container as result_container.
+ *  @return  Value-appended container as @c result_container .
  *
- *  @note  Use String Manipulators' operators for std::string or
- *         std::string_view.
+ *  @note  Use String Manipulators' operators for @c std::string or
+ *         @c std::string_view.
  *
  *  @see  cu::combine.
  */
@@ -1120,10 +1173,10 @@ requires(!std::is_same_v<Container, std::string>
  *  @tparam  Container  Compatible container type.
  *  @param   container  Container.
  *  @param   values     Sequence to remove.
- *  @return  Filtered container as result_container.
+ *  @return  Filtered container as @c result_container .
  *
- *  @note  Use String Manipulators' operators for std::string or
- *         std::string_view.
+ *  @note  Use String Manipulators' operators for @c std::string or
+ *         @c std::string_view.
  *
  *  @see  cu::filter_out_seq.
  */
@@ -1144,10 +1197,10 @@ requires(!std::is_same_v<Container, std::string>
  *  @tparam  Container  Compatible container type.
  *  @param   container  Container.
  *  @param   value      Value to remove.
- *  @return  Filtered container as result_container.
+ *  @return  Filtered container as @c result_container .
  *
- *  @note  Use String Manipulators' operators for std::string or
- *         std::string_view.
+ *  @note  Use String Manipulators' operators for @c std::string or
+ *         @c std::string_view.
  *
  *  @see  cu::filter_out.
  */
@@ -1168,10 +1221,10 @@ requires(!std::is_same_v<Container, std::string>
  *  @tparam  Container  Compatible container type.
  *  @param   container  Container.
  *  @param   n          Repeat times.
- *  @return  Repeated container as result_container.
+ *  @return  Repeated container as @c result_container .
  *
- *  @note  Use String Manipulators' operators for std::string or
- *         std::string_view.
+ *  @note  Use String Manipulators' operators for @c std::string or
+ *         @c std::string_view.
  *
  *  @see  cu::repeat.
  */
@@ -1192,10 +1245,10 @@ requires(!std::is_same_v<Container, std::string>
  *  @tparam  Container  Compatible container type.
  *  @param   container  Container.
  *  @param   n          Repeat times.
- *  @return  Repeated container as result_container.
+ *  @return  Repeated container as @c result_container .
  *
- *  @note  Use String Manipulators' operators for std::string or
- *         std::string_view.
+ *  @note  Use String Manipulators' operators for @c std::string or
+ *         @c std::string_view.
  *
  *  @see   cu::repeat.
  */
@@ -1216,10 +1269,10 @@ requires(!std::is_same_v<Container, std::string>
  *  @tparam  Container  Compatible container type.
  *  @param   container  Container.
  *  @param   pattern    Pattern to split with.
- *  @return  Split container as result_container_nested.
+ *  @return  Split container as @c result_container_nested .
  *
- *  @note  Use String Manipulators' operators for std::string or
- *         std::string_view.
+ *  @note  Use String Manipulators' operators for @c std::string or
+ *         @c std::string_view.
  *
  *  @see  cu::split.
  */
@@ -1240,10 +1293,10 @@ requires(!std::is_same_v<Container, std::string>
  *  @tparam  Container  Compatible container type.
  *  @param   container  Container.
  *  @param   value      Value to split with.
- *  @return  Split container as result_container_nested.
+ *  @return  Split container as @c result_container_nested .
  *
- *  @note  Use String Manipulators' operators for std::string or
- *         std::string_view.
+ *  @note  Use String Manipulators' operators for @c std::string or
+ *         @c std::string_view.
  *
  *  @see  cu::split.
  */

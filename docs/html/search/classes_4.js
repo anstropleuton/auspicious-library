@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['parsed_5fargument_0',['parsed_argument',['../structauspicious__library_1_1ap_1_1parsed__argument.html',1,'auspicious_library::ap']]],
-  ['posix_5fhelp_5fformat_1',['posix_help_format',['../structauspicious__library_1_1ap_1_1posix__help__format.html',1,'auspicious_library::ap']]]
+  ['microsoft_5fhelp_5fformat_0',['microsoft_help_format',['../structauspicious__library_1_1ap_1_1microsoft__help__format.html',1,'auspicious_library::ap']]],
+  ['mod_5fargument_1',['mod_argument',['../structauspicious__library_1_1ap_1_1mod__argument.html',1,'auspicious_library::ap']]]
 ];

@@ -1,0 +1,193 @@
+\doxysection{auspicious\+\_\+library\+::cu\+::boundless\+\_\+vector\texorpdfstring{$<$}{<} T, Alloc \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structauspicious__library_1_1cu_1_1boundless__vector}{}\label{structauspicious__library_1_1cu_1_1boundless__vector}\index{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$@{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$}}
+
+
+A boundless vector.  
+
+
+
+
+{\ttfamily \#include $<$al\+\_\+container\+\_\+utilities.\+hpp$>$}
+
+Inheritance diagram for auspicious\+\_\+library\+::cu\+::boundless\+\_\+vector\texorpdfstring{$<$}{<} T, Alloc \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structauspicious__library_1_1cu_1_1boundless__vector}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__vector_a6bc802ab83df4168218f5e94e119ada1}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t index) -\/$>$ T \&
+\begin{DoxyCompactList}\small\item\em Get an element at index, or a default constructed instance of the value type when index is invalid. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__vector_aecc6173d8acd00274861445720c51e1b}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t index) const -\/$>$ const T \&
+\begin{DoxyCompactList}\small\item\em Get an element at index, or a default constructed instance of the value type when index is invalid. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__vector_a07037e127e3f7079c725b206dca292ba}{at}} (std\+::size\+\_\+t index) -\/$>$ T \&
+\begin{DoxyCompactList}\small\item\em Get an element at index, or a default constructed instance of the value type when index is invalid. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__vector_a1a44b0de9cf15bb396528acf0d4e8522}{at}} (std\+::size\+\_\+t index) const -\/$>$ const T \&
+\begin{DoxyCompactList}\small\item\em Get an element at index, or a default constructed instance of the value type when index is invalid. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__vector_a493a596be1812dacc8f0d347d09fe867}{front}} () -\/$>$ T \&
+\begin{DoxyCompactList}\small\item\em Get the first element, or a default constructed instance of the value type when the vector is empty. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__vector_aa4a49644c60557f4ab86b94fc2288193}{front}} () const -\/$>$ const T \&
+\begin{DoxyCompactList}\small\item\em Get the first element, or a default constructed instance of the value type when the vector is empty. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__vector_a9317c369b380ede1e9bbe8e74c770a4f}{back}} () -\/$>$ T \&
+\begin{DoxyCompactList}\small\item\em Get the last element, or a default constructed instance of the value type when the vector is empty. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__vector_ac6a1680fa0eb4a27159839f7bd6b8e5d}{back}} () const -\/$>$ const T \&
+\begin{DoxyCompactList}\small\item\em Get the last element, or a default constructed instance of the value type when the vector is empty. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename Alloc = std\+::allocator$<$\+T$>$$>$\newline
+requires (std\+::is\+\_\+default\+\_\+constructible\+\_\+v$<$T$>$)\newline
+struct auspicious\+\_\+library\+::cu\+::boundless\+\_\+vector$<$ T, Alloc $>$}
+A boundless vector. 
+
+Index-\/access of this vector always returns a default constructed element when an invalid index is provided. Requires a default-\/constructible type.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of element. \\
+\hline
+{\em Alloc} & Allocator type, defaults to {\ttfamily std\+::allocator$<$\+T$>$} . \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structauspicious__library_1_1cu_1_1boundless__vector_a6bc802ab83df4168218f5e94e119ada1}\index{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$@{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$@{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__vector_a6bc802ab83df4168218f5e94e119ada1} 
+template$<$typename T , typename Alloc  = std\+::allocator$<$\+T$>$$>$ \\
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__vector}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+vector}}$<$ T, Alloc $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index}{}\end{DoxyParamCaption}) -\/$>$ T \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Get an element at index, or a default constructed instance of the value type when index is invalid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index specifying element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Element at index or default constructed instance. 
+\end{DoxyReturn}
+\Hypertarget{structauspicious__library_1_1cu_1_1boundless__vector_aecc6173d8acd00274861445720c51e1b}\index{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$@{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$@{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__vector_aecc6173d8acd00274861445720c51e1b} 
+template$<$typename T , typename Alloc  = std\+::allocator$<$\+T$>$$>$ \\
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__vector}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+vector}}$<$ T, Alloc $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index}{}\end{DoxyParamCaption}) const -\/$>$ const T \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Get an element at index, or a default constructed instance of the value type when index is invalid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index specifying element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Element at index or default constructed instance. 
+\end{DoxyReturn}
+\Hypertarget{structauspicious__library_1_1cu_1_1boundless__vector_a07037e127e3f7079c725b206dca292ba}\index{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$@{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$}!at@{at}}
+\index{at@{at}!auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$@{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__vector_a07037e127e3f7079c725b206dca292ba} 
+template$<$typename T , typename Alloc  = std\+::allocator$<$\+T$>$$>$ \\
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__vector}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+vector}}$<$ T, Alloc $>$\+::at (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index}{}\end{DoxyParamCaption}) -\/$>$ T \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Get an element at index, or a default constructed instance of the value type when index is invalid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index specifying element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Element at index or default constructed instance. 
+\end{DoxyReturn}
+\Hypertarget{structauspicious__library_1_1cu_1_1boundless__vector_a1a44b0de9cf15bb396528acf0d4e8522}\index{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$@{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$}!at@{at}}
+\index{at@{at}!auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$@{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__vector_a1a44b0de9cf15bb396528acf0d4e8522} 
+template$<$typename T , typename Alloc  = std\+::allocator$<$\+T$>$$>$ \\
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__vector}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+vector}}$<$ T, Alloc $>$\+::at (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index}{}\end{DoxyParamCaption}) const -\/$>$ const T \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Get an element at index, or a default constructed instance of the value type when index is invalid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index specifying element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Element at index or default constructed instance. 
+\end{DoxyReturn}
+\Hypertarget{structauspicious__library_1_1cu_1_1boundless__vector_a493a596be1812dacc8f0d347d09fe867}\index{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$@{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$}!front@{front}}
+\index{front@{front}!auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$@{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$}}
+\doxysubsubsection{\texorpdfstring{front()}{front()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__vector_a493a596be1812dacc8f0d347d09fe867} 
+template$<$typename T , typename Alloc  = std\+::allocator$<$\+T$>$$>$ \\
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__vector}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+vector}}$<$ T, Alloc $>$\+::front (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) -\/$>$ T \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Get the first element, or a default constructed instance of the value type when the vector is empty. 
+
+\begin{DoxyReturn}{Returns}
+First element or default constructed instance. 
+\end{DoxyReturn}
+\Hypertarget{structauspicious__library_1_1cu_1_1boundless__vector_aa4a49644c60557f4ab86b94fc2288193}\index{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$@{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$}!front@{front}}
+\index{front@{front}!auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$@{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$}}
+\doxysubsubsection{\texorpdfstring{front()}{front()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__vector_aa4a49644c60557f4ab86b94fc2288193} 
+template$<$typename T , typename Alloc  = std\+::allocator$<$\+T$>$$>$ \\
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__vector}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+vector}}$<$ T, Alloc $>$\+::front (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const -\/$>$ const T \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Get the first element, or a default constructed instance of the value type when the vector is empty. 
+
+\begin{DoxyReturn}{Returns}
+First element or default constructed instance. 
+\end{DoxyReturn}
+\Hypertarget{structauspicious__library_1_1cu_1_1boundless__vector_a9317c369b380ede1e9bbe8e74c770a4f}\index{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$@{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$}!back@{back}}
+\index{back@{back}!auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$@{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$}}
+\doxysubsubsection{\texorpdfstring{back()}{back()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__vector_a9317c369b380ede1e9bbe8e74c770a4f} 
+template$<$typename T , typename Alloc  = std\+::allocator$<$\+T$>$$>$ \\
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__vector}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+vector}}$<$ T, Alloc $>$\+::back (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) -\/$>$ T \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Get the last element, or a default constructed instance of the value type when the vector is empty. 
+
+\begin{DoxyReturn}{Returns}
+Last element or default constructed instance. 
+\end{DoxyReturn}
+\Hypertarget{structauspicious__library_1_1cu_1_1boundless__vector_ac6a1680fa0eb4a27159839f7bd6b8e5d}\index{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$@{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$}!back@{back}}
+\index{back@{back}!auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$@{auspicious\_library::cu::boundless\_vector$<$ T, Alloc $>$}}
+\doxysubsubsection{\texorpdfstring{back()}{back()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__vector_ac6a1680fa0eb4a27159839f7bd6b8e5d} 
+template$<$typename T , typename Alloc  = std\+::allocator$<$\+T$>$$>$ \\
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__vector}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+vector}}$<$ T, Alloc $>$\+::back (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const -\/$>$ const T \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Get the last element, or a default constructed instance of the value type when the vector is empty. 
+
+\begin{DoxyReturn}{Returns}
+Last element or default constructed instance. 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{al__container__utilities_8hpp}{al\+\_\+container\+\_\+utilities.\+hpp}}\end{DoxyCompactItemize}

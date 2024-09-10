@@ -44,6 +44,8 @@
  *    "Standard" (for "Auspicious") and "Small" (for "LIBRARY").
  */
 
+#include <vector>
+
 #include "test_ap.hpp"
 
 /**
@@ -54,16 +56,479 @@
 {
     T_BEGIN;
 
-    // Potential edge cases:
+    std::vector<const al::option_template *>     options     = {};
+    std::vector<const al::subcommand_template *> subcommands = {};
+
+    std::size_t test_index = 0;
+    std::vector<std::size_t> failed_tests = {};
+
+    std::vector<std::string>         args     = {};
+    std::vector<al::parsed_argument> expected = {};
+
     // Test `--arg value subcommand`
+    options.emplace_back(new al::option_template {
+        .description        = "Option test `--arg value subcommand`",
+        .long_names         = { "arg" },
+        .short_names        = {},
+        .parameters         = { "parameter" },
+        .defaults_from_back = {}
+    });
+
+    subcommands.emplace_back(new al::subcommand_template {
+        .description        = "Subcommand test `--arg value subcommand`",
+        .names              = { "subcommand" },
+        .parameters         = {},
+        .defaults_from_back = {},
+        .subcommands        = {},
+        .subcommand_options = {}
+    });
+
+    args     = { "--arg", "value", "subcommand" };
+    expected = {
+        al::parsed_argument {
+            .argument     = {
+                .original = "--arg",
+                .modified = "--arg",
+                .arg_type = at::long_option,
+                .org_pos  = 2,
+                .org_size = 3,
+                .mod_pos  = 2,
+                .mod_size = 3
+            },
+            .valid          = vdt::valid,
+            .is_parsed      = true,
+            .ref_option     = options.front(),
+            .ref_subcommand = nullptr,
+            .values         = { "value" }
+        },
+        al::parsed_argument {
+            .argument     = {
+                .original = "subcommand",
+                .modified = "subcommand",
+                .arg_type = at::regular_argument,
+                .org_pos  = 0,
+                .org_size = 10,
+                .mod_pos  = 0,
+                .mod_size = 10
+            },
+            .valid          = vdt::valid,
+            .is_parsed      = true,
+            .ref_option     = nullptr,
+            .ref_subcommand = subcommands.front(),
+            .values         = {         }
+        }
+    };
+
+    try
+    {
+        test_index++;
+        logln("--- Test 12.{} ---", test_index);
+        auto sub_errors = ap_tester(args, expected, options, subcommands);
+        logln("--- End of Test 12.{}, {} errors ---", test_index,
+            sub_errors);
+        if (sub_errors != 0) failed_tests.emplace_back(test_index);
+        errors += sub_errors;
+    }
+    catch (const std::exception &e)
+    {
+        logln("Exception occurred in test_ap_12: {}", e.what());
+    }
+    catch (...)
+    {
+        logln("Unknown exception occurred in test_ap_12");
+    }
+
+    for (auto &option : options)
+    {
+        delete option;
+    }
+
+    for (auto &subcommand : subcommands)
+    {
+        delete subcommand;
+    }
+
+    options.clear();
+    subcommands.clear();
+
     // Test `subcommand-1 value subcommand-2`
-    // Test case insensitivity with `/sWiTcH` vs. `/switch` (or `/SWITCH`) for
-    // option "sWiTcH" and "switch", see if it prioritizes matching case
+    subcommands.emplace_back(new al::subcommand_template {
+        .description = "Subcommand test - 1 `subcommand-1 value "
+                       "subcommand-2`",
+        .names              = { "subcommand-1" },
+        .parameters         = { "parameter" },
+        .defaults_from_back = {},
+        .subcommands        = {},
+        .subcommand_options = {}
+    });
+    subcommands.emplace_back(new al::subcommand_template {
+        .description = "Subcommand test - 2 `subcommand-1 value "
+                       "subcommand-2`",
+        .names              = { "subcommand-2" },
+        .parameters         = {},
+        .defaults_from_back = {},
+        .subcommands        = {},
+        .subcommand_options = {}
+    });
+
+    args     = { "subcommand-1", "value", "subcommand-2" };
+    expected = {
+        al::parsed_argument {
+            .argument     = {
+                .original = "subcommand-1",
+                .modified = "subcommand-1",
+                .arg_type = at::regular_argument,
+                .org_pos  = 0,
+                .org_size = 12,
+                .mod_pos  = 0,
+                .mod_size = 12
+            },
+            .valid          = vdt::valid,
+            .is_parsed      = true,
+            .ref_option     = nullptr,
+            .ref_subcommand = subcommands[0],
+            .values         = { "value" }
+        },
+        al::parsed_argument {
+            .argument     = {
+                .original = "subcommand-2",
+                .modified = "subcommand-2",
+                .arg_type = at::regular_argument,
+                .org_pos  = 0,
+                .org_size = 12,
+                .mod_pos  = 0,
+                .mod_size = 12
+            },
+            .valid          = vdt::valid,
+            .is_parsed      = true,
+            .ref_option     = nullptr,
+            .ref_subcommand = subcommands[1],
+            .values         = {         }
+        }
+    };
+
+    try
+    {
+        test_index++;
+        logln("--- Test 12.{} ---", test_index);
+        auto sub_errors = ap_tester(args, expected, options, subcommands);
+        logln("--- End of Test 12.{}, {} errors ---", test_index,
+            sub_errors);
+        if (sub_errors != 0) failed_tests.emplace_back(test_index);
+        errors += sub_errors;
+    }
+    catch (const std::exception &e)
+    {
+        logln("Exception occurred in test_ap_12: {}", e.what());
+    }
+    catch (...)
+    {
+        logln("Unknown exception occurred in test_ap_12");
+    }
+
+    for (auto &option : options)
+    {
+        delete option;
+    }
+
+    for (auto &subcommand : subcommands)
+    {
+        delete subcommand;
+    }
+
+    options.clear();
+    subcommands.clear();
+
     // Test argument starting with `=`
+    args     = { "=" };
+    expected = {
+        al::parsed_argument {
+            .argument     = {
+                .original = "=",
+                .modified = "=",
+                .arg_type = at::regular_argument,
+                .org_pos  = 0,
+                .org_size = 1,
+                .mod_pos  = 0,
+                .mod_size = 1
+            },
+            .valid          = vdt::unrecognized_subcommand,
+            .is_parsed      = true,
+            .ref_option     = nullptr,
+            .ref_subcommand = nullptr,
+            .values         = {}
+        }
+    };
+
+    try
+    {
+        test_index++;
+        logln("--- Test 12.{} ---", test_index);
+        auto sub_errors = ap_tester(args, expected, options, subcommands);
+        logln("--- End of Test 12.{}, {} errors ---", test_index,
+            sub_errors);
+        if (sub_errors != 0) failed_tests.emplace_back(test_index);
+        errors += sub_errors;
+    }
+    catch (const std::exception &e)
+    {
+        logln("Exception occurred in test_ap_12: {}", e.what());
+    }
+    catch (...)
+    {
+        logln("Unknown exception occurred in test_ap_12");
+    }
+
+    for (auto &option : options)
+    {
+        delete option;
+    }
+
+    for (auto &subcommand : subcommands)
+    {
+        delete subcommand;
+    }
+
+    options.clear();
+    subcommands.clear();
+
     // Test `--arg value-1=value-2`
+    options.emplace_back(new al::option_template {
+        .description        = "Option test `--arg value-1=value-2`",
+        .long_names         = { "arg" },
+        .short_names        = {},
+        .parameters         = { "parameter" },
+        .defaults_from_back = {}
+    });
+
+    args     = { "--arg", "value-1=value-2" };
+    expected = {
+        al::parsed_argument {
+            .argument     = {
+                .original = "--arg",
+                .modified = "--arg",
+                .arg_type = at::long_option,
+                .org_pos  = 2,
+                .org_size = 3,
+                .mod_pos  = 2,
+                .mod_size = 3
+            },
+            .valid          = vdt::valid,
+            .is_parsed      = true,
+            .ref_option     = options.front(),
+            .ref_subcommand = nullptr,
+            .values         = { "value-1=value-2" }
+        }
+    };
+
+    try
+    {
+        test_index++;
+        logln("--- Test 12.{} ---", test_index);
+        auto sub_errors = ap_tester(args, expected, options, subcommands);
+        logln("--- End of Test 12.{}, {} errors ---", test_index,
+            sub_errors);
+        if (sub_errors != 0) failed_tests.emplace_back(test_index);
+        errors += sub_errors;
+    }
+    catch (const std::exception &e)
+    {
+        logln("Exception occurred in test_ap_12: {}", e.what());
+    }
+    catch (...)
+    {
+        logln("Unknown exception occurred in test_ap_12");
+    }
+
+    for (auto &option : options)
+    {
+        delete option;
+    }
+
+    for (auto &subcommand : subcommands)
+    {
+        delete subcommand;
+    }
+
+    options.clear();
+    subcommands.clear();
+
     // Test `global-subcommand-1 global-subcommand-2` even when
     // `global-subcommand-1` has subcommand of its own
+    subcommands.emplace_back(new al::subcommand_template {
+        .description = "Subcommand test - 1 `global-subcommand-1 "
+                       "global-subcommand-2`",
+        .names              = { "global-subcommand-1" },
+        .parameters         = {},
+        .defaults_from_back = {},
+        .subcommands        = {},
+        .subcommand_options = {}
+    });
+    subcommands.emplace_back(new al::subcommand_template {
+        .description = "Subcommand test - 2 `global-subcommand-1 "
+                       "global-subcommand-2`",
+        .names              = { "global-subcommand-2" },
+        .parameters         = {},
+        .defaults_from_back = {},
+        .subcommands        = {},
+        .subcommand_options = {}
+    });
+
+    args     = { "global-subcommand-1", "global-subcommand-2" };
+    expected = {
+        al::parsed_argument {
+            .argument     = {
+                .original = "global-subcommand-1",
+                .modified = "global-subcommand-1",
+                .arg_type = at::regular_argument,
+                .org_pos  = 0,
+                .org_size = 19,
+                .mod_pos  = 0,
+                .mod_size = 19
+            },
+            .valid          = vdt::valid,
+            .is_parsed      = true,
+            .ref_option     = nullptr,
+            .ref_subcommand = subcommands[0],
+            .values         = {}
+        },
+        al::parsed_argument {
+            .argument     = {
+                .original = "global-subcommand-2",
+                .modified = "global-subcommand-2",
+                .arg_type = at::regular_argument,
+                .org_pos  = 0,
+                .org_size = 19,
+                .mod_pos  = 0,
+                .mod_size = 19
+            },
+            .valid          = vdt::valid,
+            .is_parsed      = true,
+            .ref_option     = nullptr,
+            .ref_subcommand = subcommands[1],
+            .values         = {}
+        }
+    };
+
+    try
+    {
+        test_index++;
+        logln("--- Test 12.{} ---", test_index);
+        auto sub_errors = ap_tester(args, expected, options, subcommands);
+        logln("--- End of Test 12.{}, {} errors ---", test_index,
+            sub_errors);
+        if (sub_errors != 0) failed_tests.emplace_back(test_index);
+        errors += sub_errors;
+    }
+    catch (const std::exception &e)
+    {
+        logln("Exception occurred in test_ap_12: {}", e.what());
+    }
+    catch (...)
+    {
+        logln("Unknown exception occurred in test_ap_12");
+    }
+
+    for (auto &option : options)
+    {
+        delete option;
+    }
+
+    for (auto &subcommand : subcommands)
+    {
+        delete subcommand;
+    }
+
+    options.clear();
+    subcommands.clear();
+
     // Test `--arg-1 value --arg-2` even when `--arg-1` has two parameters
+    options.emplace_back(new al::option_template {
+        .description        = "Option test `--arg-1 value --arg-2`",
+        .long_names         = { "arg-1" },
+        .short_names        = {},
+        .parameters         = { "parameter-1", "parameter-2" },
+        .defaults_from_back = {}
+    });
+
+    options.emplace_back(new al::option_template {
+        .description        = "Option test `--arg-1 value --arg-2`",
+        .long_names         = { "arg-2" },
+        .short_names        = {},
+        .parameters         = {},
+        .defaults_from_back = {}
+    });
+
+    args     = { "--arg-1", "value", "--arg-2" };
+    expected = {
+        al::parsed_argument {
+            .argument     = {
+                .original = "--arg-1",
+                .modified = "--arg-1",
+                .arg_type = at::long_option,
+                .org_pos  = 2,
+                .org_size = 5,
+                .mod_pos  = 2,
+                .mod_size = 5
+            },
+            .valid          = vdt::not_enough_values,
+            .is_parsed      = true,
+            .ref_option     = options[0],
+            .ref_subcommand = nullptr,
+            .values         = { "value" }
+        },
+        al::parsed_argument {
+            .argument     = {
+                .original = "--arg-2",
+                .modified = "--arg-2",
+                .arg_type = at::long_option,
+                .org_pos  = 2,
+                .org_size = 5,
+                .mod_pos  = 2,
+                .mod_size = 5
+            },
+            .valid          = vdt::valid,
+            .is_parsed      = true,
+            .ref_option     = options[1],
+            .ref_subcommand = nullptr,
+            .values         = {         }
+        }
+    };
+
+    try
+    {
+        test_index++;
+        logln("--- Test 12.{} ---", test_index);
+        auto sub_errors = ap_tester(args, expected, options, subcommands);
+        logln("--- End of Test 12.{}, {} errors ---", test_index,
+            sub_errors);
+        if (sub_errors != 0) failed_tests.emplace_back(test_index);
+        errors += sub_errors;
+    }
+    catch (const std::exception &e)
+    {
+        logln("Exception occurred in test_ap_12: {}", e.what());
+    }
+    catch (...)
+    {
+        logln("Unknown exception occurred in test_ap_12");
+    }
+
+    for (auto &option : options)
+    {
+        delete option;
+    }
+
+    for (auto &subcommand : subcommands)
+    {
+        delete subcommand;
+    }
+
+    options.clear();
+    subcommands.clear();
+
+    logln("Failed tests:\n{}\n", al::to_string(failed_tests, ",\n"s,
+        " Test 12."));
 
     T_END;
 }
