@@ -2,7 +2,7 @@
 \hypertarget{structauspicious__library_1_1aec_1_1aec__t}{}\label{structauspicious__library_1_1aec_1_1aec__t}\index{auspicious\_library::aec::aec\_t@{auspicious\_library::aec::aec\_t}}
 
 
-Callable object for ansi escape codes.  
+Callable object for ANSI Escape Codes.  
 
 
 
@@ -32,22 +32,30 @@ std\+::string \mbox{\hyperlink{structauspicious__library_1_1aec_1_1aec__t_aba691
 
 
 \doxysubsection{Detailed Description}
-Callable object for ansi escape codes. 
+Callable object for ANSI Escape Codes. 
 
 Easily use this to format the string with cleanness. For example\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{std::cout\ <<\ \mbox{\hyperlink{namespaceauspicious__library_1_1aec_aaaeb69ecac28fcf66e15ea9fe05aacc7}{red}}\ <<\ \textcolor{stringliteral}{"{}Red\ text"{}}\ <<\ reset\_color\ <<\ std::endl;}
-\DoxyCodeLine{std::cout\ <<\ \mbox{\hyperlink{namespaceauspicious__library_1_1aec_ab2c85bfdeb9a71b5d3f94d940e1b07e6}{blue}}(\textcolor{stringliteral}{"{}White\ text"{}})\ <<\ std::endl;}
+\DoxyCodeLine{std::cout\ <<\ \mbox{\hyperlink{namespaceauspicious__library_1_1aec_adfafe71a431254a561ca01ac9d1ca553}{white}}(\textcolor{stringliteral}{"{}White\ text"{}})\ <<\ std::endl;}
 \DoxyCodeLine{std::cout\ <<\ \mbox{\hyperlink{namespaceauspicious__library_1_1aec_ad827180e0ad02ea031a83d72d2b89f8c}{bold}}\ <<\ \textcolor{stringliteral}{"{}Bolded\ text"{}}\ <<\ !\mbox{\hyperlink{namespaceauspicious__library_1_1aec_ad827180e0ad02ea031a83d72d2b89f8c}{bold}}\ <<\ std::endl;}
 
 \end{DoxyCode}
 
 
+You can also combine them with +, \texorpdfstring{$\ast$}{*}, \texorpdfstring{$\vert$}{|}, \&, \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} and \&\& operators\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::cout\ <<\ \mbox{\hyperlink{namespaceauspicious__library_1_1aec_ab2c85bfdeb9a71b5d3f94d940e1b07e6}{blue}}\ +\ \mbox{\hyperlink{namespaceauspicious__library_1_1aec_aa15f652e32e911ccc8d8fb70bd834b27}{italic}}\ +\ \mbox{\hyperlink{namespaceauspicious__library_1_1aec_aec7005a3466f20b8fb875712572cc96b}{underline}}\ <<\ \textcolor{stringliteral}{"{}Blue\ italic\ underlined\ text"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{namespaceauspicious__library_1_1aec_af8881b9d6d857581a4e1c5f7b482d715}{reset}}\ <<\ std::endl;}
+
+\end{DoxyCode}
+
+
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]Make ! and \texorpdfstring{$\sim$}{\string~} operators return reverse object, if possible, to allow\+: \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]Make ! and \texorpdfstring{$\sim$}{\string~} operators return reverse object instead of returning the resetter, if possible, to allow\+: \end{DoxyRefDesc}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{std::cout\ <<\ \mbox{\hyperlink{namespaceauspicious__library_1_1aec_ad827180e0ad02ea031a83d72d2b89f8c}{bold}}\ <<\ \textcolor{stringliteral}{"{}Bold\ text\ "{}}\ <<\ \string~bold(\textcolor{stringliteral}{"{}Not\ bold\ text\ "{}})}
+\DoxyCodeLine{std::cout\ <<\ \mbox{\hyperlink{namespaceauspicious__library_1_1aec_ad827180e0ad02ea031a83d72d2b89f8c}{bold}}\ <<\ \textcolor{stringliteral}{"{}Bold\ text,\ "{}}\ <<\ \string~bold(\textcolor{stringliteral}{"{}Not\ bold\ text,\ "{}})}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Still\ bold\ text"{}}\ <<\ \string~bold\ <<\ std::endl;}
 
 \end{DoxyCode}
@@ -68,7 +76,7 @@ The setter sequence is placed before text, followed by the resetter sequence.
 
 
 \begin{DoxyParams}{Parameters}
-{\em text} & Text to format. \\
+{\em text} & The text to format. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

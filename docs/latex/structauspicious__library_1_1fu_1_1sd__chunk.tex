@@ -1,0 +1,59 @@
+\doxysection{auspicious\+\_\+library\+::fu\+::sd\+\_\+chunk Struct Reference}
+\hypertarget{structauspicious__library_1_1fu_1_1sd__chunk}{}\label{structauspicious__library_1_1fu_1_1sd__chunk}\index{auspicious\_library::fu::sd\_chunk@{auspicious\_library::fu::sd\_chunk}}
+
+
+A chunk in the SD file format.  
+
+
+
+
+{\ttfamily \#include $<$al\+\_\+file\+\_\+utilities.\+hpp$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{structauspicious__library_1_1fu_1_1sd__chunk_a8bec068fd94a885520116f341a1976ac}{size}}
+\begin{DoxyCompactList}\small\item\em The number of bytes of {\ttfamily data} . \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structauspicious__library_1_1fu_1_1sd__chunk_ace08b3afc60b72859a0ceeb093161ae8}{data}}
+\begin{DoxyCompactList}\small\item\em The raw data of {\ttfamily size} bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A chunk in the SD file format. 
+
+\begin{DoxySeeAlso}{See also}
+Detailed Description of namespace {\ttfamily \doxylink{namespaceauspicious__library_1_1fu}{fu}}. 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structauspicious__library_1_1fu_1_1sd__chunk_a8bec068fd94a885520116f341a1976ac}\index{auspicious\_library::fu::sd\_chunk@{auspicious\_library::fu::sd\_chunk}!size@{size}}
+\index{size@{size}!auspicious\_library::fu::sd\_chunk@{auspicious\_library::fu::sd\_chunk}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1fu_1_1sd__chunk_a8bec068fd94a885520116f341a1976ac} 
+std\+::size\+\_\+t auspicious\+\_\+library\+::fu\+::sd\+\_\+chunk\+::size}
+
+
+
+The number of bytes of {\ttfamily data} . 
+
+\Hypertarget{structauspicious__library_1_1fu_1_1sd__chunk_ace08b3afc60b72859a0ceeb093161ae8}\index{auspicious\_library::fu::sd\_chunk@{auspicious\_library::fu::sd\_chunk}!data@{data}}
+\index{data@{data}!auspicious\_library::fu::sd\_chunk@{auspicious\_library::fu::sd\_chunk}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1fu_1_1sd__chunk_ace08b3afc60b72859a0ceeb093161ae8} 
+void\texorpdfstring{$\ast$}{*} auspicious\+\_\+library\+::fu\+::sd\+\_\+chunk\+::data}
+
+
+
+The raw data of {\ttfamily size} bytes. 
+
+\begin{DoxyNote}{Note}
+The values pointed by the pointer are not changed. It is user\textquotesingle{}s responsibility to manage the memory. 
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000009}{Todo}}]If nobody finds a use for {\ttfamily void \texorpdfstring{$\ast$}{*}} data type for pointer for chunks or finds it tedious to manage memory (like we do), replace it with {\ttfamily std\+::shared\+\_\+ptr$<$void$>$} . \end{DoxyRefDesc}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{al__file__utilities_8hpp}{al\+\_\+file\+\_\+utilities.\+hpp}}\end{DoxyCompactItemize}

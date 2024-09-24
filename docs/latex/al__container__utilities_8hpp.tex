@@ -5,21 +5,19 @@
 General functionality for container types with operators.  
 
 
-{\ttfamily \#include $<$functional$>$}\newline
-{\ttfamily \#include $<$initializer\+\_\+list$>$}\newline
-{\ttfamily \#include $<$map$>$}\newline
-{\ttfamily \#include $<$numeric$>$}\newline
-{\ttfamily \#include $<$utility$>$}\newline
 {\ttfamily \#include $<$algorithm$>$}\newline
 {\ttfamily \#include $<$array$>$}\newline
 {\ttfamily \#include $<$cmath$>$}\newline
 {\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$initializer\+\_\+list$>$}\newline
 {\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
 {\ttfamily \#include $<$ranges$>$}\newline
 {\ttfamily \#include $<$span$>$}\newline
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$string\+\_\+view$>$}\newline
 {\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
@@ -56,6 +54,8 @@ concept \mbox{\hyperlink{conceptauspicious__library_1_1cu_1_1cu__compatible}{aus
 \begin{DoxyCompactList}\small\item\em Container compatible for Container Utilities. \end{DoxyCompactList}\item 
 concept \mbox{\hyperlink{conceptauspicious__library_1_1cu_1_1cu__compatible__nested}{auspicious\+\_\+library\+::cu\+::cu\+\_\+compatible\+\_\+nested}}
 \begin{DoxyCompactList}\small\item\em Nested container compatible for Container Utilities. \end{DoxyCompactList}\item 
+concept \mbox{\hyperlink{conceptauspicious__library_1_1cu_1_1boundless__accessible}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+accessible}}
+\begin{DoxyCompactList}\small\item\em A compatible container for {\ttfamily boundless\+\_\+access}. \end{DoxyCompactList}\item 
 concept \mbox{\hyperlink{conceptauspicious__library_1_1cu_1_1cu__compatible__enum}{auspicious\+\_\+library\+::cu\+::cu\+\_\+compatible\+\_\+enum}}
 \begin{DoxyCompactList}\small\item\em Container Utilities compatible enumerator for {\ttfamily enumerated\+\_\+array} . \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Typedefs}
@@ -86,6 +86,25 @@ using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_aeca1476cb8abdf2b1382e
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+{\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a69393250ff2cb81e1361da2f06789324}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+access}} (const Container \&container, std\+::size\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Return element at index, or a default-\/constructed instance of the value type if the index is invalid. \end{DoxyCompactList}\item 
+{\footnotesize template$<$boundless\+\_\+accessible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_af06545165f7b011318ca08151fdaf3ef}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+access}} (Container \&container, std\+::size\+\_\+t index) -\/$>$ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{value\+\_\+type}}$<$ Container $>$ \&
+\begin{DoxyCompactList}\small\item\em Return element at index, or a default-\/constructed instance of the value type if the index is invalid. \end{DoxyCompactList}\item 
+{\footnotesize template$<$std\+::input\+\_\+iterator Input\+Iterator, typename Value\+Type  = std\+::iterator\+\_\+traits$<$\+Input\+Iterator$>$\+::value\+\_\+type, typename Allocator\+Type  = std\+::allocator$<$\+Value\+Type$>$$>$ }\\\mbox{\hyperlink{namespaceauspicious__library_1_1cu_ad6ac150aeaed704404a67ffd593c0f0d}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+vector}} (Input\+Iterator, Input\+Iterator, Allocator\+Type=Allocator\+Type()) -\/$>$ boundless\+\_\+vector$<$ Value\+Type, Allocator\+Type $>$
+\begin{DoxyCompactList}\small\item\em Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__vector}{boundless\+\_\+vector}} . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename... U$>$ \newline
+requires (std\+::is\+\_\+same\+\_\+v$<$T, U$>$ \&\& ...)}\\\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a507bb747e4d913595c60382a74577511}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+array}} (T, U...) -\/$>$ boundless\+\_\+array$<$ T, 1+sizeof...(U)$>$
+\begin{DoxyCompactList}\small\item\em Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__array}{boundless\+\_\+array}} . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{namespaceauspicious__library_1_1cu_aa8f598b12df52ce5d965b34a29b9ce32}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+span}} (T(\&)\mbox{[}N\mbox{]}) -\/$>$ boundless\+\_\+span$<$ T, N $>$
+\begin{DoxyCompactList}\small\item\em Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__span}{boundless\+\_\+span}} . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a20615a5df61501aab81bf45896220802}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+span}} (std\+::array$<$ T, N $>$ \&) -\/$>$ boundless\+\_\+span$<$ T, N $>$
+\begin{DoxyCompactList}\small\item\em Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__span}{boundless\+\_\+span}} . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a678a609faa4bb529fdad25f611756a13}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+span}} (const std\+::array$<$ T, N $>$ \&) -\/$>$ boundless\+\_\+span$<$ const T, N $>$
+\begin{DoxyCompactList}\small\item\em Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__span}{boundless\+\_\+span}} . \end{DoxyCompactList}\item 
+{\footnotesize template$<$std\+::contiguous\+\_\+iterator I, typename End $>$ }\\\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0740fb246315f155192c85d34cac5c9a}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+span}} (I, End) -\/$>$ boundless\+\_\+span$<$ std\+::remove\+\_\+reference\+\_\+t$<$ std\+::iter\+\_\+reference\+\_\+t$<$ I $>$ $>$ $>$
+\begin{DoxyCompactList}\small\item\em Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__span}{boundless\+\_\+span}} . \end{DoxyCompactList}\item 
+{\footnotesize template$<$stdr\+::contiguous\+\_\+range Range$>$ }\\\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0db2f84b70feb0f0a65958285c348de8}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+span}} (Range \&\&) -\/$>$ boundless\+\_\+span$<$ std\+::remove\+\_\+reference\+\_\+t$<$ stdr\+::range\+\_\+reference\+\_\+t$<$ Range \& $>$ $>$ $>$
+\begin{DoxyCompactList}\small\item\em Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__span}{boundless\+\_\+span}} . \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a12c14d5aa2a21c5f071ffe3e3f805e15}{auspicious\+\_\+library\+::cu\+::subordinate}} (const Container \&container, std\+::size\+\_\+t first\+\_\+inclusive, std\+::size\+\_\+t last\+\_\+exclusive)
 \begin{DoxyCompactList}\small\item\em Get the subset of the container\textquotesingle{}s elements. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a2cedb9f639f5066ee04304c33807ecbb}{auspicious\+\_\+library\+::cu\+::combine}} (const Container \&container\+\_\+a, const Container \&container\+\_\+b)
@@ -112,23 +131,21 @@ using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_aeca1476cb8abdf2b1382e
 \begin{DoxyCompactList}\small\item\em Split the container with occurrences of any of pattern. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_ab9f44279e734a8b0963ba9a1a1d805b9}{auspicious\+\_\+library\+::cu\+::split}} (const Container \&container, const \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{value\+\_\+type}}$<$ Container $>$ \&value)
 \begin{DoxyCompactList}\small\item\em Split the container with value. \end{DoxyCompactList}\item 
-{\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a69393250ff2cb81e1361da2f06789324}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+access}} (const Container \&container, std\+::size\+\_\+t index)
-\begin{DoxyCompactList}\small\item\em Return element at index, or a default-\/constructed instance of the value type if the index is invalid. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
 requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_a807dd1b3e0130a0e06f11905f66451fb}{auspicious\+\_\+library\+::cu\+\_\+operators\+::operator+}} (const Container \&container\+\_\+a, const Container \&container\+\_\+b)
-\begin{DoxyCompactList}\small\item\em Combine containers using operator. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Copy containers into one container. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
 requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_ab853b3af7c37412f62ff137839603845}{auspicious\+\_\+library\+::cu\+\_\+operators\+::operator+}} (const Container \&container\+\_\+a, const \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{cu\+::value\+\_\+type}}$<$ Container $>$ \&value)
 \begin{DoxyCompactList}\small\item\em Copy container and value into one container. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
-requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_ae1e05a49e0decac92bfef362858ccdbb}{auspicious\+\_\+library\+::cu\+\_\+operators\+::operator-\/}} (const Container \&container, const Container \&values)
+requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_aecb2a4bfb62327eb2432f1868818e7b8}{auspicious\+\_\+library\+::cu\+\_\+operators\+::operator-\/}} (const Container \&container, const Container \&pattern)
 \begin{DoxyCompactList}\small\item\em Filter out the occurrences of sequence from the container. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
 requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_afa4d292db15db85521b037bd037daf21}{auspicious\+\_\+library\+::cu\+\_\+operators\+::operator-\/}} (const Container \&container, const \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{cu\+::value\+\_\+type}}$<$ Container $>$ \&value)
 \begin{DoxyCompactList}\small\item\em Filter out the occurrences of value from the container. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
 requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_aaa17bda2ec419e473439d07bc5cef7ee}{auspicious\+\_\+library\+::cu\+\_\+operators\+::operator\texorpdfstring{$\ast$}{*}}} (const Container \&container, std\+::size\+\_\+t n)
-\begin{DoxyCompactList}\small\item\em Repeat container using operator. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
 requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_ad23d0eeab43a44de13ab2e20b2bbf979}{auspicious\+\_\+library\+::cu\+\_\+operators\+::operator\texorpdfstring{$\ast$}{*}}} (const Container \&container, long double n)
 \begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 

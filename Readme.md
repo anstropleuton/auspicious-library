@@ -62,6 +62,7 @@ Check out [Guidelines](Guidelines.md) before you submit your code! Make sure to 
 
 # Credits
 Thanks to [jothepro](https://github.com/jothepro) for the stylesheet [Doxygen Awesome](https://github.com/jothepro/doxygen-awesome-css) for Doxygen.
+Thanks to Nuno Pinheiro (can't find link) for the background [Elarun](background.png).
 
 # License
 This project is licensed under the terms of MIT License, see [License](License.md).

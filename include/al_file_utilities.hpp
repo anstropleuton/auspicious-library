@@ -50,6 +50,7 @@
 #endif // ifndef AUSPICIOUS_LIBRARY_HPP_INCLUDED
 
 #include <bit>
+#include <concepts>
 #include <cstring>
 #include <fstream>
 #include <ios>
@@ -80,6 +81,21 @@ namespace stdv = stdr::views;
 
 /**
  *  @brief  File Utilities.  Not what you are thinking.
+ *
+ *  Contains utilities regarding file handling, and functionality to handle
+ *  binary files of SD format.
+ *
+ *  SD Format is a binary format which consists of chunks.  Each chunk is a pair
+ *  of *Size* and *Data*.  The Size is the number of bytes of the raw data.  The
+ *  Data is the raw data, i.e., the memory map of an object.
+ *
+ *  @note  The SD Format does not specify the endianness of the data, neither
+ *         does the code to handle this format.  This implies that the binary
+ *         file may not be portable for systems with different endianness.
+ *  @todo  When C++ introduces a good reflection support, implement automatic
+ *         endianness conversion to make the binary file actually be portable.
+ *
+ *  @todo  The biggest todo: implement stuff.
  */
 namespace fu {
 
@@ -87,7 +103,7 @@ namespace fu {
  *  @brief  Read all the file's content at once and return @c std::string
  *          representing the file's content.
  *
- *  @param  filename  Filename.
+ *  @param  filename  The filename.
  *  @return  @c std::string representing all the file's contents.
  *
  *  @note  Large files causes problems.
@@ -103,6 +119,64 @@ namespace fu {
 
     return std::string(std::istreambuf_iterator(infile), {});
 }
+
+/**
+ *  @brief  A chunk in the SD file format.
+ *  @see  Detailed Description of namespace @c fu.
+ */
+struct sd_chunk {
+
+    /**
+     *  @brief  The number of bytes of @c data .
+     */
+    std::size_t size;
+
+    /**
+     *  @brief  The raw data of @c size bytes.
+     *
+     *  @note  The values pointed by the pointer are not changed.  It is user's
+     *         responsibility to manage the memory.
+     *  @todo  If nobody finds a use for `void *` data type for pointer for
+     *         chunks or finds it tedious to manage memory (like we do), replace
+     *         it with @c std::shared_ptr<void> .
+     */
+    void *data;
+};
+
+/**
+ *  @brief  Convert an object to a chunk.
+ *  
+ *  @tparam  T  A trivially copyable type.
+ *  @param   t  A trivially copyable value.
+ *  @return  A newly allocated chunk.  Memory allocation failure may occur.
+ *
+ *  @note  Use @c delete_sd_chunk to free the allocated memory.
+ */
+template<typename T>
+requires(std::is_trivially_copyable_v<T>)
+[[nodiscard]] inline constexpr auto to_new_sd_chunk(const T &t) -> sd_chunk;
+
+/**
+ *  @brief  Convert a chunk to an object.
+ *  
+ *  @tparam  T      A trivially copyable chunk.
+ *  @param   chunk  A chunk with memory layout of type @c T .
+ *  @return  An object of T with memory layout of the chunk.
+ */
+template<typename T>
+requires(std::is_trivially_copyable_v<T>)
+[[nodiscard]] inline constexpr auto from_sd_chunk(sd_chunk chunk) -> T;
+
+/**
+ *  @brief  Delete the memory of a chunk.
+ *
+ *  After creating a chunk using @c to_new_sd_chunk , using it and being done
+ *  with it, be sure to call this function to delete the memory of the created
+ *  chunk.
+ *
+ *  @param  chunk  The chunk to delete.
+ */
+inline constexpr auto delete_sd_chunk(sd_chunk chunk) -> void;
 
 } // namespace fu
 

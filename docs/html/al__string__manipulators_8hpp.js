@@ -1,5 +1,7 @@
 var al__string__manipulators_8hpp =
 [
+    [ "auspicious_library::sm::sm_compatible", "conceptauspicious__library_1_1sm_1_1sm__compatible.html", null ],
+    [ "result_string_nested", "al__string__manipulators_8hpp.html#ae5e68b09b89152e03842b8c0a0028f5f", null ],
     [ "to_string", "al__string__manipulators_8hpp.html#af4d2d6d72a9c765f4fe02a0462d35bcf", null ],
     [ "to_string", "al__string__manipulators_8hpp.html#a5c493accfab65d14254ca1d979d95951", null ],
     [ "to_string", "al__string__manipulators_8hpp.html#a385aea0016f3aa4c6a072d4257dee8e0", null ],
@@ -15,10 +17,20 @@ var al__string__manipulators_8hpp =
     [ "to_lower", "al__string__manipulators_8hpp.html#ae91f1d7fc07d8afd94da46aae6426d84", null ],
     [ "is_equal_ins", "al__string__manipulators_8hpp.html#aae67781b035e596bb886e7980aae5863", null ],
     [ "is_equal_ins", "al__string__manipulators_8hpp.html#a317943d42d623b6e8daa2de8fed89a64", null ],
-    [ "operator-", "al__string__manipulators_8hpp.html#a37747241ff634a46ec7d3c51529312ea", null ],
-    [ "operator-", "al__string__manipulators_8hpp.html#aeb658d3144f0a370f91f8461ec17c5b2", null ],
+    [ "filter_out_seq", "al__string__manipulators_8hpp.html#a22ca7926c4634482cb23d63564e79143", null ],
+    [ "filter_out_occ", "al__string__manipulators_8hpp.html#a7f359e194344f49c506c6c3d29f1e458", null ],
+    [ "filter_out_occ_seq", "al__string__manipulators_8hpp.html#a6b80e12541f7b76d1d15d14be2bcee9a", null ],
+    [ "filter_out", "al__string__manipulators_8hpp.html#a62f8598e9739e2594d516db8f8d7b9f6", null ],
+    [ "repeat", "al__string__manipulators_8hpp.html#ad690389f2fb57f67873923c62be4805c", null ],
+    [ "repeat", "al__string__manipulators_8hpp.html#a58a21b34af1c52495469cf5c96bf36e3", null ],
+    [ "split_seq", "al__string__manipulators_8hpp.html#ac1ae37388aa1aaac0bedc25f353b3092", null ],
+    [ "split_occ", "al__string__manipulators_8hpp.html#a37cacfd93ff6f2ceb3a556026791df73", null ],
+    [ "split_occ_seq", "al__string__manipulators_8hpp.html#a12f6442f3f2e83c922896cdaf3ca325c", null ],
+    [ "split", "al__string__manipulators_8hpp.html#ae64d11727ab3db9d0631321bd293de2b", null ],
+    [ "operator-", "al__string__manipulators_8hpp.html#a2f573f091724effa15a5d8c54c09fdcf", null ],
+    [ "operator-", "al__string__manipulators_8hpp.html#aa30082a9ba2ba36b8cec026f7b0ea1c1", null ],
     [ "operator*", "al__string__manipulators_8hpp.html#ade2cae3d13c20704ca4c478083470141", null ],
     [ "operator*", "al__string__manipulators_8hpp.html#a6bcdbcc35657032459dcb9e4dd49a0c5", null ],
     [ "operator/", "al__string__manipulators_8hpp.html#acbd16f06d2b7028804b2886e2de60318", null ],
-    [ "operator/", "al__string__manipulators_8hpp.html#ad31cdfef6d9a0d4a500135fb9b67a98a", null ]
+    [ "operator/", "al__string__manipulators_8hpp.html#ae5e90c84f0e93e4e83f00b236534f483", null ]
 ];

@@ -1,0 +1,156 @@
+\doxysection{auspicious\+\_\+library\+::ap\+::measured\+\_\+string Struct Reference}
+\hypertarget{structauspicious__library_1_1ap_1_1measured__string}{}\label{structauspicious__library_1_1ap_1_1measured__string}\index{auspicious\_library::ap::measured\_string@{auspicious\_library::ap::measured\_string}}
+
+
+String where it\textquotesingle{}s size is independent from the style. Useful to avoid counting ANSI Escape Code characters when calculating length.  
+
+
+
+
+{\ttfamily \#include $<$al\+\_\+argument\+\_\+parser.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \mbox{\hyperlink{structauspicious__library_1_1ap_1_1measured__string_a6b65b729a2d7b4f3e2c4b9d3444fec5d}{measured\+\_\+string}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{structauspicious__library_1_1ap_1_1measured__string_aef2e5d8e9af009a5e12128e707f04f47}{measured\+\_\+string}} (std\+::string\+\_\+view \mbox{\hyperlink{structauspicious__library_1_1ap_1_1measured__string_ac68a64789f2a76d33bdf8decb758de1a}{string}}, std\+::size\+\_\+t \mbox{\hyperlink{structauspicious__library_1_1ap_1_1measured__string_ab1edfd45f58e7c1f3aed8d640da7e4f2}{size}})
+\begin{DoxyCompactList}\small\item\em Create measured string with string and size. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{structauspicious__library_1_1ap_1_1measured__string_a64451d352c0f9c733383ef1b2f50fa8d}{measured\+\_\+string}} (\mbox{\hyperlink{structauspicious__library_1_1aec_1_1aec__t}{aec\+::aec\+\_\+t}} code, std\+::string\+\_\+view \mbox{\hyperlink{structauspicious__library_1_1ap_1_1measured__string_ac68a64789f2a76d33bdf8decb758de1a}{string}})
+\begin{DoxyCompactList}\small\item\em Create measured string by applying ANSI Escape Code. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{structauspicious__library_1_1ap_1_1measured__string_ab96c2ac4a96d0153a0d00b69d8fab6fc}{operator+=}} (const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1measured__string}{measured\+\_\+string}} \&other) -\/$>$ \mbox{\hyperlink{structauspicious__library_1_1ap_1_1measured__string}{measured\+\_\+string}} \&
+\begin{DoxyCompactList}\small\item\em Add two measured string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{structauspicious__library_1_1ap_1_1measured__string_ac68a64789f2a76d33bdf8decb758de1a}{string}}
+\begin{DoxyCompactList}\small\item\em String content with ANSI Escape Code. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{structauspicious__library_1_1ap_1_1measured__string_ab1edfd45f58e7c1f3aed8d640da7e4f2}{size}}
+\begin{DoxyCompactList}\small\item\em Size of the string without calculating ANSI Escape Code. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+constexpr auto \mbox{\hyperlink{structauspicious__library_1_1ap_1_1measured__string_a02168433b93115b8ef92f4dfe5857a8f}{operator+}} (const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1measured__string}{measured\+\_\+string}} \&a, const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1measured__string}{measured\+\_\+string}} \&b)
+\begin{DoxyCompactList}\small\item\em Add two measured string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+String where it\textquotesingle{}s size is independent from the style. Useful to avoid counting ANSI Escape Code characters when calculating length. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structauspicious__library_1_1ap_1_1measured__string_a6b65b729a2d7b4f3e2c4b9d3444fec5d}\index{auspicious\_library::ap::measured\_string@{auspicious\_library::ap::measured\_string}!measured\_string@{measured\_string}}
+\index{measured\_string@{measured\_string}!auspicious\_library::ap::measured\_string@{auspicious\_library::ap::measured\_string}}
+\doxysubsubsection{\texorpdfstring{measured\_string()}{measured\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1ap_1_1measured__string_a6b65b729a2d7b4f3e2c4b9d3444fec5d} 
+auspicious\+\_\+library\+::ap\+::measured\+\_\+string\+::measured\+\_\+string (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+\Hypertarget{structauspicious__library_1_1ap_1_1measured__string_aef2e5d8e9af009a5e12128e707f04f47}\index{auspicious\_library::ap::measured\_string@{auspicious\_library::ap::measured\_string}!measured\_string@{measured\_string}}
+\index{measured\_string@{measured\_string}!auspicious\_library::ap::measured\_string@{auspicious\_library::ap::measured\_string}}
+\doxysubsubsection{\texorpdfstring{measured\_string()}{measured\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1ap_1_1measured__string_aef2e5d8e9af009a5e12128e707f04f47} 
+auspicious\+\_\+library\+::ap\+::measured\+\_\+string\+::measured\+\_\+string (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{std\+::size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Create measured string with string and size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A string. \\
+\hline
+{\em size} & The size of string without accounting ANSI Escape Codes. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{structauspicious__library_1_1ap_1_1measured__string_a64451d352c0f9c733383ef1b2f50fa8d}\index{auspicious\_library::ap::measured\_string@{auspicious\_library::ap::measured\_string}!measured\_string@{measured\_string}}
+\index{measured\_string@{measured\_string}!auspicious\_library::ap::measured\_string@{auspicious\_library::ap::measured\_string}}
+\doxysubsubsection{\texorpdfstring{measured\_string()}{measured\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1ap_1_1measured__string_a64451d352c0f9c733383ef1b2f50fa8d} 
+auspicious\+\_\+library\+::ap\+::measured\+\_\+string\+::measured\+\_\+string (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structauspicious__library_1_1aec_1_1aec__t}{aec\+::aec\+\_\+t}}}]{code}{, }\item[{std\+::string\+\_\+view}]{string}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Create measured string by applying ANSI Escape Code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & The ANSI Escape Code to apply. \\
+\hline
+{\em string} & THe content to apply ANSI Escape Code. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structauspicious__library_1_1ap_1_1measured__string_ab96c2ac4a96d0153a0d00b69d8fab6fc}\index{auspicious\_library::ap::measured\_string@{auspicious\_library::ap::measured\_string}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!auspicious\_library::ap::measured\_string@{auspicious\_library::ap::measured\_string}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1ap_1_1measured__string_ab96c2ac4a96d0153a0d00b69d8fab6fc} 
+auto auspicious\+\_\+library\+::ap\+::measured\+\_\+string\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1measured__string}{measured\+\_\+string}} \&}]{other}{}\end{DoxyParamCaption}) -\/$>$ \mbox{\hyperlink{structauspicious__library_1_1ap_1_1measured__string}{measured\+\_\+string}} \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Add two measured string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other measured string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to self. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{structauspicious__library_1_1ap_1_1measured__string_a02168433b93115b8ef92f4dfe5857a8f}\index{auspicious\_library::ap::measured\_string@{auspicious\_library::ap::measured\_string}!operator+@{operator+}}
+\index{operator+@{operator+}!auspicious\_library::ap::measured\_string@{auspicious\_library::ap::measured\_string}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1ap_1_1measured__string_a02168433b93115b8ef92f4dfe5857a8f} 
+auto operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1measured__string}{measured\+\_\+string}} \&}]{a}{, }\item[{const \mbox{\hyperlink{structauspicious__library_1_1ap_1_1measured__string}{measured\+\_\+string}} \&}]{b}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Add two measured string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The first measured string. \\
+\hline
+{\em b} & The first measured string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New measured string representing added measured string. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structauspicious__library_1_1ap_1_1measured__string_ac68a64789f2a76d33bdf8decb758de1a}\index{auspicious\_library::ap::measured\_string@{auspicious\_library::ap::measured\_string}!string@{string}}
+\index{string@{string}!auspicious\_library::ap::measured\_string@{auspicious\_library::ap::measured\_string}}
+\doxysubsubsection{\texorpdfstring{string}{string}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1ap_1_1measured__string_ac68a64789f2a76d33bdf8decb758de1a} 
+std\+::string auspicious\+\_\+library\+::ap\+::measured\+\_\+string\+::string}
+
+
+
+String content with ANSI Escape Code. 
+
+\Hypertarget{structauspicious__library_1_1ap_1_1measured__string_ab1edfd45f58e7c1f3aed8d640da7e4f2}\index{auspicious\_library::ap::measured\_string@{auspicious\_library::ap::measured\_string}!size@{size}}
+\index{size@{size}!auspicious\_library::ap::measured\_string@{auspicious\_library::ap::measured\_string}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1ap_1_1measured__string_ab1edfd45f58e7c1f3aed8d640da7e4f2} 
+std\+::size\+\_\+t auspicious\+\_\+library\+::ap\+::measured\+\_\+string\+::size}
+
+
+
+Size of the string without calculating ANSI Escape Code. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{al__argument__parser_8hpp}{al\+\_\+argument\+\_\+parser.\+hpp}}\end{DoxyCompactItemize}

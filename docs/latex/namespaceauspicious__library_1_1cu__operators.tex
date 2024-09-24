@@ -10,19 +10,19 @@ Container Utilities, operators version.
 \item 
 {\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
 requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_a807dd1b3e0130a0e06f11905f66451fb}{operator+}} (const Container \&container\+\_\+a, const Container \&container\+\_\+b)
-\begin{DoxyCompactList}\small\item\em Combine containers using operator. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Copy containers into one container. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
 requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_ab853b3af7c37412f62ff137839603845}{operator+}} (const Container \&container\+\_\+a, const \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{cu\+::value\+\_\+type}}$<$ Container $>$ \&value)
 \begin{DoxyCompactList}\small\item\em Copy container and value into one container. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
-requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_ae1e05a49e0decac92bfef362858ccdbb}{operator-\/}} (const Container \&container, const Container \&values)
+requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_aecb2a4bfb62327eb2432f1868818e7b8}{operator-\/}} (const Container \&container, const Container \&pattern)
 \begin{DoxyCompactList}\small\item\em Filter out the occurrences of sequence from the container. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
 requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_afa4d292db15db85521b037bd037daf21}{operator-\/}} (const Container \&container, const \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{cu\+::value\+\_\+type}}$<$ Container $>$ \&value)
 \begin{DoxyCompactList}\small\item\em Filter out the occurrences of value from the container. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
 requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_aaa17bda2ec419e473439d07bc5cef7ee}{operator\texorpdfstring{$\ast$}{*}}} (const Container \&container, std\+::size\+\_\+t n)
-\begin{DoxyCompactList}\small\item\em Repeat container using operator. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
 requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_ad23d0eeab43a44de13ab2e20b2bbf979}{operator\texorpdfstring{$\ast$}{*}}} (const Container \&container, long double n)
 \begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
@@ -48,26 +48,23 @@ auto auspicious\+\_\+library\+::cu\+\_\+operators\+::operator+ (\begin{DoxyParam
 
 
 
-Combine containers using operator. 
+Copy containers into one container. 
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container\+\_\+a} & First container. \\
+{\em container\+\_\+a} & The first container. \\
 \hline
-{\em container\+\_\+b} & Second container. \\
+{\em container\+\_\+b} & The second container. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Combined container as {\ttfamily result\+\_\+container} .
 \end{DoxyReturn}
-\begin{DoxyNote}{Note}
-Use String Manipulators\textquotesingle{} operators for {\ttfamily std\+::string} or {\ttfamily std\+::string\+\_\+view}.
-\end{DoxyNote}
 \begin{DoxySeeAlso}{See also}
 \doxylink{namespaceauspicious__library_1_1cu_a2cedb9f639f5066ee04304c33807ecbb}{cu\+::combine}. 
 \end{DoxySeeAlso}
@@ -85,32 +82,29 @@ Copy container and value into one container.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em value} & Value. \\
+{\em value} & A value of container\textquotesingle{}s value type. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Value-\/appended container as {\ttfamily result\+\_\+container} .
 \end{DoxyReturn}
-\begin{DoxyNote}{Note}
-Use String Manipulators\textquotesingle{} operators for {\ttfamily std\+::string} or {\ttfamily std\+::string\+\_\+view}.
-\end{DoxyNote}
 \begin{DoxySeeAlso}{See also}
 \doxylink{namespaceauspicious__library_1_1cu_a2cedb9f639f5066ee04304c33807ecbb}{cu\+::combine}. 
 \end{DoxySeeAlso}
-\Hypertarget{namespaceauspicious__library_1_1cu__operators_ae1e05a49e0decac92bfef362858ccdbb}\index{auspicious\_library::cu\_operators@{auspicious\_library::cu\_operators}!operator-\/@{operator-\/}}
+\Hypertarget{namespaceauspicious__library_1_1cu__operators_aecb2a4bfb62327eb2432f1868818e7b8}\index{auspicious\_library::cu\_operators@{auspicious\_library::cu\_operators}!operator-\/@{operator-\/}}
 \index{operator-\/@{operator-\/}!auspicious\_library::cu\_operators@{auspicious\_library::cu\_operators}}
 \doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu__operators_ae1e05a49e0decac92bfef362858ccdbb} 
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu__operators_aecb2a4bfb62327eb2432f1868818e7b8} 
 template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
 requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)\\
-auto auspicious\+\_\+library\+::cu\+\_\+operators\+::operator-\/ (\begin{DoxyParamCaption}\item[{const Container \&}]{container}{, }\item[{const Container \&}]{values}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+auto auspicious\+\_\+library\+::cu\+\_\+operators\+::operator-\/ (\begin{DoxyParamCaption}\item[{const Container \&}]{container}{, }\item[{const Container \&}]{pattern}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
 
 
 
@@ -118,21 +112,21 @@ Filter out the occurrences of sequence from the container.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em values} & Sequence to remove. \\
+{\em pattern} & A sequence to remove. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Filtered container as {\ttfamily result\+\_\+container} .
 \end{DoxyReturn}
 \begin{DoxyNote}{Note}
-Use String Manipulators\textquotesingle{} operators for {\ttfamily std\+::string} or {\ttfamily std\+::string\+\_\+view}.
+Use String Manipulators\textquotesingle{} operators for {\ttfamily std\+::string} or {\ttfamily std\+::basic\+\_\+string\+\_\+view} .
 \end{DoxyNote}
 \begin{DoxySeeAlso}{See also}
 \doxylink{namespaceauspicious__library_1_1cu_a28c9c721c79f51cbf14c0c9c9e020293}{cu\+::filter\+\_\+out\+\_\+seq}. 
@@ -151,21 +145,21 @@ Filter out the occurrences of value from the container.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em value} & Value to remove. \\
+{\em value} & A value to remove. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Filtered container as {\ttfamily result\+\_\+container} .
 \end{DoxyReturn}
 \begin{DoxyNote}{Note}
-Use String Manipulators\textquotesingle{} operators for {\ttfamily std\+::string} or {\ttfamily std\+::string\+\_\+view}.
+Use String Manipulators\textquotesingle{} operators for {\ttfamily std\+::string} or {\ttfamily std\+::basic\+\_\+string\+\_\+view} .
 \end{DoxyNote}
 \begin{DoxySeeAlso}{See also}
 \doxylink{namespaceauspicious__library_1_1cu_a3d0869d9e35bc3f395f91a5cbde0345e}{cu\+::filter\+\_\+out}. 
@@ -180,25 +174,25 @@ auto auspicious\+\_\+library\+::cu\+\_\+operators\+::operator\texorpdfstring{$\a
 
 
 
-Repeat container using operator. 
+Repeat container {\ttfamily n} times. 
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em n} & Repeat times. \\
+{\em n} & The number of times to repeat. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Repeated container as {\ttfamily result\+\_\+container} .
 \end{DoxyReturn}
 \begin{DoxyNote}{Note}
-Use String Manipulators\textquotesingle{} operators for {\ttfamily std\+::string} or {\ttfamily std\+::string\+\_\+view}.
+Use String Manipulators\textquotesingle{} operators for {\ttfamily std\+::string} or {\ttfamily std\+::basic\+\_\+string\+\_\+view} .
 \end{DoxyNote}
 \begin{DoxySeeAlso}{See also}
 \doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{cu\+::repeat}. 
@@ -217,21 +211,21 @@ Repeat container {\ttfamily n} times.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em n} & Repeat times. \\
+{\em n} & The number of times to repeat. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Repeated container as {\ttfamily result\+\_\+container} .
 \end{DoxyReturn}
 \begin{DoxyNote}{Note}
-Use String Manipulators\textquotesingle{} operators for {\ttfamily std\+::string} or {\ttfamily std\+::string\+\_\+view}.
+Use String Manipulators\textquotesingle{} operators for {\ttfamily std\+::string} or {\ttfamily std\+::basic\+\_\+string\+\_\+view} .
 \end{DoxyNote}
 \begin{DoxySeeAlso}{See also}
 \doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{cu\+::repeat}. 
@@ -250,24 +244,24 @@ Split the container with pattern.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em pattern} & Pattern to split with. \\
+{\em pattern} & A pattern to split with. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Split container as {\ttfamily result\+\_\+container\+\_\+nested} .
 \end{DoxyReturn}
 \begin{DoxyNote}{Note}
-Use String Manipulators\textquotesingle{} operators for {\ttfamily std\+::string} or {\ttfamily std\+::string\+\_\+view}.
+Use String Manipulators\textquotesingle{} operators for {\ttfamily std\+::string} or {\ttfamily std\+::basic\+\_\+string\+\_\+view} .
 \end{DoxyNote}
 \begin{DoxySeeAlso}{See also}
-\doxylink{namespaceauspicious__library_1_1cu_ab9f44279e734a8b0963ba9a1a1d805b9}{cu\+::split}. 
+\doxylink{namespaceauspicious__library_1_1cu_a02a640ca3898e63a8338b562d23a6ca7}{cu\+::split\+\_\+seq}. 
 \end{DoxySeeAlso}
 \Hypertarget{namespaceauspicious__library_1_1cu__operators_a43b738ea3f4b39d612bbe2f54ba8a655}\index{auspicious\_library::cu\_operators@{auspicious\_library::cu\_operators}!operator/@{operator/}}
 \index{operator/@{operator/}!auspicious\_library::cu\_operators@{auspicious\_library::cu\_operators}}
@@ -283,21 +277,21 @@ Split the container with value.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em value} & Value to split with. \\
+{\em value} & A value to split with. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Split container as {\ttfamily result\+\_\+container\+\_\+nested} .
 \end{DoxyReturn}
 \begin{DoxyNote}{Note}
-Use String Manipulators\textquotesingle{} operators for {\ttfamily std\+::string} or {\ttfamily std\+::string\+\_\+view}.
+Use String Manipulators\textquotesingle{} operators for {\ttfamily std\+::string} or {\ttfamily std\+::basic\+\_\+string\+\_\+view} .
 \end{DoxyNote}
 \begin{DoxySeeAlso}{See also}
 \doxylink{namespaceauspicious__library_1_1cu_ab9f44279e734a8b0963ba9a1a1d805b9}{cu\+::split}. 

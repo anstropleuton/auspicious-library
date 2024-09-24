@@ -10,6 +10,7 @@ Functionality to parse Command Line Arguments.
 {\ttfamily \#include $<$vector$>$}\newline
 {\ttfamily \#include "{}al\+\_\+ansi\+\_\+escape\+\_\+codes.\+hpp"{}}\newline
 {\ttfamily \#include "{}al\+\_\+container\+\_\+utilities.\+hpp"{}}\newline
+{\ttfamily \#include "{}al\+\_\+string\+\_\+manipulators.\+hpp"{}}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -21,12 +22,14 @@ struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1mod__argument}{auspic
 \begin{DoxyCompactList}\small\item\em Internally modifies arguments but has original argument intact for reference. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1parsed__argument}{auspicious\+\_\+library\+::ap\+::parsed\+\_\+argument}}
 \begin{DoxyCompactList}\small\item\em Parsed argument. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1help__combo__t}{auspicious\+\_\+library\+::ap\+::help\+\_\+combo\+\_\+t}}
+struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1measured__string}{auspicious\+\_\+library\+::ap\+::measured\+\_\+string}}
+\begin{DoxyCompactList}\small\item\em String where it\textquotesingle{}s size is independent from the style. Useful to avoid counting ANSI Escape Code characters when calculating length. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1styled__text}{auspicious\+\_\+library\+::ap\+::styled\+\_\+text}}
 \begin{DoxyCompactList}\small\item\em Keep string and AEC separate for measurement purposes, for help message format. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1help__pad__t}{auspicious\+\_\+library\+::ap\+::help\+\_\+pad\+\_\+t}}
+struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1styled__padding}{auspicious\+\_\+library\+::ap\+::styled\+\_\+padding}}
 \begin{DoxyCompactList}\small\item\em Padding before the content, for help message format. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1help__enclose__t}{auspicious\+\_\+library\+::ap\+::help\+\_\+enclose\+\_\+t}}
-\begin{DoxyCompactList}\small\item\em Surround the content with values, for help message format. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1styled__enclosure}{auspicious\+\_\+library\+::ap\+::styled\+\_\+enclosure}}
+\begin{DoxyCompactList}\small\item\em Surround the content with prefix/suffix, for help message format. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1posix__help__format}{auspicious\+\_\+library\+::ap\+::posix\+\_\+help\+\_\+format}}
 \begin{DoxyCompactList}\small\item\em POSIX-\/style format specifier for help message. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1microsoft__help__format}{auspicious\+\_\+library\+::ap\+::microsoft\+\_\+help\+\_\+format}}

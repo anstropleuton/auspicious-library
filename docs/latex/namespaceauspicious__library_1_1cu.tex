@@ -31,6 +31,8 @@ concept \mbox{\hyperlink{conceptauspicious__library_1_1cu_1_1cu__compatible}{cu\
 \begin{DoxyCompactList}\small\item\em Container compatible for Container Utilities. \end{DoxyCompactList}\item 
 concept \mbox{\hyperlink{conceptauspicious__library_1_1cu_1_1cu__compatible__nested}{cu\+\_\+compatible\+\_\+nested}}
 \begin{DoxyCompactList}\small\item\em Nested container compatible for Container Utilities. \end{DoxyCompactList}\item 
+concept \mbox{\hyperlink{conceptauspicious__library_1_1cu_1_1boundless__accessible}{boundless\+\_\+accessible}}
+\begin{DoxyCompactList}\small\item\em A compatible container for {\ttfamily boundless\+\_\+access}. \end{DoxyCompactList}\item 
 concept \mbox{\hyperlink{conceptauspicious__library_1_1cu_1_1cu__compatible__enum}{cu\+\_\+compatible\+\_\+enum}}
 \begin{DoxyCompactList}\small\item\em Container Utilities compatible enumerator for {\ttfamily enumerated\+\_\+array} . \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Typedefs}
@@ -61,6 +63,25 @@ using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_aeca1476cb8abdf2b1382e
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+{\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a69393250ff2cb81e1361da2f06789324}{boundless\+\_\+access}} (const Container \&container, std\+::size\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Return element at index, or a default-\/constructed instance of the value type if the index is invalid. \end{DoxyCompactList}\item 
+{\footnotesize template$<$boundless\+\_\+accessible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_af06545165f7b011318ca08151fdaf3ef}{boundless\+\_\+access}} (Container \&container, std\+::size\+\_\+t index) -\/$>$ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{value\+\_\+type}}$<$ Container $>$ \&
+\begin{DoxyCompactList}\small\item\em Return element at index, or a default-\/constructed instance of the value type if the index is invalid. \end{DoxyCompactList}\item 
+{\footnotesize template$<$std\+::input\+\_\+iterator Input\+Iterator, typename Value\+Type  = std\+::iterator\+\_\+traits$<$\+Input\+Iterator$>$\+::value\+\_\+type, typename Allocator\+Type  = std\+::allocator$<$\+Value\+Type$>$$>$ }\\\mbox{\hyperlink{namespaceauspicious__library_1_1cu_ad6ac150aeaed704404a67ffd593c0f0d}{boundless\+\_\+vector}} (Input\+Iterator, Input\+Iterator, Allocator\+Type=Allocator\+Type()) -\/$>$ boundless\+\_\+vector$<$ Value\+Type, Allocator\+Type $>$
+\begin{DoxyCompactList}\small\item\em Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__vector}{boundless\+\_\+vector}} . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename... U$>$ \newline
+requires (std\+::is\+\_\+same\+\_\+v$<$T, U$>$ \&\& ...)}\\\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a507bb747e4d913595c60382a74577511}{boundless\+\_\+array}} (T, U...) -\/$>$ boundless\+\_\+array$<$ T, 1+sizeof...(U)$>$
+\begin{DoxyCompactList}\small\item\em Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__array}{boundless\+\_\+array}} . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{namespaceauspicious__library_1_1cu_aa8f598b12df52ce5d965b34a29b9ce32}{boundless\+\_\+span}} (T(\&)\mbox{[}N\mbox{]}) -\/$>$ boundless\+\_\+span$<$ T, N $>$
+\begin{DoxyCompactList}\small\item\em Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__span}{boundless\+\_\+span}} . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a20615a5df61501aab81bf45896220802}{boundless\+\_\+span}} (std\+::array$<$ T, N $>$ \&) -\/$>$ boundless\+\_\+span$<$ T, N $>$
+\begin{DoxyCompactList}\small\item\em Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__span}{boundless\+\_\+span}} . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a678a609faa4bb529fdad25f611756a13}{boundless\+\_\+span}} (const std\+::array$<$ T, N $>$ \&) -\/$>$ boundless\+\_\+span$<$ const T, N $>$
+\begin{DoxyCompactList}\small\item\em Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__span}{boundless\+\_\+span}} . \end{DoxyCompactList}\item 
+{\footnotesize template$<$std\+::contiguous\+\_\+iterator I, typename End $>$ }\\\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0740fb246315f155192c85d34cac5c9a}{boundless\+\_\+span}} (I, End) -\/$>$ boundless\+\_\+span$<$ std\+::remove\+\_\+reference\+\_\+t$<$ std\+::iter\+\_\+reference\+\_\+t$<$ I $>$ $>$ $>$
+\begin{DoxyCompactList}\small\item\em Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__span}{boundless\+\_\+span}} . \end{DoxyCompactList}\item 
+{\footnotesize template$<$stdr\+::contiguous\+\_\+range Range$>$ }\\\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0db2f84b70feb0f0a65958285c348de8}{boundless\+\_\+span}} (Range \&\&) -\/$>$ boundless\+\_\+span$<$ std\+::remove\+\_\+reference\+\_\+t$<$ stdr\+::range\+\_\+reference\+\_\+t$<$ Range \& $>$ $>$ $>$
+\begin{DoxyCompactList}\small\item\em Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__span}{boundless\+\_\+span}} . \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a12c14d5aa2a21c5f071ffe3e3f805e15}{subordinate}} (const Container \&container, std\+::size\+\_\+t first\+\_\+inclusive, std\+::size\+\_\+t last\+\_\+exclusive)
 \begin{DoxyCompactList}\small\item\em Get the subset of the container\textquotesingle{}s elements. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a2cedb9f639f5066ee04304c33807ecbb}{combine}} (const Container \&container\+\_\+a, const Container \&container\+\_\+b)
@@ -86,9 +107,7 @@ using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_aeca1476cb8abdf2b1382e
 {\footnotesize template$<$cu\+\_\+compatible Container, cu\+\_\+compatible\+\_\+nested Nested\+Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a7c2c97e55ed45d82a370ac456aac90a0}{split\+\_\+occ\+\_\+seq}} (const Container \&container, const Nested\+Container \&patterns)
 \begin{DoxyCompactList}\small\item\em Split the container with occurrences of any of pattern. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_ab9f44279e734a8b0963ba9a1a1d805b9}{split}} (const Container \&container, const \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{value\+\_\+type}}$<$ Container $>$ \&value)
-\begin{DoxyCompactList}\small\item\em Split the container with value. \end{DoxyCompactList}\item 
-{\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a69393250ff2cb81e1361da2f06789324}{boundless\+\_\+access}} (const Container \&container, std\+::size\+\_\+t index)
-\begin{DoxyCompactList}\small\item\em Return element at index, or a default-\/constructed instance of the value type if the index is invalid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Split the container with value. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -115,7 +134,7 @@ Container\textquotesingle{}s value\+\_\+type member.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 \Hypertarget{namespaceauspicious__library_1_1cu_a60b2261436e0343c87c797ba6a750096}\index{auspicious\_library::cu@{auspicious\_library::cu}!result\_container@{result\_container}}
@@ -131,7 +150,7 @@ All Container Utilities return this container.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 \Hypertarget{namespaceauspicious__library_1_1cu_ac397b67fa3b542036726c3514a4df4f0}\index{auspicious\_library::cu@{auspicious\_library::cu}!result\_container\_nested@{result\_container\_nested}}
@@ -147,7 +166,7 @@ All Container Utilities return this container if the result is nested.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 \Hypertarget{namespaceauspicious__library_1_1cu_ae0f48745ffc86475930f5ec468cadc96}\index{auspicious\_library::cu@{auspicious\_library::cu}!boundless\_string@{boundless\_string}}
@@ -233,6 +252,199 @@ A non-\/owning {\ttfamily boundless\+\_\+u32string} .
 
 
 \doxysubsection{Function Documentation}
+\Hypertarget{namespaceauspicious__library_1_1cu_a69393250ff2cb81e1361da2f06789324}\index{auspicious\_library::cu@{auspicious\_library::cu}!boundless\_access@{boundless\_access}}
+\index{boundless\_access@{boundless\_access}!auspicious\_library::cu@{auspicious\_library::cu}}
+\doxysubsubsection{\texorpdfstring{boundless\_access()}{boundless\_access()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_a69393250ff2cb81e1361da2f06789324} 
+template$<$cu\+\_\+compatible Container$>$ \\
+auto auspicious\+\_\+library\+::cu\+::boundless\+\_\+access (\begin{DoxyParamCaption}\item[{const Container \&}]{container}{, }\item[{std\+::size\+\_\+t}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Return element at index, or a default-\/constructed instance of the value type if the index is invalid. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Container} & A compatible container type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em container} & A container. \\
+\hline
+{\em index} & An index specifying element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Element at index or default constructed instance of type. 
+\end{DoxyReturn}
+\Hypertarget{namespaceauspicious__library_1_1cu_af06545165f7b011318ca08151fdaf3ef}\index{auspicious\_library::cu@{auspicious\_library::cu}!boundless\_access@{boundless\_access}}
+\index{boundless\_access@{boundless\_access}!auspicious\_library::cu@{auspicious\_library::cu}}
+\doxysubsubsection{\texorpdfstring{boundless\_access()}{boundless\_access()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_af06545165f7b011318ca08151fdaf3ef} 
+template$<$boundless\+\_\+accessible Container$>$ \\
+auto auspicious\+\_\+library\+::cu\+::boundless\+\_\+access (\begin{DoxyParamCaption}\item[{Container \&}]{container}{, }\item[{std\+::size\+\_\+t}]{index}{}\end{DoxyParamCaption}) -\/$>$ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{value\+\_\+type}}$<$Container$>$ \& \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Return element at index, or a default-\/constructed instance of the value type if the index is invalid. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Container} & A compatible container type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em container} & A container. \\
+\hline
+{\em index} & An index specifying element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Element at index or default constructed instance of type. 
+\end{DoxyReturn}
+\Hypertarget{namespaceauspicious__library_1_1cu_ad6ac150aeaed704404a67ffd593c0f0d}\index{auspicious\_library::cu@{auspicious\_library::cu}!boundless\_vector@{boundless\_vector}}
+\index{boundless\_vector@{boundless\_vector}!auspicious\_library::cu@{auspicious\_library::cu}}
+\doxysubsubsection{\texorpdfstring{boundless\_vector()}{boundless\_vector()}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_ad6ac150aeaed704404a67ffd593c0f0d} 
+template$<$std\+::input\+\_\+iterator Input\+Iterator, typename Value\+Type  = std\+::iterator\+\_\+traits$<$\+Input\+Iterator$>$\+::value\+\_\+type, typename Allocator\+Type  = std\+::allocator$<$\+Value\+Type$>$$>$ \\
+auspicious\+\_\+library\+::cu\+::boundless\+\_\+vector (\begin{DoxyParamCaption}\item[{Input\+Iterator}]{}{, }\item[{Input\+Iterator}]{}{, }\item[{Allocator\+Type}]{}{ = {\ttfamily AllocatorType()}}\end{DoxyParamCaption}) -\/$>$  boundless\+\_\+vector$<$ Value\+Type, Allocator\+Type $>$}
+
+
+
+Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__vector}{boundless\+\_\+vector}} . 
+
+Deduce types from initializer.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Input\+Iterator} & The type of input iterator. \\
+\hline
+{\em Value\+Type} & The type of elements of vector. \\
+\hline
+{\em Allocator\+Type} & The type of an allocator object. \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{namespaceauspicious__library_1_1cu_a507bb747e4d913595c60382a74577511}\index{auspicious\_library::cu@{auspicious\_library::cu}!boundless\_array@{boundless\_array}}
+\index{boundless\_array@{boundless\_array}!auspicious\_library::cu@{auspicious\_library::cu}}
+\doxysubsubsection{\texorpdfstring{boundless\_array()}{boundless\_array()}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_a507bb747e4d913595c60382a74577511} 
+template$<$typename T , typename... U$>$ \newline
+requires (std\+::is\+\_\+same\+\_\+v$<$T, U$>$ \&\& ...)\\
+auspicious\+\_\+library\+::cu\+::boundless\+\_\+array (\begin{DoxyParamCaption}\item[{T}]{}{, }\item[{U...}]{}{}\end{DoxyParamCaption}) -\/$>$  boundless\+\_\+array$<$ T, 1+sizeof...(U)$>$}
+
+
+
+Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__array}{boundless\+\_\+array}} . 
+
+Deduce types from initializer.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of elements. \\
+\hline
+{\em U} & The type of multiple elements in initializer. \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{namespaceauspicious__library_1_1cu_aa8f598b12df52ce5d965b34a29b9ce32}\index{auspicious\_library::cu@{auspicious\_library::cu}!boundless\_span@{boundless\_span}}
+\index{boundless\_span@{boundless\_span}!auspicious\_library::cu@{auspicious\_library::cu}}
+\doxysubsubsection{\texorpdfstring{boundless\_span()}{boundless\_span()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_aa8f598b12df52ce5d965b34a29b9ce32} 
+template$<$typename T , size\+\_\+t N$>$ \\
+auspicious\+\_\+library\+::cu\+::boundless\+\_\+span (\begin{DoxyParamCaption}\item[{T(\&)}]{}{\mbox{[}\+N\mbox{]}}\end{DoxyParamCaption}) -\/$>$  boundless\+\_\+span$<$ T, N $>$}
+
+
+
+Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__span}{boundless\+\_\+span}} . 
+
+Deduce type from raw array.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of array elements. \\
+\hline
+{\em N} & The number of array elements. \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{namespaceauspicious__library_1_1cu_a20615a5df61501aab81bf45896220802}\index{auspicious\_library::cu@{auspicious\_library::cu}!boundless\_span@{boundless\_span}}
+\index{boundless\_span@{boundless\_span}!auspicious\_library::cu@{auspicious\_library::cu}}
+\doxysubsubsection{\texorpdfstring{boundless\_span()}{boundless\_span()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_a20615a5df61501aab81bf45896220802} 
+template$<$typename T , size\+\_\+t N$>$ \\
+auspicious\+\_\+library\+::cu\+::boundless\+\_\+span (\begin{DoxyParamCaption}\item[{std\+::array$<$ T, N $>$ \&}]{}{}\end{DoxyParamCaption}) -\/$>$  boundless\+\_\+span$<$ T, N $>$}
+
+
+
+Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__span}{boundless\+\_\+span}} . 
+
+Deduce type from {\ttfamily std\+::array} .
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of array elements. \\
+\hline
+{\em N} & The number of array elements. \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{namespaceauspicious__library_1_1cu_a678a609faa4bb529fdad25f611756a13}\index{auspicious\_library::cu@{auspicious\_library::cu}!boundless\_span@{boundless\_span}}
+\index{boundless\_span@{boundless\_span}!auspicious\_library::cu@{auspicious\_library::cu}}
+\doxysubsubsection{\texorpdfstring{boundless\_span()}{boundless\_span()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_a678a609faa4bb529fdad25f611756a13} 
+template$<$typename T , size\+\_\+t N$>$ \\
+auspicious\+\_\+library\+::cu\+::boundless\+\_\+span (\begin{DoxyParamCaption}\item[{const std\+::array$<$ T, N $>$ \&}]{}{}\end{DoxyParamCaption}) -\/$>$  boundless\+\_\+span$<$ const T, N $>$}
+
+
+
+Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__span}{boundless\+\_\+span}} . 
+
+Deduce type from constant {\ttfamily std\+::array}.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of array elements. \\
+\hline
+{\em N} & The number of array elements. \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{namespaceauspicious__library_1_1cu_a0740fb246315f155192c85d34cac5c9a}\index{auspicious\_library::cu@{auspicious\_library::cu}!boundless\_span@{boundless\_span}}
+\index{boundless\_span@{boundless\_span}!auspicious\_library::cu@{auspicious\_library::cu}}
+\doxysubsubsection{\texorpdfstring{boundless\_span()}{boundless\_span()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_a0740fb246315f155192c85d34cac5c9a} 
+template$<$std\+::contiguous\+\_\+iterator I, typename End $>$ \\
+auspicious\+\_\+library\+::cu\+::boundless\+\_\+span (\begin{DoxyParamCaption}\item[{I}]{}{, }\item[{End}]{}{}\end{DoxyParamCaption}) -\/$>$  boundless\+\_\+span$<$ std\+::remove\+\_\+reference\+\_\+t$<$ std\+::iter\+\_\+reference\+\_\+t$<$ I $>$ $>$ $>$}
+
+
+
+Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__span}{boundless\+\_\+span}} . 
+
+Deduce type from iterators.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em I} & The type of iterator. \\
+\hline
+{\em End} & The type of end of the iterator. \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{namespaceauspicious__library_1_1cu_a0db2f84b70feb0f0a65958285c348de8}\index{auspicious\_library::cu@{auspicious\_library::cu}!boundless\_span@{boundless\_span}}
+\index{boundless\_span@{boundless\_span}!auspicious\_library::cu@{auspicious\_library::cu}}
+\doxysubsubsection{\texorpdfstring{boundless\_span()}{boundless\_span()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_a0db2f84b70feb0f0a65958285c348de8} 
+template$<$stdr\+::contiguous\+\_\+range Range$>$ \\
+auspicious\+\_\+library\+::cu\+::boundless\+\_\+span (\begin{DoxyParamCaption}\item[{Range \&\&}]{}{}\end{DoxyParamCaption}) -\/$>$  boundless\+\_\+span$<$ std\+::remove\+\_\+reference\+\_\+t$<$ stdr\+::range\+\_\+reference\+\_\+t$<$ Range \& $>$ $>$ $>$}
+
+
+
+Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__span}{boundless\+\_\+span}} . 
+
+Deduce type from range.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Range} & A range type. \\
+\hline
+\end{DoxyTemplParams}
 \Hypertarget{namespaceauspicious__library_1_1cu_a12c14d5aa2a21c5f071ffe3e3f805e15}\index{auspicious\_library::cu@{auspicious\_library::cu}!subordinate@{subordinate}}
 \index{subordinate@{subordinate}!auspicious\_library::cu@{auspicious\_library::cu}}
 \doxysubsubsection{\texorpdfstring{subordinate()}{subordinate()}}
@@ -246,16 +458,16 @@ Get the subset of the container\textquotesingle{}s elements.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em first\+\_\+inclusive} & First index (inclusive). \\
+{\em first\+\_\+inclusive} & The first index (inclusive). \\
 \hline
-{\em last\+\_\+exclusive} & Last index (exclusive). \\
+{\em last\+\_\+exclusive} & The last index (exclusive). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -274,14 +486,14 @@ Copy containers into one container.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container\+\_\+a} & First container. \\
+{\em container\+\_\+a} & The first container. \\
 \hline
-{\em container\+\_\+b} & Second container. \\
+{\em container\+\_\+b} & The second container. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -300,14 +512,14 @@ Copy container and value into one container.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em value} & Value. \\
+{\em value} & A value of container\textquotesingle{}s value type. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -326,14 +538,14 @@ Filter out the occurrences of sequence from the container.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em pattern} & Sequence to remove. \\
+{\em pattern} & A sequence to remove. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -352,14 +564,14 @@ Filter out the occurrences of any of values from the container.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em values} & Elements to remove. \\
+{\em values} & The elements to remove. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -378,16 +590,16 @@ Filter out the occurrences of any of sequences from the container.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
-{\em Nested\+Container} & Compatible nested container type. \\
+{\em Nested\+Container} & A compatible container type nested container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em patterns} & Sequences to remove. \\
+{\em patterns} & The sequences to remove. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -406,14 +618,14 @@ Filter out the occurrences of value from the container.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em value} & Value to remove. \\
+{\em value} & A value to remove. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -432,14 +644,14 @@ Repeat container {\ttfamily n} times.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em n} & Repeat times. \\
+{\em n} & The number of times to repeat. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -460,14 +672,14 @@ Considering integer part of the number {\ttfamily n} as {\ttfamily i}, and fract
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em n} & Repeat times. \\
+{\em n} & The number of times to repeat. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -489,14 +701,14 @@ Split the container with pattern.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em pattern} & Pattern to split with. \\
+{\em pattern} & A pattern to split with. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -515,14 +727,14 @@ Split the container with occurrences of value.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em Values} & Values to split with. \\
+{\em values} & The values to split with. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -541,16 +753,16 @@ Split the container with occurrences of any of pattern.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
-{\em Nested\+Container} & Compatible nested container type. \\
+{\em Nested\+Container} & A compatible container type nested container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em patterns} & Patterns to split with. \\
+{\em patterns} & The patterns to split with. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -569,44 +781,18 @@ Split the container with value.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em value} & Value to split with. \\
+{\em value} & A value to split with. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Split container as {\ttfamily result\+\_\+container\+\_\+nested} . 
-\end{DoxyReturn}
-\Hypertarget{namespaceauspicious__library_1_1cu_a69393250ff2cb81e1361da2f06789324}\index{auspicious\_library::cu@{auspicious\_library::cu}!boundless\_access@{boundless\_access}}
-\index{boundless\_access@{boundless\_access}!auspicious\_library::cu@{auspicious\_library::cu}}
-\doxysubsubsection{\texorpdfstring{boundless\_access()}{boundless\_access()}}
-{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_a69393250ff2cb81e1361da2f06789324} 
-template$<$cu\+\_\+compatible Container$>$ \\
-auto auspicious\+\_\+library\+::cu\+::boundless\+\_\+access (\begin{DoxyParamCaption}\item[{const Container \&}]{container}{, }\item[{std\+::size\+\_\+t}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
-
-
-
-Return element at index, or a default-\/constructed instance of the value type if the index is invalid. 
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
-\hline
-{\em index} & Value to split with. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Element at index or default constructed instance of type. 
 \end{DoxyReturn}
 
 

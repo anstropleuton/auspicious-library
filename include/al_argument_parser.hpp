@@ -55,6 +55,7 @@
 
 #include "al_ansi_escape_codes.hpp"
 #include "al_container_utilities.hpp"
+#include "al_string_manipulators.hpp"
 
 /**
  *  @brief  All Auspicious Library's contents in this namespace.
@@ -287,7 +288,7 @@ enum class argument_type {
 /**
  *  @brief  Convert @c argument_type to string.
  *
- *  @param  arg_type  Argument type.
+ *  @param  arg_type  An argument type.
  *  @return  String representing @c argument_type enumeration.
  */
 [[nodiscard]] inline constexpr auto to_string(argument_type arg_type)
@@ -309,7 +310,7 @@ enum class argument_type {
 /**
  *  @brief  Get the type of argument from command line argument.
  *
- *  @param  argument  Command line argument.
+ *  @param  argument  A command line argument.
  *  @return  Argument type.
  */
 [[nodiscard]] inline constexpr auto get_argument_type(std::string_view argument)
@@ -360,7 +361,7 @@ enum class variadicity {
 /**
  *  @brief  Convert @c variadicity to string.
  *
- *  @param  variadic  Variadicity.
+ *  @param  variadic  The variadicity enum.
  *  @return  String representing @c variadicity enumeration.
  */
 [[nodiscard]] inline constexpr auto to_string(variadicity variadic)
@@ -377,7 +378,7 @@ enum class variadicity {
 /**
  *  @brief  Check if a parameter is variadic.
  *
- *  @param  parameter  Parameter.
+ *  @param  parameter  A parameter.
  *  @return  True if a parameter is variadic.
  */
 [[nodiscard]] inline constexpr auto is_parameter_variadic(
@@ -465,7 +466,7 @@ enum class validity {
 /**
  *  @brief  Convert @c validity to string.
  *
- *  @param  valid  Validity.
+ *  @param  valid  The validity enum.
  *  @return  String representing @c validity enumeration.
  */
 [[nodiscard]] inline constexpr auto to_string(validity valid)
@@ -525,12 +526,12 @@ struct parsed_argument {
  *
  *  @see  Detailed Description of namespace @c ap.
  *
- *  @param  args         All excluding first (usually program name) command
+ *  @param  args         All excluding the first (usually program name) command
  *                       line arguments.
- *  @param  options      Options/Switches.
- *  @param  subcommands  Subcommands.
- *  @param  switch_ins   Match Microsoft-style switches case insensitively
- *                       (optional).
+ *  @param  options      All options/switches.
+ *  @param  subcommands  All subcommands.
+ *  @param  switch_ins   Whether to match Microsoft-style switches case
+ *                       insensitively (optional).
  *  @return  Parsed argument information.
  *
  *  @exception  std::invalid_argument  Thrown in the following cases:
@@ -555,12 +556,12 @@ struct parsed_argument {
  *
  *  @see  Detailed Description of namespace @c ap.
  *
- *  @param  argc         Arguments count from main().
- *  @param  argv         Argument values from main().
- *  @param  options      Options.
- *  @param  subcommands  Subcommands.
- *  @param  switch_ins   Match Microsoft-style switches case insensitively
- *                       (optional).
+ *  @param  argc         The arguments count from main().
+ *  @param  argv         The argument values from main().
+ *  @param  options      All options/switches.
+ *  @param  subcommands  All subcommands.
+ *  @param  switch_ins   Whether to match Microsoft-style switches case
+ *                       insensitively (optional).
  *  @return  Parsed argument information.
  *
  *  @exception  std::invalid_argument  Thrown in the following cases:
@@ -588,10 +589,80 @@ struct parsed_argument {
 }
 
 /**
+ *  @brief  String where it's size is independent from the style.  Useful to
+ *          avoid counting ANSI Escape Code characters when calculating length.
+ */
+struct measured_string {
+
+    /**
+     *  @brief  String content with ANSI Escape Code.
+     */
+    std::string string;
+
+    /**
+     *  @brief  Size of the string without calculating ANSI Escape Code.
+     */
+    std::size_t size;
+
+    /**
+     *  @brief  Default constructor.
+     */
+    inline constexpr measured_string() = default;
+
+    /**
+     *  @brief  Create measured string with string and size.
+     *
+     *  @param  string  A string.
+     *  @param  size    The size of string without accounting ANSI Escape Codes.
+     */
+    inline constexpr measured_string(std::string_view string, std::size_t size)
+        : string(string), size(size) {}
+
+    /**
+     *  @brief  Create measured string by applying ANSI Escape Code.
+     *
+     *  @param  code    The ANSI Escape Code to apply.
+     *  @param  string  THe content to apply ANSI Escape Code.
+     */
+    inline constexpr measured_string(aec::aec_t code, std::string_view string)
+        : string(code(string)), size(string.size()) {}
+
+    /**
+     *  @brief  Add two measured string.
+     *
+     *  @param  other  The other measured string.
+     *  @return  A reference to self.
+     */
+    inline constexpr auto operator+= (
+        const measured_string &other
+    ) -> measured_string &
+    {
+        string += other.string;
+        size   += other.size;
+        return *this;
+    }
+
+    /**
+     *  @brief  Add two measured string.
+     *
+     *  @param  a  The first measured string.
+     *  @param  b  The first measured string.
+     *  @return  New measured string representing added measured string.
+     */
+    [[nodiscard]] friend inline constexpr auto operator+ (
+        const measured_string &a,
+        const measured_string &b
+    )
+    {
+        return measured_string(a.string + b.string, a.size + b.size);
+    }
+};
+
+/**
  *  @brief  Keep string and AEC separate for measurement purposes, for help
  *          message format.
  */
-struct help_combo_t {
+struct styled_text {
 
     /**
      *  @brief  Value to use.
@@ -602,27 +673,55 @@ struct help_combo_t {
      *  @brief  Style applied for value.
      */
     aec::aec_t style;
+
+    /**
+     *  @brief  Get the string that is enclosed by the style.
+     *  @return  String enclosed by style.
+     */
+    [[nodiscard]] inline constexpr auto str() const
+    {
+        return style(value);
+    }
+
+    /**
+     *  @brief  Get the number of characters in value field, without counting
+     *          any ANSI Escape Code characters.
+     *  @return  The number of characters in value field.
+     */
+    [[nodiscard]] inline constexpr auto size() const
+    {
+        return value.size();
+    }
+
+    /**
+     *  @brief  Get a measured string representing styled text.
+     *  @return  Measured string representing styled text.
+     */
+    [[nodiscard]] inline constexpr auto m_str() const
+    {
+        return measured_string(str(), size());
+    }
 };
 
 /**
  *  @brief  Padding before the content, for help message format.
  */
-struct help_pad_t {
+struct styled_padding {
 
     /**
      *  @brief  Use this for first padding value.
      */
-    help_combo_t first;
+    styled_text first;
 
     /**
      *  @brief  Use this for padding value.
      */
-    help_combo_t mid;
+    styled_text mid;
 
     /**
      *  @brief  Use this for last padding value.
      */
-    help_combo_t last;
+    styled_text last;
 
     /**
      *  @brief  Number of times to pad with value.
@@ -631,28 +730,136 @@ struct help_pad_t {
      *  2  -> Use first and then last.
      *  3+ -> Use first, n-2 times mid and then last.
      */
-    std::size_t size;
+    std::size_t width;
+
+    /**
+     *  @brief  Get the string that represents the padding.
+     *
+     *  @param  subtract  Modify the width by subtracting (optional).
+     *  @return  The string that represents the padding.
+     */
+    [[nodiscard]] inline constexpr auto str(std::size_t subtract = 0) const
+    {
+        if (subtract > width)
+        {
+            return ""s;
+        }
+
+        std::size_t actual_size = width - subtract;
+        if (actual_size == 0)
+        {
+            return ""s;
+        }
+        if (actual_size == 1)
+        {
+            return mid.style(mid.value);
+        }
+        if (actual_size == 2)
+        {
+            return first.style(first.value)
+                 + last.style(last.value);
+        }
+        return first.style(first.value)
+             + mid.style(sm::repeat(mid.value, actual_size))
+             + last.style(last.value);
+    }
+
+    /**
+     *  @brief  Get the number of characters that are used for padding.
+     *
+     *  @param  subtract  Modify the width by subtracting (optional).
+     *  @return  Number of characters that are used for padding.
+     */
+    [[nodiscard]] inline constexpr auto size(std::size_t subtract = 0) const
+    {
+        if (subtract > width)
+        {
+            return 0zu;
+        }
+
+        std::size_t actual_size = width - subtract;
+        if (actual_size == 0)
+        {
+            return 0zu;
+        }
+        if (actual_size == 1)
+        {
+            return mid.value.size();
+        }
+        if (actual_size == 2)
+        {
+            return first.value.size()
+                 + last.value.size();
+        }
+        return first.value.size()
+             + mid.value.size() * actual_size
+             + last.value.size();
+    }
+
+    /**
+     *  @brief  Get a measured string representing padding.
+     *
+     *  @param  subtract  Modify the width by subtracting (optional).
+     *  @return  Measured string representing padding.
+     */
+    [[nodiscard]] inline constexpr auto m_str(std::size_t subtract = 0) const
+    {
+        return measured_string(str(subtract), size(subtract));
+    }
 };
 
 /**
- *  @brief  Surround the content with values, for help message format.
+ *  @brief  Surround the content with prefix/suffix, for help message format.
  */
-struct help_enclose_t {
+struct styled_enclosure {
 
     /**
      *  @brief  Prefix value before content.
      */
-    help_combo_t prefix;
+    styled_text prefix;
 
     /**
      *  @brief  Suffix value after content.
      */
-    help_combo_t suffix;
+    styled_text suffix;
 
     /**
      *  @brief  Style for enclosed value.
      */
     aec::aec_t value_style;
+
+    /**
+     *  @brief  Apply enclosure to content.
+     *
+     *  @param  content  The content to apply enclosure to.
+     *  @return  A string with enclosure applied.
+     */
+    [[nodiscard]] inline constexpr auto str(std::string_view content) const
+    {
+        return prefix.str() + value_style(content) + suffix.str();
+    }
+
+    /**
+     *  @brief  Get the number of characters for enclosure.
+     *
+     *  @param  content  The content to calculate size for enclosure.
+     *  @return  Number of characters for enclosure.
+     */
+    [[nodiscard]] inline constexpr auto size(std::string_view content) const
+    {
+        return prefix.size() + content.size() + suffix.size();
+    }
+
+    /**
+     *  @brief  Get a measured string representing enclosed text.
+     *
+     *  @param  content  The content to apply enclosure to.
+     *  @return  Measured string representing enclosed text.
+     */
+    [[nodiscard]] inline constexpr auto m_str(std::string_view content) const
+    {
+        return measured_string(str(content), size(content));
+    }
 };
 
 /**
@@ -663,67 +870,67 @@ struct posix_help_format {
     /**
      *  @brief  Padding before short names.
      */
-    help_pad_t pad_short_names = {
+    styled_padding pad_short_names = {
 
         .first = { " ", aec::reset },
         .mid   = { " ", aec::reset },
         .last  = { " ", aec::reset },
-        .size  = 2
+        .width = 2
     };
 
     /**
      *  @brief  Padding before long names.
      */
-    help_pad_t pad_long_names = {
+    styled_padding pad_long_names = {
 
         .first = { " ", aec::reset },
         .mid   = { " ", aec::reset },
         .last  = { " ", aec::reset },
-        .size  = 6
+        .width = 6
     };
 
     /**
      *  @brief  Padding before subcommand names.
      */
-    help_pad_t pad_subcommand = {
+    styled_padding pad_subcommand = {
 
         .first = { " ", aec::reset },
         .mid   = { " ", aec::reset },
         .last  = { " ", aec::reset },
-        .size  = 4
+        .width = 4
     };
 
     /**
      *  @brief  Padding before wrapped parameters.
      */
-    help_pad_t pad_parameters_wrapped = {
+    styled_padding pad_parameters_wrapped = {
 
         .first = { " ", aec::reset },
         .mid   = { " ", aec::reset },
         .last  = { " ", aec::reset },
-        .size  = 6
+        .width = 6
     };
 
     /**
      *  @brief  Padding before description.
      */
-    help_pad_t pad_description = {
+    styled_padding pad_description = {
 
         .first = { " ", aec::reset },
         .mid   = { ".", aec::reset },
         .last  = { " ", aec::reset },
-        .size  = 40
+        .width = 40
     };
 
     /**
      *  @brief  Description padding when the description is wrapped around.
      */
-    help_pad_t pad_description_wrapped = {
+    styled_padding pad_description_wrapped = {
 
         .first = { " ",  aec::reset  },
         .mid   = { " ",  aec::reset  },
         .last  = { ". ", aec::reset  },
-        .size  = 39 // Note the two characters in the `last` field
+        .width = 39 // Note the two characters in the `last` field
     };
 
     /**
@@ -749,17 +956,17 @@ struct posix_help_format {
     /**
      *  @brief  Separation between each short names.
      */
-    help_combo_t short_name_separator = { ", ", aec::reset };
+    styled_text short_name_separator = { ", ", aec::reset };
 
     /**
      *  @brief  Separation between each long names.
      */
-    help_combo_t long_name_separator = { ", ", aec::reset };
+    styled_text long_name_separator = { ", ", aec::reset };
 
     /**
      *  @brief  Separation between short names and long names.
      */
-    help_combo_t short_n_long_name_separator = { ", ", aec::reset };
+    styled_text short_n_long_name_separator = { ", ", aec::reset };
 
     /**
      *  @brief  Style for the subcommand name.
@@ -769,17 +976,17 @@ struct posix_help_format {
     /**
      *  @brief  Separation between each subcommand names.
      */
-    help_combo_t subcommand_separator = { "|", aec::reset };
+    styled_text subcommand_separator = { "|", aec::reset };
 
     /**
      *  @brief  Prefix before the first parameter name.
      */
-    help_combo_t parameter_prefix_first = { "=", aec::reset };
+    styled_text parameter_prefix_first = { "=", aec::reset };
 
     /**
      *  @brief  Prefix before the rest of the parameter name.
      */
-    help_combo_t parameter_prefix = { "", aec::reset };
+    styled_text parameter_prefix = { "", aec::reset };
 
     /**
      *  @brief  Prefix before the rest of the parameter name.
@@ -789,13 +996,13 @@ struct posix_help_format {
     /**
      *  @brief  Separation between each parameter name.
      */
-    help_combo_t parameter_separator = { " ", aec::reset };
+    styled_text parameter_separator = { " ", aec::reset };
 
     /**
      *  @brief  Enclose with this for parameter name with no corresponding
      *          default parameter.
      */
-    help_enclose_t mandatory_parameter_enclose = {
+    styled_enclosure mandatory_parameter_enclose = {
 
         .prefix      = { "", aec::reset },
         .suffix      = { "", aec::reset },
@@ -806,7 +1013,7 @@ struct posix_help_format {
      *  @brief  Enclose with this for parameter name with a corresponding
      *          default parameter.
      */
-    help_enclose_t optional_parameter_enclose = {
+    styled_enclosure optional_parameter_enclose = {
 
         .prefix      = { "[", aec::reset },
         .suffix      = { "]", aec::reset },
@@ -843,56 +1050,56 @@ struct microsoft_help_format {
     /**
      *  @brief  Padding before Microsoft-style switch.
      */
-    help_pad_t pad_switch = {
+    styled_padding pad_switch = {
 
         .first = { " ", aec::reset },
         .mid   = { " ", aec::reset },
         .last  = { " ", aec::reset },
-        .size  = 0
+        .width = 0
     };
 
     /**
      *  @brief  Padding before subcommand names.
      */
-    help_pad_t pad_subcommand = {
+    styled_padding pad_subcommand = {
 
         .first = { " ", aec::reset },
         .mid   = { " ", aec::reset },
         .last  = { " ", aec::reset },
-        .size  = 4
+        .width = 4
     };
 
     /**
      *  @brief  Padding before wrapped parameters.
      */
-    help_pad_t pad_parameters_wrapped = {
+    styled_padding pad_parameters_wrapped = {
 
         .first = { " ", aec::reset },
         .mid   = { " ", aec::reset },
         .last  = { " ", aec::reset },
-        .size  = 6
+        .width = 6
     };
 
     /**
      *  @brief  Padding before description.
      */
-    help_pad_t pad_description = {
+    styled_padding pad_description = {
 
         .first = { " ", aec::reset },
         .mid   = { " ", aec::reset },
         .last  = { " ", aec::reset },
-        .size  = 8
+        .width = 8
     };
 
     /**
      *  @brief  Description padding when the description is wrapped around.
      */
-    help_pad_t pad_description_wrapped = {
+    styled_padding pad_description_wrapped = {
 
         .first = { " ", aec::reset },
         .mid   = { " ", aec::reset },
         .last  = { " ", aec::reset },
-        .size  = 8
+        .width = 8
     };
 
     /**
@@ -908,7 +1115,7 @@ struct microsoft_help_format {
     /**
      *  @brief  Separation between each switch names.
      */
-    help_combo_t switch_separator = { ", ", aec::reset };
+    styled_text switch_separator = { ", ", aec::reset };
 
     /**
      *  @brief  Style for the subcommand name.
@@ -918,17 +1125,17 @@ struct microsoft_help_format {
     /**
      *  @brief  Separation between each subcommand names.
      */
-    help_combo_t subcommand_separator = { "|", aec::reset };
+    styled_text subcommand_separator = { "|", aec::reset };
 
     /**
      *  @brief  Prefix before the first parameter name.
      */
-    help_combo_t parameter_prefix_first = { ":", aec::reset };
+    styled_text parameter_prefix_first = { ":", aec::reset };
 
     /**
      *  @brief  Prefix before the rest of the parameter name.
      */
-    help_combo_t parameter_prefix = { "", aec::reset };
+    styled_text parameter_prefix = { "", aec::reset };
 
     /**
      *  @brief  Prefix before the rest of the parameter name.
@@ -938,13 +1145,13 @@ struct microsoft_help_format {
     /**
      *  @brief  Separation between each parameter name.
      */
-    help_combo_t parameter_separator = { " ", aec::reset };
+    styled_text parameter_separator = { " ", aec::reset };
 
     /**
      *  @brief  Enclose with this for parameter name with no corresponding
      *          default parameter.
      */
-    help_enclose_t mandatory_parameter_enclose = {
+    styled_enclosure mandatory_parameter_enclose = {
 
         .prefix      = { "", aec::reset },
         .suffix      = { "", aec::reset },
@@ -955,7 +1162,7 @@ struct microsoft_help_format {
      *  @brief  Enclose with this for parameter name with a corresponding
      *          default parameter.
      */
-    help_enclose_t optional_parameter_enclose = {
+    styled_enclosure optional_parameter_enclose = {
 
         .prefix      = { "[", aec::reset },
         .suffix      = { "]", aec::reset },
@@ -991,9 +1198,9 @@ struct microsoft_help_format {
 /**
  *  @brief  Generate help message string from option and POSIX-style format.
  *
- *  @param  option  Option.
- *  @param  format  POSIX-style format.
- *  @return  Vector of string for each line.
+ *  @param  option  An option (not switch).
+ *  @param  format  A POSIX-style format.
+ *  @return  @c std::vector<std::string> for each line.
  */
 [[nodiscard]] auto get_help_message(
     const option_template &option,
@@ -1003,9 +1210,9 @@ struct microsoft_help_format {
 /**
  *  @brief  Generate help message string from options and POSIX-style format.
  *
- *  @param  options  Options.
- *  @param  format   POSIX-style format.
- *  @return  Vector of string for each line.
+ *  @param  options  The options (not switches).
+ *  @param  format   A POSIX-style format.
+ *  @return  @c std::vector<std::string> for each line.
  */
 [[nodiscard]] inline constexpr auto get_help_message(
     const std::vector<option_template> &options,
@@ -1023,9 +1230,9 @@ struct microsoft_help_format {
 /**
  *  @brief  Generate help message string from options and POSIX-style format.
  *
- *  @param  options  Options.
- *  @param  format   POSIX-style format.
- *  @return  Vector of string for each line.
+ *  @param  options  The options (not switches).
+ *  @param  format   A POSIX-style format.
+ *  @return  @c std::vector<std::string> for each line.
  */
 [[nodiscard]] inline constexpr auto get_help_message(
     const std::vector<const option_template *> &options,
@@ -1043,9 +1250,9 @@ struct microsoft_help_format {
 /**
  *  @brief  Generate help message string from subcommand and POSIX-style format.
  *
- *  @param  subcommand  Subcommand.
- *  @param  format      POSIX-style format.
- *  @return  Vector of string for each line.
+ *  @param  subcommand  A Subcommand.
+ *  @param  format      A POSIX-style format.
+ *  @return  @c std::vector<std::string> for each line.
  */
 [[nodiscard]] auto get_help_message(
     const subcommand_template &subcommand,
@@ -1056,9 +1263,9 @@ struct microsoft_help_format {
  *  @brief  Generate help message string from subcommands and POSIX-style
  *          format.
  *
- *  @param  subcommands  Subcommands.
- *  @param  format       POSIX-style format.
- *  @return  Vector of string for each line.
+ *  @param  subcommands  The subcommands.
+ *  @param  format       A POSIX-style format.
+ *  @return  @c std::vector<std::string> for each line.
  */
 [[nodiscard]] inline constexpr auto get_help_message(
     const std::vector<subcommand_template> &subcommands,
@@ -1077,9 +1284,9 @@ struct microsoft_help_format {
  *  @brief  Generate help message string from subcommands and POSIX-style
  *          format.
  *
- *  @param  subcommands  Subcommands.
- *  @param  format       POSIX-style format.
- *  @return  Vector of string for each line.
+ *  @param  subcommands  The subcommands.
+ *  @param  format       A POSIX-style format.
+ *  @return  @c std::vector<std::string> for each line.
  */
 [[nodiscard]] inline constexpr auto get_help_message(
     const std::vector<const subcommand_template *> &subcommands,
@@ -1098,9 +1305,9 @@ struct microsoft_help_format {
  *  @brief  Generate help message string from option (switch) and
  *          Microsoft-style format.
  *
- *  @param  option  Option.
- *  @param  format  Microsoft-style format.
- *  @return  Vector of string for each line.
+ *  @param  option  A switch (not option).
+ *  @param  format  The Microsoft-style format.
+ *  @return  @c std::vector<std::string> for each line.
  */
 [[nodiscard]] auto get_help_message(
     const option_template &option,
@@ -1111,9 +1318,9 @@ struct microsoft_help_format {
  *  @brief  Generate help message string from options (switches) and
  *          Microsoft-style format.
  *
- *  @param  options  Options.
- *  @param  format   Microsoft-style format.
- *  @return  Vector of string for each line.
+ *  @param  options  The switches (not options).
+ *  @param  format   The Microsoft-style format.
+ *  @return  @c std::vector<std::string> for each line.
  */
 [[nodiscard]] inline constexpr auto get_help_message(
     const std::vector<option_template> &options,
@@ -1132,9 +1339,9 @@ struct microsoft_help_format {
  *  @brief  Generate help message string from options (switches) and
  *          Microsoft-style format.
  *
- *  @param  options  Options.
- *  @param  format   Microsoft-style format.
- *  @return  Vector of string for each line.
+ *  @param  options  The switches (not options).
+ *  @param  format   The Microsoft-style format.
+ *  @return  @c std::vector<std::string> for each line.
  */
 [[nodiscard]] inline constexpr auto get_help_message(
     const std::vector<const option_template *> &options,
@@ -1153,9 +1360,9 @@ struct microsoft_help_format {
  *  @brief  Generate help message string from subcommand and Microsoft-style
  *          format.
  *
- *  @param  subcommand  Subcommand.
- *  @param  format      Microsoft-style format.
- *  @return  Vector of string for each line.
+ *  @param  subcommand  A subcommand.
+ *  @param  format      The Microsoft-style format.
+ *  @return  @c std::vector<std::string> for each line.
  */
 [[nodiscard]] auto get_help_message(
     const subcommand_template &subcommand,
@@ -1166,9 +1373,9 @@ struct microsoft_help_format {
  *  @brief  Generate help message string from subcommands and Microsoft-style
  *          format.
  *
- *  @param  subcommands  Subcommands.
- *  @param  format       Microsoft-style format.
- *  @return  Vector of string for each line.
+ *  @param  subcommands  The subcommands.
+ *  @param  format       The Microsoft-style format.
+ *  @return  @c std::vector<std::string> for each line.
  */
 [[nodiscard]] inline constexpr auto get_help_message(
     const std::vector<subcommand_template> &subcommands,
@@ -1187,9 +1394,9 @@ struct microsoft_help_format {
  *  @brief  Generate help message string from subcommands and Microsoft-style
  *          format.
  *
- *  @param  subcommands  Subcommands.
- *  @param  format       Microsoft-style format.
- *  @return  Vector of string for each line.
+ *  @param  subcommands  The subcommands.
+ *  @param  format       The Microsoft-style format.
+ *  @return  @c std::vector<std::string> for each line.
  */
 [[nodiscard]] inline constexpr auto get_help_message(
     const std::vector<const subcommand_template *> &subcommands,
@@ -1206,7 +1413,7 @@ struct microsoft_help_format {
 
 /**
  *  @brief  Helper to print all the help message lines.
- *  @param  lines  Lines returned by @c get_help_message.
+ *  @param  lines  The lines obtained by @c get_help_message .
  */
 [[nodiscard]] inline constexpr auto print_help_message(
     const std::vector<std::string> &lines

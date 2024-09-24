@@ -8,12 +8,8 @@ Command line argument parser.
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1help__combo__t}{help\+\_\+combo\+\_\+t}}
-\begin{DoxyCompactList}\small\item\em Keep string and AEC separate for measurement purposes, for help message format. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1help__enclose__t}{help\+\_\+enclose\+\_\+t}}
-\begin{DoxyCompactList}\small\item\em Surround the content with values, for help message format. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1help__pad__t}{help\+\_\+pad\+\_\+t}}
-\begin{DoxyCompactList}\small\item\em Padding before the content, for help message format. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1measured__string}{measured\+\_\+string}}
+\begin{DoxyCompactList}\small\item\em String where it\textquotesingle{}s size is independent from the style. Useful to avoid counting ANSI Escape Code characters when calculating length. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1microsoft__help__format}{microsoft\+\_\+help\+\_\+format}}
 \begin{DoxyCompactList}\small\item\em Microsoft-\/style format specifier for help message. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1mod__argument}{mod\+\_\+argument}}
@@ -24,6 +20,12 @@ struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1parsed__argument}{par
 \begin{DoxyCompactList}\small\item\em Parsed argument. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1posix__help__format}{posix\+\_\+help\+\_\+format}}
 \begin{DoxyCompactList}\small\item\em POSIX-\/style format specifier for help message. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1styled__enclosure}{styled\+\_\+enclosure}}
+\begin{DoxyCompactList}\small\item\em Surround the content with prefix/suffix, for help message format. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1styled__padding}{styled\+\_\+padding}}
+\begin{DoxyCompactList}\small\item\em Padding before the content, for help message format. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1styled__text}{styled\+\_\+text}}
+\begin{DoxyCompactList}\small\item\em Keep string and AEC separate for measurement purposes, for help message format. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structauspicious__library_1_1ap_1_1subcommand__template}{subcommand\+\_\+template}}
 \begin{DoxyCompactList}\small\item\em Predefined subcommand. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Enumerations}
@@ -156,7 +158,7 @@ enum class \mbox{\hyperlink{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b
 
 Type for argument differentiation. 
 
-\begin{DoxyEnumFields}{Enumerator}
+\begin{DoxyEnumFields}[2]{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{unknown@{unknown}!auspicious\_library::ap@{auspicious\_library::ap}}\index{auspicious\_library::ap@{auspicious\_library::ap}!unknown@{unknown}}}\Hypertarget{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7aad921d60486366258809553a3db49a4a}\label{namespaceauspicious__library_1_1ap_a7826ca13d78fe36b6181fdf84773b7e7} 
 unknown&Argument type cannot be determined. \\
 \hline
@@ -200,7 +202,7 @@ enum class \mbox{\hyperlink{namespaceauspicious__library_1_1ap_addac9e068fc6ed2a
 
 What type of variadic is the parameter? 
 
-\begin{DoxyEnumFields}{Enumerator}
+\begin{DoxyEnumFields}[2]{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{not\_variadic@{not\_variadic}!auspicious\_library::ap@{auspicious\_library::ap}}\index{auspicious\_library::ap@{auspicious\_library::ap}!not\_variadic@{not\_variadic}}}\Hypertarget{namespaceauspicious__library_1_1ap_addac9e068fc6ed2aecf18adb9648b481abd4e4b9e6b527091089949637b49dccc}\label{namespaceauspicious__library_1_1ap_addac9e068fc6ed2aecf18adb9648b481} 
 not\+\_\+variadic&Parameter is not variadic. \\
 \hline
@@ -224,7 +226,7 @@ enum class \mbox{\hyperlink{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c7
 
 Parsed argument validity. 
 
-\begin{DoxyEnumFields}{Enumerator}
+\begin{DoxyEnumFields}[2]{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{unknown@{unknown}!auspicious\_library::ap@{auspicious\_library::ap}}\index{auspicious\_library::ap@{auspicious\_library::ap}!unknown@{unknown}}}\Hypertarget{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838aad921d60486366258809553a3db49a4a}\label{namespaceauspicious__library_1_1ap_ac9c4f83edd8349c71b6993a56ce5a838} 
 unknown&Something definitely has gone wrong. \\
 \hline
@@ -261,7 +263,7 @@ Convert {\ttfamily argument\+\_\+type} to string.
 
 
 \begin{DoxyParams}{Parameters}
-{\em arg\+\_\+type} & Argument type. \\
+{\em arg\+\_\+type} & An argument type. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -279,7 +281,7 @@ Get the type of argument from command line argument.
 
 
 \begin{DoxyParams}{Parameters}
-{\em argument} & Command line argument. \\
+{\em argument} & A command line argument. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -297,7 +299,7 @@ Convert {\ttfamily variadicity} to string.
 
 
 \begin{DoxyParams}{Parameters}
-{\em variadic} & Variadicity. \\
+{\em variadic} & The variadicity enum. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -315,7 +317,7 @@ Check if a parameter is variadic.
 
 
 \begin{DoxyParams}{Parameters}
-{\em parameter} & Parameter. \\
+{\em parameter} & A parameter. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -333,7 +335,7 @@ Convert {\ttfamily validity} to string.
 
 
 \begin{DoxyParams}{Parameters}
-{\em valid} & Validity. \\
+{\em valid} & The validity enum. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -354,13 +356,13 @@ Detailed Description of namespace {\ttfamily \doxylink{namespaceauspicious__libr
 \end{DoxySeeAlso}
 
 \begin{DoxyParams}{Parameters}
-{\em args} & All excluding first (usually program name) command line arguments. \\
+{\em args} & All excluding the first (usually program name) command line arguments. \\
 \hline
-{\em options} & Options/\+Switches. \\
+{\em options} & All options/switches. \\
 \hline
-{\em subcommands} & Subcommands. \\
+{\em subcommands} & All subcommands. \\
 \hline
-{\em switch\+\_\+ins} & Match Microsoft-\/style switches case insensitively (optional). \\
+{\em switch\+\_\+ins} & Whether to match Microsoft-\/style switches case insensitively (optional). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -396,15 +398,15 @@ Detailed Description of namespace {\ttfamily \doxylink{namespaceauspicious__libr
 \end{DoxySeeAlso}
 
 \begin{DoxyParams}{Parameters}
-{\em argc} & Arguments count from main(). \\
+{\em argc} & The arguments count from main(). \\
 \hline
-{\em argv} & Argument values from main(). \\
+{\em argv} & The argument values from main(). \\
 \hline
-{\em options} & Options. \\
+{\em options} & All options/switches. \\
 \hline
-{\em subcommands} & Subcommands. \\
+{\em subcommands} & All subcommands. \\
 \hline
-{\em switch\+\_\+ins} & Match Microsoft-\/style switches case insensitively (optional). \\
+{\em switch\+\_\+ins} & Whether to match Microsoft-\/style switches case insensitively (optional). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -437,13 +439,13 @@ Generate help message string from option and POSIX-\/style format.
 
 
 \begin{DoxyParams}{Parameters}
-{\em option} & Option. \\
+{\em option} & An option (not switch). \\
 \hline
-{\em format} & POSIX-\/style format. \\
+{\em format} & A POSIX-\/style format. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Vector of string for each line. 
+{\ttfamily std\+::vector$<$std\+::string$>$} for each line. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1ap_a69b19c40537b66365048b5871983b71e}\index{auspicious\_library::ap@{auspicious\_library::ap}!get\_help\_message@{get\_help\_message}}
 \index{get\_help\_message@{get\_help\_message}!auspicious\_library::ap@{auspicious\_library::ap}}
@@ -457,13 +459,13 @@ Generate help message string from options and POSIX-\/style format.
 
 
 \begin{DoxyParams}{Parameters}
-{\em options} & Options. \\
+{\em options} & The options (not switches). \\
 \hline
-{\em format} & POSIX-\/style format. \\
+{\em format} & A POSIX-\/style format. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Vector of string for each line. 
+{\ttfamily std\+::vector$<$std\+::string$>$} for each line. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1ap_a90d0bc4d3b66198040eeb71c8788cb37}\index{auspicious\_library::ap@{auspicious\_library::ap}!get\_help\_message@{get\_help\_message}}
 \index{get\_help\_message@{get\_help\_message}!auspicious\_library::ap@{auspicious\_library::ap}}
@@ -477,13 +479,13 @@ Generate help message string from options and POSIX-\/style format.
 
 
 \begin{DoxyParams}{Parameters}
-{\em options} & Options. \\
+{\em options} & The options (not switches). \\
 \hline
-{\em format} & POSIX-\/style format. \\
+{\em format} & A POSIX-\/style format. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Vector of string for each line. 
+{\ttfamily std\+::vector$<$std\+::string$>$} for each line. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1ap_a8f91f5afac568a421ed27df2dd89f06f}\index{auspicious\_library::ap@{auspicious\_library::ap}!get\_help\_message@{get\_help\_message}}
 \index{get\_help\_message@{get\_help\_message}!auspicious\_library::ap@{auspicious\_library::ap}}
@@ -497,13 +499,13 @@ Generate help message string from subcommand and POSIX-\/style format.
 
 
 \begin{DoxyParams}{Parameters}
-{\em subcommand} & Subcommand. \\
+{\em subcommand} & A Subcommand. \\
 \hline
-{\em format} & POSIX-\/style format. \\
+{\em format} & A POSIX-\/style format. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Vector of string for each line. 
+{\ttfamily std\+::vector$<$std\+::string$>$} for each line. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1ap_a6a70951e742ad3b4af7a63d1a664b90b}\index{auspicious\_library::ap@{auspicious\_library::ap}!get\_help\_message@{get\_help\_message}}
 \index{get\_help\_message@{get\_help\_message}!auspicious\_library::ap@{auspicious\_library::ap}}
@@ -517,13 +519,13 @@ Generate help message string from subcommands and POSIX-\/style format.
 
 
 \begin{DoxyParams}{Parameters}
-{\em subcommands} & Subcommands. \\
+{\em subcommands} & The subcommands. \\
 \hline
-{\em format} & POSIX-\/style format. \\
+{\em format} & A POSIX-\/style format. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Vector of string for each line. 
+{\ttfamily std\+::vector$<$std\+::string$>$} for each line. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1ap_adc0b2a8419f840ebddcf5fed261e3b5e}\index{auspicious\_library::ap@{auspicious\_library::ap}!get\_help\_message@{get\_help\_message}}
 \index{get\_help\_message@{get\_help\_message}!auspicious\_library::ap@{auspicious\_library::ap}}
@@ -537,13 +539,13 @@ Generate help message string from subcommands and POSIX-\/style format.
 
 
 \begin{DoxyParams}{Parameters}
-{\em subcommands} & Subcommands. \\
+{\em subcommands} & The subcommands. \\
 \hline
-{\em format} & POSIX-\/style format. \\
+{\em format} & A POSIX-\/style format. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Vector of string for each line. 
+{\ttfamily std\+::vector$<$std\+::string$>$} for each line. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1ap_a605264f237351903b71eece5bd3bea27}\index{auspicious\_library::ap@{auspicious\_library::ap}!get\_help\_message@{get\_help\_message}}
 \index{get\_help\_message@{get\_help\_message}!auspicious\_library::ap@{auspicious\_library::ap}}
@@ -557,13 +559,13 @@ Generate help message string from option (switch) and Microsoft-\/style format.
 
 
 \begin{DoxyParams}{Parameters}
-{\em option} & Option. \\
+{\em option} & A switch (not option). \\
 \hline
-{\em format} & Microsoft-\/style format. \\
+{\em format} & The Microsoft-\/style format. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Vector of string for each line. 
+{\ttfamily std\+::vector$<$std\+::string$>$} for each line. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1ap_a04d42c1ec7aba4cb83c64abc3f27868c}\index{auspicious\_library::ap@{auspicious\_library::ap}!get\_help\_message@{get\_help\_message}}
 \index{get\_help\_message@{get\_help\_message}!auspicious\_library::ap@{auspicious\_library::ap}}
@@ -577,13 +579,13 @@ Generate help message string from options (switches) and Microsoft-\/style forma
 
 
 \begin{DoxyParams}{Parameters}
-{\em options} & Options. \\
+{\em options} & The switches (not options). \\
 \hline
-{\em format} & Microsoft-\/style format. \\
+{\em format} & The Microsoft-\/style format. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Vector of string for each line. 
+{\ttfamily std\+::vector$<$std\+::string$>$} for each line. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1ap_a44d3e8ff37156da6fea02aef970ea798}\index{auspicious\_library::ap@{auspicious\_library::ap}!get\_help\_message@{get\_help\_message}}
 \index{get\_help\_message@{get\_help\_message}!auspicious\_library::ap@{auspicious\_library::ap}}
@@ -597,13 +599,13 @@ Generate help message string from options (switches) and Microsoft-\/style forma
 
 
 \begin{DoxyParams}{Parameters}
-{\em options} & Options. \\
+{\em options} & The switches (not options). \\
 \hline
-{\em format} & Microsoft-\/style format. \\
+{\em format} & The Microsoft-\/style format. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Vector of string for each line. 
+{\ttfamily std\+::vector$<$std\+::string$>$} for each line. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1ap_a7cda2b0bbeb7e4c981a6128ced249b5f}\index{auspicious\_library::ap@{auspicious\_library::ap}!get\_help\_message@{get\_help\_message}}
 \index{get\_help\_message@{get\_help\_message}!auspicious\_library::ap@{auspicious\_library::ap}}
@@ -617,13 +619,13 @@ Generate help message string from subcommand and Microsoft-\/style format.
 
 
 \begin{DoxyParams}{Parameters}
-{\em subcommand} & Subcommand. \\
+{\em subcommand} & A subcommand. \\
 \hline
-{\em format} & Microsoft-\/style format. \\
+{\em format} & The Microsoft-\/style format. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Vector of string for each line. 
+{\ttfamily std\+::vector$<$std\+::string$>$} for each line. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1ap_ace4af81aa78f41e324bba102cf10e1b8}\index{auspicious\_library::ap@{auspicious\_library::ap}!get\_help\_message@{get\_help\_message}}
 \index{get\_help\_message@{get\_help\_message}!auspicious\_library::ap@{auspicious\_library::ap}}
@@ -637,13 +639,13 @@ Generate help message string from subcommands and Microsoft-\/style format.
 
 
 \begin{DoxyParams}{Parameters}
-{\em subcommands} & Subcommands. \\
+{\em subcommands} & The subcommands. \\
 \hline
-{\em format} & Microsoft-\/style format. \\
+{\em format} & The Microsoft-\/style format. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Vector of string for each line. 
+{\ttfamily std\+::vector$<$std\+::string$>$} for each line. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1ap_adf313724f117a4598402ebd4a2cb5118}\index{auspicious\_library::ap@{auspicious\_library::ap}!get\_help\_message@{get\_help\_message}}
 \index{get\_help\_message@{get\_help\_message}!auspicious\_library::ap@{auspicious\_library::ap}}
@@ -657,13 +659,13 @@ Generate help message string from subcommands and Microsoft-\/style format.
 
 
 \begin{DoxyParams}{Parameters}
-{\em subcommands} & Subcommands. \\
+{\em subcommands} & The subcommands. \\
 \hline
-{\em format} & Microsoft-\/style format. \\
+{\em format} & The Microsoft-\/style format. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Vector of string for each line. 
+{\ttfamily std\+::vector$<$std\+::string$>$} for each line. 
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1ap_af7ef9d26a4f2321a90e9093a52722b34}\index{auspicious\_library::ap@{auspicious\_library::ap}!print\_help\_message@{print\_help\_message}}
 \index{print\_help\_message@{print\_help\_message}!auspicious\_library::ap@{auspicious\_library::ap}}
@@ -677,6 +679,6 @@ Helper to print all the help message lines.
 
 
 \begin{DoxyParams}{Parameters}
-{\em lines} & Lines returned by {\ttfamily get\+\_\+help\+\_\+message}. \\
+{\em lines} & The lines obtained by {\ttfamily get\+\_\+help\+\_\+message} . \\
 \hline
 \end{DoxyParams}

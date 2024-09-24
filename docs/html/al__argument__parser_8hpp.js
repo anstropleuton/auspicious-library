@@ -4,9 +4,10 @@ var al__argument__parser_8hpp =
     [ "auspicious_library::ap::subcommand_template", "structauspicious__library_1_1ap_1_1subcommand__template.html", "structauspicious__library_1_1ap_1_1subcommand__template" ],
     [ "auspicious_library::ap::mod_argument", "structauspicious__library_1_1ap_1_1mod__argument.html", "structauspicious__library_1_1ap_1_1mod__argument" ],
     [ "auspicious_library::ap::parsed_argument", "structauspicious__library_1_1ap_1_1parsed__argument.html", "structauspicious__library_1_1ap_1_1parsed__argument" ],
-    [ "auspicious_library::ap::help_combo_t", "structauspicious__library_1_1ap_1_1help__combo__t.html", "structauspicious__library_1_1ap_1_1help__combo__t" ],
-    [ "auspicious_library::ap::help_pad_t", "structauspicious__library_1_1ap_1_1help__pad__t.html", "structauspicious__library_1_1ap_1_1help__pad__t" ],
-    [ "auspicious_library::ap::help_enclose_t", "structauspicious__library_1_1ap_1_1help__enclose__t.html", "structauspicious__library_1_1ap_1_1help__enclose__t" ],
+    [ "auspicious_library::ap::measured_string", "structauspicious__library_1_1ap_1_1measured__string.html", "structauspicious__library_1_1ap_1_1measured__string" ],
+    [ "auspicious_library::ap::styled_text", "structauspicious__library_1_1ap_1_1styled__text.html", "structauspicious__library_1_1ap_1_1styled__text" ],
+    [ "auspicious_library::ap::styled_padding", "structauspicious__library_1_1ap_1_1styled__padding.html", "structauspicious__library_1_1ap_1_1styled__padding" ],
+    [ "auspicious_library::ap::styled_enclosure", "structauspicious__library_1_1ap_1_1styled__enclosure.html", "structauspicious__library_1_1ap_1_1styled__enclosure" ],
     [ "auspicious_library::ap::posix_help_format", "structauspicious__library_1_1ap_1_1posix__help__format.html", "structauspicious__library_1_1ap_1_1posix__help__format" ],
     [ "auspicious_library::ap::microsoft_help_format", "structauspicious__library_1_1ap_1_1microsoft__help__format.html", "structauspicious__library_1_1ap_1_1microsoft__help__format" ],
     [ "argument_type", "al__argument__parser_8hpp.html#a7826ca13d78fe36b6181fdf84773b7e7", [

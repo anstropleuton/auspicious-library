@@ -6,11 +6,17 @@ General functionality to work with files.
 
 
 {\ttfamily \#include $<$bit$>$}\newline
+{\ttfamily \#include $<$concepts$>$}\newline
 {\ttfamily \#include $<$cstring$>$}\newline
 {\ttfamily \#include $<$fstream$>$}\newline
 {\ttfamily \#include $<$ios$>$}\newline
 {\ttfamily \#include $<$stdexcept$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structauspicious__library_1_1fu_1_1sd__chunk}{auspicious\+\_\+library\+::fu\+::sd\+\_\+chunk}}
+\begin{DoxyCompactList}\small\item\em A chunk in the SD file format. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
@@ -22,7 +28,15 @@ namespace \mbox{\hyperlink{namespaceauspicious__library_1_1fu}{auspicious\+\_\+l
 \begin{DoxyCompactItemize}
 \item 
 auto \mbox{\hyperlink{namespaceauspicious__library_1_1fu_a0ed8ef9dc19914c7f8d747f37234ddc4}{auspicious\+\_\+library\+::fu\+::read\+\_\+all}} (std\+::string\+\_\+view filename)
-\begin{DoxyCompactList}\small\item\em Read all the file\textquotesingle{}s content at once and return {\ttfamily std\+::string} representing the file\textquotesingle{}s content. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Read all the file\textquotesingle{}s content at once and return {\ttfamily std\+::string} representing the file\textquotesingle{}s content. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ \newline
+requires (std\+::is\+\_\+trivially\+\_\+copyable\+\_\+v$<$T$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1fu_a15831521f1aac2bddb5103565ba1a6dc}{auspicious\+\_\+library\+::fu\+::to\+\_\+new\+\_\+sd\+\_\+chunk}} (const T \&t) -\/$>$ \mbox{\hyperlink{structauspicious__library_1_1fu_1_1sd__chunk}{sd\+\_\+chunk}}
+\begin{DoxyCompactList}\small\item\em Convert an object to a chunk. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ \newline
+requires (std\+::is\+\_\+trivially\+\_\+copyable\+\_\+v$<$T$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1fu_a3b3020c8a950c5329b8dc88b1ac3c556}{auspicious\+\_\+library\+::fu\+::from\+\_\+sd\+\_\+chunk}} (\mbox{\hyperlink{structauspicious__library_1_1fu_1_1sd__chunk}{sd\+\_\+chunk}} chunk) -\/$>$ T
+\begin{DoxyCompactList}\small\item\em Convert a chunk to an object. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1fu_acce90dfc2b4f1fa9f964122252086ca8}{auspicious\+\_\+library\+::fu\+::delete\+\_\+sd\+\_\+chunk}} (\mbox{\hyperlink{structauspicious__library_1_1fu_1_1sd__chunk}{sd\+\_\+chunk}} chunk) -\/$>$ void
+\begin{DoxyCompactList}\small\item\em Delete the memory of a chunk. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

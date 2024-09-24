@@ -1,0 +1,34 @@
+\doxysection{auspicious\+\_\+library\+::cu\+::boundless\+\_\+accessible Concept Reference}
+\hypertarget{conceptauspicious__library_1_1cu_1_1boundless__accessible}{}\label{conceptauspicious__library_1_1cu_1_1boundless__accessible}\index{auspicious\_library::cu::boundless\_accessible@{auspicious\_library::cu::boundless\_accessible}}
+
+
+A compatible container for {\ttfamily boundless\+\_\+access}.  
+
+
+
+
+{\ttfamily \#include $<$al\+\_\+container\+\_\+utilities.\+hpp$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Container>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptauspicious__library_1_1cu_1_1boundless__accessible}{auspicious\_library::cu::boundless\_accessible}}\ =\ \ \mbox{\hyperlink{conceptauspicious__library_1_1cu_1_1cu__compatible}{cu\_compatible<Container>}}}
+\DoxyCodeLine{\ \ \ \ \&\&\ \textcolor{keyword}{requires}(\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{value\_type<Container>}}\ value)\ \{}
+\DoxyCodeLine{\ \ \ \ \{\ value\ =\ \{\}\ \};}
+\DoxyCodeLine{\ \ \ \ \{\ *(Container().begin())\ \}\ -\/>\ std::same\_as<value\_type<Container>\ \&>;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+A compatible container for {\ttfamily boundless\+\_\+access}. 
+
+The container must satisfy {\ttfamily cu\+\_\+compatible} and it\textquotesingle{}s value type should also assignable with default constructed value type.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Container} & The container type. \\
+\hline
+\end{DoxyTemplParams}

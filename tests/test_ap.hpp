@@ -57,7 +57,7 @@
  *          Be prepared to flood your terminal with test logs.  This is mostly
  *          redundant tests.
  */
-static bool extensive_test = EXTENSIVE_TEST_VALUE;
+[[maybe_unused]] static bool extensive_test = EXTENSIVE_TEST_VALUE;
 
 /**
  *  @brief  Nothing... Just C-style array length expression that "just works".
@@ -161,6 +161,14 @@ using vdt = al::validity;
  */
 template<>
 struct std::formatter<al::parsed_argument> {
+
+    /**
+     *  @brief  Parse format specifier
+     *
+     *  @tparam  ParseContext  Parsing context type.
+     *  @param   pc            Parsing context.
+     *  @return  Iterator to end of format specifier.
+     */
     template<typename ParseContext>
     [[nodiscard]] inline constexpr auto parse(ParseContext &pc)
     {
@@ -180,6 +188,14 @@ struct std::formatter<al::parsed_argument> {
         return it;
     }
 
+    /**
+     *  @brief  Format the object and convert to string.
+     *
+     *  @tparam  FormatContext    Formatting context type.
+     *  @param   parsed_argument  Object to convert to string.
+     *  @param   fc               Formatting context.
+     *  @return  Formatted string representing the object.
+     */
     template<typename FormatContext>
     [[nodiscard]] inline constexpr auto format(
         const al::parsed_argument &parsed_argument, FormatContext &fc) const
@@ -346,7 +362,7 @@ static auto run_combo(
  *  @param  expected  Expected parsed results to compare with.
  *  @return  Number of errors.
  */
-[[nodiscard]] static auto ap_tester(
+[[nodiscard, maybe_unused]] static auto ap_tester(
     const std::vector<std::string>                    &args,
     const std::vector<al::parsed_argument>            &expected,
     const std::vector<const al::option_template *>     options,

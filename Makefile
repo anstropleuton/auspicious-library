@@ -1,6 +1,6 @@
 # Compiler and flags
 CXX ?= g++
-CXXFLAGS ?= -std=c++23
+CXXFLAGS ?= -std=c++23 -Wall -fconcepts-diagnostics-depth=10
 INCLUDES ?= -Iinclude
 
 # Directories

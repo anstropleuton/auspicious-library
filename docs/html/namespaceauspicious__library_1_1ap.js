@@ -1,13 +1,14 @@
 var namespaceauspicious__library_1_1ap =
 [
-    [ "help_combo_t", "structauspicious__library_1_1ap_1_1help__combo__t.html", "structauspicious__library_1_1ap_1_1help__combo__t" ],
-    [ "help_enclose_t", "structauspicious__library_1_1ap_1_1help__enclose__t.html", "structauspicious__library_1_1ap_1_1help__enclose__t" ],
-    [ "help_pad_t", "structauspicious__library_1_1ap_1_1help__pad__t.html", "structauspicious__library_1_1ap_1_1help__pad__t" ],
+    [ "measured_string", "structauspicious__library_1_1ap_1_1measured__string.html", "structauspicious__library_1_1ap_1_1measured__string" ],
     [ "microsoft_help_format", "structauspicious__library_1_1ap_1_1microsoft__help__format.html", "structauspicious__library_1_1ap_1_1microsoft__help__format" ],
     [ "mod_argument", "structauspicious__library_1_1ap_1_1mod__argument.html", "structauspicious__library_1_1ap_1_1mod__argument" ],
     [ "option_template", "structauspicious__library_1_1ap_1_1option__template.html", "structauspicious__library_1_1ap_1_1option__template" ],
     [ "parsed_argument", "structauspicious__library_1_1ap_1_1parsed__argument.html", "structauspicious__library_1_1ap_1_1parsed__argument" ],
     [ "posix_help_format", "structauspicious__library_1_1ap_1_1posix__help__format.html", "structauspicious__library_1_1ap_1_1posix__help__format" ],
+    [ "styled_enclosure", "structauspicious__library_1_1ap_1_1styled__enclosure.html", "structauspicious__library_1_1ap_1_1styled__enclosure" ],
+    [ "styled_padding", "structauspicious__library_1_1ap_1_1styled__padding.html", "structauspicious__library_1_1ap_1_1styled__padding" ],
+    [ "styled_text", "structauspicious__library_1_1ap_1_1styled__text.html", "structauspicious__library_1_1ap_1_1styled__text" ],
     [ "subcommand_template", "structauspicious__library_1_1ap_1_1subcommand__template.html", "structauspicious__library_1_1ap_1_1subcommand__template" ],
     [ "argument_type", "namespaceauspicious__library_1_1ap.html#a7826ca13d78fe36b6181fdf84773b7e7", [
       [ "unknown", "namespaceauspicious__library_1_1ap.html#a7826ca13d78fe36b6181fdf84773b7e7aad921d60486366258809553a3db49a4a", null ],

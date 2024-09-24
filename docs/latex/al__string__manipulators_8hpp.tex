@@ -22,6 +22,16 @@ namespace \mbox{\hyperlink{namespaceauspicious__library_1_1sm}{auspicious\+\_\+l
 \begin{DoxyCompactList}\small\item\em String Manipulators. \end{DoxyCompactList}\item 
 namespace \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators}{auspicious\+\_\+library\+::sm\+\_\+operators}}
 \begin{DoxyCompactList}\small\item\em String Manipulators, operators version. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Concepts}
+\begin{DoxyCompactItemize}
+\item 
+concept \mbox{\hyperlink{conceptauspicious__library_1_1sm_1_1sm__compatible}{auspicious\+\_\+library\+::sm\+::sm\+\_\+compatible}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ae5e68b09b89152e03842b8c0a0028f5f}{auspicious\+\_\+library\+::sm\+::result\+\_\+string\+\_\+nested}} = std\+::vector$<$std\+::string$>$
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -59,17 +69,37 @@ constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_aae67781b035e
 \begin{DoxyCompactList}\small\item\em Compare string, case insensitivity. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a317943d42d623b6e8daa2de8fed89a64}{auspicious\+\_\+library\+::sm\+::is\+\_\+equal\+\_\+ins}} (char a, char b)
 \begin{DoxyCompactList}\small\item\em Compare character, case insensitivity (exists for consistency). \end{DoxyCompactList}\item 
-constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_a37747241ff634a46ec7d3c51529312ea}{auspicious\+\_\+library\+::sm\+\_\+operators\+::operator-\/}} (std\+::string\+\_\+view string, std\+::string\+\_\+view values)
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a22ca7926c4634482cb23d63564e79143}{auspicious\+\_\+library\+::sm\+::filter\+\_\+out\+\_\+seq}} (std\+::string\+\_\+view string, std\+::string\+\_\+view pattern)
 \begin{DoxyCompactList}\small\item\em Filter out the occurrences of sequence from the string. \end{DoxyCompactList}\item 
-constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_aeb658d3144f0a370f91f8461ec17c5b2}{auspicious\+\_\+library\+::sm\+\_\+operators\+::operator-\/}} (std\+::string\+\_\+view string, char value)
-\begin{DoxyCompactList}\small\item\em Filter out the occurrences of value from the string. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a7f359e194344f49c506c6c3d29f1e458}{auspicious\+\_\+library\+::sm\+::filter\+\_\+out\+\_\+occ}} (std\+::string\+\_\+view string, std\+::string\+\_\+view characters)
+\begin{DoxyCompactList}\small\item\em Filter out the occurrences of any of characters from the string. \end{DoxyCompactList}\item 
+{\footnotesize template$<$sm\+\_\+compatible Strings$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a6b80e12541f7b76d1d15d14be2bcee9a}{auspicious\+\_\+library\+::sm\+::filter\+\_\+out\+\_\+occ\+\_\+seq}} (std\+::string\+\_\+view string, const Strings \&patterns)
+\begin{DoxyCompactList}\small\item\em Filter out the occurrences of any of sequences from the string. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a62f8598e9739e2594d516db8f8d7b9f6}{auspicious\+\_\+library\+::sm\+::filter\+\_\+out}} (std\+::string\+\_\+view string, char character)
+\begin{DoxyCompactList}\small\item\em Filter out the occurrences of character from the string. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad690389f2fb57f67873923c62be4805c}{auspicious\+\_\+library\+::sm\+::repeat}} (std\+::string\+\_\+view string, std\+::size\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Repeat string {\ttfamily n} times. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a58a21b34af1c52495469cf5c96bf36e3}{auspicious\+\_\+library\+::sm\+::repeat}} (std\+::string\+\_\+view string, long double n)
+\begin{DoxyCompactList}\small\item\em Repeat string {\ttfamily n} times. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ac1ae37388aa1aaac0bedc25f353b3092}{auspicious\+\_\+library\+::sm\+::split\+\_\+seq}} (std\+::string\+\_\+view string, std\+::string\+\_\+view pattern)
+\begin{DoxyCompactList}\small\item\em Split the string with pattern. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a37cacfd93ff6f2ceb3a556026791df73}{auspicious\+\_\+library\+::sm\+::split\+\_\+occ}} (std\+::string\+\_\+view string, std\+::string\+\_\+view characters)
+\begin{DoxyCompactList}\small\item\em Split the string with occurrences of value. \end{DoxyCompactList}\item 
+{\footnotesize template$<$sm\+\_\+compatible Strings$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a12f6442f3f2e83c922896cdaf3ca325c}{auspicious\+\_\+library\+::sm\+::split\+\_\+occ\+\_\+seq}} (std\+::string\+\_\+view string, const Strings \&patterns)
+\begin{DoxyCompactList}\small\item\em Split the string with occurrences of any of pattern. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ae64d11727ab3db9d0631321bd293de2b}{auspicious\+\_\+library\+::sm\+::split}} (std\+::string\+\_\+view string, char character)
+\begin{DoxyCompactList}\small\item\em Split the string with value. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_a2f573f091724effa15a5d8c54c09fdcf}{auspicious\+\_\+library\+::sm\+\_\+operators\+::operator-\/}} (std\+::string\+\_\+view string, std\+::string\+\_\+view pattern)
+\begin{DoxyCompactList}\small\item\em Filter out the occurrences of sequence from the string. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_aa30082a9ba2ba36b8cec026f7b0ea1c1}{auspicious\+\_\+library\+::sm\+\_\+operators\+::operator-\/}} (std\+::string\+\_\+view string, char character)
+\begin{DoxyCompactList}\small\item\em Filter out the occurrences of character from the string. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_ade2cae3d13c20704ca4c478083470141}{auspicious\+\_\+library\+::sm\+\_\+operators\+::operator\texorpdfstring{$\ast$}{*}}} (std\+::string\+\_\+view string, std\+::size\+\_\+t n)
-\begin{DoxyCompactList}\small\item\em Repeat string using operator. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Repeat string {\ttfamily n} times. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_a6bcdbcc35657032459dcb9e4dd49a0c5}{auspicious\+\_\+library\+::sm\+\_\+operators\+::operator\texorpdfstring{$\ast$}{*}}} (std\+::string\+\_\+view string, long double n)
 \begin{DoxyCompactList}\small\item\em Repeat string {\ttfamily n} times. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_acbd16f06d2b7028804b2886e2de60318}{auspicious\+\_\+library\+::sm\+\_\+operators\+::operator/}} (std\+::string\+\_\+view string, std\+::string\+\_\+view pattern)
 \begin{DoxyCompactList}\small\item\em Split the string with pattern. \end{DoxyCompactList}\item 
-constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_ad31cdfef6d9a0d4a500135fb9b67a98a}{auspicious\+\_\+library\+::sm\+\_\+operators\+::operator/}} (std\+::string\+\_\+view string, char value)
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_ae5e90c84f0e93e4e83f00b236534f483}{auspicious\+\_\+library\+::sm\+\_\+operators\+::operator/}} (std\+::string\+\_\+view string, char character)
 \begin{DoxyCompactList}\small\item\em Split the string with value. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 

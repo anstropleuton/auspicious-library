@@ -51,6 +51,8 @@
 /**
  *  @brief  AP Test 12: Misc. edge case tests.
  *  @return  Number of errors.
+ *
+ *  @todo  Split these tests into even smaller functions.
  */
 [[nodiscard]] auto test_ap_12() -> std::size_t
 {

@@ -60,8 +60,6 @@
     ```
 
 ### Files
-- **Header files** should have a `.hpp` extension.
-- **Source files** should have a `.cpp` extension.
 - File names should be in `snake_case`.
     ```txt
     my_module.hpp
@@ -180,7 +178,7 @@
     ```
 - Use two spaces between the tag and the parameter/description.
 
-## File Structure
+## Code Structure
 
 ### Header Files
 - Use `#pragma once` to prevent multiple inclusions.
@@ -194,9 +192,6 @@
     ```cpp
     #include "my_module.hpp"
     ```
-
-### Avoid Utils or Misc files
-- Prefer creating a new file for each logical code instead of dumping all the utility related code in one file.
 
 ## (Member/) Functions and Lambdas
 
@@ -233,7 +228,7 @@
 
 
 ### Attributes
-- Always use `[[nodiscard]]` for function returning a value. Even the main().
+- Always use `[[nodiscard]]` for function returning a value.
     ```cpp
     [[nodiscard]] auto get_value()
     {
@@ -394,13 +389,21 @@
     ```
 
 ### Initialization
-- Use `=` for initializing type.
+- Use `=` for initializing type with value or literal.
     ```cpp
     int value = 10;
     ```
-- Always initialize to `{}` for user defined types.
+- Always initialize to `{}` for when you are not providing parameters.
     ```cpp
     Type value = {};
+    ```
+- Always initialize with function-like syntax for creating type with parameters for constructor.
+    ```cpp
+    Type value(parameters);
+    ```
+- Use `{}` for parameters of initializer_list type.
+    ```cpp
+    std::vector<int> value = { 1, 2, 3 };
     ```
 
 ### Range-based For Loops

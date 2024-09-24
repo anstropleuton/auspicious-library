@@ -23,13 +23,13 @@ using \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enumerated__array_a5a3
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enumerated__array_a95b5e763928b4def7b458c52a6539bf5}{operator\mbox{[}$\,$\mbox{]}}} (E enumerator) -\/$>$ T \&
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enumerated__array_afe93b1c48a440fbfe4bb9b699f6a94e0}{operator\mbox{[}$\,$\mbox{]}}} (E enumerator) -\/$>$ T \&
 \begin{DoxyCompactList}\small\item\em Get an element at index, or a default constructed instance of the value type when index is invalid. \end{DoxyCompactList}\item 
-constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enumerated__array_a6ebf1f234547cc8940f3de721b808686}{operator\mbox{[}$\,$\mbox{]}}} (E enumerator) const -\/$>$ const T \&
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enumerated__array_ab0cb17054534d764d6a450f8918d9e21}{operator\mbox{[}$\,$\mbox{]}}} (E enumerator) const -\/$>$ T
 \begin{DoxyCompactList}\small\item\em Get an element at index, or a default constructed instance of the value type when index is invalid. \end{DoxyCompactList}\item 
-constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enumerated__array_adf15f973dcf262d4492c3d22ac45c50b}{at}} (E enumerator) -\/$>$ T \&
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enumerated__array_a1c08001931e056b2eab485565245d9cf}{at}} (E enumerator) -\/$>$ T \&
 \begin{DoxyCompactList}\small\item\em Get an element at index, or a default constructed instance of the value type when index is invalid. \end{DoxyCompactList}\item 
-constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enumerated__array_aea43fa10af25e6e073ec94d74ed6b2e3}{at}} (E enumerator) const -\/$>$ const T \&
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enumerated__array_a3877b4cd2e8183024ac128b6bcc84e6c}{at}} (E enumerator) const -\/$>$ T
 \begin{DoxyCompactList}\small\item\em Get an element at index, or a default constructed instance of the value type when index is invalid. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -40,9 +40,9 @@ Array with enumerator as index.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Type of element. \\
+{\em T} & The type of element. \\
 \hline
-{\em E} & Container Utilities compatible enumerator type. \\
+{\em E} & A Container Utilities compatible enumerator type. \\
 \hline
 \end{DoxyTemplParams}
 
@@ -62,12 +62,12 @@ Base class, template arguments are long.
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{structauspicious__library_1_1cu_1_1enumerated__array_a95b5e763928b4def7b458c52a6539bf5}\index{auspicious\_library::cu::enumerated\_array$<$ T, E $>$@{auspicious\_library::cu::enumerated\_array$<$ T, E $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\Hypertarget{structauspicious__library_1_1cu_1_1enumerated__array_afe93b1c48a440fbfe4bb9b699f6a94e0}\index{auspicious\_library::cu::enumerated\_array$<$ T, E $>$@{auspicious\_library::cu::enumerated\_array$<$ T, E $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!auspicious\_library::cu::enumerated\_array$<$ T, E $>$@{auspicious\_library::cu::enumerated\_array$<$ T, E $>$}}
 \doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1enumerated__array_a95b5e763928b4def7b458c52a6539bf5} 
+{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1enumerated__array_afe93b1c48a440fbfe4bb9b699f6a94e0} 
 template$<$typename T , cu\+\_\+compatible\+\_\+enum E$>$ \\
-auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enumerated__array}{auspicious\+\_\+library\+::cu\+::enumerated\+\_\+array}}$<$ T, E $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{E}]{enumerator}{}\end{DoxyParamCaption}) -\/$>$ T \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enumerated__array}{auspicious\+\_\+library\+::cu\+::enumerated\+\_\+array}}$<$ T, E $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{E}]{enumerator}{}\end{DoxyParamCaption}) -\/$>$ T \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
 
 
 
@@ -75,18 +75,18 @@ Get an element at index, or a default constructed instance of the value type whe
 
 
 \begin{DoxyParams}{Parameters}
-{\em index} & Index specifying element. \\
+{\em index} & An index specifying element. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Element at index or default constructed instance. 
 \end{DoxyReturn}
-\Hypertarget{structauspicious__library_1_1cu_1_1enumerated__array_a6ebf1f234547cc8940f3de721b808686}\index{auspicious\_library::cu::enumerated\_array$<$ T, E $>$@{auspicious\_library::cu::enumerated\_array$<$ T, E $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\Hypertarget{structauspicious__library_1_1cu_1_1enumerated__array_ab0cb17054534d764d6a450f8918d9e21}\index{auspicious\_library::cu::enumerated\_array$<$ T, E $>$@{auspicious\_library::cu::enumerated\_array$<$ T, E $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!auspicious\_library::cu::enumerated\_array$<$ T, E $>$@{auspicious\_library::cu::enumerated\_array$<$ T, E $>$}}
 \doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1enumerated__array_a6ebf1f234547cc8940f3de721b808686} 
+{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1enumerated__array_ab0cb17054534d764d6a450f8918d9e21} 
 template$<$typename T , cu\+\_\+compatible\+\_\+enum E$>$ \\
-auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enumerated__array}{auspicious\+\_\+library\+::cu\+::enumerated\+\_\+array}}$<$ T, E $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{E}]{enumerator}{}\end{DoxyParamCaption}) const -\/$>$ const T \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enumerated__array}{auspicious\+\_\+library\+::cu\+::enumerated\+\_\+array}}$<$ T, E $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{E}]{enumerator}{}\end{DoxyParamCaption}) const -\/$>$ T     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
 
 
 
@@ -94,18 +94,18 @@ Get an element at index, or a default constructed instance of the value type whe
 
 
 \begin{DoxyParams}{Parameters}
-{\em index} & Index specifying element. \\
+{\em index} & An index specifying element. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Element at index or default constructed instance. 
 \end{DoxyReturn}
-\Hypertarget{structauspicious__library_1_1cu_1_1enumerated__array_adf15f973dcf262d4492c3d22ac45c50b}\index{auspicious\_library::cu::enumerated\_array$<$ T, E $>$@{auspicious\_library::cu::enumerated\_array$<$ T, E $>$}!at@{at}}
+\Hypertarget{structauspicious__library_1_1cu_1_1enumerated__array_a1c08001931e056b2eab485565245d9cf}\index{auspicious\_library::cu::enumerated\_array$<$ T, E $>$@{auspicious\_library::cu::enumerated\_array$<$ T, E $>$}!at@{at}}
 \index{at@{at}!auspicious\_library::cu::enumerated\_array$<$ T, E $>$@{auspicious\_library::cu::enumerated\_array$<$ T, E $>$}}
 \doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1enumerated__array_adf15f973dcf262d4492c3d22ac45c50b} 
+{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1enumerated__array_a1c08001931e056b2eab485565245d9cf} 
 template$<$typename T , cu\+\_\+compatible\+\_\+enum E$>$ \\
-auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enumerated__array}{auspicious\+\_\+library\+::cu\+::enumerated\+\_\+array}}$<$ T, E $>$\+::at (\begin{DoxyParamCaption}\item[{E}]{enumerator}{}\end{DoxyParamCaption}) -\/$>$ T \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enumerated__array}{auspicious\+\_\+library\+::cu\+::enumerated\+\_\+array}}$<$ T, E $>$\+::at (\begin{DoxyParamCaption}\item[{E}]{enumerator}{}\end{DoxyParamCaption}) -\/$>$ T \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
 
 
 
@@ -113,18 +113,18 @@ Get an element at index, or a default constructed instance of the value type whe
 
 
 \begin{DoxyParams}{Parameters}
-{\em index} & Index specifying element. \\
+{\em index} & An index specifying element. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Element at index or default constructed instance. 
 \end{DoxyReturn}
-\Hypertarget{structauspicious__library_1_1cu_1_1enumerated__array_aea43fa10af25e6e073ec94d74ed6b2e3}\index{auspicious\_library::cu::enumerated\_array$<$ T, E $>$@{auspicious\_library::cu::enumerated\_array$<$ T, E $>$}!at@{at}}
+\Hypertarget{structauspicious__library_1_1cu_1_1enumerated__array_a3877b4cd2e8183024ac128b6bcc84e6c}\index{auspicious\_library::cu::enumerated\_array$<$ T, E $>$@{auspicious\_library::cu::enumerated\_array$<$ T, E $>$}!at@{at}}
 \index{at@{at}!auspicious\_library::cu::enumerated\_array$<$ T, E $>$@{auspicious\_library::cu::enumerated\_array$<$ T, E $>$}}
 \doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1enumerated__array_aea43fa10af25e6e073ec94d74ed6b2e3} 
+{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1enumerated__array_a3877b4cd2e8183024ac128b6bcc84e6c} 
 template$<$typename T , cu\+\_\+compatible\+\_\+enum E$>$ \\
-auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enumerated__array}{auspicious\+\_\+library\+::cu\+::enumerated\+\_\+array}}$<$ T, E $>$\+::at (\begin{DoxyParamCaption}\item[{E}]{enumerator}{}\end{DoxyParamCaption}) const -\/$>$ const T \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enumerated__array}{auspicious\+\_\+library\+::cu\+::enumerated\+\_\+array}}$<$ T, E $>$\+::at (\begin{DoxyParamCaption}\item[{E}]{enumerator}{}\end{DoxyParamCaption}) const -\/$>$ T     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
 
 
 
@@ -132,7 +132,7 @@ Get an element at index, or a default constructed instance of the value type whe
 
 
 \begin{DoxyParams}{Parameters}
-{\em index} & Index specifying element. \\
+{\em index} & An index specifying element. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

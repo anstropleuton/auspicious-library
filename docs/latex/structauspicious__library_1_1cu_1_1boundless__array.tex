@@ -20,19 +20,19 @@ Inheritance diagram for auspicious\+\_\+library\+::cu\+::boundless\+\_\+array\te
 \item 
 constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__array_abd3412d5b9ae478887472fee19aff1df}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t index) -\/$>$ T \&
 \begin{DoxyCompactList}\small\item\em Get an element at index, or a default constructed instance of the value type when index is invalid. \end{DoxyCompactList}\item 
-constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__array_a0f54a91411148e84e56bee30f78abd8f}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t index) const -\/$>$ const T \&
+constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__array_a34ddaf9d3158945726261ef12836e1b2}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t index) const -\/$>$ T
 \begin{DoxyCompactList}\small\item\em Get an element at index, or a default constructed instance of the value type when index is invalid. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__array_a0fe352de648a674f27b5741e94aa0d14}{at}} (std\+::size\+\_\+t index) -\/$>$ T \&
 \begin{DoxyCompactList}\small\item\em Get an element at index, or a default constructed instance of the value type when index is invalid. \end{DoxyCompactList}\item 
-constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__array_a08ae650d1268090afff4997eed125ab5}{at}} (std\+::size\+\_\+t index) const -\/$>$ const T \&
+constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__array_a674f1e454fa7151c0b3830ebbbe7022b}{at}} (std\+::size\+\_\+t index) const -\/$>$ T
 \begin{DoxyCompactList}\small\item\em Get an element at index, or a default constructed instance of the value type when index is invalid. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__array_abc9ed79216a376df0dadc70a218bc6c0}{front}} () -\/$>$ T \&
 \begin{DoxyCompactList}\small\item\em Get the first element, or a default constructed instance of the value type when the array is empty. \end{DoxyCompactList}\item 
-constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__array_aca5f5d2d9385e1024be253a75d8bea2b}{front}} () const -\/$>$ const T \&
+constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__array_ae6237b9bdfb2bd9e23445660d90c18c1}{front}} () const -\/$>$ T
 \begin{DoxyCompactList}\small\item\em Get the first element, or a default constructed instance of the value type when the array is empty. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__array_a3866165bfe771139fcb0258cd526ad28}{back}} () -\/$>$ T \&
 \begin{DoxyCompactList}\small\item\em Get the last element, or a default constructed instance of the value type when the array is empty. \end{DoxyCompactList}\item 
-constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__array_adb31aea4b3dda1854fa955f43adb2cad}{back}} () const -\/$>$ const T \&
+constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__array_ae6cc4bdd2ea2ddb1c546302cd2a2743f}{back}} () const -\/$>$ T
 \begin{DoxyCompactList}\small\item\em Get the last element, or a default constructed instance of the value type when the array is empty. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -46,9 +46,9 @@ Index-\/access of this array always returns a default constructed element when a
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Type of element. \\
+{\em T} & The type of element. \\
 \hline
-{\em N} & Size of array. \\
+{\em N} & The size of array. \\
 \hline
 \end{DoxyTemplParams}
 
@@ -67,18 +67,18 @@ Get an element at index, or a default constructed instance of the value type whe
 
 
 \begin{DoxyParams}{Parameters}
-{\em index} & Index specifying element. \\
+{\em index} & An index specifying element. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Element at index or default constructed instance. 
 \end{DoxyReturn}
-\Hypertarget{structauspicious__library_1_1cu_1_1boundless__array_a0f54a91411148e84e56bee30f78abd8f}\index{auspicious\_library::cu::boundless\_array$<$ T, N $>$@{auspicious\_library::cu::boundless\_array$<$ T, N $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\Hypertarget{structauspicious__library_1_1cu_1_1boundless__array_a34ddaf9d3158945726261ef12836e1b2}\index{auspicious\_library::cu::boundless\_array$<$ T, N $>$@{auspicious\_library::cu::boundless\_array$<$ T, N $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!auspicious\_library::cu::boundless\_array$<$ T, N $>$@{auspicious\_library::cu::boundless\_array$<$ T, N $>$}}
 \doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__array_a0f54a91411148e84e56bee30f78abd8f} 
+{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__array_a34ddaf9d3158945726261ef12836e1b2} 
 template$<$typename T , std\+::size\+\_\+t N$>$ \\
-auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__array}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+array}}$<$ T, N $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index}{}\end{DoxyParamCaption}) const -\/$>$ const T \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__array}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+array}}$<$ T, N $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index}{}\end{DoxyParamCaption}) const -\/$>$ T     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
 
 
 
@@ -86,7 +86,7 @@ Get an element at index, or a default constructed instance of the value type whe
 
 
 \begin{DoxyParams}{Parameters}
-{\em index} & Index specifying element. \\
+{\em index} & An index specifying element. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -105,18 +105,18 @@ Get an element at index, or a default constructed instance of the value type whe
 
 
 \begin{DoxyParams}{Parameters}
-{\em index} & Index specifying element. \\
+{\em index} & An index specifying element. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Element at index or default constructed instance. 
 \end{DoxyReturn}
-\Hypertarget{structauspicious__library_1_1cu_1_1boundless__array_a08ae650d1268090afff4997eed125ab5}\index{auspicious\_library::cu::boundless\_array$<$ T, N $>$@{auspicious\_library::cu::boundless\_array$<$ T, N $>$}!at@{at}}
+\Hypertarget{structauspicious__library_1_1cu_1_1boundless__array_a674f1e454fa7151c0b3830ebbbe7022b}\index{auspicious\_library::cu::boundless\_array$<$ T, N $>$@{auspicious\_library::cu::boundless\_array$<$ T, N $>$}!at@{at}}
 \index{at@{at}!auspicious\_library::cu::boundless\_array$<$ T, N $>$@{auspicious\_library::cu::boundless\_array$<$ T, N $>$}}
 \doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__array_a08ae650d1268090afff4997eed125ab5} 
+{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__array_a674f1e454fa7151c0b3830ebbbe7022b} 
 template$<$typename T , std\+::size\+\_\+t N$>$ \\
-auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__array}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+array}}$<$ T, N $>$\+::at (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index}{}\end{DoxyParamCaption}) const -\/$>$ const T \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__array}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+array}}$<$ T, N $>$\+::at (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index}{}\end{DoxyParamCaption}) const -\/$>$ T     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
 
 
 
@@ -124,7 +124,7 @@ Get an element at index, or a default constructed instance of the value type whe
 
 
 \begin{DoxyParams}{Parameters}
-{\em index} & Index specifying element. \\
+{\em index} & An index specifying element. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -144,12 +144,12 @@ Get the first element, or a default constructed instance of the value type when 
 \begin{DoxyReturn}{Returns}
 First element or default constructed instance. 
 \end{DoxyReturn}
-\Hypertarget{structauspicious__library_1_1cu_1_1boundless__array_aca5f5d2d9385e1024be253a75d8bea2b}\index{auspicious\_library::cu::boundless\_array$<$ T, N $>$@{auspicious\_library::cu::boundless\_array$<$ T, N $>$}!front@{front}}
+\Hypertarget{structauspicious__library_1_1cu_1_1boundless__array_ae6237b9bdfb2bd9e23445660d90c18c1}\index{auspicious\_library::cu::boundless\_array$<$ T, N $>$@{auspicious\_library::cu::boundless\_array$<$ T, N $>$}!front@{front}}
 \index{front@{front}!auspicious\_library::cu::boundless\_array$<$ T, N $>$@{auspicious\_library::cu::boundless\_array$<$ T, N $>$}}
 \doxysubsubsection{\texorpdfstring{front()}{front()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__array_aca5f5d2d9385e1024be253a75d8bea2b} 
+{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__array_ae6237b9bdfb2bd9e23445660d90c18c1} 
 template$<$typename T , std\+::size\+\_\+t N$>$ \\
-auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__array}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+array}}$<$ T, N $>$\+::front (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const -\/$>$ const T \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__array}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+array}}$<$ T, N $>$\+::front (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const -\/$>$ T     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
 
 
 
@@ -172,12 +172,12 @@ Get the last element, or a default constructed instance of the value type when t
 \begin{DoxyReturn}{Returns}
 Last element or default constructed instance. 
 \end{DoxyReturn}
-\Hypertarget{structauspicious__library_1_1cu_1_1boundless__array_adb31aea4b3dda1854fa955f43adb2cad}\index{auspicious\_library::cu::boundless\_array$<$ T, N $>$@{auspicious\_library::cu::boundless\_array$<$ T, N $>$}!back@{back}}
+\Hypertarget{structauspicious__library_1_1cu_1_1boundless__array_ae6cc4bdd2ea2ddb1c546302cd2a2743f}\index{auspicious\_library::cu::boundless\_array$<$ T, N $>$@{auspicious\_library::cu::boundless\_array$<$ T, N $>$}!back@{back}}
 \index{back@{back}!auspicious\_library::cu::boundless\_array$<$ T, N $>$@{auspicious\_library::cu::boundless\_array$<$ T, N $>$}}
 \doxysubsubsection{\texorpdfstring{back()}{back()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__array_adb31aea4b3dda1854fa955f43adb2cad} 
+{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__array_ae6cc4bdd2ea2ddb1c546302cd2a2743f} 
 template$<$typename T , std\+::size\+\_\+t N$>$ \\
-auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__array}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+array}}$<$ T, N $>$\+::back (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const -\/$>$ const T \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__array}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+array}}$<$ T, N $>$\+::back (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const -\/$>$ T     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
 
 
 

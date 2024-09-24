@@ -85,7 +85,7 @@ inline constinit std::string_view csi = "\x1b\x5b";
 /**
  *  @brief  Format code for Select Graphics Rendition.
  *
- *  @param  code  SGR code.
+ *  @param  code  An SGR code.
  *  @return  Formatted SGR code ready to be std::cout'd or std::print'd.
  */
 [[nodiscard]] inline constexpr auto sgr(std::string_view code)
@@ -95,18 +95,25 @@ inline constinit std::string_view csi = "\x1b\x5b";
 }
 
 /**
- *  @brief  Callable object for ansi escape codes.
+ *  @brief  Callable object for ANSI Escape Codes.
  *
  *  Easily use this to format the string with cleanness.  For example:
     ```cpp
     std::cout << red << "Red text" << reset_color << std::endl;
-    std::cout << blue("White text") << std::endl;
+    std::cout << white("White text") << std::endl;
     std::cout << bold << "Bolded text" << !bold << std::endl;
     ```
  *
- *  @todo  Make ! and ~ operators return reverse object, if possible, to allow:
+ *  You can also combine them with +, *, |, &, || and && operators:
     ```cpp
-    std::cout << bold << "Bold text " << ~bold("Not bold text ")
+    std::cout << blue + italic + underline << "Blue italic underlined text"
+              << reset << std::endl;
+    ```
+ *
+ *  @todo  Make ! and ~ operators return reverse object instead of returning the
+ *         resetter, if possible, to allow:
+    ```cpp
+    std::cout << bold << "Bold text, " << ~bold("Not bold text, ")
               << "Still bold text" << ~bold << std::endl;
     ```
  */
@@ -129,7 +136,7 @@ struct aec_t {
      *  The setter sequence is placed before text, followed by the resetter
      *  sequence.
      *
-     *  @param  text  Text to format.
+     *  @param  text  The text to format.
      *  @return  Combined sequence for formatted text.
      */
     [[nodiscard]] inline constexpr auto operator() (std::string_view text) const
@@ -178,8 +185,8 @@ struct aec_t {
 /**
  *  @brief  Combine two AECs to get a combined AEC.
  *
- *  @param  a  First AEC.
- *  @param  b  Second AEC.
+ *  @param  a  The first AEC.
+ *  @param  b  The second AEC.
  *  @return  Combined AEC.
  */
 [[nodiscard]] inline constexpr auto combine(const aec_t a, const aec_t b)
@@ -241,8 +248,8 @@ namespace aec_operators {
 /**
  *  @brief  Overload << operator for streams and AEC.
  *
- *  @param  ostream  Output stream.
- *  @param  aec      AEC.
+ *  @param  ostream  An output stream.
+ *  @param  aec      An AEC.
  *  @return  Output stream.
  */
 [[nodiscard]] inline constexpr auto operator<< (
@@ -257,8 +264,8 @@ namespace aec_operators {
 /**
  *  @brief  Operator to combine AECs.
  *
- *  @param  a  First AEC.
- *  @param  b  Second AEC.
+ *  @param  a  The first AEC.
+ *  @param  b  The second AEC.
  *  @return  Combined AEC.
  */
 [[nodiscard]] inline constexpr auto operator+ (
@@ -272,8 +279,8 @@ namespace aec_operators {
 /**
  *  @brief  Operator to combine AECs.
  *
- *  @param  a  First AEC.
- *  @param  b  Second AEC.
+ *  @param  a  The first AEC.
+ *  @param  b  The second AEC.
  *  @return  Combined AEC.
  */
 [[nodiscard]] inline constexpr auto operator* (
@@ -287,8 +294,8 @@ namespace aec_operators {
 /**
  *  @brief  Operator to combine AECs.
  *
- *  @param  a  First AEC.
- *  @param  b  Second AEC.
+ *  @param  a  The first AEC.
+ *  @param  b  The second AEC.
  *  @return  Combined AEC.
  */
 [[nodiscard]] inline constexpr auto operator& (
@@ -302,8 +309,8 @@ namespace aec_operators {
 /**
  *  @brief  Operator to combine AECs.
  *
- *  @param  a  First AEC.
- *  @param  b  Second AEC.
+ *  @param  a  The first AEC.
+ *  @param  b  The second AEC.
  *  @return  Combined AEC.
  */
 [[nodiscard]] inline constexpr auto operator| (
@@ -317,8 +324,8 @@ namespace aec_operators {
 /**
  *  @brief  Operator to combine AECs.
  *
- *  @param  a  First AEC.
- *  @param  b  Second AEC.
+ *  @param  a  The first AEC.
+ *  @param  b  The second AEC.
  *  @return  Combined AEC.
  */
 [[nodiscard]] inline constexpr auto operator&& (
@@ -332,8 +339,8 @@ namespace aec_operators {
 /**
  *  @brief  Operator to combine AECs.
  *
- *  @param  a  First AEC.
- *  @param  b  Second AEC.
+ *  @param  a  The first AEC.
+ *  @param  b  The second AEC.
  *  @return  Combined AEC.
  */
 [[nodiscard]] inline constexpr auto operator|| (

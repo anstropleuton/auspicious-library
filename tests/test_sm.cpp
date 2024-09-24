@@ -51,7 +51,7 @@
 #include "tester.hpp"
 
 /**
- *  @brief  Test SM's word_wrap function.
+ *  @brief  Test SM's @c word_wrap function.
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_sm_word_wrap() -> std::size_t
@@ -112,7 +112,7 @@
 }
 
 /**
- *  @brief  Test SM's trim_left function.
+ *  @brief  Test SM's @c trim_left function.
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_sm_trim_left() -> std::size_t
@@ -134,7 +134,7 @@
 }
 
 /**
- *  @brief  Test SM's trim_right function.
+ *  @brief  Test SM's @c trim_right function.
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_sm_trim_right() -> std::size_t
@@ -156,7 +156,7 @@
 }
 
 /**
- *  @brief  Test SM's trim function.
+ *  @brief  Test SM's @c trim function.
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_sm_trim() -> std::size_t
@@ -178,7 +178,7 @@
 }
 
 /**
- *  @brief  Test SM's to_upper function (overload 1).
+ *  @brief  Test SM's @c to_upper function (overload 1).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_sm_to_upper_1() -> std::size_t
@@ -200,7 +200,7 @@
 }
 
 /**
- *  @brief  Test SM's to_lower function (overload 1).
+ *  @brief  Test SM's @c to_lower function (overload 1).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_sm_to_lower_1() -> std::size_t
@@ -222,7 +222,7 @@
 }
 
 /**
- *  @brief  Test SM's to_upper function (overload 2).
+ *  @brief  Test SM's @c to_upper function (overload 2).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_sm_to_upper_2() -> std::size_t
@@ -244,7 +244,7 @@
 }
 
 /**
- *  @brief  Test SM's to_lower function (overload 2).
+ *  @brief  Test SM's @c to_lower function (overload 2).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_sm_to_lower_2() -> std::size_t
@@ -266,7 +266,7 @@
 }
 
 /**
- *  @brief  Test SM's is_equal_ins function (overload 1).
+ *  @brief  Test SM's @c is_equal_ins function (overload 1).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_sm_is_equal_ins_1() -> std::size_t
@@ -295,7 +295,7 @@
 }
 
 /**
- *  @brief  Test SM's is_equal_ins function (overload 2).
+ *  @brief  Test SM's @c is_equal_ins function (overload 2).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_sm_is_equal_ins_2() -> std::size_t
@@ -324,7 +324,7 @@
 }
 
 /**
- *  @brief  Test SM operators' operator- (overload 1).
+ *  @brief  Test SM operators' @c operator- (overload 1).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_sm_operator_minus_1() -> std::size_t
@@ -352,7 +352,7 @@
 }
 
 /**
- *  @brief  Test SM operators' operator- (overload 2).
+ *  @brief  Test SM operators' @c operator- (overload 2).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_sm_operator_minus_2() -> std::size_t
@@ -376,7 +376,7 @@
 }
 
 /**
- *  @brief  Test SM operators' operator* (overload 1).
+ *  @brief  Test SM operators' @c operator* (overload 1).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_sm_operator_star_1() -> std::size_t
@@ -401,7 +401,7 @@
 }
 
 /**
- *  @brief  Test SM operators' operator* (overload 2).
+ *  @brief  Test SM operators' @c operator* (overload 2).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_sm_operator_star_2() -> std::size_t
@@ -427,7 +427,7 @@
 }
 
 /**
- *  @brief  Test SM operators' operator/ (overload 1).
+ *  @brief  Test SM operators' @c operator/ (overload 1).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_sm_operator_slash_1() -> std::size_t
@@ -467,7 +467,7 @@
 }
 
 /**
- *  @brief  Test SM operators' operator/ (overload 2).
+ *  @brief  Test SM operators' @c operator/ (overload 2).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_sm_operator_slash_2() -> std::size_t

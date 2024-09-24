@@ -14,12 +14,9 @@ Container compatible for Container Utilities.
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Container>}
 \DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptauspicious__library_1_1cu_1_1cu__compatible}{auspicious\_library::cu::cu\_compatible}}\ =\ \ \textcolor{keyword}{requires}\ \{}
-\DoxyCodeLine{\ \ \ \ \{\ std::begin(std::declval<Container>())\ \}\ -\/>\ std::contiguous\_iterator;}
-\DoxyCodeLine{\ \ \ \ \{\ std::end(std::declval<Container>())\ \}\ -\/>\ std::contiguous\_iterator;}
+\DoxyCodeLine{\ \ \ \ \{\ Container().begin()\ \}\ -\/>\ std::contiguous\_iterator;}
+\DoxyCodeLine{\ \ \ \ \{\ Container().end()\ \}\ -\/>\ std::contiguous\_iterator;}
 \DoxyCodeLine{\ \ \ \ \{\ std::declval<typename\ Container::value\_type>()\ \};}
-\DoxyCodeLine{\ \ \ \ \{\ Container(std::begin(std::declval<Container>()),}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ std::end(std::declval<Container>()))\ \};}
-\DoxyCodeLine{\ \ \ \ \{\ Container(\{\ std::declval<typename\ Container::value\_type>()\ \})\ \};}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
@@ -28,7 +25,7 @@ Container compatible for Container Utilities.
 \doxysubsection{Detailed Description}
 Container compatible for Container Utilities. 
 
-Container type must have {\ttfamily begin()} and {\ttfamily end()} in either member or free-\/standing function which return contiguous iterators, and a {\ttfamily value\+\_\+type} typename member. The container must also be constructable using iterators and an {\ttfamily initializer\+\_\+list} of value type.
+Container type must have {\ttfamily begin()} and {\ttfamily end()} in either member or free-\/standing function which return contiguous iterators, and a {\ttfamily value\+\_\+type} typename member.
 
 
 \begin{DoxyTemplParams}{Template Parameters}

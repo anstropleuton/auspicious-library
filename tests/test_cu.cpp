@@ -48,7 +48,7 @@
 #include "tester.hpp"
 
 /**
- *  @brief  Test CU's subordinate function.
+ *  @brief  Test CU's @c subordinate function.
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_cu_subordinate() -> std::size_t
@@ -74,7 +74,7 @@
 }
 
 /**
- *  @brief  Test CU's combine function (overload 1).
+ *  @brief  Test CU's @c combine function (overload 1).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_cu_combine_1() -> std::size_t
@@ -98,7 +98,7 @@
 }
 
 /**
- *  @brief  Test CU's combine function (overload 2).
+ *  @brief  Test CU's @c combine function (overload 2).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_cu_combine_2() -> std::size_t
@@ -122,7 +122,7 @@
 }
 
 /**
- *  @brief  Test CU's filter_out_seq function.
+ *  @brief  Test CU's @c filter_out_seq function.
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_cu_filter_out_seq() -> std::size_t
@@ -146,7 +146,7 @@
 }
 
 /**
- *  @brief  Test CU's filter_out_occ function.
+ *  @brief  Test CU's @c filter_out_occ function.
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_cu_filter_out_occ() -> std::size_t
@@ -170,7 +170,32 @@
 }
 
 /**
- *  @brief  Test CU's filter_out function.
+ *  @brief  Test CU's @c filter_out_occ_seq function.
+ *  @return  Number of errors.
+ */
+[[nodiscard]] static auto test_cu_filter_out_occ_seq() -> std::size_t
+{
+    T_BEGIN;
+
+    std::vector container = { 1, 2, 3, 4, 4, 5, 6, 7, 7, 8, 9, 10 };
+    std::vector<std::vector<int>> filter = { { 4, 4 }, { 7, 7 } };
+    std::vector expected = { 1, 2, 3, 5, 6, 8, 9, 10 };
+
+    auto filtered = al::filter_out_occ_seq(container, filter);
+
+    logln("container: {}", al::to_string(container));
+    logln("filter[0]: {}", al::to_string(filter[0]));
+    logln("filter[1]: {}", al::to_string(filter[1]));
+    logln("filtered: {}",  al::to_string(filtered));
+    logln("expected: {}",  al::to_string(expected));
+
+    T_ASSERT_CTR(filtered, expected);
+
+    T_END;
+}
+
+/**
+ *  @brief  Test CU's @c filter_out function.
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_cu_filter_out() -> std::size_t
@@ -194,7 +219,7 @@
 }
 
 /**
- *  @brief  Test CU's repeat function (overload 1).
+ *  @brief  Test CU's @c repeat function (overload 1).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_cu_repeat_1() -> std::size_t
@@ -218,7 +243,7 @@
 }
 
 /**
- *  @brief  Test CU's repeat function (overload 2).
+ *  @brief  Test CU's @c repeat function (overload 2).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_cu_repeat_2() -> std::size_t
@@ -243,7 +268,7 @@
 }
 
 /**
- *  @brief  Test CU's split_seq function.
+ *  @brief  Test CU's @c split_seq function.
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_cu_split_seq() -> std::size_t
@@ -277,7 +302,7 @@
 }
 
 /**
- *  @brief  Test CU's split_occ function.
+ *  @brief  Test CU's @c split_occ function.
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_cu_split_occ() -> std::size_t
@@ -316,7 +341,47 @@
 }
 
 /**
- *  @brief  Test CU's split function.
+ *  @brief  Test CU's @c split_occ_seq function.
+ *  @return  Number of errors.
+ */
+[[nodiscard]] static auto test_cu_split_occ_seq() -> std::size_t
+{
+    T_BEGIN;
+
+    std::vector container = { 1, 2, 3, 3, 4, 5, 6, 7, 8, 8, 9, 10 };
+    std::vector<std::vector<int>> splitter = { { 3, 3 }, { 8, 8 } };
+    std::vector<std::vector<int>> expected = {
+        { 1, 2  },
+        { 4, 5, 6, 7},
+        { 9, 10 }
+    };
+
+    auto splitted = al::split_occ_seq(container, splitter);
+
+    logln("container: {}",   al::to_string(container));
+    logln("splitter[0]: {}", al::to_string(splitter[0]));
+    logln("splitter[1]: {}", al::to_string(splitter[1]));
+
+    T_ASSERT_SIZE(splitted, expected);
+
+    logln("splitted[0]: {}", al::to_string(splitted[0]));
+    logln("splitted[1]: {}", al::to_string(splitted[1]));
+    logln("splitted[2]: {}", al::to_string(splitted[2]));
+    logln("expected[0]: {}", al::to_string(expected[0]));
+    logln("expected[1]: {}", al::to_string(expected[1]));
+    logln("expected[2]: {}", al::to_string(expected[2]));
+
+    T_ASSERT_SUB_SIZE(splitted, expected, 0);
+
+    T_ASSERT_SUB_SIZE(splitted, expected, 1);
+
+    T_ASSERT_SUB_SIZE(splitted, expected, 2);
+
+    T_END;
+}
+
+/**
+ *  @brief  Test CU's @c split function.
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_cu_split() -> std::size_t
@@ -350,7 +415,7 @@
 }
 
 /**
- *  @brief  Test CU operators' operator+ (overload 1).
+ *  @brief  Test CU operators' @c operator+ (overload 1).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_cu_operator_plus_1() -> std::size_t
@@ -374,7 +439,7 @@
 }
 
 /**
- *  @brief  Test CU operators' operator+ (overload 2).
+ *  @brief  Test CU operators' @c operator+ (overload 2).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_cu_operator_plus_2() -> std::size_t
@@ -398,7 +463,7 @@
 }
 
 /**
- *  @brief  Test CU operators' operator- (overload 1).
+ *  @brief  Test CU operators' @c operator- (overload 1).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_cu_operator_minus_1() -> std::size_t
@@ -422,7 +487,7 @@
 }
 
 /**
- *  @brief  Test CU operators' operator- (overload 2).
+ *  @brief  Test CU operators' @c operator- (overload 2).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_cu_operator_minus_2() -> std::size_t
@@ -446,7 +511,7 @@
 }
 
 /**
- *  @brief  Test CU operators' operator* (overload 1).
+ *  @brief  Test CU operators' @c operator* (overload 1).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_cu_operator_star_1() -> std::size_t
@@ -470,7 +535,7 @@
 }
 
 /**
- *  @brief  Test CU operators' operator* (overload 2).
+ *  @brief  Test CU operators' @c operator* (overload 2).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_cu_operator_star_2() -> std::size_t
@@ -495,7 +560,7 @@
 }
 
 /**
- *  @brief  Test CU operators' operator/ (overload 1).
+ *  @brief  Test CU operators' @c operator/ (overload 1).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_cu_operator_slash_1() -> std::size_t
@@ -529,7 +594,7 @@
 }
 
 /**
- *  @brief  Test CU operators' operator/ (overload 2).
+ *  @brief  Test CU operators' @c operator/ (overload 2).
  *  @return  Number of errors.
  */
 [[nodiscard]] static auto test_cu_operator_slash_2() -> std::size_t
@@ -561,6 +626,48 @@
 
     T_END;
 }
+
+/**
+ *  @brief  Test CU containers' @c boundless_access function.
+ *  @return  Number of errors.
+ */
+[[nodiscard]] auto test_cu_containers_boundless_access() -> std::size_t;
+
+/**
+ *  @brief  Test CU containers' @c boundless_vector struct.
+ *  @return  Number of errors.
+ */
+[[nodiscard]] auto test_cu_containers_boundless_vector() -> std::size_t;
+
+/**
+ *  @brief  Test CU containers' @c boundless_array struct.
+ *  @return  Number of errors.
+ */
+[[nodiscard]] auto test_cu_containers_boundless_array() -> std::size_t;
+
+/**
+ *  @brief  Test CU containers' @c boundless_span struct.
+ *  @return  Number of errors.
+ */
+[[nodiscard]] auto test_cu_containers_boundless_span() -> std::size_t;
+
+/**
+ *  @brief  Test CU containers' @c boundless_string struct.
+ *  @return  Number of errors.
+ */
+[[nodiscard]] auto test_cu_containers_boundless_string() -> std::size_t;
+
+/**
+ *  @brief  Test CU containers' @c boundless_string_view struct.
+ *  @return  Number of errors.
+ */
+[[nodiscard]] auto test_cu_containers_boundless_string_view() -> std::size_t;
+
+/**
+ *  @brief  Test CU containers' @c enumerated_array struct.
+ *  @return  Number of errors.
+ */
+[[nodiscard]] auto test_cu_containers_enumerated_array() -> std::size_t;
 
 /**
  *  @brief  Test... copper?  No wait, test Container Utilities.
@@ -612,6 +719,12 @@
     });
 
     suite.tests.emplace_back(new test {
+        "Test CU's filter_out_occ_seq function",
+        "test_cu_filter_out_occ_seq",
+        test_cu_filter_out_occ_seq
+    });
+
+    suite.tests.emplace_back(new test {
         "Test CU's filter_out function",
         "test_cu_filter_out",
         test_cu_filter_out
@@ -639,6 +752,12 @@
         "Test CU's split_occ function",
         "test_cu_split_occ",
         test_cu_split_occ
+    });
+
+    suite.tests.emplace_back(new test {
+        "Test CU's split_occ_seq function",
+        "test_cu_split_occ_seq",
+        test_cu_split_occ_seq
     });
 
     suite.tests.emplace_back(new test {
@@ -693,6 +812,48 @@
         "Test CU operators' operator/ (overload 2)",
         "test_cu_operator_slash_2",
         test_cu_operator_slash_2
+    });
+
+    suite.tests.emplace_back(new test {
+        "Test CU containers' boundless_access function.",
+        "test_cu_containers_boundless_access",
+        test_cu_containers_boundless_access
+    });
+
+    suite.tests.emplace_back(new test {
+        "Test CU containers' boundless_vector struct.",
+        "test_cu_containers_boundless_vector",
+        test_cu_containers_boundless_vector
+    });
+
+    suite.tests.emplace_back(new test {
+        "Test CU containers' boundless_array struct.",
+        "test_cu_containers_boundless_array",
+        test_cu_containers_boundless_array
+    });
+
+    suite.tests.emplace_back(new test {
+        "Test CU containers' boundless_span struct.",
+        "test_cu_containers_boundless_span",
+        test_cu_containers_boundless_span
+    });
+
+    suite.tests.emplace_back(new test {
+        "Test CU containers' boundless_string struct.",
+        "test_cu_containers_boundless_string",
+        test_cu_containers_boundless_string
+    });
+
+    suite.tests.emplace_back(new test {
+        "Test CU containers' boundless_string_view struct.",
+        "test_cu_containers_boundless_string_view",
+        test_cu_containers_boundless_string_view
+    });
+
+    suite.tests.emplace_back(new test {
+        "Test CU containers' enumerated_array struct.",
+        "test_cu_containers_enumerated_array",
+        test_cu_containers_enumerated_array
     });
 
     std::size_t errors = (std::size_t)-1;

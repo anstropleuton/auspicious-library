@@ -54,7 +54,6 @@
 #include <vector>
 
 #include "al_argument_parser.hpp"
-#include "al_string_manipulators.hpp"
 
 using namespace std::string_literals;
 
@@ -67,8 +66,8 @@ using namespace auspicious_library::sm_operators;
 /**
  *  @brief  Throw if options/switches are null.
  *
- *  @param  options  Options.
- *  @throw  If options are null.
+ *  @param  options  The options.
+ *  @exception  std::invalid_argument  Thrown if options are null.
  */
 static inline constexpr auto options_sanity_checker(
     const std::vector<const ap::option_template *> &options
@@ -126,9 +125,10 @@ static inline constexpr auto options_sanity_checker(
 /**
  *  @brief  Throw if subcommands or nested subcommands are null.
  *
- *  @param  subcommands  Subcommands.
- *  @param  level        Nesting level (optional).
- *  @throw  If subcommands or nested subcommands are null.
+ *  @param  subcommands  The subcommands.
+ *  @param  level        The nesting level (optional).
+ *  @exception  std::invalid_argument  Thrown if subcommands or nested
+ *                                     subcommands are null.
  */
 static inline constexpr auto subcommands_sanity_checker(
     const std::vector<const ap::subcommand_template *> &subcommands,
@@ -207,10 +207,10 @@ static inline constexpr auto subcommands_sanity_checker(
 /**
  *  @brief  Check if argument matches the long names of the options/switches.
  *
- *  @param  options     Options.
- *  @param  long_name   Long name to match.
- *  @param  switch_ins  Match Microsoft-style switches case insensitively
- *                      (optional).
+ *  @param  options     The options.
+ *  @param  long_name   A long name to match.
+ *  @param  switch_ins  Whether to match Microsoft-style switches case
+ *                      insensitively (optional).
  *  @return  Nullable pointer to matched option/switch.
  */
 [[nodiscard]] static inline constexpr auto match_long_names(
@@ -237,10 +237,10 @@ static inline constexpr auto subcommands_sanity_checker(
 /**
  *  @brief  Check if argument matches the short names of the options/switches.
  *
- *  @param  options     Options
- *  @param  short_name  Short name to match.
- *  @param  switch_ins  Match Microsoft-style switches case insensitively
- *                      (optional).
+ *  @param  options     The options
+ *  @param  short_name  A short name to match.
+ *  @param  switch_ins  Whether to match Microsoft-style switches case
+ *                      insensitively (optional).
  *  @return  Nullable pointer to matched option/switch.
  */
 [[nodiscard]] static inline constexpr auto match_short_names(
@@ -267,11 +267,11 @@ static inline constexpr auto subcommands_sanity_checker(
 /**
  *  @brief  Check if argument matches options/switches.
  *
- *  @param  arg         Argument to match options/switches.
- *  @param  arg_type    Argument type.
- *  @param  options     Options.
- *  @param  switch_ins  Match Microsoft-style switches case insensitively
- *                      (optional).
+ *  @param  arg         An argument to match options/switches.
+ *  @param  arg_type    An argument type.
+ *  @param  options     The options.
+ *  @param  switch_ins  Whether to match Microsoft-style switches case
+ *                      insensitively (optional).
  *  @return  Nullable pointer to matched option/switch.
  */
 [[nodiscard]] static inline constexpr auto match_option(
@@ -320,7 +320,7 @@ static inline constexpr auto subcommands_sanity_checker(
 /**
  *  @brief  Check if argument matches subordinate command.
  *
- *  @param  arg                  Argument.
+ *  @param  arg                  An argument.
  *  @param  current_subcommands  Currently handling nested subcommands.
  *  @return  Nullable pointer to matched subcommand.
  */
@@ -344,12 +344,12 @@ static inline constexpr auto subcommands_sanity_checker(
 }
 
 /**
- *  @brief  Get arguments that are not option or switch, to use as values.
+ *  @brief  Collect arguments that are not option or switch, to use as values.
  *
  *  @param  i              Current argument index.
- *  @param  mod_args       All arguments.
- *  @param  parameters     Parameters to collect.
- *  @param  default_args   Default arguments for unprovided arguments.
+ *  @param  mod_args       All the arguments.
+ *  @param  parameters     The parameters to collect.
+ *  @param  default_args   The default values for unprovided parameters.
  *  @return  Collected values.
  */
 [[nodiscard]] static inline constexpr auto collect_values(
@@ -438,13 +438,22 @@ static inline constexpr auto subcommands_sanity_checker(
 /**
  *  @brief  Parse command line arguments.
  *
- *  @see  Document written on top of this section's namespace.
+ *  @see  Detailed Description of namespace @c ap.
  *
- *  @param  args         All excluding first (usually program name) command
+ *  @param  args         All excluding the first (usually program name) command
  *                       line arguments.
- *  @param  options      Options.
- *  @param  subcommands  Subcommands.
+ *  @param  options      All options/switches.
+ *  @param  subcommands  All subcommands.
+ *  @param  switch_ins   Whether to match Microsoft-style switches case
+ *                       insensitively (optional).
  *  @return  Parsed argument information.
+ *
+ *  @exception  std::invalid_argument  Thrown in the following cases:
+ *   - When a pointer is null.
+ *   - When there are more @c defaults_from_back than @c parameters.
+ *   - When @c parameters is variadic, and default values are provided.
+ *   - When @c parameters is variadic, and subcommands are provided.
+ *   - When a non-last parameter is variadic.
  *
  *  @note  Do not pass dynamically allocated memory directly as @c options or
  *         @c subcommands.  This should point to user managed memory.
@@ -714,188 +723,100 @@ static inline constexpr auto subcommands_sanity_checker(
 }
 
 /**
- *  @brief  Get padding as string.
- *
- *  @param  pad       Padding.
- *  @param  subtract  Subtract from count (optional).
- *  @return  Padding as string.
- */
-[[nodiscard]] static inline constexpr auto padding_string(
-    ap::help_pad_t pad,
-    std::size_t    subtract = 0
-)
-{
-    if (subtract > pad.size)
-    {
-        return ""s;
-    }
-
-    std::size_t size = pad.size - subtract;
-    if (size == 0)
-    {
-        return ""s;
-    }
-    if (size == 1)
-    {
-        return pad.mid.style(pad.mid.value);
-    }
-    if (size == 2)
-    {
-        return pad.first.style(pad.first.value)
-             + pad.last.style(pad.last.value);
-    }
-    return pad.first.style(pad.first.value)
-         + pad.mid.style(pad.mid.value * size)
-         + pad.last.style(pad.last.value);
-}
-
-/**
- *  @brief  Get padding's size.
- *
- *  We use a separate function because @c std::string::size() returns characters
- *  including the ANSI Escape Code style.
- *
- *  @param  pad  Padding.
- *  @return  Padding's size.
- */
-[[nodiscard]] static inline constexpr auto padding_size(ap::help_pad_t pad)
-{
-    if (pad.size == 0)
-    {
-        return 0zu;
-    }
-    if (pad.size == 1)
-    {
-        return pad.mid.value.size();
-    }
-    if (pad.size == 2)
-    {
-        return pad.first.value.size() + pad.last.value.size();
-    }
-    return pad.first.value.size()
-         + pad.mid.value.size() * pad.size
-         + pad.last.value.size();
-}
-
-/**
  *  @brief  Abstract helper to add name to the option_line.
  *
- *  @tparam  Container          Container of compatible type.
- *  @tparam  GetName            Function type to get the name from element.
- *  @tparam  GetNameSize        Function type to get the size of the name.
- *  @param   container          Container.
- *  @param   separator          Separator.
- *  @param   wrap_pad           Padding for wrapped line.
- *  @param   wrap_width         Max width to wrap at.
- *  @param   current_line       Current option line (local variable).
- *  @param   current_line_size  Current option line size (local variable).
- *  @param   option_lines       All option lines (local variable).
+ *  @tparam  Container          A container of compatible type.
+ *  @tparam  GetName            A function type to get the name from element.
+ *  @param   container          A container of elements to get name from.
+ *  @param   separator          A separator.
+ *  @param   wrap_pad           The padding for wrapped line.
+ *  @param   wrap_width         The max width to wrap at.
+ *  @param   current_line       The current option line (local variable).
+ *  @param   option_lines       All the option lines (local variable).
  *  @param   get_name           Function to get the name from element.
- *  @param   get_name_size      Function to get the size of the name.
- *  @return
  */
-template<cu::cu_compatible Container, typename GetName, typename GetNameSize>
+template<cu::cu_compatible Container, typename GetName>
 static inline constexpr auto add_names(
-    const Container          &container,
-    ap::help_combo_t          separator,
-    ap::help_pad_t            wrap_pad,
-    std::size_t               wrap_width,
-    std::string              &current_line,
-    std::size_t              &current_line_size,
-    std::vector<std::string> &option_lines,
-    GetName                   get_name,
-    GetNameSize               get_name_size
+    const Container                  &container,
+    ap::styled_text                   separator,
+    ap::styled_padding                wrap_pad,
+    std::size_t                       wrap_width,
+    ap::measured_string              &current_line,
+    std::vector<ap::measured_string> &option_lines,
+    GetName                           get_name
 )
 {
     for (std::size_t i = 0; i < std::size(container); i++)
     {
         auto &element = *(std::begin(container) + i);
 
-        std::string name_string = "";
-        std::size_t name_size   = 0;
+        ap::measured_string name = {};
 
         // Separator
         if (i != 0)
         {
-            name_string = separator.style(separator.value);
-            name_size   = separator.value.size();
+            name = separator.m_str();
         }
 
-        name_string = get_name(i, element);
-        name_size   = get_name_size(i, element);
+        name += get_name(i, element);
 
         // Wrap
-        if (current_line_size + name_size > wrap_width)
+        if (current_line.size + name.size > wrap_width)
         {
             option_lines.emplace_back(current_line);
-            current_line      = padding_string(wrap_pad);
-            current_line_size = padding_size(wrap_pad);
+            current_line = wrap_pad.m_str();
         }
 
-        current_line      += name_string;
-        current_line_size += name_size;
+        current_line += name;
     }
 }
 
 /**
  *  @brief  Helper to add long names to option_line.
  *
- *  @param  option             Option.
- *  @param  format             POSIX-style format.
- *  @param  current_line       Current option line (local variable).
- *  @param  current_line_size  Current option line size (local variable).
- *  @param  option_lines       All option lines (local variable).
+ *  @param  option             An option.
+ *  @param  format             A POSIX-style format.
+ *  @param  current_line       The current option line (local variable).
+ *  @param  option_lines       All the option lines (local variable).
  */
 static inline constexpr auto add_long_names(
-    const ap::option_template   &option,
-    const ap::posix_help_format &format,
-    std::string                 &current_line,
-    std::size_t                 &current_line_size,
-    std::vector<std::string>    &option_lines
+    const ap::option_template        &option,
+    const ap::posix_help_format      &format,
+    ap::measured_string              &current_line,
+    std::vector<ap::measured_string> &option_lines
 )
 {
     add_names(option.long_names, format.long_name_separator,
         format.pad_long_names, format.option_n_subcommand_width, current_line,
-        current_line_size, option_lines,
-        [&](std::size_t, const std::string &long_name)
+        option_lines, [&](std::size_t, const std::string &long_name)
     {
-        return format.long_name_prefix_style("--")
-             + format.long_name_style(long_name);
-    },
-        [&](std::size_t, const std::string &long_name)
-    {
-        return 2 + long_name.size();
+        return ap::measured_string(format.long_name_prefix_style, "--")
+             + ap::measured_string(format.long_name_style, long_name);
     });
 }
 
 /**
  *  @brief  Helper to add short names to option_line.
  *
- *  @param  option             Option.
- *  @param  format             POSIX-style format.
- *  @param  current_line       Current option line (local variable).
- *  @param  current_line_size  Current option line size (local variable).
- *  @param  option_lines       All option lines (local variable).
+ *  @param  option             An option.
+ *  @param  format             A POSIX-style format.
+ *  @param  current_line       The current option line (local variable).
+ *  @param  option_lines       All the option lines (local variable).
  */
 static inline constexpr auto add_short_names(
-    const ap::option_template   &option,
-    const ap::posix_help_format &format,
-    std::string                 &current_line,
-    std::size_t                 &current_line_size,
-    std::vector<std::string>    &option_lines
+    const ap::option_template        &option,
+    const ap::posix_help_format      &format,
+    ap::measured_string              &current_line,
+    std::vector<ap::measured_string> &option_lines
 )
 {
     add_names(option.short_names, format.short_name_separator,
         format.pad_short_names, format.option_n_subcommand_width, current_line,
-        current_line_size, option_lines,
-        [&](std::size_t, char short_name)
+        option_lines, [&](std::size_t, char short_name)
     {
-        return format.short_name_prefix_style("-")
-             + format.short_name_style(std::string(1, short_name));
-    },
-        [&](std::size_t, char short_name)
-    {
-        return 2;
+        return ap::measured_string(format.short_name_prefix_style, "-")
+             + ap::measured_string(format.short_name_style,
+            std::string(1, short_name));
     });
 }
 
@@ -903,33 +824,26 @@ static inline constexpr auto add_short_names(
  *  @brief  Helper to add Microsoft-style switch names (long and short option
  *          names) to option_line.
  *
- *  @param  option             Option.
- *  @param  format             Microsoft-style format.
- *  @param  current_line       Current option line (local variable).
- *  @param  current_line_size  Current option line size (local variable).
- *  @param  option_lines       All option lines (local variable).
+ *  @param  option             An option.
+ *  @param  format             A Microsoft-style format.
+ *  @param  current_line       The current option line (local variable).
+ *  @param  option_lines       All the option lines (local variable).
  */
 static inline constexpr auto add_microsoft_switches(
-    const ap::option_template       &option,
-    const ap::microsoft_help_format &format,
-    std::string                     &current_line,
-    std::size_t                     &current_line_size,
-    std::vector<std::string>        &option_lines
+    const ap::option_template        &option,
+    const ap::microsoft_help_format  &format,
+    ap::measured_string              &current_line,
+    std::vector<ap::measured_string> &option_lines
 )
 {
     auto add_microsoft_switch_long_names = [&]()
     {
         add_names(option.long_names, format.switch_separator,
             format.pad_switch, format.switch_n_subcommand_width, current_line,
-            current_line_size, option_lines,
-            [&](std::size_t, const std::string &long_name)
+            option_lines, [&](std::size_t, const std::string &long_name)
         {
-            return format.switch_prefix_style("/")
-                 + format.switch_style(long_name);
-        },
-            [&](std::size_t, const std::string &long_name)
-        {
-            return 1 + long_name.size();
+            return ap::measured_string(format.switch_prefix_style, "/")
+                 + ap::measured_string(format.switch_style, long_name);
         });
     };
 
@@ -937,15 +851,11 @@ static inline constexpr auto add_microsoft_switches(
     {
         add_names(option.short_names, format.switch_separator,
             format.pad_switch, format.switch_n_subcommand_width, current_line,
-            current_line_size, option_lines,
-            [&](std::size_t, char short_name)
+            option_lines, [&](std::size_t, char short_name)
         {
-            return format.switch_prefix_style("/")
-                 + format.switch_style(std::string(1, short_name));
-        },
-            [&](std::size_t, char short_name)
-        {
-            return 2;
+            return ap::measured_string(format.switch_prefix_style, "/")
+                 + ap::measured_string(format.switch_style,
+                std::string(1, short_name));
         });
     };
 
@@ -953,21 +863,13 @@ static inline constexpr auto add_microsoft_switches(
     if (format.long_names_first)
     {
         add_microsoft_switch_long_names();
-
-        current_line += format.switch_separator.style(
-            format.switch_separator.value);
-        current_line_size += format.switch_separator.value.size();
-
+        current_line += format.switch_separator.m_str();
         add_microsoft_switch_short_names();
     }
     else
     {
         add_microsoft_switch_short_names();
-
-        current_line += format.switch_separator.style(
-            format.switch_separator.value);
-        current_line_size += format.switch_separator.value.size();
-
+        current_line += format.switch_separator.m_str();
         add_microsoft_switch_long_names();
     }
 }
@@ -975,247 +877,175 @@ static inline constexpr auto add_microsoft_switches(
 /**
  *  @brief  Helper to add subcommand names to option_line.
  *
- *  @param  subcommand         Subcommand.
- *  @param  format             POSIX-style format.
- *  @param  current_line       Current option line (local variable).
- *  @param  current_line_size  Current option line size (local variable).
- *  @param  option_lines       All option lines (local variable).
+ *  @param  subcommand         The subcommand.
+ *  @param  format             A POSIX-style format.
+ *  @param  current_line       The current option line (local variable).
+ *  @param  option_lines       All the option lines (local variable).
  */
 static inline constexpr auto add_subcommand_names(
-    const ap::subcommand_template &subcommand,
-    const ap::posix_help_format   &format,
-    std::string                   &current_line,
-    std::size_t                   &current_line_size,
-    std::vector<std::string>      &option_lines
+    const ap::subcommand_template    &subcommand,
+    const ap::posix_help_format      &format,
+    ap::measured_string              &current_line,
+    std::vector<ap::measured_string> &option_lines
 )
 {
     add_names(subcommand.names, format.subcommand_separator,
         format.pad_subcommand, format.option_n_subcommand_width, current_line,
-        current_line_size, option_lines,
-        [&](std::size_t, const std::string &name)
+        option_lines, [&](std::size_t, const std::string &name)
     {
-        return format.subcommand_style(name);
-    },
-        [&](std::size_t, const std::string &name)
-    {
-        return name.size();
+        return ap::measured_string(format.subcommand_style, name);
     });
 }
 
 /**
  *  @brief  Helper to add subcommand names to option_line.
  *
- *  @param  subcommand         Subcommand.
- *  @param  format             Microsoft-style format.
- *  @param  current_line       Current option line (local variable).
- *  @param  current_line_size  Current option line size (local variable).
- *  @param  option_lines       All option lines (local variable).
+ *  @param  subcommand         The subcommand.
+ *  @param  format             A Microsoft-style format.
+ *  @param  current_line       The current option line (local variable).
+ *  @param  option_lines       All the option lines (local variable).
  */
 static inline constexpr auto add_subcommand_names(
-    const ap::subcommand_template   &subcommand,
-    const ap::microsoft_help_format &format,
-    std::string                     &current_line,
-    std::size_t                     &current_line_size,
-    std::vector<std::string>        &option_lines
+    const ap::subcommand_template    &subcommand,
+    const ap::microsoft_help_format  &format,
+    ap::measured_string              &current_line,
+    std::vector<ap::measured_string> &option_lines
 )
 {
     add_names(subcommand.names, format.subcommand_separator,
         format.pad_subcommand, format.switch_n_subcommand_width, current_line,
-        current_line_size, option_lines,
-        [&](std::size_t, const std::string &name)
+        option_lines, [&](std::size_t, const std::string &name)
     {
-        return format.subcommand_style(name);
-    },
-        [&](std::size_t, const std::string &name)
-    {
-        return name.size();
+        return ap::measured_string(format.subcommand_style, name);
     });
 }
 
 /**
  *  @brief  Abstract helper to get formatted parameter name.
  *
- *  @param  i                            Current element index.
- *  @param  parameter                    Current element.
- *  @param  parameters_size              All parameters size.
- *  @param  defaults_size                Default values size.
- *  @param  optional_parameter_enclose   Encloser for optional parameter.
- *  @param  mandatory_parameter_enclose  Encloser for mandatory parameter.
- *  @param  parameter_prefix_first       Prefix for first parameter.
- *  @param  parameter_prefix             Prefix for rest of the parameters.
- *  @param  enclose_before_prefix        Enclose before appending prefix.
+ *  @param  i                      The current parameter index.
+ *  @param  parameter              The current parameter.
+ *  @param  parameters_count       The number of parameters.
+ *  @param  defaults_count         The number of default values.
+ *  @param  optional_enclose       An encloser for optional parameter.
+ *  @param  mandatory_enclose      An encloser for mandatory parameter.
+ *  @param  prefix_first           A prefix for first parameter.
+ *  @param  prefix                 A prefix for rest of the parameters.
+ *  @param  enclose_before_prefix  Whether to enclose before appending prefix.
  *  @return  Formatted parameter name.
  */
 [[nodiscard]] static inline constexpr auto parameter_name_adder(
-    std::size_t        i,
-    const std::string &parameter,
-    std::size_t        parameters_size,
-    std::size_t        defaults_size,
-    ap::help_enclose_t optional_parameter_enclose,
-    ap::help_enclose_t mandatory_parameter_enclose,
-    ap::help_combo_t   parameter_prefix_first,
-    ap::help_combo_t   parameter_prefix,
-    bool               enclose_before_prefix
+    std::size_t          i,
+    const std::string   &parameter,
+    std::size_t          parameters_count,
+    std::size_t          defaults_count,
+    ap::styled_enclosure optional_enclose,
+    ap::styled_enclosure mandatory_enclose,
+    ap::styled_text      prefix_first,
+    ap::styled_text      prefix,
+    bool                 enclose_before_prefix
 )
 {
-    bool is_optional = parameters_size - defaults_size < i + 1;
+    bool is_optional = parameters_count - defaults_count < i + 1;
 
-    ap::help_enclose_t encloser = {};
-    if (is_optional) encloser = optional_parameter_enclose;
-    else encloser = mandatory_parameter_enclose;
+    ap::styled_enclosure encloser = {};
+    if (is_optional) encloser = optional_enclose;
+    else encloser = mandatory_enclose;
 
-    ap::help_combo_t prefix = {};
-    if (i == 0) prefix = parameter_prefix_first;
-    else prefix = parameter_prefix;
+    ap::styled_text actual_prefix = {};
+    if (i == 0) actual_prefix = prefix_first;
+    else actual_prefix = prefix;
 
     if (enclose_before_prefix)
     {
-        return prefix.style(prefix.value)
-             + encloser.prefix.style(encloser.prefix.value)
-             + encloser.value_style(parameter)
-             + encloser.suffix.style(encloser.suffix.value);
+        return ap::measured_string(prefix.style, prefix.value)
+             + ap::measured_string(encloser.prefix.style, encloser.prefix.value)
+             + ap::measured_string(encloser.value_style, parameter)
+             + ap::measured_string(encloser.suffix.style,
+            encloser.suffix.value);
     }
     else
     {
-        return encloser.prefix.style(encloser.prefix.value)
-             + prefix.style(prefix.value)
-             + encloser.value_style(parameter)
-             + encloser.suffix.style(encloser.suffix.value);
+        return ap::measured_string(encloser.prefix.style, encloser.prefix.value)
+             + ap::measured_string(prefix.style, prefix.value)
+             + ap::measured_string(encloser.value_style, parameter)
+             + ap::measured_string(encloser.suffix.style,
+            encloser.suffix.value);
     }
 }
 
 /**
- *  @brief  Abstract helper to get size of formatted parameter name.
- *
- *  @param  i                            Current element index.
- *  @param  parameter                    Current element.
- *  @param  parameters_size              All parameters size.
- *  @param  defaults_size                Default values size.
- *  @param  optional_parameter_enclose   Encloser for optional parameter.
- *  @param  mandatory_parameter_enclose  Encloser for mandatory parameter.
- *  @param  parameter_prefix_first       Prefix for first parameter.
- *  @param  parameter_prefix             Prefix for rest of the parameters.
- *  @return  Size of formatted parameter name.
- */
-static inline constexpr auto parameter_name_adder_size(
-    std::size_t        i,
-    const std::string &parameter,
-    std::size_t        parameters_size,
-    std::size_t        defaults_size,
-    ap::help_enclose_t optional_parameter_enclose,
-    ap::help_enclose_t mandatory_parameter_enclose,
-    ap::help_combo_t   parameter_prefix_first,
-    ap::help_combo_t   parameter_prefix
-)
-{
-    bool is_optional = parameters_size - defaults_size < i + 1;
-
-    ap::help_enclose_t encloser = {};
-    if (is_optional) encloser = optional_parameter_enclose;
-    else encloser = mandatory_parameter_enclose;
-
-    ap::help_combo_t prefix = {};
-    if (i == 0) prefix = parameter_prefix_first;
-    else prefix = parameter_prefix;
-
-    return prefix.value.size()
-         + encloser.prefix.value.size()
-         + parameter.size()
-         + encloser.suffix.value.size();
-}
-
-/**
  *  @brief  Helper to add parameter names to option_line.
  *
- *  @param  option             Option.
- *  @param  format             POSIX-style format.
- *  @param  current_line       Current option line (local variable).
- *  @param  current_line_size  Current option line size (local variable).
- *  @param  option_lines       All option lines (local variable).
+ *  @param  option             An option.
+ *  @param  format             A POSIX-style format.
+ *  @param  current_line       The current option line (local variable).
+ *  @param  option_lines       All the option lines (local variable).
  */
 static inline constexpr auto add_parameter_names(
-    const ap::option_template   &option,
-    const ap::posix_help_format &format,
-    std::string                 &current_line,
-    std::size_t                 &current_line_size,
-    std::vector<std::string>    &option_lines
+    const ap::option_template        &option,
+    const ap::posix_help_format      &format,
+    ap::measured_string              &current_line,
+    std::vector<ap::measured_string> &option_lines
 )
 {
     add_names(option.parameters, format.parameter_separator,
         format.pad_parameters_wrapped, format.option_n_subcommand_width,
-        current_line, current_line_size, option_lines,
+        current_line, option_lines,
         [&](std::size_t i, const std::string &parameter)
     {
         return parameter_name_adder(i, parameter, option.parameters.size(),
             option.defaults_from_back.size(), format.optional_parameter_enclose,
             format.mandatory_parameter_enclose, format.parameter_prefix_first,
             format.parameter_prefix, format.enclose_before_prefix);
-    },
-        [&](std::size_t i, const std::string &parameter)
-    {
-        return parameter_name_adder_size(i, parameter, option.parameters.size(),
-            option.defaults_from_back.size(), format.optional_parameter_enclose,
-            format.mandatory_parameter_enclose, format.parameter_prefix_first,
-            format.parameter_prefix);
     });
 }
 
 /**
  *  @brief  Helper to add parameter names to option_line.
  *
- *  @param  option             Option.
- *  @param  format             Microsoft-style format.
- *  @param  current_line       Current option line (local variable).
- *  @param  current_line_size  Current option line size (local variable).
- *  @param  option_lines       All option lines (local variable).
+ *  @param  option             An option.
+ *  @param  format             A Microsoft-style format.
+ *  @param  current_line       The current option line (local variable).
+ *  @param  option_lines       All the option lines (local variable).
  */
 static inline constexpr auto add_parameter_names(
-    const ap::option_template       &option,
-    const ap::microsoft_help_format &format,
-    std::string                     &current_line,
-    std::size_t                     &current_line_size,
-    std::vector<std::string>        &option_lines
+    const ap::option_template        &option,
+    const ap::microsoft_help_format  &format,
+    ap::measured_string              &current_line,
+    std::vector<ap::measured_string> &option_lines
 )
 {
     add_names(option.parameters, format.parameter_separator,
         format.pad_parameters_wrapped, format.switch_n_subcommand_width,
-        current_line, current_line_size, option_lines,
+        current_line, option_lines,
         [&](std::size_t i, const std::string &parameter)
     {
         return parameter_name_adder(i, parameter, option.parameters.size(),
             option.defaults_from_back.size(), format.optional_parameter_enclose,
             format.mandatory_parameter_enclose, format.parameter_prefix_first,
             format.parameter_prefix, format.enclose_before_prefix);
-    },
-        [&](std::size_t i, const std::string &parameter)
-    {
-        return parameter_name_adder_size(i, parameter, option.parameters.size(),
-            option.defaults_from_back.size(), format.optional_parameter_enclose,
-            format.mandatory_parameter_enclose, format.parameter_prefix_first,
-            format.parameter_prefix);
     });
 }
 
 /**
  *  @brief  Helper to add parameter names to option_line.
  *
- *  @param  subcommand         Subcommand.
- *  @param  format             POSIX-style format.
- *  @param  current_line       Current option line (local variable).
- *  @param  current_line_size  Current option line size (local variable).
- *  @param  option_lines       All option lines (local variable).
+ *  @param  subcommand         The subcommand.
+ *  @param  format             A POSIX-style format.
+ *  @param  current_line       The current option line (local variable).
+ *  @param  option_lines       All the option lines (local variable).
  */
 static inline constexpr auto add_parameter_names(
-    const ap::subcommand_template &subcommand,
-    const ap::posix_help_format   &format,
-    std::string                   &current_line,
-    std::size_t                   &current_line_size,
-    std::vector<std::string>      &option_lines
+    const ap::subcommand_template    &subcommand,
+    const ap::posix_help_format      &format,
+    ap::measured_string              &current_line,
+    std::vector<ap::measured_string> &option_lines
 )
 {
     add_names(subcommand.parameters, format.parameter_separator,
         format.pad_parameters_wrapped, format.option_n_subcommand_width,
-        current_line, current_line_size, option_lines,
+        current_line, option_lines,
         [&](std::size_t i, const std::string &parameter)
     {
         return parameter_name_adder(i, parameter, subcommand.parameters.size(),
@@ -1223,37 +1053,27 @@ static inline constexpr auto add_parameter_names(
             format.optional_parameter_enclose,
             format.mandatory_parameter_enclose, format.parameter_prefix_first,
             format.parameter_prefix, format.enclose_before_prefix);
-    },
-        [&](std::size_t i, const std::string &parameter)
-    {
-        return parameter_name_adder_size(i, parameter,
-            subcommand.parameters.size(), subcommand.defaults_from_back.size(),
-            format.optional_parameter_enclose,
-            format.mandatory_parameter_enclose, format.parameter_prefix_first,
-            format.parameter_prefix);
     });
 }
 
 /**
  *  @brief  Helper to add parameter names to option_line.
  *
- *  @param  subcommand         Subcommand.
- *  @param  format             Microsoft-style format.
- *  @param  current_line       Current option line (local variable).
- *  @param  current_line_size  Current option line size (local variable).
- *  @param  option_lines       All option lines (local variable).
+ *  @param  subcommand         The subcommand.
+ *  @param  format             A Microsoft-style format.
+ *  @param  current_line       The current option line (local variable).
+ *  @param  option_lines       All the option lines (local variable).
  */
 static inline constexpr auto add_parameter_names(
-    const ap::subcommand_template   &subcommand,
-    const ap::microsoft_help_format &format,
-    std::string                     &current_line,
-    std::size_t                     &current_line_size,
-    std::vector<std::string>        &option_lines
+    const ap::subcommand_template    &subcommand,
+    const ap::microsoft_help_format  &format,
+    ap::measured_string              &current_line,
+    std::vector<ap::measured_string> &option_lines
 )
 {
     add_names(subcommand.parameters, format.parameter_separator,
         format.pad_parameters_wrapped, format.switch_n_subcommand_width,
-        current_line, current_line_size, option_lines,
+        current_line, option_lines,
         [&](std::size_t i, const std::string &parameter)
     {
         return parameter_name_adder(i, parameter, subcommand.parameters.size(),
@@ -1261,46 +1081,37 @@ static inline constexpr auto add_parameter_names(
             format.optional_parameter_enclose,
             format.mandatory_parameter_enclose, format.parameter_prefix_first,
             format.parameter_prefix, format.enclose_before_prefix);
-    },
-        [&](std::size_t i, const std::string &parameter)
-    {
-        return parameter_name_adder_size(i, parameter,
-            subcommand.parameters.size(), subcommand.defaults_from_back.size(),
-            format.optional_parameter_enclose,
-            format.mandatory_parameter_enclose, format.parameter_prefix_first,
-            format.parameter_prefix);
     });
 }
 
 /**
  *  @brief  Helper to combine option_line and description text.
  *
- *  @param  description              Description text.
- *  @param  description_width        Wrap description at width.
- *  @param  n_subcommand_width       Option/Switch and Subcommand's total width.
- *  @param  pad_description          Description first line padding.
- *  @param  pad_description_wrapped  Wrapped description padding.
- *  @param  option_lines             Option lines (local variable).
- *  @param  result                   Overall result (local variable).
+ *  @param  desc              The description text.
+ *  @param  desc_wrap_width   The width to wrap description at.
+ *  @param  ons_width         All option/switch and subcommand's total width.
+ *  @param  pad_desc          The padding for first line of description.
+ *  @param  pad_desc_wrapped  The padding for wrapped lines of description.
+ *  @param  option_lines      All the option lines (local variable).
+ *  @return  @c std::vector<std::string> of lines after combining.
  */
 static inline constexpr auto combine_option_description(
-    std::string               description,
-    std::size_t               description_width,
-    std::size_t               n_subcommand_width,
-    ap::help_pad_t            pad_description,
-    ap::help_pad_t            pad_description_wrapped,
-    std::vector<std::string> &option_lines,
-    std::vector<std::string> &result
+    std::string                       desc,
+    std::size_t                       desc_wrap_width,
+    std::size_t                       ons_width,
+    ap::styled_padding                pad_desc,
+    ap::styled_padding                pad_desc_wrapped,
+    std::vector<ap::measured_string> &option_lines
 )
 {
-    auto wrapped_description = sm::word_wrap(description,
-        description_width);
+    std::vector<std::string> result = {};
+    auto wrapped_desc = sm::word_wrap(desc, desc_wrap_width);
 
-    std::size_t description_line_offset = 0;
-    if (n_subcommand_width > pad_description.size && !option_lines.empty())
+    bool offset_by_one = false;
+    if (ons_width > pad_desc.width && !option_lines.empty())
     {
-        description_line_offset = option_lines.size()
-            - option_lines.back().size() <= pad_description.size;
+        offset_by_one = option_lines.size() - option_lines.back().size
+                     <= pad_desc.width;
     }
 
     // Add description and option lines
@@ -1308,83 +1119,77 @@ static inline constexpr auto combine_option_description(
     std::size_t i = 0;
     for (; i < option_lines.size(); i++)
     {
-        std::string line = option_lines[i];
+        std::string line = option_lines[i].string;
 
-        std::size_t j = i - description_line_offset;
+        std::size_t j = i - offset_by_one;
         if (j == 0)
         {
-            line += padding_string(pad_description, line.size());
-            line += wrapped_description.front();
+            line += pad_desc.str(line.size());
+            line += wrapped_desc.front();
         }
-        else if (j < wrapped_description.size())
+        else if (j < wrapped_desc.size())
         {
-            line += padding_string(pad_description_wrapped, line.size());
-            line += wrapped_description[j];
+            line += pad_desc_wrapped.str(line.size());
+            line += wrapped_desc[j];
         }
         result.emplace_back(line);
     }
 
     // Add description if option lines ended before description lines
-    for (std::size_t j = i - description_line_offset;
-         j < wrapped_description.size(); i++, j++)
+    for (std::size_t j = i - offset_by_one; j < wrapped_desc.size(); i++, j++)
     {
         std::string line = "";
-        line += padding_string(pad_description_wrapped, line.size());
-        line += wrapped_description[j];
+        line += pad_desc_wrapped.str(line.size());
+        line += wrapped_desc[j];
         result.emplace_back(line);
     }
+
+    return result;
 }
 
 /**
  *  @brief  Generate help message string from option and POSIX-style format.
  *
- *  @param  option  Option.
- *  @param  format  POSIX-style format.
- *  @return  Vector of string for each line.
+ *  @param  option  An option.
+ *  @param  format  A POSIX-style format.
+ *  @return  @c std::vector<std::string> for each line.
  */
 [[nodiscard]] auto ap::get_help_message(
     const option_template &option,
     posix_help_format      format
 ) -> std::vector<std::string>
 {
-    std::vector<std::string> result       = {};
-    std::vector<std::string> option_lines = {};
-
-    std::string current_line      = "";
-    std::size_t current_line_size = 0;
+    std::vector<std::string>         result       = {};
+    std::vector<ap::measured_string> option_lines = {};
+    ap::measured_string current_line = {};
 
     // Whichever first
     if (format.long_names_first)
     {
-        add_long_names(option, format, current_line, current_line_size,
-            option_lines);
+        add_long_names(option, format, current_line, option_lines);
 
-        current_line += format.short_n_long_name_separator.style(
+        current_line += ap::measured_string(
+            format.short_n_long_name_separator.style,
             format.short_n_long_name_separator.value);
-        current_line_size += format.short_n_long_name_separator.value.size();
 
-        add_short_names(option, format, current_line, current_line_size,
-            option_lines);
+        add_short_names(option, format, current_line, option_lines);
     }
     else
     {
-        add_short_names(option, format, current_line, current_line_size,
-            option_lines);
+        add_short_names(option, format, current_line, option_lines);
 
-        current_line += format.short_n_long_name_separator.style(
+        current_line += ap::measured_string(
+            format.short_n_long_name_separator.style,
             format.short_n_long_name_separator.value);
-        current_line_size += format.short_n_long_name_separator.value.size();
 
-        add_long_names(option, format, current_line, current_line_size,
-            option_lines);
+        add_long_names(option, format, current_line, option_lines);
     }
 
-    add_parameter_names(option, format, current_line, current_line_size,
-        option_lines);
+    add_parameter_names(option, format, current_line, option_lines);
 
-    combine_option_description(option.description, format.description_width,
-        format.option_n_subcommand_width, format.pad_description,
-        format.pad_description_wrapped, option_lines, result);
+    result = combine_option_description(option.description,
+        format.description_width, format.option_n_subcommand_width,
+        format.pad_description, format.pad_description_wrapped, option_lines);
 
     return result;
 }
@@ -1392,30 +1197,26 @@ static inline constexpr auto combine_option_description(
 /**
  *  @brief  Generate help message string from subcommand and POSIX-style format.
  *
- *  @param  subcommand  Subcommand.
- *  @param  format      POSIX-style format.
- *  @return  Vector of string for each line.
+ *  @param  subcommand  The subcommand.
+ *  @param  format      A POSIX-style format.
+ *  @return  @c std::vector<std::string> for each line.
  */
 [[nodiscard]] auto ap::get_help_message(
     const subcommand_template &subcommand,
     posix_help_format          format
 ) -> std::vector<std::string>
 {
-    std::vector<std::string> result       = {};
-    std::vector<std::string> option_lines = {};
+    std::vector<std::string>         result       = {};
+    std::vector<ap::measured_string> option_lines = {};
+    ap::measured_string current_line = {};
 
-    std::string current_line      = "";
-    std::size_t current_line_size = 0;
+    add_subcommand_names(subcommand, format, current_line, option_lines);
 
-    add_subcommand_names(subcommand, format, current_line, current_line_size,
-        option_lines);
+    add_parameter_names(subcommand, format, current_line, option_lines);
 
-    add_parameter_names(subcommand, format, current_line, current_line_size,
-        option_lines);
-
-    combine_option_description(subcommand.description, format.description_width,
-        format.option_n_subcommand_width, format.pad_description,
-        format.pad_description_wrapped, option_lines, result);
+    result = combine_option_description(subcommand.description,
+        format.description_width, format.option_n_subcommand_width,
+        format.pad_description, format.pad_description_wrapped, option_lines);
 
     return result;
 }
@@ -1424,30 +1225,26 @@ static inline constexpr auto combine_option_description(
  *  @brief  Generate help message string from option (switch) and
  *          Microsoft-style format.
  *
- *  @param  option  Option.
- *  @param  format  Microsoft-style format.
- *  @return  Vector of string for each line.
+ *  @param  option  An option.
+ *  @param  format  A Microsoft-style format.
+ *  @return  @c std::vector<std::string> for each line.
  */
 [[nodiscard]] auto ap::get_help_message(
     const option_template &option,
     microsoft_help_format  format
 ) -> std::vector<std::string>
 {
-    std::vector<std::string> result       = {};
-    std::vector<std::string> option_lines = {};
+    std::vector<std::string>         result       = {};
+    std::vector<ap::measured_string> option_lines = {};
+    ap::measured_string current_line = {};
 
-    std::string current_line      = "";
-    std::size_t current_line_size = 0;
+    add_microsoft_switches(option, format, current_line, option_lines);
 
-    add_microsoft_switches(option, format, current_line, current_line_size,
-        option_lines);
+    add_parameter_names(option, format, current_line, option_lines);
 
-    add_parameter_names(option, format, current_line, current_line_size,
-        option_lines);
-
-    combine_option_description(option.description, format.description_width,
-        format.switch_n_subcommand_width, format.pad_description,
-        format.pad_description_wrapped, option_lines, result);
+    result = combine_option_description(option.description,
+        format.description_width, format.switch_n_subcommand_width,
+        format.pad_description, format.pad_description_wrapped, option_lines);
 
     return result;
 }
@@ -1456,30 +1253,26 @@ static inline constexpr auto combine_option_description(
  *  @brief  Generate help message string from subcommand and Microsoft-style
  *          format.
  *
- *  @param  subcommand  Subcommand.
- *  @param  format      Microsoft-style format.
- *  @return  Vector of string for each line.
+ *  @param  subcommand  The subcommand.
+ *  @param  format      A Microsoft-style format.
+ *  @return  @c std::vector<std::string> for each line.
  */
 [[nodiscard]] auto ap::get_help_message(
     const subcommand_template &subcommand,
     microsoft_help_format      format
 ) -> std::vector<std::string>
 {
-    std::vector<std::string> result       = {};
-    std::vector<std::string> option_lines = {};
+    std::vector<std::string>         result       = {};
+    std::vector<ap::measured_string> option_lines = {};
+    ap::measured_string current_line = {};
 
-    std::string current_line      = "";
-    std::size_t current_line_size = 0;
+    add_subcommand_names(subcommand, format, current_line, option_lines);
 
-    add_subcommand_names(subcommand, format, current_line, current_line_size,
-        option_lines);
+    add_parameter_names(subcommand, format, current_line, option_lines);
 
-    add_parameter_names(subcommand, format, current_line, current_line_size,
-        option_lines);
-
-    combine_option_description(subcommand.description, format.description_width,
-        format.switch_n_subcommand_width, format.pad_description,
-        format.pad_description_wrapped, option_lines, result);
+    result = combine_option_description(subcommand.description,
+        format.description_width, format.switch_n_subcommand_width,
+        format.pad_description, format.pad_description_wrapped, option_lines);
 
     return result;
 }

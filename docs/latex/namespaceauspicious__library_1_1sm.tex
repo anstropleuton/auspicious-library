@@ -5,6 +5,16 @@
 String Manipulators.  
 
 
+\doxysubsubsection*{Concepts}
+\begin{DoxyCompactItemize}
+\item 
+concept \mbox{\hyperlink{conceptauspicious__library_1_1sm_1_1sm__compatible}{sm\+\_\+compatible}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ae5e68b09b89152e03842b8c0a0028f5f}{result\+\_\+string\+\_\+nested}} = std\+::vector$<$std\+::string$>$
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -41,11 +51,40 @@ constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ae91f1d7fc07d
 constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_aae67781b035e596bb886e7980aae5863}{is\+\_\+equal\+\_\+ins}} (std\+::string\+\_\+view a, std\+::string\+\_\+view b)
 \begin{DoxyCompactList}\small\item\em Compare string, case insensitivity. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a317943d42d623b6e8daa2de8fed89a64}{is\+\_\+equal\+\_\+ins}} (char a, char b)
-\begin{DoxyCompactList}\small\item\em Compare character, case insensitivity (exists for consistency). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Compare character, case insensitivity (exists for consistency). \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a22ca7926c4634482cb23d63564e79143}{filter\+\_\+out\+\_\+seq}} (std\+::string\+\_\+view string, std\+::string\+\_\+view pattern)
+\begin{DoxyCompactList}\small\item\em Filter out the occurrences of sequence from the string. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a7f359e194344f49c506c6c3d29f1e458}{filter\+\_\+out\+\_\+occ}} (std\+::string\+\_\+view string, std\+::string\+\_\+view characters)
+\begin{DoxyCompactList}\small\item\em Filter out the occurrences of any of characters from the string. \end{DoxyCompactList}\item 
+{\footnotesize template$<$sm\+\_\+compatible Strings$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a6b80e12541f7b76d1d15d14be2bcee9a}{filter\+\_\+out\+\_\+occ\+\_\+seq}} (std\+::string\+\_\+view string, const Strings \&patterns)
+\begin{DoxyCompactList}\small\item\em Filter out the occurrences of any of sequences from the string. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a62f8598e9739e2594d516db8f8d7b9f6}{filter\+\_\+out}} (std\+::string\+\_\+view string, char character)
+\begin{DoxyCompactList}\small\item\em Filter out the occurrences of character from the string. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad690389f2fb57f67873923c62be4805c}{repeat}} (std\+::string\+\_\+view string, std\+::size\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Repeat string {\ttfamily n} times. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a58a21b34af1c52495469cf5c96bf36e3}{repeat}} (std\+::string\+\_\+view string, long double n)
+\begin{DoxyCompactList}\small\item\em Repeat string {\ttfamily n} times. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ac1ae37388aa1aaac0bedc25f353b3092}{split\+\_\+seq}} (std\+::string\+\_\+view string, std\+::string\+\_\+view pattern)
+\begin{DoxyCompactList}\small\item\em Split the string with pattern. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a37cacfd93ff6f2ceb3a556026791df73}{split\+\_\+occ}} (std\+::string\+\_\+view string, std\+::string\+\_\+view characters)
+\begin{DoxyCompactList}\small\item\em Split the string with occurrences of value. \end{DoxyCompactList}\item 
+{\footnotesize template$<$sm\+\_\+compatible Strings$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a12f6442f3f2e83c922896cdaf3ca325c}{split\+\_\+occ\+\_\+seq}} (std\+::string\+\_\+view string, const Strings \&patterns)
+\begin{DoxyCompactList}\small\item\em Split the string with occurrences of any of pattern. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ae64d11727ab3db9d0631321bd293de2b}{split}} (std\+::string\+\_\+view string, char character)
+\begin{DoxyCompactList}\small\item\em Split the string with value. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 String Manipulators. 
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{namespaceauspicious__library_1_1sm_ae5e68b09b89152e03842b8c0a0028f5f}\index{auspicious\_library::sm@{auspicious\_library::sm}!result\_string\_nested@{result\_string\_nested}}
+\index{result\_string\_nested@{result\_string\_nested}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{result\_string\_nested}{result\_string\_nested}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_ae5e68b09b89152e03842b8c0a0028f5f} 
+using \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ae5e68b09b89152e03842b8c0a0028f5f}{auspicious\+\_\+library\+::sm\+::result\+\_\+string\+\_\+nested}} = std\+::vector$<$std\+::string$>$}
+
+
 
 \doxysubsection{Function Documentation}
 \Hypertarget{namespaceauspicious__library_1_1sm_af4d2d6d72a9c765f4fe02a0462d35bcf}\index{auspicious\_library::sm@{auspicious\_library::sm}!to\_string@{to\_string}}
@@ -62,22 +101,22 @@ Convert a container to comma separated string.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
-{\em Converter} & Element conversion function type. \\
+{\em Converter} & The type of element stringify function. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
 {\em converter} & Element conversion function. \\
 \hline
-{\em separator} & Separator between elements (optional). \\
+{\em separator} & The separator between elements (optional). \\
 \hline
-{\em prefix} & Prefix to the element (optional). \\
+{\em prefix} & The prefix to the element (optional). \\
 \hline
-{\em suffix} & Suffix to the element (optional). \\
+{\em suffix} & The suffix to the element (optional). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -87,7 +126,7 @@ String representation of all elements.
 The string is comma AND space separated by default. 
 \end{DoxyNote}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000007}{Todo}}]Remove this cast when C++26 comes out. \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000010}{Todo}}]Remove this cast when C++26 comes out. \end{DoxyRefDesc}
 \Hypertarget{namespaceauspicious__library_1_1sm_a5c493accfab65d14254ca1d979d95951}\index{auspicious\_library::sm@{auspicious\_library::sm}!to\_string@{to\_string}}
 \index{to\_string@{to\_string}!auspicious\_library::sm@{auspicious\_library::sm}}
 \doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
@@ -101,18 +140,18 @@ Convert a container to comma separated string.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em separator} & Separator between elements (optional). \\
+{\em separator} & The separator between elements (optional). \\
 \hline
-{\em prefix} & Prefix to the element (optional). \\
+{\em prefix} & The prefix to the element (optional). \\
 \hline
-{\em suffix} & Suffix to the element (optional). \\
+{\em suffix} & The suffix to the element (optional). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -135,18 +174,18 @@ Convert a container of char to string with single-\/quoted elements separated by
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em separator} & Separator between elements (optional). \\
+{\em separator} & The separator between elements (optional). \\
 \hline
-{\em prefix} & Prefix to the element (optional). \\
+{\em prefix} & The prefix to the element (optional). \\
 \hline
-{\em suffix} & Suffix to the element (optional). \\
+{\em suffix} & The suffix to the element (optional). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -169,18 +208,18 @@ Convert a container of {\ttfamily std\+::string} to string with double-\/quoted 
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type. \\
+{\em Container} & A compatible container type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
-{\em separator} & Separator between elements (optional). \\
+{\em separator} & The separator between elements (optional). \\
 \hline
-{\em prefix} & Prefix to the element (optional). \\
+{\em prefix} & The prefix to the element (optional). \\
 \hline
-{\em suffix} & Suffix to the element (optional). \\
+{\em suffix} & The suffix to the element (optional). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -203,12 +242,12 @@ Convert a container of char to a regular string.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Container} & Compatible container type with char element type. \\
+{\em Container} & A compatible container type with char element type. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em container} & Container. \\
+{\em container} & A container. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -225,24 +264,24 @@ auto auspicious\+\_\+library\+::sm\+::word\+\_\+wrap (\begin{DoxyParamCaption}\i
 Word-\/wrap a string at width or before width depending on the delim. 
 
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000008}{Todo}}]Add to\+\_\+string for std\+::string and char for consistency. \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000011}{Todo}}]Add to\+\_\+string for std\+::string and char for consistency. \end{DoxyRefDesc}
 
 
 The string is tried to be split at the width if the character at the width is one of the delimiter. If not, the split occurs at the character before the width that is one of the delimiter. This process is repeated until the string is less than the size of width. If a word is longer than the specified width, the word is kept as is. If you use force, the word will be split.
 
 
 \begin{DoxyParams}{Parameters}
-{\em string} & String to word-\/wrap. \\
+{\em string} & A string to word-\/wrap. \\
 \hline
-{\em width} & Word-\/wrap width. \\
+{\em width} & The max word-\/wrap width. \\
 \hline
-{\em force} & Force the string to always be less than or equal to width (optional). \\
+{\em force} & Whether to force the string to always be less than or equal to the width (optional). \\
 \hline
-{\em delims} & Delimiters, usually whitespace (optional). \\
+{\em delims} & The delimiters, usually whitespace (optional). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-std\+::vector of word-\/wrapped lines.
+{\ttfamily result\+\_\+string\+\_\+nested} of word-\/wrapped lines.
 \end{DoxyReturn}
 \begin{DoxyNote}{Note}
 word-\/wrapped lines can be larger than width. 
@@ -259,9 +298,9 @@ Trim a string (only from left side) using delimiters (usually whitespace).
 
 
 \begin{DoxyParams}{Parameters}
-{\em string} & String to trim from left. \\
+{\em string} & A string to trim from left. \\
 \hline
-{\em delims} & Delimiters, usually whitespace (optional). \\
+{\em delims} & The delimiters, usually whitespace (optional). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -279,9 +318,9 @@ Trim a string (only from right side) using delimiters (usually whitespace).
 
 
 \begin{DoxyParams}{Parameters}
-{\em string} & String to trim from right. \\
+{\em string} & A string to trim from right. \\
 \hline
-{\em delims} & Delimiters, usually whitespace (optional). \\
+{\em delims} & The delimiters, usually whitespace (optional). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -299,9 +338,9 @@ Trim a string using delimiters (usually whitespace).
 
 
 \begin{DoxyParams}{Parameters}
-{\em string} & String to trim. \\
+{\em string} & A string to trim. \\
 \hline
-{\em delims} & Delimiters, usually whitespace (optional). \\
+{\em delims} & The delimiters, usually whitespace (optional). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -319,7 +358,7 @@ Convert string to uppercase.
 
 
 \begin{DoxyParams}{Parameters}
-{\em string} & String to convert. \\
+{\em string} & A string to convert. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -337,7 +376,7 @@ Convert string to lowercase.
 
 
 \begin{DoxyParams}{Parameters}
-{\em string} & String to convert. \\
+{\em string} & A string to convert. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -355,7 +394,7 @@ Convert character to uppercase (exists for consistency).
 
 
 \begin{DoxyParams}{Parameters}
-{\em character} & Character to convert. \\
+{\em character} & A character to convert. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -373,7 +412,7 @@ Convert character to lowercase (exists for consistency).
 
 
 \begin{DoxyParams}{Parameters}
-{\em character} & Character to convert. \\
+{\em character} & A character to convert. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -391,9 +430,9 @@ Compare string, case insensitivity.
 
 
 \begin{DoxyParams}{Parameters}
-{\em a} & First string. \\
+{\em a} & The first string. \\
 \hline
-{\em b} & Second string. \\
+{\em b} & The second string. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -411,11 +450,253 @@ Compare character, case insensitivity (exists for consistency).
 
 
 \begin{DoxyParams}{Parameters}
-{\em a} & First character. \\
+{\em a} & The first character. \\
 \hline
-{\em b} & Second character. \\
+{\em b} & The second character. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 True if they are equal, case insensitively. 
 \end{DoxyReturn}
+\Hypertarget{namespaceauspicious__library_1_1sm_a22ca7926c4634482cb23d63564e79143}\index{auspicious\_library::sm@{auspicious\_library::sm}!filter\_out\_seq@{filter\_out\_seq}}
+\index{filter\_out\_seq@{filter\_out\_seq}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{filter\_out\_seq()}{filter\_out\_seq()}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a22ca7926c4634482cb23d63564e79143} 
+auto auspicious\+\_\+library\+::sm\+::filter\+\_\+out\+\_\+seq (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{std\+::string\+\_\+view}]{pattern}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Filter out the occurrences of sequence from the string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A string. \\
+\hline
+{\em pattern} & A sequence to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Filtered string as {\ttfamily std\+::string} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_a28c9c721c79f51cbf14c0c9c9e020293}{cu\+::filter\+\_\+out\+\_\+seq}. 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1sm_a7f359e194344f49c506c6c3d29f1e458}\index{auspicious\_library::sm@{auspicious\_library::sm}!filter\_out\_occ@{filter\_out\_occ}}
+\index{filter\_out\_occ@{filter\_out\_occ}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{filter\_out\_occ()}{filter\_out\_occ()}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a7f359e194344f49c506c6c3d29f1e458} 
+auto auspicious\+\_\+library\+::sm\+::filter\+\_\+out\+\_\+occ (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{std\+::string\+\_\+view}]{characters}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Filter out the occurrences of any of characters from the string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A string. \\
+\hline
+{\em characters} & The characters to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Filtered string as {\ttfamily std\+::string} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_a367b35bf13b81eac704c433070427e6d}{cu\+::filter\+\_\+out\+\_\+occ}. 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1sm_a6b80e12541f7b76d1d15d14be2bcee9a}\index{auspicious\_library::sm@{auspicious\_library::sm}!filter\_out\_occ\_seq@{filter\_out\_occ\_seq}}
+\index{filter\_out\_occ\_seq@{filter\_out\_occ\_seq}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{filter\_out\_occ\_seq()}{filter\_out\_occ\_seq()}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a6b80e12541f7b76d1d15d14be2bcee9a} 
+template$<$sm\+\_\+compatible Strings$>$ \\
+auto auspicious\+\_\+library\+::sm\+::filter\+\_\+out\+\_\+occ\+\_\+seq (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{const Strings \&}]{patterns}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Filter out the occurrences of any of sequences from the string. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Strings} & A CU compatible container with string elements. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A string. \\
+\hline
+{\em patterns} & The sequences to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Filtered string as {\ttfamily std\+::string} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_a0e0d8bbb85dbc2dcd3af2f255c9a0b39}{cu\+::filter\+\_\+out\+\_\+occ\+\_\+seq}. 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1sm_a62f8598e9739e2594d516db8f8d7b9f6}\index{auspicious\_library::sm@{auspicious\_library::sm}!filter\_out@{filter\_out}}
+\index{filter\_out@{filter\_out}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{filter\_out()}{filter\_out()}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a62f8598e9739e2594d516db8f8d7b9f6} 
+auto auspicious\+\_\+library\+::sm\+::filter\+\_\+out (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{char}]{character}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Filter out the occurrences of character from the string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A string. \\
+\hline
+{\em character} & A character to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Filtered string as {\ttfamily std\+::string} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_a3d0869d9e35bc3f395f91a5cbde0345e}{cu\+::filter\+\_\+out}. 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1sm_ad690389f2fb57f67873923c62be4805c}\index{auspicious\_library::sm@{auspicious\_library::sm}!repeat@{repeat}}
+\index{repeat@{repeat}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_ad690389f2fb57f67873923c62be4805c} 
+auto auspicious\+\_\+library\+::sm\+::repeat (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{std\+::size\+\_\+t}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Repeat string {\ttfamily n} times. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A string. \\
+\hline
+{\em n} & The number of times to repeat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Repeated string as {\ttfamily std\+::string} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{cu\+::repeat}. 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1sm_a58a21b34af1c52495469cf5c96bf36e3}\index{auspicious\_library::sm@{auspicious\_library::sm}!repeat@{repeat}}
+\index{repeat@{repeat}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a58a21b34af1c52495469cf5c96bf36e3} 
+auto auspicious\+\_\+library\+::sm\+::repeat (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{long double}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Repeat string {\ttfamily n} times. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A string. \\
+\hline
+{\em n} & The number of times to repeat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Repeated string as {\ttfamily std\+::string} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{cu\+::repeat}. 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1sm_ac1ae37388aa1aaac0bedc25f353b3092}\index{auspicious\_library::sm@{auspicious\_library::sm}!split\_seq@{split\_seq}}
+\index{split\_seq@{split\_seq}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{split\_seq()}{split\_seq()}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_ac1ae37388aa1aaac0bedc25f353b3092} 
+auto auspicious\+\_\+library\+::sm\+::split\+\_\+seq (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{std\+::string\+\_\+view}]{pattern}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Split the string with pattern. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A string. \\
+\hline
+{\em pattern} & A pattern to split with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Split string as {\ttfamily result\+\_\+string\+\_\+nested} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_a02a640ca3898e63a8338b562d23a6ca7}{cu\+::split\+\_\+seq}. 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1sm_a37cacfd93ff6f2ceb3a556026791df73}\index{auspicious\_library::sm@{auspicious\_library::sm}!split\_occ@{split\_occ}}
+\index{split\_occ@{split\_occ}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{split\_occ()}{split\_occ()}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a37cacfd93ff6f2ceb3a556026791df73} 
+auto auspicious\+\_\+library\+::sm\+::split\+\_\+occ (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{std\+::string\+\_\+view}]{characters}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Split the string with occurrences of value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A string. \\
+\hline
+{\em characters} & The characters to split with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Split string as {\ttfamily result\+\_\+string\+\_\+nested} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_acc1b463c87ef5ec1f72cd652c70f9b0d}{cu\+::split\+\_\+occ}. 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1sm_a12f6442f3f2e83c922896cdaf3ca325c}\index{auspicious\_library::sm@{auspicious\_library::sm}!split\_occ\_seq@{split\_occ\_seq}}
+\index{split\_occ\_seq@{split\_occ\_seq}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{split\_occ\_seq()}{split\_occ\_seq()}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a12f6442f3f2e83c922896cdaf3ca325c} 
+template$<$sm\+\_\+compatible Strings$>$ \\
+auto auspicious\+\_\+library\+::sm\+::split\+\_\+occ\+\_\+seq (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{const Strings \&}]{patterns}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Split the string with occurrences of any of pattern. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Strings} & A CU compatible string with string elements. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A string. \\
+\hline
+{\em patterns} & The patterns to split with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Split string as {\ttfamily result\+\_\+string\+\_\+nested} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_a7c2c97e55ed45d82a370ac456aac90a0}{cu\+::split\+\_\+occ\+\_\+seq}. 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1sm_ae64d11727ab3db9d0631321bd293de2b}\index{auspicious\_library::sm@{auspicious\_library::sm}!split@{split}}
+\index{split@{split}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_ae64d11727ab3db9d0631321bd293de2b} 
+auto auspicious\+\_\+library\+::sm\+::split (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{char}]{character}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Split the string with value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A string. \\
+\hline
+{\em value} & A value to split with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Split string as {\ttfamily result\+\_\+container\+\_\+nested} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_ab9f44279e734a8b0963ba9a1a1d805b9}{cu\+::split}. 
+\end{DoxySeeAlso}

@@ -51,6 +51,8 @@
 /**
  *  @brief  AP Test 11: Throw tests.
  *  @return  Number of errors.
+ *
+ *  @todo  Split these tests into even smaller functions.
  */
 [[nodiscard]] auto test_ap_11() -> std::size_t
 {
