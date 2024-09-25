@@ -6,7 +6,6 @@ var namespaceauspicious__library_1_1cu =
     [ "boundless_span", "structauspicious__library_1_1cu_1_1boundless__span.html", "structauspicious__library_1_1cu_1_1boundless__span" ],
     [ "boundless_vector", "structauspicious__library_1_1cu_1_1boundless__vector.html", "structauspicious__library_1_1cu_1_1boundless__vector" ],
     [ "enum_max", "structauspicious__library_1_1cu_1_1enum__max.html", null ],
-    [ "enum_value", "structauspicious__library_1_1cu_1_1enum__value.html", null ],
     [ "enumerated_array", "structauspicious__library_1_1cu_1_1enumerated__array.html", "structauspicious__library_1_1cu_1_1enumerated__array" ],
     [ "cu_compatible", "conceptauspicious__library_1_1cu_1_1cu__compatible.html", null ],
     [ "cu_compatible_nested", "conceptauspicious__library_1_1cu_1_1cu__compatible__nested.html", null ],
@@ -45,6 +44,5 @@ var namespaceauspicious__library_1_1cu =
     [ "split_occ", "namespaceauspicious__library_1_1cu.html#acc1b463c87ef5ec1f72cd652c70f9b0d", null ],
     [ "split_occ_seq", "namespaceauspicious__library_1_1cu.html#a7c2c97e55ed45d82a370ac456aac90a0", null ],
     [ "split", "namespaceauspicious__library_1_1cu.html#ab9f44279e734a8b0963ba9a1a1d805b9", null ],
-    [ "enum_value_v", "namespaceauspicious__library_1_1cu.html#abfa1e0f596b9cc301dd78bbd0a47b7b1", null ],
     [ "enum_max_v", "namespaceauspicious__library_1_1cu.html#ae709f48cb1ed1d1f54c5981801356aa3", null ]
 ];

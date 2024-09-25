@@ -20,8 +20,6 @@ struct \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__vector}{bo
 \begin{DoxyCompactList}\small\item\em A boundless vector. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enum__max}{enum\+\_\+max}}
 \begin{DoxyCompactList}\small\item\em Integral constant for the enumerator\textquotesingle{}s {\ttfamily max} member. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enum__value}{enum\+\_\+value}}
-\begin{DoxyCompactList}\small\item\em Integral constant for the enumerator\textquotesingle{}s member. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enumerated__array}{enumerated\+\_\+array}}
 \begin{DoxyCompactList}\small\item\em Array with enumerator as index. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Concepts}
@@ -111,8 +109,6 @@ requires (std\+::is\+\_\+same\+\_\+v$<$T, U$>$ \&\& ...)}\\\mbox{\hyperlink{name
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$cu\+\_\+compatible\+\_\+enum E, E value$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_abfa1e0f596b9cc301dd78bbd0a47b7b1}{enum\+\_\+value\+\_\+v}} = \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enum__value}{enum\+\_\+value}}$<$E, value$>$\+::value
-\begin{DoxyCompactList}\small\item\em Helper to get the value of the enumerator\textquotesingle{}s member. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible\+\_\+enum E$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_ae709f48cb1ed1d1f54c5981801356aa3}{enum\+\_\+max\+\_\+v}} = \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enum__max}{enum\+\_\+max}}$<$E$>$\+::value
 \begin{DoxyCompactList}\small\item\em Helper to get the value of the enumerator\textquotesingle{}s {\ttfamily max} member. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -797,22 +793,6 @@ Split container as {\ttfamily result\+\_\+container\+\_\+nested} .
 
 
 \doxysubsection{Variable Documentation}
-\Hypertarget{namespaceauspicious__library_1_1cu_abfa1e0f596b9cc301dd78bbd0a47b7b1}\index{auspicious\_library::cu@{auspicious\_library::cu}!enum\_value\_v@{enum\_value\_v}}
-\index{enum\_value\_v@{enum\_value\_v}!auspicious\_library::cu@{auspicious\_library::cu}}
-\doxysubsubsection{\texorpdfstring{enum\_value\_v}{enum\_value\_v}}
-{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_abfa1e0f596b9cc301dd78bbd0a47b7b1} 
-template$<$cu\+\_\+compatible\+\_\+enum E, E value$>$ \\
-auto auspicious\+\_\+library\+::cu\+::enum\+\_\+value\+\_\+v = \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enum__value}{enum\+\_\+value}}$<$E, value$>$\+::value\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
-
-
-
-Helper to get the value of the enumerator\textquotesingle{}s member. 
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em E} & Container Utilities compatible enumerator type. \\
-\hline
-\end{DoxyTemplParams}
 \Hypertarget{namespaceauspicious__library_1_1cu_ae709f48cb1ed1d1f54c5981801356aa3}\index{auspicious\_library::cu@{auspicious\_library::cu}!enum\_max\_v@{enum\_max\_v}}
 \index{enum\_max\_v@{enum\_max\_v}!auspicious\_library::cu@{auspicious\_library::cu}}
 \doxysubsubsection{\texorpdfstring{enum\_max\_v}{enum\_max\_v}}

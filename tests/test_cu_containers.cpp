@@ -303,8 +303,8 @@
 {
     T_BEGIN;
 
-    al::boundless_vector vec    = { 1, 2, 3, 4, 5 };
-    al::boundless_span   values = vec;
+    al::boundless_vector    vec    = { 1, 2, 3, 4, 5 };
+    al::boundless_span<int> values = vec;
 
     try
     {
@@ -386,7 +386,7 @@
         for (std::size_t i = values.size(); i < values.size() * 2; i++)
         {
             auto value    = al::boundless_access(values, i);
-            auto expected = 0;
+            auto expected = '\0';
 
             logln("- - - - -");
             logln("i: {}",        i);
@@ -398,7 +398,7 @@
         for (std::size_t i = -values.size(); i != 0; i++)
         {
             auto value    = al::boundless_access(values, i);
-            auto expected = 0;
+            auto expected = '\0';
 
             logln("- - - - -");
             logln("i: {}",        i);
@@ -413,7 +413,7 @@
             al::boundless_access(values, i) = i % ('z' - 'a') + 'a';
 
             auto value    = al::boundless_access(values, i);
-            auto expected = 0;
+            auto expected = '\0';
 
             if (i < values.size())
             {
@@ -469,7 +469,7 @@
         for (std::size_t i = values.size(); i < values.size() * 2; i++)
         {
             auto value    = al::boundless_access(values, i);
-            auto expected = 0;
+            auto expected = '\0';
 
             logln("- - - - -");
             logln("i: {}",        i);
@@ -481,7 +481,7 @@
         for (std::size_t i = -values.size(); i != 0; i++)
         {
             auto value    = al::boundless_access(values, i);
-            auto expected = 0;
+            auto expected = '\0';
 
             logln("- - - - -");
             logln("i: {}",        i);
@@ -550,7 +550,7 @@
 
         for (std::size_t i = 0; i < erray.size(); i++)
         {
-            auto value = erray[static_cast<enumerator>(i)];
+            auto value    = erray[static_cast<enumerator>(i)];
             auto expected = values[i] + 10;
 
             T_ASSERT(value, expected, "Invalid element");

@@ -1233,25 +1233,12 @@ template<typename E>
 concept cu_compatible_enum = std::is_enum_v<E> && requires { { E::max }; };
 
 /**
- *  @brief  Integral constant for the enumerator's member.
- *  @tparam  E  Container Utilities compatible enumerator type.
- */
-template<cu_compatible_enum E, E value>
-struct enum_value : std::integral_constant<int, std::to_underlying (value)> {};
-
-/**
- *  @brief  Helper to get the value of the enumerator's member.
- *  @tparam  E  Container Utilities compatible enumerator type.
- */
-template<cu_compatible_enum E, E value>
-inline constexpr auto enum_value_v = enum_value<E, value>::value;
-
-/**
  *  @brief  Integral constant for the enumerator's @c max member.
  *  @tparam  E  Container Utilities compatible enumerator type.
  */
 template<cu_compatible_enum E>
-struct enum_max : enum_value<E, E::max> {};
+struct enum_max : std::integral_constant<std::underlying_type_t<E>,
+    std::to_underlying (E::max)> {};
 
 /**
  *  @brief  Helper to get the value of the enumerator's @c max member.
@@ -1272,55 +1259,50 @@ struct enumerated_array : std::array<T, enum_max_v<E>> {
     /**
      *  @brief  Base class, template arguments are long.
      */
-    using base = std::array<E, enum_max_v<E>>;
+    using base = std::array<T, enum_max_v<E>>;
 
     /**
-     *  @brief  Get an element at index, or a default constructed instance of
-     *          the value type when index is invalid.
-     *
-     *  @param  index  An index specifying element.
-     *  @return  Element at index or default constructed instance.
+     *  @brief  Get the element at enumerator.
+     *  
+     *  @param  enumerator  Enumerator specifying index.
+     *  @return  Element at index.
      */
-    [[nodiscard]] inline auto operator[] (E enumerator) -> T &
+    [[nodiscard]] inline constexpr auto operator[] (E e) -> T &
     {
-        return base::operator[] (enum_value_v<E, enumerator>);
+        return base::operator[] (std::to_underlying(e));
     }
 
     /**
-     *  @brief  Get an element at index, or a default constructed instance of
-     *          the value type when index is invalid.
-     *
-     *  @param  index  An index specifying element.
-     *  @return  Element at index or default constructed instance.
+     *  @brief  Get the element at enumerator.
+     *  
+     *  @param  enumerator  Enumerator specifying index.
+     *  @return  Element at index.
      */
-    [[nodiscard]] inline auto operator[] (E enumerator)
-    const -> T
+    [[nodiscard]] inline constexpr auto operator[] (E e) const -> T
     {
-        return base::operator[] (enum_value_v<E, enumerator>);
+        return base::operator[] (std::to_underlying(e));
     }
 
     /**
-     *  @brief  Get an element at index, or a default constructed instance of
-     *          the value type when index is invalid.
-     *
-     *  @param  index  An index specifying element.
-     *  @return  Element at index or default constructed instance.
+     *  @brief  Get the element at enumerator.
+     *  
+     *  @param  enumerator  Enumerator specifying index.
+     *  @return  Element at index.
      */
-    [[nodiscard]] inline auto at(E enumerator) -> T &
+    [[nodiscard]] inline constexpr auto at(E e) -> T &
     {
-        return base::at(enum_value_v<E, enumerator>);
+        return base::at(std::to_underlying(e));
     }
 
     /**
-     *  @brief  Get an element at index, or a default constructed instance of
-     *          the value type when index is invalid.
-     *
-     *  @param  index  An index specifying element.
-     *  @return  Element at index or default constructed instance.
+     *  @brief  Get the element at enumerator.
+     *  
+     *  @param  enumerator  Enumerator specifying index.
+     *  @return  Element at index.
      */
-    [[nodiscard]] inline auto at(E enumerator) const -> T
+    [[nodiscard]] inline constexpr auto at(E e) const -> T
     {
-        return base::at(enum_value_v<E, enumerator>);
+        return base::at(std::to_underlying(e));
     }
 };
 

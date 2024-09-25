@@ -788,403 +788,398 @@ $(function(){initNavTree('al__container__utilities_8hpp_source.html',''); initRe
 <div class="line"><a id="l01232" name="l01232"></a><span class="lineno"> 1232</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> E&gt;</div>
 <div class="line"><a id="l01233" name="l01233"></a><span class="lineno"><a class="line" href="conceptauspicious__library_1_1cu_1_1cu__compatible__enum.html"> 1233</a></span><span class="keyword">concept </span><a class="code hl_concept" href="conceptauspicious__library_1_1cu_1_1cu__compatible__enum.html">cu_compatible_enum</a> = std::is_enum_v&lt;E&gt; &amp;&amp; <span class="keyword">requires</span> { { E::max }; };</div>
 <div class="line"><a id="l01234" name="l01234"></a><span class="lineno"> 1234</span> </div>
-<div class="line"><a id="l01239" name="l01239"></a><span class="lineno"> 1239</span><span class="keyword">template</span>&lt;cu_compatible_enum E, E value&gt;</div>
-<div class="line"><a id="l01240" name="l01240"></a><span class="lineno"><a class="line" href="structauspicious__library_1_1cu_1_1enum__value.html"> 1240</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structauspicious__library_1_1cu_1_1enum__value.html">enum_value</a> : std::integral_constant&lt;int, std::to_underlying (value)&gt; {};</div>
-<div class="line"><a id="l01241" name="l01241"></a><span class="lineno"> 1241</span> </div>
-<div class="line"><a id="l01246" name="l01246"></a><span class="lineno"> 1246</span><span class="keyword">template</span>&lt;cu_compatible_enum E, E value&gt;</div>
-<div class="line"><a id="l01247" name="l01247"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#abfa1e0f596b9cc301dd78bbd0a47b7b1"> 1247</a></span><span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_variable" href="namespaceauspicious__library_1_1cu.html#abfa1e0f596b9cc301dd78bbd0a47b7b1">enum_value_v</a> = <a class="code hl_struct" href="structauspicious__library_1_1cu_1_1enum__value.html">enum_value&lt;E, value&gt;::value</a>;</div>
-<div class="line"><a id="l01248" name="l01248"></a><span class="lineno"> 1248</span> </div>
-<div class="line"><a id="l01253" name="l01253"></a><span class="lineno"> 1253</span><span class="keyword">template</span>&lt;cu_compatible_enum E&gt;</div>
-<div class="line"><a id="l01254" name="l01254"></a><span class="lineno"><a class="line" href="structauspicious__library_1_1cu_1_1enum__max.html"> 1254</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structauspicious__library_1_1cu_1_1enum__max.html">enum_max</a> : <a class="code hl_struct" href="structauspicious__library_1_1cu_1_1enum__value.html">enum_value</a>&lt;E, E::max&gt; {};</div>
-<div class="line"><a id="l01255" name="l01255"></a><span class="lineno"> 1255</span> </div>
-<div class="line"><a id="l01260" name="l01260"></a><span class="lineno"> 1260</span><span class="keyword">template</span>&lt;cu_compatible_enum E&gt;</div>
-<div class="line"><a id="l01261" name="l01261"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#ae709f48cb1ed1d1f54c5981801356aa3"> 1261</a></span><span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_variable" href="namespaceauspicious__library_1_1cu.html#ae709f48cb1ed1d1f54c5981801356aa3">enum_max_v</a> = <a class="code hl_struct" href="structauspicious__library_1_1cu_1_1enum__max.html">enum_max&lt;E&gt;::value</a>;</div>
-<div class="line"><a id="l01262" name="l01262"></a><span class="lineno"> 1262</span> </div>
-<div class="line"><a id="l01269" name="l01269"></a><span class="lineno"> 1269</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, cu_compatible_enum E&gt;</div>
-<div class="foldopen" id="foldopen01270" data-start="{" data-end="};">
-<div class="line"><a id="l01270" name="l01270"></a><span class="lineno"><a class="line" href="structauspicious__library_1_1cu_1_1enumerated__array.html"> 1270</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structauspicious__library_1_1cu_1_1enumerated__array.html">enumerated_array</a> : std::array&lt;T, enum_max_v&lt;E&gt;&gt; {</div>
-<div class="line"><a id="l01271" name="l01271"></a><span class="lineno"> 1271</span> </div>
-<div class="line"><a id="l01275" name="l01275"></a><span class="lineno"><a class="line" href="structauspicious__library_1_1cu_1_1enumerated__array.html#a5a3f14c627f7daaf02a19c175cee8da4"> 1275</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="structauspicious__library_1_1cu_1_1enumerated__array.html#a5a3f14c627f7daaf02a19c175cee8da4">base</a> = std::array&lt;E, enum_max_v&lt;E&gt;&gt;;</div>
-<div class="line"><a id="l01276" name="l01276"></a><span class="lineno"> 1276</span> </div>
-<div class="foldopen" id="foldopen01284" data-start="{" data-end="}">
-<div class="line"><a id="l01284" name="l01284"></a><span class="lineno"><a class="line" href="structauspicious__library_1_1cu_1_1enumerated__array.html#afe93b1c48a440fbfe4bb9b699f6a94e0"> 1284</a></span>    [[nodiscard]] <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="structauspicious__library_1_1cu_1_1enumerated__array.html#afe93b1c48a440fbfe4bb9b699f6a94e0">operator[] </a>(E enumerator) -&gt; T &amp;</div>
-<div class="line"><a id="l01285" name="l01285"></a><span class="lineno"> 1285</span>    {</div>
-<div class="line"><a id="l01286" name="l01286"></a><span class="lineno"> 1286</span>        <span class="keywordflow">return</span> base::operator[] (<a class="code hl_variable" href="namespaceauspicious__library_1_1cu.html#abfa1e0f596b9cc301dd78bbd0a47b7b1">enum_value_v&lt;E, enumerator&gt;</a>);</div>
-<div class="line"><a id="l01287" name="l01287"></a><span class="lineno"> 1287</span>    }</div>
+<div class="line"><a id="l01239" name="l01239"></a><span class="lineno"> 1239</span><span class="keyword">template</span>&lt;cu_compatible_enum E&gt;</div>
+<div class="foldopen" id="foldopen01240" data-start="{" data-end="};">
+<div class="line"><a id="l01240" name="l01240"></a><span class="lineno"><a class="line" href="structauspicious__library_1_1cu_1_1enum__max.html"> 1240</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structauspicious__library_1_1cu_1_1enum__max.html">enum_max</a> : std::integral_constant&lt;std::underlying_type_t&lt;E&gt;,</div>
+<div class="line"><a id="l01241" name="l01241"></a><span class="lineno"> 1241</span>    std::to_underlying (E::max)&gt; {};</div>
 </div>
-<div class="line"><a id="l01288" name="l01288"></a><span class="lineno"> 1288</span> </div>
-<div class="foldopen" id="foldopen01296" data-start="{" data-end="}">
-<div class="line"><a id="l01296" name="l01296"></a><span class="lineno"><a class="line" href="structauspicious__library_1_1cu_1_1enumerated__array.html#ab0cb17054534d764d6a450f8918d9e21"> 1296</a></span>    [[nodiscard]] <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="structauspicious__library_1_1cu_1_1enumerated__array.html#afe93b1c48a440fbfe4bb9b699f6a94e0">operator[] </a>(E enumerator)</div>
-<div class="line"><a id="l01297" name="l01297"></a><span class="lineno"> 1297</span>    <span class="keyword">const</span> -&gt; T</div>
-<div class="line"><a id="l01298" name="l01298"></a><span class="lineno"> 1298</span>    {</div>
-<div class="line"><a id="l01299" name="l01299"></a><span class="lineno"> 1299</span>        <span class="keywordflow">return</span> base::operator[] (<a class="code hl_variable" href="namespaceauspicious__library_1_1cu.html#abfa1e0f596b9cc301dd78bbd0a47b7b1">enum_value_v&lt;E, enumerator&gt;</a>);</div>
-<div class="line"><a id="l01300" name="l01300"></a><span class="lineno"> 1300</span>    }</div>
+<div class="line"><a id="l01242" name="l01242"></a><span class="lineno"> 1242</span> </div>
+<div class="line"><a id="l01247" name="l01247"></a><span class="lineno"> 1247</span><span class="keyword">template</span>&lt;cu_compatible_enum E&gt;</div>
+<div class="line"><a id="l01248" name="l01248"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#ae709f48cb1ed1d1f54c5981801356aa3"> 1248</a></span><span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_variable" href="namespaceauspicious__library_1_1cu.html#ae709f48cb1ed1d1f54c5981801356aa3">enum_max_v</a> = <a class="code hl_struct" href="structauspicious__library_1_1cu_1_1enum__max.html">enum_max&lt;E&gt;::value</a>;</div>
+<div class="line"><a id="l01249" name="l01249"></a><span class="lineno"> 1249</span> </div>
+<div class="line"><a id="l01256" name="l01256"></a><span class="lineno"> 1256</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, cu_compatible_enum E&gt;</div>
+<div class="foldopen" id="foldopen01257" data-start="{" data-end="};">
+<div class="line"><a id="l01257" name="l01257"></a><span class="lineno"><a class="line" href="structauspicious__library_1_1cu_1_1enumerated__array.html"> 1257</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structauspicious__library_1_1cu_1_1enumerated__array.html">enumerated_array</a> : std::array&lt;T, enum_max_v&lt;E&gt;&gt; {</div>
+<div class="line"><a id="l01258" name="l01258"></a><span class="lineno"> 1258</span> </div>
+<div class="line"><a id="l01262" name="l01262"></a><span class="lineno"><a class="line" href="structauspicious__library_1_1cu_1_1enumerated__array.html#a4afd94d10aecc922801273bdbaafa1af"> 1262</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="structauspicious__library_1_1cu_1_1enumerated__array.html#a4afd94d10aecc922801273bdbaafa1af">base</a> = std::array&lt;T, enum_max_v&lt;E&gt;&gt;;</div>
+<div class="line"><a id="l01263" name="l01263"></a><span class="lineno"> 1263</span> </div>
+<div class="foldopen" id="foldopen01270" data-start="{" data-end="}">
+<div class="line"><a id="l01270" name="l01270"></a><span class="lineno"><a class="line" href="structauspicious__library_1_1cu_1_1enumerated__array.html#ab99130748b8d10b288dc66479cd800a1"> 1270</a></span>    [[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="structauspicious__library_1_1cu_1_1enumerated__array.html#ab99130748b8d10b288dc66479cd800a1">operator[] </a>(E e) -&gt; T &amp;</div>
+<div class="line"><a id="l01271" name="l01271"></a><span class="lineno"> 1271</span>    {</div>
+<div class="line"><a id="l01272" name="l01272"></a><span class="lineno"> 1272</span>        <span class="keywordflow">return</span> base::operator[] (std::to_underlying(e));</div>
+<div class="line"><a id="l01273" name="l01273"></a><span class="lineno"> 1273</span>    }</div>
 </div>
-<div class="line"><a id="l01301" name="l01301"></a><span class="lineno"> 1301</span> </div>
-<div class="foldopen" id="foldopen01309" data-start="{" data-end="}">
-<div class="line"><a id="l01309" name="l01309"></a><span class="lineno"><a class="line" href="structauspicious__library_1_1cu_1_1enumerated__array.html#a1c08001931e056b2eab485565245d9cf"> 1309</a></span>    [[nodiscard]] <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="structauspicious__library_1_1cu_1_1enumerated__array.html#a1c08001931e056b2eab485565245d9cf">at</a>(E enumerator) -&gt; T &amp;</div>
-<div class="line"><a id="l01310" name="l01310"></a><span class="lineno"> 1310</span>    {</div>
-<div class="line"><a id="l01311" name="l01311"></a><span class="lineno"> 1311</span>        <span class="keywordflow">return</span> base::at(<a class="code hl_variable" href="namespaceauspicious__library_1_1cu.html#abfa1e0f596b9cc301dd78bbd0a47b7b1">enum_value_v&lt;E, enumerator&gt;</a>);</div>
-<div class="line"><a id="l01312" name="l01312"></a><span class="lineno"> 1312</span>    }</div>
+<div class="line"><a id="l01274" name="l01274"></a><span class="lineno"> 1274</span> </div>
+<div class="foldopen" id="foldopen01281" data-start="{" data-end="}">
+<div class="line"><a id="l01281" name="l01281"></a><span class="lineno"><a class="line" href="structauspicious__library_1_1cu_1_1enumerated__array.html#a0aaeb1d390737f775730626ab831fff3"> 1281</a></span>    [[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="structauspicious__library_1_1cu_1_1enumerated__array.html#ab99130748b8d10b288dc66479cd800a1">operator[] </a>(E e) <span class="keyword">const</span> -&gt; T</div>
+<div class="line"><a id="l01282" name="l01282"></a><span class="lineno"> 1282</span>    {</div>
+<div class="line"><a id="l01283" name="l01283"></a><span class="lineno"> 1283</span>        <span class="keywordflow">return</span> base::operator[] (std::to_underlying(e));</div>
+<div class="line"><a id="l01284" name="l01284"></a><span class="lineno"> 1284</span>    }</div>
 </div>
-<div class="line"><a id="l01313" name="l01313"></a><span class="lineno"> 1313</span> </div>
-<div class="foldopen" id="foldopen01321" data-start="{" data-end="}">
-<div class="line"><a id="l01321" name="l01321"></a><span class="lineno"><a class="line" href="structauspicious__library_1_1cu_1_1enumerated__array.html#a3877b4cd2e8183024ac128b6bcc84e6c"> 1321</a></span>    [[nodiscard]] <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="structauspicious__library_1_1cu_1_1enumerated__array.html#a3877b4cd2e8183024ac128b6bcc84e6c">at</a>(E enumerator) <span class="keyword">const</span> -&gt; T</div>
-<div class="line"><a id="l01322" name="l01322"></a><span class="lineno"> 1322</span>    {</div>
-<div class="line"><a id="l01323" name="l01323"></a><span class="lineno"> 1323</span>        <span class="keywordflow">return</span> base::at(<a class="code hl_variable" href="namespaceauspicious__library_1_1cu.html#abfa1e0f596b9cc301dd78bbd0a47b7b1">enum_value_v&lt;E, enumerator&gt;</a>);</div>
-<div class="line"><a id="l01324" name="l01324"></a><span class="lineno"> 1324</span>    }</div>
+<div class="line"><a id="l01285" name="l01285"></a><span class="lineno"> 1285</span> </div>
+<div class="foldopen" id="foldopen01292" data-start="{" data-end="}">
+<div class="line"><a id="l01292" name="l01292"></a><span class="lineno"><a class="line" href="structauspicious__library_1_1cu_1_1enumerated__array.html#a888a3a65bc0fb578ce85a684e6fb306e"> 1292</a></span>    [[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="structauspicious__library_1_1cu_1_1enumerated__array.html#a888a3a65bc0fb578ce85a684e6fb306e">at</a>(E e) -&gt; T &amp;</div>
+<div class="line"><a id="l01293" name="l01293"></a><span class="lineno"> 1293</span>    {</div>
+<div class="line"><a id="l01294" name="l01294"></a><span class="lineno"> 1294</span>        <span class="keywordflow">return</span> base::at(std::to_underlying(e));</div>
+<div class="line"><a id="l01295" name="l01295"></a><span class="lineno"> 1295</span>    }</div>
 </div>
-<div class="line"><a id="l01325" name="l01325"></a><span class="lineno"> 1325</span>};</div>
+<div class="line"><a id="l01296" name="l01296"></a><span class="lineno"> 1296</span> </div>
+<div class="foldopen" id="foldopen01303" data-start="{" data-end="}">
+<div class="line"><a id="l01303" name="l01303"></a><span class="lineno"><a class="line" href="structauspicious__library_1_1cu_1_1enumerated__array.html#ae1748f9503390b941569a2c5317802e5"> 1303</a></span>    [[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="structauspicious__library_1_1cu_1_1enumerated__array.html#ae1748f9503390b941569a2c5317802e5">at</a>(E e) <span class="keyword">const</span> -&gt; T</div>
+<div class="line"><a id="l01304" name="l01304"></a><span class="lineno"> 1304</span>    {</div>
+<div class="line"><a id="l01305" name="l01305"></a><span class="lineno"> 1305</span>        <span class="keywordflow">return</span> base::at(std::to_underlying(e));</div>
+<div class="line"><a id="l01306" name="l01306"></a><span class="lineno"> 1306</span>    }</div>
 </div>
-<div class="line"><a id="l01326" name="l01326"></a><span class="lineno"> 1326</span> </div>
-<div class="line"><a id="l01336" name="l01336"></a><span class="lineno"> 1336</span><span class="keyword">template</span>&lt;cu_compatible Container&gt;</div>
-<div class="foldopen" id="foldopen01337" data-start="{" data-end="}">
-<div class="line"><a id="l01337" name="l01337"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#a12c14d5aa2a21c5f071ffe3e3f805e15"> 1337</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a12c14d5aa2a21c5f071ffe3e3f805e15">subordinate</a>(</div>
-<div class="line"><a id="l01338" name="l01338"></a><span class="lineno"> 1338</span>    <span class="keyword">const</span> Container &amp;container,</div>
-<div class="line"><a id="l01339" name="l01339"></a><span class="lineno"> 1339</span>    std::size_t      first_inclusive,</div>
-<div class="line"><a id="l01340" name="l01340"></a><span class="lineno"> 1340</span>    std::size_t      last_exclusive</div>
-<div class="line"><a id="l01341" name="l01341"></a><span class="lineno"> 1341</span>)</div>
-<div class="line"><a id="l01342" name="l01342"></a><span class="lineno"> 1342</span>{</div>
-<div class="line"><a id="l01343" name="l01343"></a><span class="lineno"> 1343</span>    <span class="keywordflow">return</span> <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096">result_container&lt;Container&gt;</a>(</div>
-<div class="line"><a id="l01344" name="l01344"></a><span class="lineno"> 1344</span>        container.begin() + first_inclusive,</div>
-<div class="line"><a id="l01345" name="l01345"></a><span class="lineno"> 1345</span>        container.begin() + last_exclusive);</div>
-<div class="line"><a id="l01346" name="l01346"></a><span class="lineno"> 1346</span>}</div>
+<div class="line"><a id="l01307" name="l01307"></a><span class="lineno"> 1307</span>};</div>
 </div>
-<div class="line"><a id="l01347" name="l01347"></a><span class="lineno"> 1347</span> </div>
-<div class="line"><a id="l01356" name="l01356"></a><span class="lineno"> 1356</span><span class="keyword">template</span>&lt;cu_compatible Container&gt;</div>
-<div class="foldopen" id="foldopen01357" data-start="{" data-end="}">
-<div class="line"><a id="l01357" name="l01357"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#a2cedb9f639f5066ee04304c33807ecbb"> 1357</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a2cedb9f639f5066ee04304c33807ecbb">combine</a>(</div>
-<div class="line"><a id="l01358" name="l01358"></a><span class="lineno"> 1358</span>    <span class="keyword">const</span> Container &amp;container_a,</div>
-<div class="line"><a id="l01359" name="l01359"></a><span class="lineno"> 1359</span>    <span class="keyword">const</span> Container &amp;container_b</div>
-<div class="line"><a id="l01360" name="l01360"></a><span class="lineno"> 1360</span>)</div>
-<div class="line"><a id="l01361" name="l01361"></a><span class="lineno"> 1361</span>{</div>
-<div class="line"><a id="l01362" name="l01362"></a><span class="lineno"> 1362</span>    <span class="keywordflow">return</span> <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#ac397b67fa3b542036726c3514a4df4f0">result_container_nested&lt;Container&gt;</a> {</div>
-<div class="line"><a id="l01363" name="l01363"></a><span class="lineno"> 1363</span>        <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096">result_container&lt;Container&gt;</a>(container_a.begin(), container_a.end()),</div>
-<div class="line"><a id="l01364" name="l01364"></a><span class="lineno"> 1364</span>        <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096">result_container&lt;Container&gt;</a>(container_b.begin(), container_b.end())</div>
-<div class="line"><a id="l01365" name="l01365"></a><span class="lineno"> 1365</span>    } | stdv::join</div>
-<div class="line"><a id="l01366" name="l01366"></a><span class="lineno"> 1366</span>      | stdr::to&lt;result_container&lt;Container&gt;&gt;();</div>
-<div class="line"><a id="l01367" name="l01367"></a><span class="lineno"> 1367</span>}</div>
+<div class="line"><a id="l01308" name="l01308"></a><span class="lineno"> 1308</span> </div>
+<div class="line"><a id="l01318" name="l01318"></a><span class="lineno"> 1318</span><span class="keyword">template</span>&lt;cu_compatible Container&gt;</div>
+<div class="foldopen" id="foldopen01319" data-start="{" data-end="}">
+<div class="line"><a id="l01319" name="l01319"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#a12c14d5aa2a21c5f071ffe3e3f805e15"> 1319</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a12c14d5aa2a21c5f071ffe3e3f805e15">subordinate</a>(</div>
+<div class="line"><a id="l01320" name="l01320"></a><span class="lineno"> 1320</span>    <span class="keyword">const</span> Container &amp;container,</div>
+<div class="line"><a id="l01321" name="l01321"></a><span class="lineno"> 1321</span>    std::size_t      first_inclusive,</div>
+<div class="line"><a id="l01322" name="l01322"></a><span class="lineno"> 1322</span>    std::size_t      last_exclusive</div>
+<div class="line"><a id="l01323" name="l01323"></a><span class="lineno"> 1323</span>)</div>
+<div class="line"><a id="l01324" name="l01324"></a><span class="lineno"> 1324</span>{</div>
+<div class="line"><a id="l01325" name="l01325"></a><span class="lineno"> 1325</span>    <span class="keywordflow">return</span> <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096">result_container&lt;Container&gt;</a>(</div>
+<div class="line"><a id="l01326" name="l01326"></a><span class="lineno"> 1326</span>        container.begin() + first_inclusive,</div>
+<div class="line"><a id="l01327" name="l01327"></a><span class="lineno"> 1327</span>        container.begin() + last_exclusive);</div>
+<div class="line"><a id="l01328" name="l01328"></a><span class="lineno"> 1328</span>}</div>
 </div>
-<div class="line"><a id="l01368" name="l01368"></a><span class="lineno"> 1368</span> </div>
-<div class="line"><a id="l01377" name="l01377"></a><span class="lineno"> 1377</span><span class="keyword">template</span>&lt;cu_compatible Container&gt;</div>
-<div class="foldopen" id="foldopen01378" data-start="{" data-end="}">
-<div class="line"><a id="l01378" name="l01378"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#ad5e419970d7868bbf33b03708f779f29"> 1378</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a2cedb9f639f5066ee04304c33807ecbb">combine</a>(</div>
-<div class="line"><a id="l01379" name="l01379"></a><span class="lineno"> 1379</span>    <span class="keyword">const</span> Container             &amp;container,</div>
-<div class="line"><a id="l01380" name="l01380"></a><span class="lineno"> 1380</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">value_type&lt;Container&gt;</a> &amp;value</div>
-<div class="line"><a id="l01381" name="l01381"></a><span class="lineno"> 1381</span>)</div>
-<div class="line"><a id="l01382" name="l01382"></a><span class="lineno"> 1382</span>{</div>
-<div class="line"><a id="l01383" name="l01383"></a><span class="lineno"> 1383</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a2cedb9f639f5066ee04304c33807ecbb">combine</a>(container, <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096">result_container&lt;Container&gt;</a> { value });</div>
-<div class="line"><a id="l01384" name="l01384"></a><span class="lineno"> 1384</span>}</div>
+<div class="line"><a id="l01329" name="l01329"></a><span class="lineno"> 1329</span> </div>
+<div class="line"><a id="l01338" name="l01338"></a><span class="lineno"> 1338</span><span class="keyword">template</span>&lt;cu_compatible Container&gt;</div>
+<div class="foldopen" id="foldopen01339" data-start="{" data-end="}">
+<div class="line"><a id="l01339" name="l01339"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#a2cedb9f639f5066ee04304c33807ecbb"> 1339</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a2cedb9f639f5066ee04304c33807ecbb">combine</a>(</div>
+<div class="line"><a id="l01340" name="l01340"></a><span class="lineno"> 1340</span>    <span class="keyword">const</span> Container &amp;container_a,</div>
+<div class="line"><a id="l01341" name="l01341"></a><span class="lineno"> 1341</span>    <span class="keyword">const</span> Container &amp;container_b</div>
+<div class="line"><a id="l01342" name="l01342"></a><span class="lineno"> 1342</span>)</div>
+<div class="line"><a id="l01343" name="l01343"></a><span class="lineno"> 1343</span>{</div>
+<div class="line"><a id="l01344" name="l01344"></a><span class="lineno"> 1344</span>    <span class="keywordflow">return</span> <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#ac397b67fa3b542036726c3514a4df4f0">result_container_nested&lt;Container&gt;</a> {</div>
+<div class="line"><a id="l01345" name="l01345"></a><span class="lineno"> 1345</span>        <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096">result_container&lt;Container&gt;</a>(container_a.begin(), container_a.end()),</div>
+<div class="line"><a id="l01346" name="l01346"></a><span class="lineno"> 1346</span>        <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096">result_container&lt;Container&gt;</a>(container_b.begin(), container_b.end())</div>
+<div class="line"><a id="l01347" name="l01347"></a><span class="lineno"> 1347</span>    } | stdv::join</div>
+<div class="line"><a id="l01348" name="l01348"></a><span class="lineno"> 1348</span>      | stdr::to&lt;result_container&lt;Container&gt;&gt;();</div>
+<div class="line"><a id="l01349" name="l01349"></a><span class="lineno"> 1349</span>}</div>
 </div>
-<div class="line"><a id="l01385" name="l01385"></a><span class="lineno"> 1385</span> </div>
-<div class="line"><a id="l01394" name="l01394"></a><span class="lineno"> 1394</span><span class="keyword">template</span>&lt;cu_compatible Container&gt;</div>
-<div class="foldopen" id="foldopen01395" data-start="{" data-end="}">
-<div class="line"><a id="l01395" name="l01395"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#a28c9c721c79f51cbf14c0c9c9e020293"> 1395</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a28c9c721c79f51cbf14c0c9c9e020293">filter_out_seq</a>(</div>
-<div class="line"><a id="l01396" name="l01396"></a><span class="lineno"> 1396</span>    <span class="keyword">const</span> Container &amp;container,</div>
-<div class="line"><a id="l01397" name="l01397"></a><span class="lineno"> 1397</span>    <span class="keyword">const</span> Container &amp;pattern</div>
-<div class="line"><a id="l01398" name="l01398"></a><span class="lineno"> 1398</span>)</div>
-<div class="line"><a id="l01399" name="l01399"></a><span class="lineno"> 1399</span>{</div>
-<div class="line"><a id="l01400" name="l01400"></a><span class="lineno"> 1400</span>    <span class="keywordflow">return</span> stdv::split(container, pattern)</div>
-<div class="line"><a id="l01401" name="l01401"></a><span class="lineno"> 1401</span>         | stdv::join</div>
-<div class="line"><a id="l01402" name="l01402"></a><span class="lineno"> 1402</span>         | stdr::to&lt;result_container&lt;Container&gt;&gt;();</div>
-<div class="line"><a id="l01403" name="l01403"></a><span class="lineno"> 1403</span>}</div>
+<div class="line"><a id="l01350" name="l01350"></a><span class="lineno"> 1350</span> </div>
+<div class="line"><a id="l01359" name="l01359"></a><span class="lineno"> 1359</span><span class="keyword">template</span>&lt;cu_compatible Container&gt;</div>
+<div class="foldopen" id="foldopen01360" data-start="{" data-end="}">
+<div class="line"><a id="l01360" name="l01360"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#ad5e419970d7868bbf33b03708f779f29"> 1360</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a2cedb9f639f5066ee04304c33807ecbb">combine</a>(</div>
+<div class="line"><a id="l01361" name="l01361"></a><span class="lineno"> 1361</span>    <span class="keyword">const</span> Container             &amp;container,</div>
+<div class="line"><a id="l01362" name="l01362"></a><span class="lineno"> 1362</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">value_type&lt;Container&gt;</a> &amp;value</div>
+<div class="line"><a id="l01363" name="l01363"></a><span class="lineno"> 1363</span>)</div>
+<div class="line"><a id="l01364" name="l01364"></a><span class="lineno"> 1364</span>{</div>
+<div class="line"><a id="l01365" name="l01365"></a><span class="lineno"> 1365</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a2cedb9f639f5066ee04304c33807ecbb">combine</a>(container, <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096">result_container&lt;Container&gt;</a> { value });</div>
+<div class="line"><a id="l01366" name="l01366"></a><span class="lineno"> 1366</span>}</div>
 </div>
-<div class="line"><a id="l01404" name="l01404"></a><span class="lineno"> 1404</span> </div>
-<div class="line"><a id="l01413" name="l01413"></a><span class="lineno"> 1413</span><span class="keyword">template</span>&lt;cu_compatible Container&gt;</div>
-<div class="foldopen" id="foldopen01414" data-start="{" data-end="}">
-<div class="line"><a id="l01414" name="l01414"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#a367b35bf13b81eac704c433070427e6d"> 1414</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a367b35bf13b81eac704c433070427e6d">filter_out_occ</a>(</div>
-<div class="line"><a id="l01415" name="l01415"></a><span class="lineno"> 1415</span>    <span class="keyword">const</span> Container &amp;container,</div>
-<div class="line"><a id="l01416" name="l01416"></a><span class="lineno"> 1416</span>    <span class="keyword">const</span> Container &amp;values</div>
-<div class="line"><a id="l01417" name="l01417"></a><span class="lineno"> 1417</span>)</div>
-<div class="line"><a id="l01418" name="l01418"></a><span class="lineno"> 1418</span>{</div>
-<div class="line"><a id="l01419" name="l01419"></a><span class="lineno"> 1419</span>    <span class="keyword">auto</span> filterer = [&amp;](<span class="keyword">const</span> <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">cu::value_type&lt;Container&gt;</a> &amp;element)</div>
-<div class="line"><a id="l01420" name="l01420"></a><span class="lineno"> 1420</span>    {</div>
-<div class="line"><a id="l01421" name="l01421"></a><span class="lineno"> 1421</span>        <span class="keywordflow">return</span> stdr::find(values, element) == values.end();</div>
-<div class="line"><a id="l01422" name="l01422"></a><span class="lineno"> 1422</span>    };</div>
-<div class="line"><a id="l01423" name="l01423"></a><span class="lineno"> 1423</span> </div>
-<div class="line"><a id="l01424" name="l01424"></a><span class="lineno"> 1424</span>    <span class="keywordflow">return</span> stdv::filter(container, filterer)</div>
-<div class="line"><a id="l01425" name="l01425"></a><span class="lineno"> 1425</span>         | stdr::to&lt;result_container&lt;Container&gt;&gt;();</div>
-<div class="line"><a id="l01426" name="l01426"></a><span class="lineno"> 1426</span>}</div>
+<div class="line"><a id="l01367" name="l01367"></a><span class="lineno"> 1367</span> </div>
+<div class="line"><a id="l01376" name="l01376"></a><span class="lineno"> 1376</span><span class="keyword">template</span>&lt;cu_compatible Container&gt;</div>
+<div class="foldopen" id="foldopen01377" data-start="{" data-end="}">
+<div class="line"><a id="l01377" name="l01377"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#a28c9c721c79f51cbf14c0c9c9e020293"> 1377</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a28c9c721c79f51cbf14c0c9c9e020293">filter_out_seq</a>(</div>
+<div class="line"><a id="l01378" name="l01378"></a><span class="lineno"> 1378</span>    <span class="keyword">const</span> Container &amp;container,</div>
+<div class="line"><a id="l01379" name="l01379"></a><span class="lineno"> 1379</span>    <span class="keyword">const</span> Container &amp;pattern</div>
+<div class="line"><a id="l01380" name="l01380"></a><span class="lineno"> 1380</span>)</div>
+<div class="line"><a id="l01381" name="l01381"></a><span class="lineno"> 1381</span>{</div>
+<div class="line"><a id="l01382" name="l01382"></a><span class="lineno"> 1382</span>    <span class="keywordflow">return</span> stdv::split(container, pattern)</div>
+<div class="line"><a id="l01383" name="l01383"></a><span class="lineno"> 1383</span>         | stdv::join</div>
+<div class="line"><a id="l01384" name="l01384"></a><span class="lineno"> 1384</span>         | stdr::to&lt;result_container&lt;Container&gt;&gt;();</div>
+<div class="line"><a id="l01385" name="l01385"></a><span class="lineno"> 1385</span>}</div>
 </div>
-<div class="line"><a id="l01427" name="l01427"></a><span class="lineno"> 1427</span> </div>
-<div class="line"><a id="l01437" name="l01437"></a><span class="lineno"> 1437</span><span class="keyword">template</span>&lt;cu_compatible Container, cu_compatible_nested NestedContainer&gt;</div>
-<div class="foldopen" id="foldopen01438" data-start="{" data-end="}">
-<div class="line"><a id="l01438" name="l01438"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#a0e0d8bbb85dbc2dcd3af2f255c9a0b39"> 1438</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a0e0d8bbb85dbc2dcd3af2f255c9a0b39">filter_out_occ_seq</a>(</div>
-<div class="line"><a id="l01439" name="l01439"></a><span class="lineno"> 1439</span>    <span class="keyword">const</span> Container       &amp;container,</div>
-<div class="line"><a id="l01440" name="l01440"></a><span class="lineno"> 1440</span>    <span class="keyword">const</span> NestedContainer &amp;patterns</div>
-<div class="line"><a id="l01441" name="l01441"></a><span class="lineno"> 1441</span>)</div>
-<div class="line"><a id="l01442" name="l01442"></a><span class="lineno"> 1442</span>{</div>
-<div class="line"><a id="l01443" name="l01443"></a><span class="lineno"> 1443</span>    <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096">result_container&lt;Container&gt;</a> result = container;</div>
-<div class="line"><a id="l01444" name="l01444"></a><span class="lineno"> 1444</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;pattern : patterns)</div>
-<div class="line"><a id="l01445" name="l01445"></a><span class="lineno"> 1445</span>    {</div>
-<div class="line"><a id="l01446" name="l01446"></a><span class="lineno"> 1446</span>        result = <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a28c9c721c79f51cbf14c0c9c9e020293">filter_out_seq</a>(result, pattern);</div>
-<div class="line"><a id="l01447" name="l01447"></a><span class="lineno"> 1447</span>    }</div>
-<div class="line"><a id="l01448" name="l01448"></a><span class="lineno"> 1448</span>    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l01449" name="l01449"></a><span class="lineno"> 1449</span>}</div>
+<div class="line"><a id="l01386" name="l01386"></a><span class="lineno"> 1386</span> </div>
+<div class="line"><a id="l01395" name="l01395"></a><span class="lineno"> 1395</span><span class="keyword">template</span>&lt;cu_compatible Container&gt;</div>
+<div class="foldopen" id="foldopen01396" data-start="{" data-end="}">
+<div class="line"><a id="l01396" name="l01396"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#a367b35bf13b81eac704c433070427e6d"> 1396</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a367b35bf13b81eac704c433070427e6d">filter_out_occ</a>(</div>
+<div class="line"><a id="l01397" name="l01397"></a><span class="lineno"> 1397</span>    <span class="keyword">const</span> Container &amp;container,</div>
+<div class="line"><a id="l01398" name="l01398"></a><span class="lineno"> 1398</span>    <span class="keyword">const</span> Container &amp;values</div>
+<div class="line"><a id="l01399" name="l01399"></a><span class="lineno"> 1399</span>)</div>
+<div class="line"><a id="l01400" name="l01400"></a><span class="lineno"> 1400</span>{</div>
+<div class="line"><a id="l01401" name="l01401"></a><span class="lineno"> 1401</span>    <span class="keyword">auto</span> filterer = [&amp;](<span class="keyword">const</span> <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">cu::value_type&lt;Container&gt;</a> &amp;element)</div>
+<div class="line"><a id="l01402" name="l01402"></a><span class="lineno"> 1402</span>    {</div>
+<div class="line"><a id="l01403" name="l01403"></a><span class="lineno"> 1403</span>        <span class="keywordflow">return</span> stdr::find(values, element) == values.end();</div>
+<div class="line"><a id="l01404" name="l01404"></a><span class="lineno"> 1404</span>    };</div>
+<div class="line"><a id="l01405" name="l01405"></a><span class="lineno"> 1405</span> </div>
+<div class="line"><a id="l01406" name="l01406"></a><span class="lineno"> 1406</span>    <span class="keywordflow">return</span> stdv::filter(container, filterer)</div>
+<div class="line"><a id="l01407" name="l01407"></a><span class="lineno"> 1407</span>         | stdr::to&lt;result_container&lt;Container&gt;&gt;();</div>
+<div class="line"><a id="l01408" name="l01408"></a><span class="lineno"> 1408</span>}</div>
 </div>
-<div class="line"><a id="l01450" name="l01450"></a><span class="lineno"> 1450</span> </div>
-<div class="line"><a id="l01459" name="l01459"></a><span class="lineno"> 1459</span><span class="keyword">template</span>&lt;cu_compatible Container&gt;</div>
-<div class="foldopen" id="foldopen01460" data-start="{" data-end="}">
-<div class="line"><a id="l01460" name="l01460"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#a3d0869d9e35bc3f395f91a5cbde0345e"> 1460</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a3d0869d9e35bc3f395f91a5cbde0345e">filter_out</a>(</div>
-<div class="line"><a id="l01461" name="l01461"></a><span class="lineno"> 1461</span>    <span class="keyword">const</span> Container             &amp;container,</div>
-<div class="line"><a id="l01462" name="l01462"></a><span class="lineno"> 1462</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">value_type&lt;Container&gt;</a> &amp;value</div>
-<div class="line"><a id="l01463" name="l01463"></a><span class="lineno"> 1463</span>)</div>
-<div class="line"><a id="l01464" name="l01464"></a><span class="lineno"> 1464</span>{</div>
-<div class="line"><a id="l01465" name="l01465"></a><span class="lineno"> 1465</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a28c9c721c79f51cbf14c0c9c9e020293">filter_out_seq</a>(container, <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096">result_container&lt;Container&gt;</a> { value });</div>
-<div class="line"><a id="l01466" name="l01466"></a><span class="lineno"> 1466</span>}</div>
+<div class="line"><a id="l01409" name="l01409"></a><span class="lineno"> 1409</span> </div>
+<div class="line"><a id="l01419" name="l01419"></a><span class="lineno"> 1419</span><span class="keyword">template</span>&lt;cu_compatible Container, cu_compatible_nested NestedContainer&gt;</div>
+<div class="foldopen" id="foldopen01420" data-start="{" data-end="}">
+<div class="line"><a id="l01420" name="l01420"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#a0e0d8bbb85dbc2dcd3af2f255c9a0b39"> 1420</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a0e0d8bbb85dbc2dcd3af2f255c9a0b39">filter_out_occ_seq</a>(</div>
+<div class="line"><a id="l01421" name="l01421"></a><span class="lineno"> 1421</span>    <span class="keyword">const</span> Container       &amp;container,</div>
+<div class="line"><a id="l01422" name="l01422"></a><span class="lineno"> 1422</span>    <span class="keyword">const</span> NestedContainer &amp;patterns</div>
+<div class="line"><a id="l01423" name="l01423"></a><span class="lineno"> 1423</span>)</div>
+<div class="line"><a id="l01424" name="l01424"></a><span class="lineno"> 1424</span>{</div>
+<div class="line"><a id="l01425" name="l01425"></a><span class="lineno"> 1425</span>    <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096">result_container&lt;Container&gt;</a> result = container;</div>
+<div class="line"><a id="l01426" name="l01426"></a><span class="lineno"> 1426</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;pattern : patterns)</div>
+<div class="line"><a id="l01427" name="l01427"></a><span class="lineno"> 1427</span>    {</div>
+<div class="line"><a id="l01428" name="l01428"></a><span class="lineno"> 1428</span>        result = <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a28c9c721c79f51cbf14c0c9c9e020293">filter_out_seq</a>(result, pattern);</div>
+<div class="line"><a id="l01429" name="l01429"></a><span class="lineno"> 1429</span>    }</div>
+<div class="line"><a id="l01430" name="l01430"></a><span class="lineno"> 1430</span>    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l01431" name="l01431"></a><span class="lineno"> 1431</span>}</div>
 </div>
-<div class="line"><a id="l01467" name="l01467"></a><span class="lineno"> 1467</span> </div>
-<div class="line"><a id="l01476" name="l01476"></a><span class="lineno"> 1476</span><span class="keyword">template</span>&lt;cu_compatible Container&gt;</div>
-<div class="foldopen" id="foldopen01477" data-start="{" data-end="}">
-<div class="line"><a id="l01477" name="l01477"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37"> 1477</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37">repeat</a>(</div>
-<div class="line"><a id="l01478" name="l01478"></a><span class="lineno"> 1478</span>    <span class="keyword">const</span> Container &amp;container,</div>
-<div class="line"><a id="l01479" name="l01479"></a><span class="lineno"> 1479</span>    std::size_t      n</div>
-<div class="line"><a id="l01480" name="l01480"></a><span class="lineno"> 1480</span>)</div>
-<div class="line"><a id="l01481" name="l01481"></a><span class="lineno"> 1481</span>{</div>
-<div class="line"><a id="l01482" name="l01482"></a><span class="lineno"> 1482</span>    <span class="keywordflow">return</span> stdv::repeat(container, n)</div>
-<div class="line"><a id="l01483" name="l01483"></a><span class="lineno"> 1483</span>         | stdv::join</div>
-<div class="line"><a id="l01484" name="l01484"></a><span class="lineno"> 1484</span>         | stdr::to&lt;result_container&lt;Container&gt;&gt;();</div>
-<div class="line"><a id="l01485" name="l01485"></a><span class="lineno"> 1485</span>}</div>
+<div class="line"><a id="l01432" name="l01432"></a><span class="lineno"> 1432</span> </div>
+<div class="line"><a id="l01441" name="l01441"></a><span class="lineno"> 1441</span><span class="keyword">template</span>&lt;cu_compatible Container&gt;</div>
+<div class="foldopen" id="foldopen01442" data-start="{" data-end="}">
+<div class="line"><a id="l01442" name="l01442"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#a3d0869d9e35bc3f395f91a5cbde0345e"> 1442</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a3d0869d9e35bc3f395f91a5cbde0345e">filter_out</a>(</div>
+<div class="line"><a id="l01443" name="l01443"></a><span class="lineno"> 1443</span>    <span class="keyword">const</span> Container             &amp;container,</div>
+<div class="line"><a id="l01444" name="l01444"></a><span class="lineno"> 1444</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">value_type&lt;Container&gt;</a> &amp;value</div>
+<div class="line"><a id="l01445" name="l01445"></a><span class="lineno"> 1445</span>)</div>
+<div class="line"><a id="l01446" name="l01446"></a><span class="lineno"> 1446</span>{</div>
+<div class="line"><a id="l01447" name="l01447"></a><span class="lineno"> 1447</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a28c9c721c79f51cbf14c0c9c9e020293">filter_out_seq</a>(container, <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096">result_container&lt;Container&gt;</a> { value });</div>
+<div class="line"><a id="l01448" name="l01448"></a><span class="lineno"> 1448</span>}</div>
 </div>
-<div class="line"><a id="l01486" name="l01486"></a><span class="lineno"> 1486</span> </div>
-<div class="line"><a id="l01502" name="l01502"></a><span class="lineno"> 1502</span><span class="keyword">template</span>&lt;cu_compatible Container&gt;</div>
-<div class="foldopen" id="foldopen01503" data-start="{" data-end="}">
-<div class="line"><a id="l01503" name="l01503"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#a01fbb9b65897848dc6d883266688a9f8"> 1503</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37">repeat</a>(</div>
-<div class="line"><a id="l01504" name="l01504"></a><span class="lineno"> 1504</span>    <span class="keyword">const</span> Container &amp;container,</div>
-<div class="line"><a id="l01505" name="l01505"></a><span class="lineno"> 1505</span>    <span class="keywordtype">long</span> <span class="keywordtype">double</span>      n</div>
-<div class="line"><a id="l01506" name="l01506"></a><span class="lineno"> 1506</span>)</div>
-<div class="line"><a id="l01507" name="l01507"></a><span class="lineno"> 1507</span>{</div>
-<div class="line"><a id="l01508" name="l01508"></a><span class="lineno"> 1508</span>    <span class="keywordtype">long</span> <span class="keywordtype">double</span> i_part         = 0;</div>
-<div class="line"><a id="l01509" name="l01509"></a><span class="lineno"> 1509</span>    <span class="keywordtype">long</span> <span class="keywordtype">double</span> f_part         = std::modf(n, &amp;i_part);</div>
-<div class="line"><a id="l01510" name="l01510"></a><span class="lineno"> 1510</span>    std::size_t regular_repeat = i_part;</div>
-<div class="line"><a id="l01511" name="l01511"></a><span class="lineno"> 1511</span>    std::size_t sub_size       = std::floor(f_part * container.size());</div>
-<div class="line"><a id="l01512" name="l01512"></a><span class="lineno"> 1512</span>    Container   sub = <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a12c14d5aa2a21c5f071ffe3e3f805e15">subordinate</a>(container, 0, sub_size);</div>
-<div class="line"><a id="l01513" name="l01513"></a><span class="lineno"> 1513</span> </div>
-<div class="line"><a id="l01514" name="l01514"></a><span class="lineno"> 1514</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a2cedb9f639f5066ee04304c33807ecbb">combine</a>(<a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37">repeat</a>(container, regular_repeat), sub);</div>
+<div class="line"><a id="l01449" name="l01449"></a><span class="lineno"> 1449</span> </div>
+<div class="line"><a id="l01458" name="l01458"></a><span class="lineno"> 1458</span><span class="keyword">template</span>&lt;cu_compatible Container&gt;</div>
+<div class="foldopen" id="foldopen01459" data-start="{" data-end="}">
+<div class="line"><a id="l01459" name="l01459"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37"> 1459</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37">repeat</a>(</div>
+<div class="line"><a id="l01460" name="l01460"></a><span class="lineno"> 1460</span>    <span class="keyword">const</span> Container &amp;container,</div>
+<div class="line"><a id="l01461" name="l01461"></a><span class="lineno"> 1461</span>    std::size_t      n</div>
+<div class="line"><a id="l01462" name="l01462"></a><span class="lineno"> 1462</span>)</div>
+<div class="line"><a id="l01463" name="l01463"></a><span class="lineno"> 1463</span>{</div>
+<div class="line"><a id="l01464" name="l01464"></a><span class="lineno"> 1464</span>    <span class="keywordflow">return</span> stdv::repeat(container, n)</div>
+<div class="line"><a id="l01465" name="l01465"></a><span class="lineno"> 1465</span>         | stdv::join</div>
+<div class="line"><a id="l01466" name="l01466"></a><span class="lineno"> 1466</span>         | stdr::to&lt;result_container&lt;Container&gt;&gt;();</div>
+<div class="line"><a id="l01467" name="l01467"></a><span class="lineno"> 1467</span>}</div>
+</div>
+<div class="line"><a id="l01468" name="l01468"></a><span class="lineno"> 1468</span> </div>
+<div class="line"><a id="l01484" name="l01484"></a><span class="lineno"> 1484</span><span class="keyword">template</span>&lt;cu_compatible Container&gt;</div>
+<div class="foldopen" id="foldopen01485" data-start="{" data-end="}">
+<div class="line"><a id="l01485" name="l01485"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#a01fbb9b65897848dc6d883266688a9f8"> 1485</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37">repeat</a>(</div>
+<div class="line"><a id="l01486" name="l01486"></a><span class="lineno"> 1486</span>    <span class="keyword">const</span> Container &amp;container,</div>
+<div class="line"><a id="l01487" name="l01487"></a><span class="lineno"> 1487</span>    <span class="keywordtype">long</span> <span class="keywordtype">double</span>      n</div>
+<div class="line"><a id="l01488" name="l01488"></a><span class="lineno"> 1488</span>)</div>
+<div class="line"><a id="l01489" name="l01489"></a><span class="lineno"> 1489</span>{</div>
+<div class="line"><a id="l01490" name="l01490"></a><span class="lineno"> 1490</span>    <span class="keywordtype">long</span> <span class="keywordtype">double</span> i_part         = 0;</div>
+<div class="line"><a id="l01491" name="l01491"></a><span class="lineno"> 1491</span>    <span class="keywordtype">long</span> <span class="keywordtype">double</span> f_part         = std::modf(n, &amp;i_part);</div>
+<div class="line"><a id="l01492" name="l01492"></a><span class="lineno"> 1492</span>    std::size_t regular_repeat = i_part;</div>
+<div class="line"><a id="l01493" name="l01493"></a><span class="lineno"> 1493</span>    std::size_t sub_size       = std::floor(f_part * container.size());</div>
+<div class="line"><a id="l01494" name="l01494"></a><span class="lineno"> 1494</span>    Container   sub = <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a12c14d5aa2a21c5f071ffe3e3f805e15">subordinate</a>(container, 0, sub_size);</div>
+<div class="line"><a id="l01495" name="l01495"></a><span class="lineno"> 1495</span> </div>
+<div class="line"><a id="l01496" name="l01496"></a><span class="lineno"> 1496</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a2cedb9f639f5066ee04304c33807ecbb">combine</a>(<a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37">repeat</a>(container, regular_repeat), sub);</div>
+<div class="line"><a id="l01497" name="l01497"></a><span class="lineno"> 1497</span>}</div>
+</div>
+<div class="line"><a id="l01498" name="l01498"></a><span class="lineno"> 1498</span> </div>
+<div class="line"><a id="l01507" name="l01507"></a><span class="lineno"> 1507</span><span class="keyword">template</span>&lt;cu_compatible Container&gt;</div>
+<div class="foldopen" id="foldopen01508" data-start="{" data-end="}">
+<div class="line"><a id="l01508" name="l01508"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#a02a640ca3898e63a8338b562d23a6ca7"> 1508</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a02a640ca3898e63a8338b562d23a6ca7">split_seq</a>(</div>
+<div class="line"><a id="l01509" name="l01509"></a><span class="lineno"> 1509</span>    <span class="keyword">const</span> Container &amp;container,</div>
+<div class="line"><a id="l01510" name="l01510"></a><span class="lineno"> 1510</span>    <span class="keyword">const</span> Container &amp;pattern</div>
+<div class="line"><a id="l01511" name="l01511"></a><span class="lineno"> 1511</span>)</div>
+<div class="line"><a id="l01512" name="l01512"></a><span class="lineno"> 1512</span>{</div>
+<div class="line"><a id="l01513" name="l01513"></a><span class="lineno"> 1513</span>    <span class="keywordflow">return</span> stdv::split(container, pattern)</div>
+<div class="line"><a id="l01514" name="l01514"></a><span class="lineno"> 1514</span>         | stdr::to&lt;result_container_nested&lt;Container&gt;&gt;();</div>
 <div class="line"><a id="l01515" name="l01515"></a><span class="lineno"> 1515</span>}</div>
 </div>
 <div class="line"><a id="l01516" name="l01516"></a><span class="lineno"> 1516</span> </div>
 <div class="line"><a id="l01525" name="l01525"></a><span class="lineno"> 1525</span><span class="keyword">template</span>&lt;cu_compatible Container&gt;</div>
 <div class="foldopen" id="foldopen01526" data-start="{" data-end="}">
-<div class="line"><a id="l01526" name="l01526"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#a02a640ca3898e63a8338b562d23a6ca7"> 1526</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a02a640ca3898e63a8338b562d23a6ca7">split_seq</a>(</div>
+<div class="line"><a id="l01526" name="l01526"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#acc1b463c87ef5ec1f72cd652c70f9b0d"> 1526</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#acc1b463c87ef5ec1f72cd652c70f9b0d">split_occ</a>(</div>
 <div class="line"><a id="l01527" name="l01527"></a><span class="lineno"> 1527</span>    <span class="keyword">const</span> Container &amp;container,</div>
-<div class="line"><a id="l01528" name="l01528"></a><span class="lineno"> 1528</span>    <span class="keyword">const</span> Container &amp;pattern</div>
+<div class="line"><a id="l01528" name="l01528"></a><span class="lineno"> 1528</span>    <span class="keyword">const</span> Container &amp;values</div>
 <div class="line"><a id="l01529" name="l01529"></a><span class="lineno"> 1529</span>)</div>
 <div class="line"><a id="l01530" name="l01530"></a><span class="lineno"> 1530</span>{</div>
-<div class="line"><a id="l01531" name="l01531"></a><span class="lineno"> 1531</span>    <span class="keywordflow">return</span> stdv::split(container, pattern)</div>
-<div class="line"><a id="l01532" name="l01532"></a><span class="lineno"> 1532</span>         | stdr::to&lt;result_container_nested&lt;Container&gt;&gt;();</div>
-<div class="line"><a id="l01533" name="l01533"></a><span class="lineno"> 1533</span>}</div>
-</div>
+<div class="line"><a id="l01531" name="l01531"></a><span class="lineno"> 1531</span>    <span class="comment">// Couldn&#39;t find standard library to do this heavy job, so...</span></div>
+<div class="line"><a id="l01532" name="l01532"></a><span class="lineno"> 1532</span>    <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#ac397b67fa3b542036726c3514a4df4f0">result_container_nested&lt;Container&gt;</a> result;</div>
+<div class="line"><a id="l01533" name="l01533"></a><span class="lineno"> 1533</span>    <span class="keyword">auto</span> it = container.begin();</div>
 <div class="line"><a id="l01534" name="l01534"></a><span class="lineno"> 1534</span> </div>
-<div class="line"><a id="l01543" name="l01543"></a><span class="lineno"> 1543</span><span class="keyword">template</span>&lt;cu_compatible Container&gt;</div>
-<div class="foldopen" id="foldopen01544" data-start="{" data-end="}">
-<div class="line"><a id="l01544" name="l01544"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#acc1b463c87ef5ec1f72cd652c70f9b0d"> 1544</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#acc1b463c87ef5ec1f72cd652c70f9b0d">split_occ</a>(</div>
-<div class="line"><a id="l01545" name="l01545"></a><span class="lineno"> 1545</span>    <span class="keyword">const</span> Container &amp;container,</div>
-<div class="line"><a id="l01546" name="l01546"></a><span class="lineno"> 1546</span>    <span class="keyword">const</span> Container &amp;values</div>
-<div class="line"><a id="l01547" name="l01547"></a><span class="lineno"> 1547</span>)</div>
-<div class="line"><a id="l01548" name="l01548"></a><span class="lineno"> 1548</span>{</div>
-<div class="line"><a id="l01549" name="l01549"></a><span class="lineno"> 1549</span>    <span class="comment">// Couldn&#39;t find standard library to do this heavy job, so...</span></div>
-<div class="line"><a id="l01550" name="l01550"></a><span class="lineno"> 1550</span>    <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#ac397b67fa3b542036726c3514a4df4f0">result_container_nested&lt;Container&gt;</a> result;</div>
-<div class="line"><a id="l01551" name="l01551"></a><span class="lineno"> 1551</span>    <span class="keyword">auto</span> it = container.begin();</div>
-<div class="line"><a id="l01552" name="l01552"></a><span class="lineno"> 1552</span> </div>
-<div class="line"><a id="l01553" name="l01553"></a><span class="lineno"> 1553</span>    <span class="keywordflow">while</span> (it != container.end())</div>
-<div class="line"><a id="l01554" name="l01554"></a><span class="lineno"> 1554</span>    {</div>
-<div class="line"><a id="l01555" name="l01555"></a><span class="lineno"> 1555</span>        <span class="keyword">auto</span> next_it = std::find_first_of(it, container.end(), values.begin(),</div>
-<div class="line"><a id="l01556" name="l01556"></a><span class="lineno"> 1556</span>            values.end());</div>
-<div class="line"><a id="l01557" name="l01557"></a><span class="lineno"> 1557</span>        result.emplace_back(<a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096">result_container&lt;Container&gt;</a>(it, next_it));</div>
-<div class="line"><a id="l01558" name="l01558"></a><span class="lineno"> 1558</span>        it = next_it;</div>
-<div class="line"><a id="l01559" name="l01559"></a><span class="lineno"> 1559</span>        <span class="keywordflow">if</span> (it != container.end()) ++it;</div>
-<div class="line"><a id="l01560" name="l01560"></a><span class="lineno"> 1560</span>    }</div>
-<div class="line"><a id="l01561" name="l01561"></a><span class="lineno"> 1561</span> </div>
-<div class="line"><a id="l01562" name="l01562"></a><span class="lineno"> 1562</span>    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l01563" name="l01563"></a><span class="lineno"> 1563</span>}</div>
+<div class="line"><a id="l01535" name="l01535"></a><span class="lineno"> 1535</span>    <span class="keywordflow">while</span> (it != container.end())</div>
+<div class="line"><a id="l01536" name="l01536"></a><span class="lineno"> 1536</span>    {</div>
+<div class="line"><a id="l01537" name="l01537"></a><span class="lineno"> 1537</span>        <span class="keyword">auto</span> next_it = std::find_first_of(it, container.end(), values.begin(),</div>
+<div class="line"><a id="l01538" name="l01538"></a><span class="lineno"> 1538</span>            values.end());</div>
+<div class="line"><a id="l01539" name="l01539"></a><span class="lineno"> 1539</span>        result.emplace_back(<a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096">result_container&lt;Container&gt;</a>(it, next_it));</div>
+<div class="line"><a id="l01540" name="l01540"></a><span class="lineno"> 1540</span>        it = next_it;</div>
+<div class="line"><a id="l01541" name="l01541"></a><span class="lineno"> 1541</span>        <span class="keywordflow">if</span> (it != container.end()) ++it;</div>
+<div class="line"><a id="l01542" name="l01542"></a><span class="lineno"> 1542</span>    }</div>
+<div class="line"><a id="l01543" name="l01543"></a><span class="lineno"> 1543</span> </div>
+<div class="line"><a id="l01544" name="l01544"></a><span class="lineno"> 1544</span>    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l01545" name="l01545"></a><span class="lineno"> 1545</span>}</div>
 </div>
-<div class="line"><a id="l01564" name="l01564"></a><span class="lineno"> 1564</span> </div>
-<div class="line"><a id="l01574" name="l01574"></a><span class="lineno"> 1574</span><span class="keyword">template</span>&lt;cu_compatible Container, cu_compatible_nested NestedContainer&gt;</div>
-<div class="foldopen" id="foldopen01575" data-start="{" data-end="}">
-<div class="line"><a id="l01575" name="l01575"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#a7c2c97e55ed45d82a370ac456aac90a0"> 1575</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a7c2c97e55ed45d82a370ac456aac90a0">split_occ_seq</a>(</div>
-<div class="line"><a id="l01576" name="l01576"></a><span class="lineno"> 1576</span>    <span class="keyword">const</span> Container       &amp;container,</div>
-<div class="line"><a id="l01577" name="l01577"></a><span class="lineno"> 1577</span>    <span class="keyword">const</span> NestedContainer &amp;patterns</div>
-<div class="line"><a id="l01578" name="l01578"></a><span class="lineno"> 1578</span>)</div>
-<div class="line"><a id="l01579" name="l01579"></a><span class="lineno"> 1579</span>{</div>
-<div class="line"><a id="l01580" name="l01580"></a><span class="lineno"> 1580</span>    <span class="comment">// Again couldn&#39;t find standard library to do this heavy job, so...</span></div>
-<div class="line"><a id="l01581" name="l01581"></a><span class="lineno"> 1581</span>    <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#ac397b67fa3b542036726c3514a4df4f0">result_container_nested&lt;Container&gt;</a> result;</div>
-<div class="line"><a id="l01582" name="l01582"></a><span class="lineno"> 1582</span>    <span class="keyword">auto</span> it = container.begin();</div>
-<div class="line"><a id="l01583" name="l01583"></a><span class="lineno"> 1583</span> </div>
-<div class="line"><a id="l01584" name="l01584"></a><span class="lineno"> 1584</span>    <span class="keywordflow">while</span> (it != container.end())</div>
-<div class="line"><a id="l01585" name="l01585"></a><span class="lineno"> 1585</span>    {</div>
-<div class="line"><a id="l01586" name="l01586"></a><span class="lineno"> 1586</span>        <span class="keyword">auto</span>        next_it      = container.end();</div>
-<div class="line"><a id="l01587" name="l01587"></a><span class="lineno"> 1587</span>        std::size_t pattern_size = (std::size_t)-1;</div>
-<div class="line"><a id="l01588" name="l01588"></a><span class="lineno"> 1588</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;pattern : patterns)</div>
-<div class="line"><a id="l01589" name="l01589"></a><span class="lineno"> 1589</span>        {</div>
-<div class="line"><a id="l01590" name="l01590"></a><span class="lineno"> 1590</span>            <span class="comment">// Use std::search instead of std::find_first_of to find sequence</span></div>
-<div class="line"><a id="l01591" name="l01591"></a><span class="lineno"> 1591</span>            <span class="keyword">auto</span> tmp = std::search(it, container.end(), pattern.begin(),</div>
-<div class="line"><a id="l01592" name="l01592"></a><span class="lineno"> 1592</span>                pattern.end());</div>
-<div class="line"><a id="l01593" name="l01593"></a><span class="lineno"> 1593</span> </div>
-<div class="line"><a id="l01594" name="l01594"></a><span class="lineno"> 1594</span>            <span class="keywordflow">if</span> (next_it &gt; tmp)</div>
-<div class="line"><a id="l01595" name="l01595"></a><span class="lineno"> 1595</span>            {</div>
-<div class="line"><a id="l01596" name="l01596"></a><span class="lineno"> 1596</span>                next_it      = tmp;</div>
-<div class="line"><a id="l01597" name="l01597"></a><span class="lineno"> 1597</span>                pattern_size = pattern.size();</div>
-<div class="line"><a id="l01598" name="l01598"></a><span class="lineno"> 1598</span>            }</div>
-<div class="line"><a id="l01599" name="l01599"></a><span class="lineno"> 1599</span>        }</div>
-<div class="line"><a id="l01600" name="l01600"></a><span class="lineno"> 1600</span> </div>
-<div class="line"><a id="l01601" name="l01601"></a><span class="lineno"> 1601</span>        result.emplace_back(<a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096">result_container&lt;Container&gt;</a>(it, next_it));</div>
-<div class="line"><a id="l01602" name="l01602"></a><span class="lineno"> 1602</span>        it = next_it;</div>
-<div class="line"><a id="l01603" name="l01603"></a><span class="lineno"> 1603</span>        <span class="keywordflow">if</span> (it != container.end()) it += pattern_size;</div>
-<div class="line"><a id="l01604" name="l01604"></a><span class="lineno"> 1604</span>    }</div>
-<div class="line"><a id="l01605" name="l01605"></a><span class="lineno"> 1605</span> </div>
-<div class="line"><a id="l01606" name="l01606"></a><span class="lineno"> 1606</span>    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l01607" name="l01607"></a><span class="lineno"> 1607</span>}</div>
+<div class="line"><a id="l01546" name="l01546"></a><span class="lineno"> 1546</span> </div>
+<div class="line"><a id="l01556" name="l01556"></a><span class="lineno"> 1556</span><span class="keyword">template</span>&lt;cu_compatible Container, cu_compatible_nested NestedContainer&gt;</div>
+<div class="foldopen" id="foldopen01557" data-start="{" data-end="}">
+<div class="line"><a id="l01557" name="l01557"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#a7c2c97e55ed45d82a370ac456aac90a0"> 1557</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a7c2c97e55ed45d82a370ac456aac90a0">split_occ_seq</a>(</div>
+<div class="line"><a id="l01558" name="l01558"></a><span class="lineno"> 1558</span>    <span class="keyword">const</span> Container       &amp;container,</div>
+<div class="line"><a id="l01559" name="l01559"></a><span class="lineno"> 1559</span>    <span class="keyword">const</span> NestedContainer &amp;patterns</div>
+<div class="line"><a id="l01560" name="l01560"></a><span class="lineno"> 1560</span>)</div>
+<div class="line"><a id="l01561" name="l01561"></a><span class="lineno"> 1561</span>{</div>
+<div class="line"><a id="l01562" name="l01562"></a><span class="lineno"> 1562</span>    <span class="comment">// Again couldn&#39;t find standard library to do this heavy job, so...</span></div>
+<div class="line"><a id="l01563" name="l01563"></a><span class="lineno"> 1563</span>    <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#ac397b67fa3b542036726c3514a4df4f0">result_container_nested&lt;Container&gt;</a> result;</div>
+<div class="line"><a id="l01564" name="l01564"></a><span class="lineno"> 1564</span>    <span class="keyword">auto</span> it = container.begin();</div>
+<div class="line"><a id="l01565" name="l01565"></a><span class="lineno"> 1565</span> </div>
+<div class="line"><a id="l01566" name="l01566"></a><span class="lineno"> 1566</span>    <span class="keywordflow">while</span> (it != container.end())</div>
+<div class="line"><a id="l01567" name="l01567"></a><span class="lineno"> 1567</span>    {</div>
+<div class="line"><a id="l01568" name="l01568"></a><span class="lineno"> 1568</span>        <span class="keyword">auto</span>        next_it      = container.end();</div>
+<div class="line"><a id="l01569" name="l01569"></a><span class="lineno"> 1569</span>        std::size_t pattern_size = (std::size_t)-1;</div>
+<div class="line"><a id="l01570" name="l01570"></a><span class="lineno"> 1570</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;pattern : patterns)</div>
+<div class="line"><a id="l01571" name="l01571"></a><span class="lineno"> 1571</span>        {</div>
+<div class="line"><a id="l01572" name="l01572"></a><span class="lineno"> 1572</span>            <span class="comment">// Use std::search instead of std::find_first_of to find sequence</span></div>
+<div class="line"><a id="l01573" name="l01573"></a><span class="lineno"> 1573</span>            <span class="keyword">auto</span> tmp = std::search(it, container.end(), pattern.begin(),</div>
+<div class="line"><a id="l01574" name="l01574"></a><span class="lineno"> 1574</span>                pattern.end());</div>
+<div class="line"><a id="l01575" name="l01575"></a><span class="lineno"> 1575</span> </div>
+<div class="line"><a id="l01576" name="l01576"></a><span class="lineno"> 1576</span>            <span class="keywordflow">if</span> (next_it &gt; tmp)</div>
+<div class="line"><a id="l01577" name="l01577"></a><span class="lineno"> 1577</span>            {</div>
+<div class="line"><a id="l01578" name="l01578"></a><span class="lineno"> 1578</span>                next_it      = tmp;</div>
+<div class="line"><a id="l01579" name="l01579"></a><span class="lineno"> 1579</span>                pattern_size = pattern.size();</div>
+<div class="line"><a id="l01580" name="l01580"></a><span class="lineno"> 1580</span>            }</div>
+<div class="line"><a id="l01581" name="l01581"></a><span class="lineno"> 1581</span>        }</div>
+<div class="line"><a id="l01582" name="l01582"></a><span class="lineno"> 1582</span> </div>
+<div class="line"><a id="l01583" name="l01583"></a><span class="lineno"> 1583</span>        result.emplace_back(<a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096">result_container&lt;Container&gt;</a>(it, next_it));</div>
+<div class="line"><a id="l01584" name="l01584"></a><span class="lineno"> 1584</span>        it = next_it;</div>
+<div class="line"><a id="l01585" name="l01585"></a><span class="lineno"> 1585</span>        <span class="keywordflow">if</span> (it != container.end()) it += pattern_size;</div>
+<div class="line"><a id="l01586" name="l01586"></a><span class="lineno"> 1586</span>    }</div>
+<div class="line"><a id="l01587" name="l01587"></a><span class="lineno"> 1587</span> </div>
+<div class="line"><a id="l01588" name="l01588"></a><span class="lineno"> 1588</span>    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l01589" name="l01589"></a><span class="lineno"> 1589</span>}</div>
 </div>
-<div class="line"><a id="l01608" name="l01608"></a><span class="lineno"> 1608</span> </div>
-<div class="line"><a id="l01617" name="l01617"></a><span class="lineno"> 1617</span><span class="keyword">template</span>&lt;cu_compatible Container&gt;</div>
-<div class="foldopen" id="foldopen01618" data-start="{" data-end="}">
-<div class="line"><a id="l01618" name="l01618"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#ab9f44279e734a8b0963ba9a1a1d805b9"> 1618</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#ab9f44279e734a8b0963ba9a1a1d805b9">split</a>(</div>
-<div class="line"><a id="l01619" name="l01619"></a><span class="lineno"> 1619</span>    <span class="keyword">const</span> Container             &amp;container,</div>
-<div class="line"><a id="l01620" name="l01620"></a><span class="lineno"> 1620</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">value_type&lt;Container&gt;</a> &amp;value</div>
-<div class="line"><a id="l01621" name="l01621"></a><span class="lineno"> 1621</span>)</div>
-<div class="line"><a id="l01622" name="l01622"></a><span class="lineno"> 1622</span>{</div>
-<div class="line"><a id="l01623" name="l01623"></a><span class="lineno"> 1623</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a02a640ca3898e63a8338b562d23a6ca7">split_seq</a>(container, <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096">result_container&lt;Container&gt;</a> { value });</div>
-<div class="line"><a id="l01624" name="l01624"></a><span class="lineno"> 1624</span>}</div>
+<div class="line"><a id="l01590" name="l01590"></a><span class="lineno"> 1590</span> </div>
+<div class="line"><a id="l01599" name="l01599"></a><span class="lineno"> 1599</span><span class="keyword">template</span>&lt;cu_compatible Container&gt;</div>
+<div class="foldopen" id="foldopen01600" data-start="{" data-end="}">
+<div class="line"><a id="l01600" name="l01600"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu.html#ab9f44279e734a8b0963ba9a1a1d805b9"> 1600</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#ab9f44279e734a8b0963ba9a1a1d805b9">split</a>(</div>
+<div class="line"><a id="l01601" name="l01601"></a><span class="lineno"> 1601</span>    <span class="keyword">const</span> Container             &amp;container,</div>
+<div class="line"><a id="l01602" name="l01602"></a><span class="lineno"> 1602</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">value_type&lt;Container&gt;</a> &amp;value</div>
+<div class="line"><a id="l01603" name="l01603"></a><span class="lineno"> 1603</span>)</div>
+<div class="line"><a id="l01604" name="l01604"></a><span class="lineno"> 1604</span>{</div>
+<div class="line"><a id="l01605" name="l01605"></a><span class="lineno"> 1605</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a02a640ca3898e63a8338b562d23a6ca7">split_seq</a>(container, <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096">result_container&lt;Container&gt;</a> { value });</div>
+<div class="line"><a id="l01606" name="l01606"></a><span class="lineno"> 1606</span>}</div>
 </div>
-<div class="line"><a id="l01625" name="l01625"></a><span class="lineno"> 1625</span> </div>
-<div class="line"><a id="l01626" name="l01626"></a><span class="lineno"> 1626</span>} <span class="comment">// namespace cu</span></div>
+<div class="line"><a id="l01607" name="l01607"></a><span class="lineno"> 1607</span> </div>
+<div class="line"><a id="l01608" name="l01608"></a><span class="lineno"> 1608</span>} <span class="comment">// namespace cu</span></div>
 </div>
-<div class="line"><a id="l01627" name="l01627"></a><span class="lineno"> 1627</span> </div>
-<div class="foldopen" id="foldopen01631" data-start="{" data-end="}">
-<div class="line"><a id="l01631" name="l01631"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu__operators.html"> 1631</a></span><span class="keyword">namespace </span>cu_operators {</div>
-<div class="line"><a id="l01632" name="l01632"></a><span class="lineno"> 1632</span> </div>
-<div class="line"><a id="l01643" name="l01643"></a><span class="lineno"> 1643</span><span class="keyword">template</span>&lt;cu::cu_compatible Container&gt;</div>
-<div class="line"><a id="l01644" name="l01644"></a><span class="lineno"> 1644</span><span class="keyword">requires</span>(!std::is_same_v&lt;Container, std::string&gt;</div>
-<div class="line"><a id="l01645" name="l01645"></a><span class="lineno"> 1645</span>      &amp;&amp; !std::is_same_v&lt;Container, std::string_view&gt;)</div>
-<div class="foldopen" id="foldopen01646" data-start="{" data-end="}">
-<div class="line"><a id="l01646" name="l01646"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu__operators.html#a807dd1b3e0130a0e06f11905f66451fb"> 1646</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="keyword">operator</span>+ (</div>
-<div class="line"><a id="l01647" name="l01647"></a><span class="lineno"> 1647</span>    <span class="keyword">const</span> Container &amp;container_a,</div>
-<div class="line"><a id="l01648" name="l01648"></a><span class="lineno"> 1648</span>    <span class="keyword">const</span> Container &amp;container_b</div>
-<div class="line"><a id="l01649" name="l01649"></a><span class="lineno"> 1649</span>)</div>
-<div class="line"><a id="l01650" name="l01650"></a><span class="lineno"> 1650</span>{</div>
-<div class="line"><a id="l01651" name="l01651"></a><span class="lineno"> 1651</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a2cedb9f639f5066ee04304c33807ecbb">cu::combine</a>(container_a, container_b);</div>
-<div class="line"><a id="l01652" name="l01652"></a><span class="lineno"> 1652</span>}</div>
+<div class="line"><a id="l01609" name="l01609"></a><span class="lineno"> 1609</span> </div>
+<div class="foldopen" id="foldopen01613" data-start="{" data-end="}">
+<div class="line"><a id="l01613" name="l01613"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu__operators.html"> 1613</a></span><span class="keyword">namespace </span>cu_operators {</div>
+<div class="line"><a id="l01614" name="l01614"></a><span class="lineno"> 1614</span> </div>
+<div class="line"><a id="l01625" name="l01625"></a><span class="lineno"> 1625</span><span class="keyword">template</span>&lt;cu::cu_compatible Container&gt;</div>
+<div class="line"><a id="l01626" name="l01626"></a><span class="lineno"> 1626</span><span class="keyword">requires</span>(!std::is_same_v&lt;Container, std::string&gt;</div>
+<div class="line"><a id="l01627" name="l01627"></a><span class="lineno"> 1627</span>      &amp;&amp; !std::is_same_v&lt;Container, std::string_view&gt;)</div>
+<div class="foldopen" id="foldopen01628" data-start="{" data-end="}">
+<div class="line"><a id="l01628" name="l01628"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu__operators.html#a807dd1b3e0130a0e06f11905f66451fb"> 1628</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="keyword">operator</span>+ (</div>
+<div class="line"><a id="l01629" name="l01629"></a><span class="lineno"> 1629</span>    <span class="keyword">const</span> Container &amp;container_a,</div>
+<div class="line"><a id="l01630" name="l01630"></a><span class="lineno"> 1630</span>    <span class="keyword">const</span> Container &amp;container_b</div>
+<div class="line"><a id="l01631" name="l01631"></a><span class="lineno"> 1631</span>)</div>
+<div class="line"><a id="l01632" name="l01632"></a><span class="lineno"> 1632</span>{</div>
+<div class="line"><a id="l01633" name="l01633"></a><span class="lineno"> 1633</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a2cedb9f639f5066ee04304c33807ecbb">cu::combine</a>(container_a, container_b);</div>
+<div class="line"><a id="l01634" name="l01634"></a><span class="lineno"> 1634</span>}</div>
 </div>
-<div class="line"><a id="l01653" name="l01653"></a><span class="lineno"> 1653</span> </div>
-<div class="line"><a id="l01664" name="l01664"></a><span class="lineno"> 1664</span><span class="keyword">template</span>&lt;cu::cu_compatible Container&gt;</div>
-<div class="line"><a id="l01665" name="l01665"></a><span class="lineno"> 1665</span><span class="keyword">requires</span>(!std::is_same_v&lt;Container, std::string&gt;</div>
-<div class="line"><a id="l01666" name="l01666"></a><span class="lineno"> 1666</span>      &amp;&amp; !std::is_same_v&lt;Container, std::string_view&gt;)</div>
-<div class="foldopen" id="foldopen01667" data-start="{" data-end="}">
-<div class="line"><a id="l01667" name="l01667"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu__operators.html#ab853b3af7c37412f62ff137839603845"> 1667</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="keyword">operator</span>+ (</div>
-<div class="line"><a id="l01668" name="l01668"></a><span class="lineno"> 1668</span>    <span class="keyword">const</span> Container                 &amp;container_a,</div>
-<div class="line"><a id="l01669" name="l01669"></a><span class="lineno"> 1669</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">cu::value_type&lt;Container&gt;</a> &amp;value</div>
-<div class="line"><a id="l01670" name="l01670"></a><span class="lineno"> 1670</span>)</div>
-<div class="line"><a id="l01671" name="l01671"></a><span class="lineno"> 1671</span>{</div>
-<div class="line"><a id="l01672" name="l01672"></a><span class="lineno"> 1672</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a2cedb9f639f5066ee04304c33807ecbb">cu::combine</a>(container_a, value);</div>
-<div class="line"><a id="l01673" name="l01673"></a><span class="lineno"> 1673</span>}</div>
+<div class="line"><a id="l01635" name="l01635"></a><span class="lineno"> 1635</span> </div>
+<div class="line"><a id="l01646" name="l01646"></a><span class="lineno"> 1646</span><span class="keyword">template</span>&lt;cu::cu_compatible Container&gt;</div>
+<div class="line"><a id="l01647" name="l01647"></a><span class="lineno"> 1647</span><span class="keyword">requires</span>(!std::is_same_v&lt;Container, std::string&gt;</div>
+<div class="line"><a id="l01648" name="l01648"></a><span class="lineno"> 1648</span>      &amp;&amp; !std::is_same_v&lt;Container, std::string_view&gt;)</div>
+<div class="foldopen" id="foldopen01649" data-start="{" data-end="}">
+<div class="line"><a id="l01649" name="l01649"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu__operators.html#ab853b3af7c37412f62ff137839603845"> 1649</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="keyword">operator</span>+ (</div>
+<div class="line"><a id="l01650" name="l01650"></a><span class="lineno"> 1650</span>    <span class="keyword">const</span> Container                 &amp;container_a,</div>
+<div class="line"><a id="l01651" name="l01651"></a><span class="lineno"> 1651</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">cu::value_type&lt;Container&gt;</a> &amp;value</div>
+<div class="line"><a id="l01652" name="l01652"></a><span class="lineno"> 1652</span>)</div>
+<div class="line"><a id="l01653" name="l01653"></a><span class="lineno"> 1653</span>{</div>
+<div class="line"><a id="l01654" name="l01654"></a><span class="lineno"> 1654</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a2cedb9f639f5066ee04304c33807ecbb">cu::combine</a>(container_a, value);</div>
+<div class="line"><a id="l01655" name="l01655"></a><span class="lineno"> 1655</span>}</div>
 </div>
-<div class="line"><a id="l01674" name="l01674"></a><span class="lineno"> 1674</span> </div>
-<div class="line"><a id="l01688" name="l01688"></a><span class="lineno"> 1688</span><span class="keyword">template</span>&lt;cu::cu_compatible Container&gt;</div>
-<div class="line"><a id="l01689" name="l01689"></a><span class="lineno"> 1689</span><span class="keyword">requires</span>(!std::is_same_v&lt;Container, std::string&gt;</div>
-<div class="line"><a id="l01690" name="l01690"></a><span class="lineno"> 1690</span>      &amp;&amp; !std::is_same_v&lt;Container, std::string_view&gt;)</div>
-<div class="foldopen" id="foldopen01691" data-start="{" data-end="}">
-<div class="line"><a id="l01691" name="l01691"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu__operators.html#aecb2a4bfb62327eb2432f1868818e7b8"> 1691</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="keyword">operator</span>- (</div>
-<div class="line"><a id="l01692" name="l01692"></a><span class="lineno"> 1692</span>    <span class="keyword">const</span> Container &amp;container,</div>
-<div class="line"><a id="l01693" name="l01693"></a><span class="lineno"> 1693</span>    <span class="keyword">const</span> Container &amp;pattern</div>
-<div class="line"><a id="l01694" name="l01694"></a><span class="lineno"> 1694</span>)</div>
-<div class="line"><a id="l01695" name="l01695"></a><span class="lineno"> 1695</span>{</div>
-<div class="line"><a id="l01696" name="l01696"></a><span class="lineno"> 1696</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a28c9c721c79f51cbf14c0c9c9e020293">cu::filter_out_seq</a>(container, pattern);</div>
-<div class="line"><a id="l01697" name="l01697"></a><span class="lineno"> 1697</span>}</div>
+<div class="line"><a id="l01656" name="l01656"></a><span class="lineno"> 1656</span> </div>
+<div class="line"><a id="l01670" name="l01670"></a><span class="lineno"> 1670</span><span class="keyword">template</span>&lt;cu::cu_compatible Container&gt;</div>
+<div class="line"><a id="l01671" name="l01671"></a><span class="lineno"> 1671</span><span class="keyword">requires</span>(!std::is_same_v&lt;Container, std::string&gt;</div>
+<div class="line"><a id="l01672" name="l01672"></a><span class="lineno"> 1672</span>      &amp;&amp; !std::is_same_v&lt;Container, std::string_view&gt;)</div>
+<div class="foldopen" id="foldopen01673" data-start="{" data-end="}">
+<div class="line"><a id="l01673" name="l01673"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu__operators.html#aecb2a4bfb62327eb2432f1868818e7b8"> 1673</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="keyword">operator</span>- (</div>
+<div class="line"><a id="l01674" name="l01674"></a><span class="lineno"> 1674</span>    <span class="keyword">const</span> Container &amp;container,</div>
+<div class="line"><a id="l01675" name="l01675"></a><span class="lineno"> 1675</span>    <span class="keyword">const</span> Container &amp;pattern</div>
+<div class="line"><a id="l01676" name="l01676"></a><span class="lineno"> 1676</span>)</div>
+<div class="line"><a id="l01677" name="l01677"></a><span class="lineno"> 1677</span>{</div>
+<div class="line"><a id="l01678" name="l01678"></a><span class="lineno"> 1678</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a28c9c721c79f51cbf14c0c9c9e020293">cu::filter_out_seq</a>(container, pattern);</div>
+<div class="line"><a id="l01679" name="l01679"></a><span class="lineno"> 1679</span>}</div>
 </div>
-<div class="line"><a id="l01698" name="l01698"></a><span class="lineno"> 1698</span> </div>
-<div class="line"><a id="l01712" name="l01712"></a><span class="lineno"> 1712</span><span class="keyword">template</span>&lt;cu::cu_compatible Container&gt;</div>
-<div class="line"><a id="l01713" name="l01713"></a><span class="lineno"> 1713</span><span class="keyword">requires</span>(!std::is_same_v&lt;Container, std::string&gt;</div>
-<div class="line"><a id="l01714" name="l01714"></a><span class="lineno"> 1714</span>      &amp;&amp; !std::is_same_v&lt;Container, std::string_view&gt;)</div>
-<div class="foldopen" id="foldopen01715" data-start="{" data-end="}">
-<div class="line"><a id="l01715" name="l01715"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu__operators.html#afa4d292db15db85521b037bd037daf21"> 1715</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="keyword">operator</span>- (</div>
-<div class="line"><a id="l01716" name="l01716"></a><span class="lineno"> 1716</span>    <span class="keyword">const</span> Container                 &amp;container,</div>
-<div class="line"><a id="l01717" name="l01717"></a><span class="lineno"> 1717</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">cu::value_type&lt;Container&gt;</a> &amp;value</div>
-<div class="line"><a id="l01718" name="l01718"></a><span class="lineno"> 1718</span>)</div>
-<div class="line"><a id="l01719" name="l01719"></a><span class="lineno"> 1719</span>{</div>
-<div class="line"><a id="l01720" name="l01720"></a><span class="lineno"> 1720</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a3d0869d9e35bc3f395f91a5cbde0345e">cu::filter_out</a>(container, value);</div>
-<div class="line"><a id="l01721" name="l01721"></a><span class="lineno"> 1721</span>}</div>
+<div class="line"><a id="l01680" name="l01680"></a><span class="lineno"> 1680</span> </div>
+<div class="line"><a id="l01694" name="l01694"></a><span class="lineno"> 1694</span><span class="keyword">template</span>&lt;cu::cu_compatible Container&gt;</div>
+<div class="line"><a id="l01695" name="l01695"></a><span class="lineno"> 1695</span><span class="keyword">requires</span>(!std::is_same_v&lt;Container, std::string&gt;</div>
+<div class="line"><a id="l01696" name="l01696"></a><span class="lineno"> 1696</span>      &amp;&amp; !std::is_same_v&lt;Container, std::string_view&gt;)</div>
+<div class="foldopen" id="foldopen01697" data-start="{" data-end="}">
+<div class="line"><a id="l01697" name="l01697"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu__operators.html#afa4d292db15db85521b037bd037daf21"> 1697</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="keyword">operator</span>- (</div>
+<div class="line"><a id="l01698" name="l01698"></a><span class="lineno"> 1698</span>    <span class="keyword">const</span> Container                 &amp;container,</div>
+<div class="line"><a id="l01699" name="l01699"></a><span class="lineno"> 1699</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">cu::value_type&lt;Container&gt;</a> &amp;value</div>
+<div class="line"><a id="l01700" name="l01700"></a><span class="lineno"> 1700</span>)</div>
+<div class="line"><a id="l01701" name="l01701"></a><span class="lineno"> 1701</span>{</div>
+<div class="line"><a id="l01702" name="l01702"></a><span class="lineno"> 1702</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a3d0869d9e35bc3f395f91a5cbde0345e">cu::filter_out</a>(container, value);</div>
+<div class="line"><a id="l01703" name="l01703"></a><span class="lineno"> 1703</span>}</div>
 </div>
-<div class="line"><a id="l01722" name="l01722"></a><span class="lineno"> 1722</span> </div>
-<div class="line"><a id="l01736" name="l01736"></a><span class="lineno"> 1736</span><span class="keyword">template</span>&lt;cu::cu_compatible Container&gt;</div>
-<div class="line"><a id="l01737" name="l01737"></a><span class="lineno"> 1737</span><span class="keyword">requires</span>(!std::is_same_v&lt;Container, std::string&gt;</div>
-<div class="line"><a id="l01738" name="l01738"></a><span class="lineno"> 1738</span>      &amp;&amp; !std::is_same_v&lt;Container, std::string_view&gt;)</div>
-<div class="foldopen" id="foldopen01739" data-start="{" data-end="}">
-<div class="line"><a id="l01739" name="l01739"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu__operators.html#aaa17bda2ec419e473439d07bc5cef7ee"> 1739</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="keyword">operator</span>* (</div>
-<div class="line"><a id="l01740" name="l01740"></a><span class="lineno"> 1740</span>    <span class="keyword">const</span> Container &amp;container,</div>
-<div class="line"><a id="l01741" name="l01741"></a><span class="lineno"> 1741</span>    std::size_t      n</div>
-<div class="line"><a id="l01742" name="l01742"></a><span class="lineno"> 1742</span>)</div>
-<div class="line"><a id="l01743" name="l01743"></a><span class="lineno"> 1743</span>{</div>
-<div class="line"><a id="l01744" name="l01744"></a><span class="lineno"> 1744</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37">cu::repeat</a>(container, n);</div>
-<div class="line"><a id="l01745" name="l01745"></a><span class="lineno"> 1745</span>}</div>
+<div class="line"><a id="l01704" name="l01704"></a><span class="lineno"> 1704</span> </div>
+<div class="line"><a id="l01718" name="l01718"></a><span class="lineno"> 1718</span><span class="keyword">template</span>&lt;cu::cu_compatible Container&gt;</div>
+<div class="line"><a id="l01719" name="l01719"></a><span class="lineno"> 1719</span><span class="keyword">requires</span>(!std::is_same_v&lt;Container, std::string&gt;</div>
+<div class="line"><a id="l01720" name="l01720"></a><span class="lineno"> 1720</span>      &amp;&amp; !std::is_same_v&lt;Container, std::string_view&gt;)</div>
+<div class="foldopen" id="foldopen01721" data-start="{" data-end="}">
+<div class="line"><a id="l01721" name="l01721"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu__operators.html#aaa17bda2ec419e473439d07bc5cef7ee"> 1721</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="keyword">operator</span>* (</div>
+<div class="line"><a id="l01722" name="l01722"></a><span class="lineno"> 1722</span>    <span class="keyword">const</span> Container &amp;container,</div>
+<div class="line"><a id="l01723" name="l01723"></a><span class="lineno"> 1723</span>    std::size_t      n</div>
+<div class="line"><a id="l01724" name="l01724"></a><span class="lineno"> 1724</span>)</div>
+<div class="line"><a id="l01725" name="l01725"></a><span class="lineno"> 1725</span>{</div>
+<div class="line"><a id="l01726" name="l01726"></a><span class="lineno"> 1726</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37">cu::repeat</a>(container, n);</div>
+<div class="line"><a id="l01727" name="l01727"></a><span class="lineno"> 1727</span>}</div>
 </div>
-<div class="line"><a id="l01746" name="l01746"></a><span class="lineno"> 1746</span> </div>
-<div class="line"><a id="l01760" name="l01760"></a><span class="lineno"> 1760</span><span class="keyword">template</span>&lt;cu::cu_compatible Container&gt;</div>
-<div class="line"><a id="l01761" name="l01761"></a><span class="lineno"> 1761</span><span class="keyword">requires</span>(!std::is_same_v&lt;Container, std::string&gt;</div>
-<div class="line"><a id="l01762" name="l01762"></a><span class="lineno"> 1762</span>      &amp;&amp; !std::is_same_v&lt;Container, std::string_view&gt;)</div>
-<div class="foldopen" id="foldopen01763" data-start="{" data-end="}">
-<div class="line"><a id="l01763" name="l01763"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu__operators.html#ad23d0eeab43a44de13ab2e20b2bbf979"> 1763</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="keyword">operator</span>* (</div>
-<div class="line"><a id="l01764" name="l01764"></a><span class="lineno"> 1764</span>    <span class="keyword">const</span> Container &amp;container,</div>
-<div class="line"><a id="l01765" name="l01765"></a><span class="lineno"> 1765</span>    <span class="keywordtype">long</span> <span class="keywordtype">double</span>      n</div>
-<div class="line"><a id="l01766" name="l01766"></a><span class="lineno"> 1766</span>)</div>
-<div class="line"><a id="l01767" name="l01767"></a><span class="lineno"> 1767</span>{</div>
-<div class="line"><a id="l01768" name="l01768"></a><span class="lineno"> 1768</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37">cu::repeat</a>(container, n);</div>
-<div class="line"><a id="l01769" name="l01769"></a><span class="lineno"> 1769</span>}</div>
+<div class="line"><a id="l01728" name="l01728"></a><span class="lineno"> 1728</span> </div>
+<div class="line"><a id="l01742" name="l01742"></a><span class="lineno"> 1742</span><span class="keyword">template</span>&lt;cu::cu_compatible Container&gt;</div>
+<div class="line"><a id="l01743" name="l01743"></a><span class="lineno"> 1743</span><span class="keyword">requires</span>(!std::is_same_v&lt;Container, std::string&gt;</div>
+<div class="line"><a id="l01744" name="l01744"></a><span class="lineno"> 1744</span>      &amp;&amp; !std::is_same_v&lt;Container, std::string_view&gt;)</div>
+<div class="foldopen" id="foldopen01745" data-start="{" data-end="}">
+<div class="line"><a id="l01745" name="l01745"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu__operators.html#ad23d0eeab43a44de13ab2e20b2bbf979"> 1745</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="keyword">operator</span>* (</div>
+<div class="line"><a id="l01746" name="l01746"></a><span class="lineno"> 1746</span>    <span class="keyword">const</span> Container &amp;container,</div>
+<div class="line"><a id="l01747" name="l01747"></a><span class="lineno"> 1747</span>    <span class="keywordtype">long</span> <span class="keywordtype">double</span>      n</div>
+<div class="line"><a id="l01748" name="l01748"></a><span class="lineno"> 1748</span>)</div>
+<div class="line"><a id="l01749" name="l01749"></a><span class="lineno"> 1749</span>{</div>
+<div class="line"><a id="l01750" name="l01750"></a><span class="lineno"> 1750</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37">cu::repeat</a>(container, n);</div>
+<div class="line"><a id="l01751" name="l01751"></a><span class="lineno"> 1751</span>}</div>
 </div>
-<div class="line"><a id="l01770" name="l01770"></a><span class="lineno"> 1770</span> </div>
-<div class="line"><a id="l01784" name="l01784"></a><span class="lineno"> 1784</span><span class="keyword">template</span>&lt;cu::cu_compatible Container&gt;</div>
-<div class="line"><a id="l01785" name="l01785"></a><span class="lineno"> 1785</span><span class="keyword">requires</span>(!std::is_same_v&lt;Container, std::string&gt;</div>
-<div class="line"><a id="l01786" name="l01786"></a><span class="lineno"> 1786</span>      &amp;&amp; !std::is_same_v&lt;Container, std::string_view&gt;)</div>
-<div class="foldopen" id="foldopen01787" data-start="{" data-end="}">
-<div class="line"><a id="l01787" name="l01787"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu__operators.html#aee622dc0b6935d296ec23b659513dd90"> 1787</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="keyword">operator</span>/ (</div>
-<div class="line"><a id="l01788" name="l01788"></a><span class="lineno"> 1788</span>    <span class="keyword">const</span> Container &amp;container,</div>
-<div class="line"><a id="l01789" name="l01789"></a><span class="lineno"> 1789</span>    <span class="keyword">const</span> Container &amp;pattern</div>
-<div class="line"><a id="l01790" name="l01790"></a><span class="lineno"> 1790</span>)</div>
-<div class="line"><a id="l01791" name="l01791"></a><span class="lineno"> 1791</span>{</div>
-<div class="line"><a id="l01792" name="l01792"></a><span class="lineno"> 1792</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a02a640ca3898e63a8338b562d23a6ca7">cu::split_seq</a>(container, pattern);</div>
-<div class="line"><a id="l01793" name="l01793"></a><span class="lineno"> 1793</span>}</div>
+<div class="line"><a id="l01752" name="l01752"></a><span class="lineno"> 1752</span> </div>
+<div class="line"><a id="l01766" name="l01766"></a><span class="lineno"> 1766</span><span class="keyword">template</span>&lt;cu::cu_compatible Container&gt;</div>
+<div class="line"><a id="l01767" name="l01767"></a><span class="lineno"> 1767</span><span class="keyword">requires</span>(!std::is_same_v&lt;Container, std::string&gt;</div>
+<div class="line"><a id="l01768" name="l01768"></a><span class="lineno"> 1768</span>      &amp;&amp; !std::is_same_v&lt;Container, std::string_view&gt;)</div>
+<div class="foldopen" id="foldopen01769" data-start="{" data-end="}">
+<div class="line"><a id="l01769" name="l01769"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu__operators.html#aee622dc0b6935d296ec23b659513dd90"> 1769</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="keyword">operator</span>/ (</div>
+<div class="line"><a id="l01770" name="l01770"></a><span class="lineno"> 1770</span>    <span class="keyword">const</span> Container &amp;container,</div>
+<div class="line"><a id="l01771" name="l01771"></a><span class="lineno"> 1771</span>    <span class="keyword">const</span> Container &amp;pattern</div>
+<div class="line"><a id="l01772" name="l01772"></a><span class="lineno"> 1772</span>)</div>
+<div class="line"><a id="l01773" name="l01773"></a><span class="lineno"> 1773</span>{</div>
+<div class="line"><a id="l01774" name="l01774"></a><span class="lineno"> 1774</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a02a640ca3898e63a8338b562d23a6ca7">cu::split_seq</a>(container, pattern);</div>
+<div class="line"><a id="l01775" name="l01775"></a><span class="lineno"> 1775</span>}</div>
 </div>
-<div class="line"><a id="l01794" name="l01794"></a><span class="lineno"> 1794</span> </div>
-<div class="line"><a id="l01808" name="l01808"></a><span class="lineno"> 1808</span><span class="keyword">template</span>&lt;cu::cu_compatible Container&gt;</div>
-<div class="line"><a id="l01809" name="l01809"></a><span class="lineno"> 1809</span><span class="keyword">requires</span>(!std::is_same_v&lt;Container, std::string&gt;</div>
-<div class="line"><a id="l01810" name="l01810"></a><span class="lineno"> 1810</span>      &amp;&amp; !std::is_same_v&lt;Container, std::string_view&gt;)</div>
-<div class="foldopen" id="foldopen01811" data-start="{" data-end="}">
-<div class="line"><a id="l01811" name="l01811"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu__operators.html#a43b738ea3f4b39d612bbe2f54ba8a655"> 1811</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="keyword">operator</span>/ (</div>
-<div class="line"><a id="l01812" name="l01812"></a><span class="lineno"> 1812</span>    <span class="keyword">const</span> Container                 &amp;container,</div>
-<div class="line"><a id="l01813" name="l01813"></a><span class="lineno"> 1813</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">cu::value_type&lt;Container&gt;</a> &amp;value</div>
-<div class="line"><a id="l01814" name="l01814"></a><span class="lineno"> 1814</span>)</div>
-<div class="line"><a id="l01815" name="l01815"></a><span class="lineno"> 1815</span>{</div>
-<div class="line"><a id="l01816" name="l01816"></a><span class="lineno"> 1816</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#ab9f44279e734a8b0963ba9a1a1d805b9">cu::split</a>(container, value);</div>
-<div class="line"><a id="l01817" name="l01817"></a><span class="lineno"> 1817</span>}</div>
+<div class="line"><a id="l01776" name="l01776"></a><span class="lineno"> 1776</span> </div>
+<div class="line"><a id="l01790" name="l01790"></a><span class="lineno"> 1790</span><span class="keyword">template</span>&lt;cu::cu_compatible Container&gt;</div>
+<div class="line"><a id="l01791" name="l01791"></a><span class="lineno"> 1791</span><span class="keyword">requires</span>(!std::is_same_v&lt;Container, std::string&gt;</div>
+<div class="line"><a id="l01792" name="l01792"></a><span class="lineno"> 1792</span>      &amp;&amp; !std::is_same_v&lt;Container, std::string_view&gt;)</div>
+<div class="foldopen" id="foldopen01793" data-start="{" data-end="}">
+<div class="line"><a id="l01793" name="l01793"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1cu__operators.html#a43b738ea3f4b39d612bbe2f54ba8a655"> 1793</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="keyword">operator</span>/ (</div>
+<div class="line"><a id="l01794" name="l01794"></a><span class="lineno"> 1794</span>    <span class="keyword">const</span> Container                 &amp;container,</div>
+<div class="line"><a id="l01795" name="l01795"></a><span class="lineno"> 1795</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">cu::value_type&lt;Container&gt;</a> &amp;value</div>
+<div class="line"><a id="l01796" name="l01796"></a><span class="lineno"> 1796</span>)</div>
+<div class="line"><a id="l01797" name="l01797"></a><span class="lineno"> 1797</span>{</div>
+<div class="line"><a id="l01798" name="l01798"></a><span class="lineno"> 1798</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#ab9f44279e734a8b0963ba9a1a1d805b9">cu::split</a>(container, value);</div>
+<div class="line"><a id="l01799" name="l01799"></a><span class="lineno"> 1799</span>}</div>
 </div>
-<div class="line"><a id="l01818" name="l01818"></a><span class="lineno"> 1818</span> </div>
-<div class="line"><a id="l01819" name="l01819"></a><span class="lineno"> 1819</span>} <span class="comment">// namespace cu_operators</span></div>
+<div class="line"><a id="l01800" name="l01800"></a><span class="lineno"> 1800</span> </div>
+<div class="line"><a id="l01801" name="l01801"></a><span class="lineno"> 1801</span>} <span class="comment">// namespace cu_operators</span></div>
 </div>
-<div class="line"><a id="l01820" name="l01820"></a><span class="lineno"> 1820</span> </div>
-<div class="line"><a id="l01821" name="l01821"></a><span class="lineno"> 1821</span>} <span class="comment">// namespace auspicious_library</span></div>
+<div class="line"><a id="l01802" name="l01802"></a><span class="lineno"> 1802</span> </div>
+<div class="line"><a id="l01803" name="l01803"></a><span class="lineno"> 1803</span>} <span class="comment">// namespace auspicious_library</span></div>
 <div class="ttc" id="aconceptauspicious__library_1_1cu_1_1boundless__accessible_html"><div class="ttname"><a href="conceptauspicious__library_1_1cu_1_1boundless__accessible.html">auspicious_library::cu::boundless_accessible</a></div><div class="ttdoc">A compatible container for boundless_access.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:153</div></div>
 <div class="ttc" id="aconceptauspicious__library_1_1cu_1_1cu__compatible__enum_html"><div class="ttname"><a href="conceptauspicious__library_1_1cu_1_1cu__compatible__enum.html">auspicious_library::cu::cu_compatible_enum</a></div><div class="ttdoc">Container Utilities compatible enumerator for enumerated_array .</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1233</div></div>
 <div class="ttc" id="aconceptauspicious__library_1_1cu_1_1cu__compatible__nested_html"><div class="ttname"><a href="conceptauspicious__library_1_1cu_1_1cu__compatible__nested.html">auspicious_library::cu::cu_compatible_nested</a></div><div class="ttdoc">Nested container compatible for Container Utilities.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:140</div></div>
 <div class="ttc" id="aconceptauspicious__library_1_1cu_1_1cu__compatible_html"><div class="ttname"><a href="conceptauspicious__library_1_1cu_1_1cu__compatible.html">auspicious_library::cu::cu_compatible</a></div><div class="ttdoc">Container compatible for Container Utilities.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:104</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a0248de8b248ad5631f6331109b9aace1"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">auspicious_library::cu::value_type</a></div><div class="ttdeci">Container::value_type value_type</div><div class="ttdoc">Container's value_type member.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:115</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a02a640ca3898e63a8338b562d23a6ca7"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a02a640ca3898e63a8338b562d23a6ca7">auspicious_library::cu::split_seq</a></div><div class="ttdeci">constexpr auto split_seq(const Container &amp;container, const Container &amp;pattern)</div><div class="ttdoc">Split the container with pattern.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1526</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a0e0d8bbb85dbc2dcd3af2f255c9a0b39"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a0e0d8bbb85dbc2dcd3af2f255c9a0b39">auspicious_library::cu::filter_out_occ_seq</a></div><div class="ttdeci">constexpr auto filter_out_occ_seq(const Container &amp;container, const NestedContainer &amp;patterns)</div><div class="ttdoc">Filter out the occurrences of any of sequences from the container.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1438</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a12c14d5aa2a21c5f071ffe3e3f805e15"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a12c14d5aa2a21c5f071ffe3e3f805e15">auspicious_library::cu::subordinate</a></div><div class="ttdeci">constexpr auto subordinate(const Container &amp;container, std::size_t first_inclusive, std::size_t last_exclusive)</div><div class="ttdoc">Get the subset of the container's elements.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1337</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a28c9c721c79f51cbf14c0c9c9e020293"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a28c9c721c79f51cbf14c0c9c9e020293">auspicious_library::cu::filter_out_seq</a></div><div class="ttdeci">constexpr auto filter_out_seq(const Container &amp;container, const Container &amp;pattern)</div><div class="ttdoc">Filter out the occurrences of sequence from the container.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1395</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a2cedb9f639f5066ee04304c33807ecbb"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a2cedb9f639f5066ee04304c33807ecbb">auspicious_library::cu::combine</a></div><div class="ttdeci">constexpr auto combine(const Container &amp;container_a, const Container &amp;container_b)</div><div class="ttdoc">Copy containers into one container.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1357</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a367b35bf13b81eac704c433070427e6d"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a367b35bf13b81eac704c433070427e6d">auspicious_library::cu::filter_out_occ</a></div><div class="ttdeci">constexpr auto filter_out_occ(const Container &amp;container, const Container &amp;values)</div><div class="ttdoc">Filter out the occurrences of any of values from the container.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1414</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a3d0869d9e35bc3f395f91a5cbde0345e"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a3d0869d9e35bc3f395f91a5cbde0345e">auspicious_library::cu::filter_out</a></div><div class="ttdeci">constexpr auto filter_out(const Container &amp;container, const value_type&lt; Container &gt; &amp;value)</div><div class="ttdoc">Filter out the occurrences of value from the container.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1460</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a420a931bdf075a5d34bbc908aafaae37"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37">auspicious_library::cu::repeat</a></div><div class="ttdeci">constexpr auto repeat(const Container &amp;container, std::size_t n)</div><div class="ttdoc">Repeat container n times.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1477</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a02a640ca3898e63a8338b562d23a6ca7"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a02a640ca3898e63a8338b562d23a6ca7">auspicious_library::cu::split_seq</a></div><div class="ttdeci">constexpr auto split_seq(const Container &amp;container, const Container &amp;pattern)</div><div class="ttdoc">Split the container with pattern.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1508</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a0e0d8bbb85dbc2dcd3af2f255c9a0b39"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a0e0d8bbb85dbc2dcd3af2f255c9a0b39">auspicious_library::cu::filter_out_occ_seq</a></div><div class="ttdeci">constexpr auto filter_out_occ_seq(const Container &amp;container, const NestedContainer &amp;patterns)</div><div class="ttdoc">Filter out the occurrences of any of sequences from the container.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1420</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a12c14d5aa2a21c5f071ffe3e3f805e15"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a12c14d5aa2a21c5f071ffe3e3f805e15">auspicious_library::cu::subordinate</a></div><div class="ttdeci">constexpr auto subordinate(const Container &amp;container, std::size_t first_inclusive, std::size_t last_exclusive)</div><div class="ttdoc">Get the subset of the container's elements.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1319</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a28c9c721c79f51cbf14c0c9c9e020293"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a28c9c721c79f51cbf14c0c9c9e020293">auspicious_library::cu::filter_out_seq</a></div><div class="ttdeci">constexpr auto filter_out_seq(const Container &amp;container, const Container &amp;pattern)</div><div class="ttdoc">Filter out the occurrences of sequence from the container.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1377</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a2cedb9f639f5066ee04304c33807ecbb"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a2cedb9f639f5066ee04304c33807ecbb">auspicious_library::cu::combine</a></div><div class="ttdeci">constexpr auto combine(const Container &amp;container_a, const Container &amp;container_b)</div><div class="ttdoc">Copy containers into one container.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1339</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a367b35bf13b81eac704c433070427e6d"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a367b35bf13b81eac704c433070427e6d">auspicious_library::cu::filter_out_occ</a></div><div class="ttdeci">constexpr auto filter_out_occ(const Container &amp;container, const Container &amp;values)</div><div class="ttdoc">Filter out the occurrences of any of values from the container.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1396</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a3d0869d9e35bc3f395f91a5cbde0345e"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a3d0869d9e35bc3f395f91a5cbde0345e">auspicious_library::cu::filter_out</a></div><div class="ttdeci">constexpr auto filter_out(const Container &amp;container, const value_type&lt; Container &gt; &amp;value)</div><div class="ttdoc">Filter out the occurrences of value from the container.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1442</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a420a931bdf075a5d34bbc908aafaae37"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37">auspicious_library::cu::repeat</a></div><div class="ttdeci">constexpr auto repeat(const Container &amp;container, std::size_t n)</div><div class="ttdoc">Repeat container n times.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1459</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a60b2261436e0343c87c797ba6a750096"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096">auspicious_library::cu::result_container</a></div><div class="ttdeci">std::vector&lt; value_type&lt; Container &gt; &gt; result_container</div><div class="ttdoc">All Container Utilities return this container.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:122</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a69393250ff2cb81e1361da2f06789324"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a69393250ff2cb81e1361da2f06789324">auspicious_library::cu::boundless_access</a></div><div class="ttdeci">constexpr auto boundless_access(const Container &amp;container, std::size_t index)</div><div class="ttdoc">Return element at index, or a default-constructed instance of the value type if the index is invalid.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:169</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a7c2c97e55ed45d82a370ac456aac90a0"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a7c2c97e55ed45d82a370ac456aac90a0">auspicious_library::cu::split_occ_seq</a></div><div class="ttdeci">constexpr auto split_occ_seq(const Container &amp;container, const NestedContainer &amp;patterns)</div><div class="ttdoc">Split the container with occurrences of any of pattern.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1575</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a7c2c97e55ed45d82a370ac456aac90a0"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a7c2c97e55ed45d82a370ac456aac90a0">auspicious_library::cu::split_occ_seq</a></div><div class="ttdeci">constexpr auto split_occ_seq(const Container &amp;container, const NestedContainer &amp;patterns)</div><div class="ttdoc">Split the container with occurrences of any of pattern.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1557</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1cu_html_aa8f598b12df52ce5d965b34a29b9ce32"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#aa8f598b12df52ce5d965b34a29b9ce32">auspicious_library::cu::boundless_span</a></div><div class="ttdeci">boundless_span(T(&amp;)[N]) -&gt; boundless_span&lt; T, N &gt;</div><div class="ttdoc">Template parameter deduction guide for boundless_span .</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_ab9f44279e734a8b0963ba9a1a1d805b9"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#ab9f44279e734a8b0963ba9a1a1d805b9">auspicious_library::cu::split</a></div><div class="ttdeci">constexpr auto split(const Container &amp;container, const value_type&lt; Container &gt; &amp;value)</div><div class="ttdoc">Split the container with value.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1618</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_abfa1e0f596b9cc301dd78bbd0a47b7b1"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#abfa1e0f596b9cc301dd78bbd0a47b7b1">auspicious_library::cu::enum_value_v</a></div><div class="ttdeci">constexpr auto enum_value_v</div><div class="ttdoc">Helper to get the value of the enumerator's member.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1247</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_ab9f44279e734a8b0963ba9a1a1d805b9"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#ab9f44279e734a8b0963ba9a1a1d805b9">auspicious_library::cu::split</a></div><div class="ttdeci">constexpr auto split(const Container &amp;container, const value_type&lt; Container &gt; &amp;value)</div><div class="ttdoc">Split the container with value.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1600</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1cu_html_ac397b67fa3b542036726c3514a4df4f0"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#ac397b67fa3b542036726c3514a4df4f0">auspicious_library::cu::result_container_nested</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; value_type&lt; Container &gt; &gt; &gt; result_container_nested</div><div class="ttdoc">All Container Utilities return this container if the result is nested.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:130</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_acc1b463c87ef5ec1f72cd652c70f9b0d"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#acc1b463c87ef5ec1f72cd652c70f9b0d">auspicious_library::cu::split_occ</a></div><div class="ttdeci">constexpr auto split_occ(const Container &amp;container, const Container &amp;values)</div><div class="ttdoc">Split the container with occurrences of value.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1544</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_acc1b463c87ef5ec1f72cd652c70f9b0d"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#acc1b463c87ef5ec1f72cd652c70f9b0d">auspicious_library::cu::split_occ</a></div><div class="ttdeci">constexpr auto split_occ(const Container &amp;container, const Container &amp;values)</div><div class="ttdoc">Split the container with occurrences of value.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1526</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1cu_html_ad6ac150aeaed704404a67ffd593c0f0d"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#ad6ac150aeaed704404a67ffd593c0f0d">auspicious_library::cu::boundless_vector</a></div><div class="ttdeci">boundless_vector(InputIterator, InputIterator, AllocatorType=AllocatorType()) -&gt; boundless_vector&lt; ValueType, AllocatorType &gt;</div><div class="ttdoc">Template parameter deduction guide for boundless_vector .</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_ae709f48cb1ed1d1f54c5981801356aa3"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#ae709f48cb1ed1d1f54c5981801356aa3">auspicious_library::cu::enum_max_v</a></div><div class="ttdeci">constexpr auto enum_max_v</div><div class="ttdoc">Helper to get the value of the enumerator's max member.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1261</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_ae709f48cb1ed1d1f54c5981801356aa3"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#ae709f48cb1ed1d1f54c5981801356aa3">auspicious_library::cu::enum_max_v</a></div><div class="ttdeci">constexpr auto enum_max_v</div><div class="ttdoc">Helper to get the value of the enumerator's max member.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1248</div></div>
 <div class="ttc" id="anamespaceauspicious__library_html"><div class="ttname"><a href="namespaceauspicious__library.html">auspicious_library</a></div><div class="ttdoc">All Auspicious Library's contents in this namespace.</div><div class="ttdef"><b>Definition</b> al_ansi_escape_codes.hpp:72</div></div>
 <div class="ttc" id="astructauspicious__library_1_1cu_1_1boundless__array_html"><div class="ttname"><a href="structauspicious__library_1_1cu_1_1boundless__array.html">auspicious_library::cu::boundless_array</a></div><div class="ttdoc">A boundless array.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:489</div></div>
 <div class="ttc" id="astructauspicious__library_1_1cu_1_1boundless__array_html_a0fe352de648a674f27b5741e94aa0d14"><div class="ttname"><a href="structauspicious__library_1_1cu_1_1boundless__array.html#a0fe352de648a674f27b5741e94aa0d14">auspicious_library::cu::boundless_array::at</a></div><div class="ttdeci">constexpr auto at(std::size_t index) -&gt; T &amp;</div><div class="ttdoc">Get an element at index, or a default constructed instance of the value type when index is invalid.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:525</div></div>
@@ -1245,13 +1240,12 @@ $(function(){initNavTree('al__container__utilities_8hpp_source.html',''); initRe
 <div class="ttc" id="astructauspicious__library_1_1cu_1_1boundless__vector_html_ae9a7c74b0c3b79d75a91da899a55939d"><div class="ttname"><a href="structauspicious__library_1_1cu_1_1boundless__vector.html#ae9a7c74b0c3b79d75a91da899a55939d">auspicious_library::cu::boundless_vector::boundless_vector</a></div><div class="ttdeci">constexpr boundless_vector(InputIterator first, InputIterator last, const Alloc &amp;allocator=Alloc())</div><div class="ttdoc">Creates a vector from a range.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:325</div></div>
 <div class="ttc" id="astructauspicious__library_1_1cu_1_1boundless__vector_html_aea8733254d899d129bf483c21f358db9"><div class="ttname"><a href="structauspicious__library_1_1cu_1_1boundless__vector.html#aea8733254d899d129bf483c21f358db9">auspicious_library::cu::boundless_vector::base</a></div><div class="ttdeci">std::vector&lt; T, Alloc &gt; base</div><div class="ttdoc">Base class, template arguments are long.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:217</div></div>
 <div class="ttc" id="astructauspicious__library_1_1cu_1_1boundless__vector_html_af953b5796423b6a262b9861ae21b6b6d"><div class="ttname"><a href="structauspicious__library_1_1cu_1_1boundless__vector.html#af953b5796423b6a262b9861ae21b6b6d">auspicious_library::cu::boundless_vector::boundless_vector</a></div><div class="ttdeci">constexpr boundless_vector(boundless_vector &amp;&amp;vector, const Alloc &amp;allocator) noexcept</div><div class="ttdoc">Move constructor with alternative allocator.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:298</div></div>
-<div class="ttc" id="astructauspicious__library_1_1cu_1_1enum__max_html"><div class="ttname"><a href="structauspicious__library_1_1cu_1_1enum__max.html">auspicious_library::cu::enum_max</a></div><div class="ttdoc">Integral constant for the enumerator's max member.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1254</div></div>
-<div class="ttc" id="astructauspicious__library_1_1cu_1_1enum__value_html"><div class="ttname"><a href="structauspicious__library_1_1cu_1_1enum__value.html">auspicious_library::cu::enum_value</a></div><div class="ttdoc">Integral constant for the enumerator's member.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1240</div></div>
-<div class="ttc" id="astructauspicious__library_1_1cu_1_1enumerated__array_html"><div class="ttname"><a href="structauspicious__library_1_1cu_1_1enumerated__array.html">auspicious_library::cu::enumerated_array</a></div><div class="ttdoc">Array with enumerator as index.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1270</div></div>
-<div class="ttc" id="astructauspicious__library_1_1cu_1_1enumerated__array_html_a1c08001931e056b2eab485565245d9cf"><div class="ttname"><a href="structauspicious__library_1_1cu_1_1enumerated__array.html#a1c08001931e056b2eab485565245d9cf">auspicious_library::cu::enumerated_array::at</a></div><div class="ttdeci">auto at(E enumerator) -&gt; T &amp;</div><div class="ttdoc">Get an element at index, or a default constructed instance of the value type when index is invalid.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1309</div></div>
-<div class="ttc" id="astructauspicious__library_1_1cu_1_1enumerated__array_html_a3877b4cd2e8183024ac128b6bcc84e6c"><div class="ttname"><a href="structauspicious__library_1_1cu_1_1enumerated__array.html#a3877b4cd2e8183024ac128b6bcc84e6c">auspicious_library::cu::enumerated_array::at</a></div><div class="ttdeci">auto at(E enumerator) const -&gt; T</div><div class="ttdoc">Get an element at index, or a default constructed instance of the value type when index is invalid.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1321</div></div>
-<div class="ttc" id="astructauspicious__library_1_1cu_1_1enumerated__array_html_a5a3f14c627f7daaf02a19c175cee8da4"><div class="ttname"><a href="structauspicious__library_1_1cu_1_1enumerated__array.html#a5a3f14c627f7daaf02a19c175cee8da4">auspicious_library::cu::enumerated_array::base</a></div><div class="ttdeci">std::array&lt; E, enum_max_v&lt; E &gt; &gt; base</div><div class="ttdoc">Base class, template arguments are long.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1275</div></div>
-<div class="ttc" id="astructauspicious__library_1_1cu_1_1enumerated__array_html_afe93b1c48a440fbfe4bb9b699f6a94e0"><div class="ttname"><a href="structauspicious__library_1_1cu_1_1enumerated__array.html#afe93b1c48a440fbfe4bb9b699f6a94e0">auspicious_library::cu::enumerated_array::operator[]</a></div><div class="ttdeci">auto operator[](E enumerator) -&gt; T &amp;</div><div class="ttdoc">Get an element at index, or a default constructed instance of the value type when index is invalid.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1284</div></div>
+<div class="ttc" id="astructauspicious__library_1_1cu_1_1enum__max_html"><div class="ttname"><a href="structauspicious__library_1_1cu_1_1enum__max.html">auspicious_library::cu::enum_max</a></div><div class="ttdoc">Integral constant for the enumerator's max member.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1241</div></div>
+<div class="ttc" id="astructauspicious__library_1_1cu_1_1enumerated__array_html"><div class="ttname"><a href="structauspicious__library_1_1cu_1_1enumerated__array.html">auspicious_library::cu::enumerated_array</a></div><div class="ttdoc">Array with enumerator as index.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1257</div></div>
+<div class="ttc" id="astructauspicious__library_1_1cu_1_1enumerated__array_html_a4afd94d10aecc922801273bdbaafa1af"><div class="ttname"><a href="structauspicious__library_1_1cu_1_1enumerated__array.html#a4afd94d10aecc922801273bdbaafa1af">auspicious_library::cu::enumerated_array::base</a></div><div class="ttdeci">std::array&lt; T, enum_max_v&lt; E &gt; &gt; base</div><div class="ttdoc">Base class, template arguments are long.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1262</div></div>
+<div class="ttc" id="astructauspicious__library_1_1cu_1_1enumerated__array_html_a888a3a65bc0fb578ce85a684e6fb306e"><div class="ttname"><a href="structauspicious__library_1_1cu_1_1enumerated__array.html#a888a3a65bc0fb578ce85a684e6fb306e">auspicious_library::cu::enumerated_array::at</a></div><div class="ttdeci">constexpr auto at(E e) -&gt; T &amp;</div><div class="ttdoc">Get the element at enumerator.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1292</div></div>
+<div class="ttc" id="astructauspicious__library_1_1cu_1_1enumerated__array_html_ab99130748b8d10b288dc66479cd800a1"><div class="ttname"><a href="structauspicious__library_1_1cu_1_1enumerated__array.html#ab99130748b8d10b288dc66479cd800a1">auspicious_library::cu::enumerated_array::operator[]</a></div><div class="ttdeci">constexpr auto operator[](E e) -&gt; T &amp;</div><div class="ttdoc">Get the element at enumerator.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1270</div></div>
+<div class="ttc" id="astructauspicious__library_1_1cu_1_1enumerated__array_html_ae1748f9503390b941569a2c5317802e5"><div class="ttname"><a href="structauspicious__library_1_1cu_1_1enumerated__array.html#ae1748f9503390b941569a2c5317802e5">auspicious_library::cu::enumerated_array::at</a></div><div class="ttdeci">constexpr auto at(E e) const -&gt; T</div><div class="ttdoc">Get the element at enumerator.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1303</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.11.0-->

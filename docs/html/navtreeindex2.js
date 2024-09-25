@@ -1,7 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"structauspicious__library_1_1ap_1_1microsoft__help__format.html#a2272d9b3a9bef05b0f918be509f275a0":[14,0,0,2,1,4],
-"structauspicious__library_1_1ap_1_1microsoft__help__format.html#a2272d9b3a9bef05b0f918be509f275a0":[16,0,0,1,1,4],
 "structauspicious__library_1_1ap_1_1microsoft__help__format.html#a3117027cc4efb46789a8e3f0ee34f160":[14,0,0,2,1,2],
 "structauspicious__library_1_1ap_1_1microsoft__help__format.html#a3117027cc4efb46789a8e3f0ee34f160":[16,0,0,1,1,2],
 "structauspicious__library_1_1ap_1_1microsoft__help__format.html#a3bc911e355dbfc1f71231b1a662adeb1":[14,0,0,2,1,10],
@@ -249,5 +247,7 @@ var NAVTREEINDEX2 =
 "structauspicious__library_1_1cu_1_1boundless__basic__string.html#ab313713aaf32db2f6fec406e2c1a8c5a":[14,0,0,3,1,11],
 "structauspicious__library_1_1cu_1_1boundless__basic__string.html#ab313713aaf32db2f6fec406e2c1a8c5a":[16,0,0,2,1,11],
 "structauspicious__library_1_1cu_1_1boundless__basic__string.html#ab6e79fbebdd9c5a7c1dd21d88cca5f70":[14,0,0,3,1,17],
-"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ab6e79fbebdd9c5a7c1dd21d88cca5f70":[16,0,0,2,1,17]
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ab6e79fbebdd9c5a7c1dd21d88cca5f70":[16,0,0,2,1,17],
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ac23e2e42ada70f0491cf08a7f3f760fd":[14,0,0,3,1,7],
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ac23e2e42ada70f0491cf08a7f3f760fd":[16,0,0,2,1,7]
 };

@@ -23,7 +23,6 @@ var annotated_dup =
         [ "boundless_span", "structauspicious__library_1_1cu_1_1boundless__span.html", "structauspicious__library_1_1cu_1_1boundless__span" ],
         [ "boundless_vector", "structauspicious__library_1_1cu_1_1boundless__vector.html", "structauspicious__library_1_1cu_1_1boundless__vector" ],
         [ "enum_max", "structauspicious__library_1_1cu_1_1enum__max.html", null ],
-        [ "enum_value", "structauspicious__library_1_1cu_1_1enum__value.html", null ],
         [ "enumerated_array", "structauspicious__library_1_1cu_1_1enumerated__array.html", "structauspicious__library_1_1cu_1_1enumerated__array" ]
       ] ],
       [ "fu", "namespaceauspicious__library_1_1fu.html", [

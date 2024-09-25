@@ -5,7 +5,6 @@ var al__container__utilities_8hpp =
     [ "auspicious_library::cu::boundless_span< T, Extent >", "structauspicious__library_1_1cu_1_1boundless__span.html", "structauspicious__library_1_1cu_1_1boundless__span" ],
     [ "auspicious_library::cu::boundless_basic_string< CharT, Traits, Alloc >", "structauspicious__library_1_1cu_1_1boundless__basic__string.html", "structauspicious__library_1_1cu_1_1boundless__basic__string" ],
     [ "auspicious_library::cu::boundless_basic_string_view< CharT, Traits >", "structauspicious__library_1_1cu_1_1boundless__basic__string__view.html", "structauspicious__library_1_1cu_1_1boundless__basic__string__view" ],
-    [ "auspicious_library::cu::enum_value< E, value >", "structauspicious__library_1_1cu_1_1enum__value.html", null ],
     [ "auspicious_library::cu::enum_max< E >", "structauspicious__library_1_1cu_1_1enum__max.html", null ],
     [ "auspicious_library::cu::enumerated_array< T, E >", "structauspicious__library_1_1cu_1_1enumerated__array.html", "structauspicious__library_1_1cu_1_1enumerated__array" ],
     [ "auspicious_library::cu::cu_compatible", "conceptauspicious__library_1_1cu_1_1cu__compatible.html", null ],
@@ -53,6 +52,5 @@ var al__container__utilities_8hpp =
     [ "operator*", "al__container__utilities_8hpp.html#ad23d0eeab43a44de13ab2e20b2bbf979", null ],
     [ "operator/", "al__container__utilities_8hpp.html#aee622dc0b6935d296ec23b659513dd90", null ],
     [ "operator/", "al__container__utilities_8hpp.html#a43b738ea3f4b39d612bbe2f54ba8a655", null ],
-    [ "enum_value_v", "al__container__utilities_8hpp.html#abfa1e0f596b9cc301dd78bbd0a47b7b1", null ],
     [ "enum_max_v", "al__container__utilities_8hpp.html#ae709f48cb1ed1d1f54c5981801356aa3", null ]
 ];

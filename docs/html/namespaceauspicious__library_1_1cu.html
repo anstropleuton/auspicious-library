@@ -148,9 +148,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structauspicious__library_1_1cu_1_1enum__max.html">enum_max</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integral constant for the enumerator's <code>max</code> member.  <a href="structauspicious__library_1_1cu_1_1enum__max.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structauspicious__library_1_1cu_1_1enum__value.html">enum_value</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integral constant for the enumerator's member.  <a href="structauspicious__library_1_1cu_1_1enum__value.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structauspicious__library_1_1cu_1_1enumerated__array.html">enumerated_array</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array with enumerator as index.  <a href="structauspicious__library_1_1cu_1_1enumerated__array.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -303,10 +300,6 @@ requires (std::is_same_v&lt;T, U&gt; &amp;&amp; ...)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:abfa1e0f596b9cc301dd78bbd0a47b7b1" id="r_abfa1e0f596b9cc301dd78bbd0a47b7b1"><td class="memTemplParams" colspan="2">template&lt;cu_compatible_enum E, E value&gt; </td></tr>
-<tr class="memitem:abfa1e0f596b9cc301dd78bbd0a47b7b1"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#abfa1e0f596b9cc301dd78bbd0a47b7b1">enum_value_v</a> = <a class="el" href="structauspicious__library_1_1cu_1_1enum__value.html">enum_value</a>&lt;E, value&gt;::value</td></tr>
-<tr class="memdesc:abfa1e0f596b9cc301dd78bbd0a47b7b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper to get the value of the enumerator's member.  <br /></td></tr>
-<tr class="separator:abfa1e0f596b9cc301dd78bbd0a47b7b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae709f48cb1ed1d1f54c5981801356aa3" id="r_ae709f48cb1ed1d1f54c5981801356aa3"><td class="memTemplParams" colspan="2">template&lt;cu_compatible_enum E&gt; </td></tr>
 <tr class="memitem:ae709f48cb1ed1d1f54c5981801356aa3"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae709f48cb1ed1d1f54c5981801356aa3">enum_max_v</a> = <a class="el" href="structauspicious__library_1_1cu_1_1enum__max.html">enum_max</a>&lt;E&gt;::value</td></tr>
 <tr class="memdesc:ae709f48cb1ed1d1f54c5981801356aa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper to get the value of the enumerator's <code>max</code> member.  <br /></td></tr>
@@ -1454,38 +1447,6 @@ template&lt;cu_compatible Container&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="abfa1e0f596b9cc301dd78bbd0a47b7b1" name="abfa1e0f596b9cc301dd78bbd0a47b7b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfa1e0f596b9cc301dd78bbd0a47b7b1">&#9670;&#160;</a></span>enum_value_v</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;cu_compatible_enum E, E value&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto auspicious_library::cu::enum_value_v = <a class="el" href="structauspicious__library_1_1cu_1_1enum__value.html">enum_value</a>&lt;E, value&gt;::value</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Helper to get the value of the enumerator's member. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">E</td><td>Container Utilities compatible enumerator type. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="ae709f48cb1ed1d1f54c5981801356aa3" name="ae709f48cb1ed1d1f54c5981801356aa3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae709f48cb1ed1d1f54c5981801356aa3">&#9670;&#160;</a></span>enum_max_v</h2>
 

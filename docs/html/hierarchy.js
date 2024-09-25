@@ -12,10 +12,7 @@ var hierarchy =
       [ "auspicious_library::cu::boundless_basic_string_view< CharT, Traits >", "structauspicious__library_1_1cu_1_1boundless__basic__string__view.html", null ]
     ] ],
     [ "std::integral_constant", null, [
-      [ "auspicious_library::cu::enum_value< E, E::max >", "structauspicious__library_1_1cu_1_1enum__value.html", [
-        [ "auspicious_library::cu::enum_max< E >", "structauspicious__library_1_1cu_1_1enum__max.html", null ]
-      ] ],
-      [ "auspicious_library::cu::enum_value< E, value >", "structauspicious__library_1_1cu_1_1enum__value.html", null ]
+      [ "auspicious_library::cu::enum_max< E >", "structauspicious__library_1_1cu_1_1enum__max.html", null ]
     ] ],
     [ "auspicious_library::ap::measured_string", "structauspicious__library_1_1ap_1_1measured__string.html", null ],
     [ "auspicious_library::ap::microsoft_help_format", "structauspicious__library_1_1ap_1_1microsoft__help__format.html", null ],

@@ -142,9 +142,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "al__ansi__escape__codes_8hpp.html",
-"md_Guidelines.html#autotoc_md40",
-"structauspicious__library_1_1ap_1_1microsoft__help__format.html#a2272d9b3a9bef05b0f918be509f275a0",
-"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ac23e2e42ada70f0491cf08a7f3f760fd"
+"md_Guidelines.html#autotoc_md41",
+"structauspicious__library_1_1ap_1_1microsoft__help__format.html#a3117027cc4efb46789a8e3f0ee34f160",
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html#acff2794df191ad1a3916adc85ea3f38b"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
