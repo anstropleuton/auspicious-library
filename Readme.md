@@ -62,7 +62,7 @@ Check out [Guidelines](Guidelines.md) before you submit your code! Make sure to 
 
 # Credits
 Thanks to [jothepro](https://github.com/jothepro) for the stylesheet [Doxygen Awesome](https://github.com/jothepro/doxygen-awesome-css) for Doxygen.
-Thanks to Nuno Pinheiro (can't find link) for the background [Elarun](background.png).
+Thanks to Nuno Pinheiro (can't find link) for the background [Elarun](background.png). But I did find a [KDE store link](https://store.kde.org/p/1162360/) to the background image. I think you could consider that. If KDE developers are here, I would appreciate your help to find a proper link to the author.
 
 # License
 This project is licensed under the terms of MIT License, see [License](License.md).
