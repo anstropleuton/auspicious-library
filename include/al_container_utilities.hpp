@@ -75,7 +75,7 @@
     using namespace auspicious_library::aec;
     using namespace auspicious_library::ap;
     using namespace auspicious_library::fu;
-    }
+    } // namespace al
     using namespace auspicious_library::cu_operators;
     using namespace auspicious_library::sm_operators;
     using namespace auspicious_library::aec_operators;

@@ -559,7 +559,8 @@
     catch (const std::exception &e)
     {
         logln(
-            "Exception occurred in test_cu_containers_boundless_string_view: {}",
+            "Exception occurred in test_cu_containers_boundless_string_view: "
+            "{}",
             e.what());
     }
     catch (...)
