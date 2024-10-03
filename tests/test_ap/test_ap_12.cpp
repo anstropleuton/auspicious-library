@@ -58,17 +58,17 @@
 {
     T_BEGIN;
 
-    std::vector<const al::option_template *>     options     = {};
-    std::vector<const al::subcommand_template *> subcommands = {};
+    std::vector<const ap::option_template *>     options     = {};
+    std::vector<const ap::subcommand_template *> subcommands = {};
 
     std::size_t test_index = 0;
     std::vector<std::size_t> failed_tests = {};
 
     std::vector<std::string>         args     = {};
-    std::vector<al::parsed_argument> expected = {};
+    std::vector<ap::parsed_argument> expected = {};
 
     // Test `--arg value subcommand`
-    options.emplace_back(new al::option_template {
+    options.emplace_back(new ap::option_template {
         .description        = "Option test `--arg value subcommand`",
         .long_names         = { "arg" },
         .short_names        = {},
@@ -76,7 +76,7 @@
         .defaults_from_back = {}
     });
 
-    subcommands.emplace_back(new al::subcommand_template {
+    subcommands.emplace_back(new ap::subcommand_template {
         .description        = "Subcommand test `--arg value subcommand`",
         .names              = { "subcommand" },
         .parameters         = {},
@@ -87,7 +87,7 @@
 
     args     = { "--arg", "value", "subcommand" };
     expected = {
-        al::parsed_argument {
+        ap::parsed_argument {
             .argument     = {
                 .original = "--arg",
                 .modified = "--arg",
@@ -103,7 +103,7 @@
             .ref_subcommand = nullptr,
             .values         = { "value" }
         },
-        al::parsed_argument {
+        ap::parsed_argument {
             .argument     = {
                 .original = "subcommand",
                 .modified = "subcommand",
@@ -154,7 +154,7 @@
     subcommands.clear();
 
     // Test `subcommand-1 value subcommand-2`
-    subcommands.emplace_back(new al::subcommand_template {
+    subcommands.emplace_back(new ap::subcommand_template {
         .description = "Subcommand test - 1 `subcommand-1 value "
                        "subcommand-2`",
         .names              = { "subcommand-1" },
@@ -163,7 +163,7 @@
         .subcommands        = {},
         .subcommand_options = {}
     });
-    subcommands.emplace_back(new al::subcommand_template {
+    subcommands.emplace_back(new ap::subcommand_template {
         .description = "Subcommand test - 2 `subcommand-1 value "
                        "subcommand-2`",
         .names              = { "subcommand-2" },
@@ -175,7 +175,7 @@
 
     args     = { "subcommand-1", "value", "subcommand-2" };
     expected = {
-        al::parsed_argument {
+        ap::parsed_argument {
             .argument     = {
                 .original = "subcommand-1",
                 .modified = "subcommand-1",
@@ -191,7 +191,7 @@
             .ref_subcommand = subcommands[0],
             .values         = { "value" }
         },
-        al::parsed_argument {
+        ap::parsed_argument {
             .argument     = {
                 .original = "subcommand-2",
                 .modified = "subcommand-2",
@@ -244,7 +244,7 @@
     // Test argument starting with `=`
     args     = { "=" };
     expected = {
-        al::parsed_argument {
+        ap::parsed_argument {
             .argument     = {
                 .original = "=",
                 .modified = "=",
@@ -295,7 +295,7 @@
     subcommands.clear();
 
     // Test `--arg value-1=value-2`
-    options.emplace_back(new al::option_template {
+    options.emplace_back(new ap::option_template {
         .description        = "Option test `--arg value-1=value-2`",
         .long_names         = { "arg" },
         .short_names        = {},
@@ -305,7 +305,7 @@
 
     args     = { "--arg", "value-1=value-2" };
     expected = {
-        al::parsed_argument {
+        ap::parsed_argument {
             .argument     = {
                 .original = "--arg",
                 .modified = "--arg",
@@ -357,7 +357,7 @@
 
     // Test `global-subcommand-1 global-subcommand-2` even when
     // `global-subcommand-1` has subcommand of its own
-    subcommands.emplace_back(new al::subcommand_template {
+    subcommands.emplace_back(new ap::subcommand_template {
         .description = "Subcommand test - 1 `global-subcommand-1 "
                        "global-subcommand-2`",
         .names              = { "global-subcommand-1" },
@@ -366,7 +366,7 @@
         .subcommands        = {},
         .subcommand_options = {}
     });
-    subcommands.emplace_back(new al::subcommand_template {
+    subcommands.emplace_back(new ap::subcommand_template {
         .description = "Subcommand test - 2 `global-subcommand-1 "
                        "global-subcommand-2`",
         .names              = { "global-subcommand-2" },
@@ -378,7 +378,7 @@
 
     args     = { "global-subcommand-1", "global-subcommand-2" };
     expected = {
-        al::parsed_argument {
+        ap::parsed_argument {
             .argument     = {
                 .original = "global-subcommand-1",
                 .modified = "global-subcommand-1",
@@ -394,7 +394,7 @@
             .ref_subcommand = subcommands[0],
             .values         = {}
         },
-        al::parsed_argument {
+        ap::parsed_argument {
             .argument     = {
                 .original = "global-subcommand-2",
                 .modified = "global-subcommand-2",
@@ -445,7 +445,7 @@
     subcommands.clear();
 
     // Test `--arg-1 value --arg-2` even when `--arg-1` has two parameters
-    options.emplace_back(new al::option_template {
+    options.emplace_back(new ap::option_template {
         .description        = "Option test `--arg-1 value --arg-2`",
         .long_names         = { "arg-1" },
         .short_names        = {},
@@ -453,7 +453,7 @@
         .defaults_from_back = {}
     });
 
-    options.emplace_back(new al::option_template {
+    options.emplace_back(new ap::option_template {
         .description        = "Option test `--arg-1 value --arg-2`",
         .long_names         = { "arg-2" },
         .short_names        = {},
@@ -463,7 +463,7 @@
 
     args     = { "--arg-1", "value", "--arg-2" };
     expected = {
-        al::parsed_argument {
+        ap::parsed_argument {
             .argument     = {
                 .original = "--arg-1",
                 .modified = "--arg-1",
@@ -479,7 +479,7 @@
             .ref_subcommand = nullptr,
             .values         = { "value" }
         },
-        al::parsed_argument {
+        ap::parsed_argument {
             .argument     = {
                 .original = "--arg-2",
                 .modified = "--arg-2",
@@ -529,7 +529,7 @@
     options.clear();
     subcommands.clear();
 
-    logln("Failed tests:\n{}\n", al::to_string(failed_tests, ",\n"s,
+    logln("Failed tests:\n{}\n", sm::to_string(failed_tests, ",\n"s,
         " Test 12."));
 
     T_END;

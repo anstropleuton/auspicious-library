@@ -62,7 +62,7 @@
     std::string expected = "<#1#>... <#2#>... <#3#>... <#4#>... <#5#>... "
                            "<#6#>... <#7#>... <#8#>... <#9#>... <#10#>";
 
-    auto string = al::to_string(vector, converter, "... ", "<", ">");
+    auto string = sm::to_string(vector, converter, "... ", "<", ">");
 
     logln("string: {}",   string);
     logln("expected: {}", expected);
@@ -83,7 +83,7 @@
     std::vector vector   = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     std::string expected = "1, 2, 3, 4, 5, 6, 7, 8, 9, 10";
 
-    auto string = al::to_string(vector);
+    auto string = sm::to_string(vector);
 
     logln("string: {}",   string);
     logln("expected: {}", expected);
@@ -104,7 +104,7 @@
     std::vector vector   = { 'a', 'b', 'c', 'd', 'e' };
     std::string expected = "'a', 'b', 'c', 'd', 'e'";
 
-    auto string = al::to_string(vector);
+    auto string = sm::to_string(vector);
 
     logln("string: {}",   string);
     logln("expected: {}", expected);
@@ -127,7 +127,7 @@
     std::string expected = "\"Well\", \"Hello\", \"There\", \"General\", "
                            "\"Kenobi\"";
 
-    auto string = al::to_string(vector);
+    auto string = sm::to_string(vector);
 
     logln("string: {}",   string);
     logln("expected: {}", expected);
@@ -152,7 +152,7 @@
         'l',                    'd', '!' };
     std::string expected = "Hello, World!";
 
-    auto string = al::chars_to_string(vector);
+    auto string = sm::chars_to_string(vector);
 
     logln("string: {}",   string);
     logln("expected: {}", expected);

@@ -56,9 +56,9 @@
 {
     T_BEGIN;
 
-    std::vector<const al::option_template *> options = {};
+    std::vector<const ap::option_template *> options = {};
 
-    options.emplace_back(new al::option_template {
+    options.emplace_back(new ap::option_template {
         .description        = "Option split test",
         .long_names         = { "name" },
         .short_names        = { 'a' },
@@ -67,13 +67,13 @@
     });
 
     std::vector<std::string>         args     = {};
-    std::vector<al::parsed_argument> expected = {};
+    std::vector<ap::parsed_argument> expected = {};
 
     std::size_t test_index = 0;
     std::vector<std::size_t> failed_tests = {};
 
     args.emplace_back("--name=value");
-    expected.emplace_back(al::parsed_argument {
+    expected.emplace_back(ap::parsed_argument {
         .argument     = {
             .original = "--name=value",
             .modified = "--name",
@@ -113,7 +113,7 @@
     expected.clear();
 
     args.emplace_back("-a=value");
-    expected.emplace_back(al::parsed_argument {
+    expected.emplace_back(ap::parsed_argument {
         .argument     = {
             .original = "-a=value",
             .modified = "-a",
@@ -153,7 +153,7 @@
     expected.clear();
 
     args.emplace_back("/name:value");
-    expected.emplace_back(al::parsed_argument {
+    expected.emplace_back(ap::parsed_argument {
         .argument     = {
             .original = "/name:value",
             .modified = "/name",
@@ -193,7 +193,7 @@
     expected.clear();
 
     args.emplace_back("/a:value");
-    expected.emplace_back(al::parsed_argument {
+    expected.emplace_back(ap::parsed_argument {
         .argument     = {
             .original = "/a:value",
             .modified = "/a",
@@ -233,7 +233,7 @@
     expected.clear();
 
     args.emplace_back("--name:value");
-    expected.emplace_back(al::parsed_argument {
+    expected.emplace_back(ap::parsed_argument {
         .argument     = {
             .original = "--name:value",
             .modified = "--name:value",
@@ -273,7 +273,7 @@
     expected.clear();
 
     args.emplace_back("/name=value");
-    expected.emplace_back(al::parsed_argument {
+    expected.emplace_back(ap::parsed_argument {
         .argument     = {
             .original = "/name=value",
             .modified = "/name=value",
@@ -317,7 +317,7 @@
         delete option;
     }
 
-    logln("Failed tests:\n{}\n", al::to_string(failed_tests, ",\n"s,
+    logln("Failed tests:\n{}\n", sm::to_string(failed_tests, ",\n"s,
         " Test 9."));
 
     T_END;

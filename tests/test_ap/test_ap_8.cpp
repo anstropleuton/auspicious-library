@@ -1,7 +1,7 @@
 /**
  *  @file    test_ap.cpp
  *  @author  Anstro Pleuton (https://github.com/anstropleuton)
- *  @brief   Test 5 of Argument Parser in Auspicious Library.
+ *  @brief   Test 8 of Argument Parser in Auspicious Library.
  *
  *  @copyright  Copyright (c) 2024 Anstro Pleuton
  *
@@ -47,14 +47,14 @@
 #include "test_ap.hpp"
 
 /**
- *  @brief  AP Test 5: Option parameter recognition tests.
+ *  @brief  AP Test 8: Subcommand parameter with defaults recognition tests.
  *  @return  Number of errors.
  */
-[[nodiscard]] auto test_ap_5() -> std::size_t
+[[nodiscard]] auto test_ap_8() -> std::size_t
 {
     T_BEGIN;
 
-    // Actual size this time
+    // Triangle number
     std::size_t names_count = 2;
     std::size_t overflow    = 1;
 
@@ -64,25 +64,37 @@
         overflow    = 4;
     }
 
-    std::vector<const al::option_template *> options = {};
+    std::vector<const ap::subcommand_template *> subcommands = {};
 
-    // Generate options
+    std::size_t name_counter = 0;
     for (std::size_t i = 0; i < names_count; i++)
     {
-        std::vector<std::string> parameters;
-        for (std::size_t j = 0; j < i + 1; j++)
+        for (std::size_t j = 0; j < i + 2; j++)
         {
-            parameters.emplace_back(std::format("parameter-{}", j));
-        }
+            std::vector<std::string> parameters = {};
+            for (std::size_t k = 0; k < i + 1; k++)
+            {
+                parameters.emplace_back(std::format("parameter-{}", k));
+            }
 
-        options.emplace_back(new al::option_template {
-            .description = std::format("Option parameter recognition - "
-                "{}", i),
-            .long_names         = { std::format("long-name-{}", i) },
-            .short_names        = {},
-            .parameters         = parameters,
-            .defaults_from_back = {}
-        });
+            std::vector<std::string> defaults_from_back = {};
+            for (std::size_t k = 0; k < j; k++)
+            {
+                defaults_from_back.emplace_back(
+                    std::format("default-value-{}", k));
+            }
+
+            subcommands.emplace_back(new ap::subcommand_template {
+                .description = std::format("Subcommand parameter with "
+                    "defaults recognition - {}", name_counter),
+                .names              = { std::format("name-{}", name_counter) },
+                .parameters         = parameters,
+                .defaults_from_back = defaults_from_back,
+                .subcommands        = {},
+                .subcommand_options = {}
+            });
+            name_counter++;
+        }
     }
 
     try
@@ -90,21 +102,22 @@
         std::size_t test_index = 0;
         std::vector<std::size_t> failed_tests = {};
 
-        // Test each option
-        for (std::size_t i = 0; i < options.size(); i++)
+        // Test each subcommand
+        for (std::size_t i = 0; i < subcommands.size(); i++)
         {
-            auto option = options[i];
+            auto subcommand = subcommands[i];
 
             // For each parameter
-            for (std::size_t j = 0; j < option->parameters.size() + overflow;
+            for (std::size_t j =
+                     0; j < subcommand->parameters.size() + overflow;
                  j++)
             {
                 test_index++;
 
                 std::vector<std::string>         args     = {};
-                std::vector<al::parsed_argument> expected = {};
+                std::vector<ap::parsed_argument> expected = {};
 
-                auto arg = std::format("--{}", option->long_names.front());
+                auto arg = subcommand->names.front();
                 args.emplace_back(arg);
 
                 // Add n values per parameter requirements
@@ -114,44 +127,61 @@
                     args.emplace_back(std::format("value-{}", k));
                 }
 
-                vdt valid = j >= option->parameters.size()
+                vdt valid = j >= subcommand->parameters.size()
+                               - subcommand->defaults_from_back.size()
                             ? vdt::valid
                             : vdt::not_enough_values;
 
-                al::parsed_argument expect = {
+                ap::parsed_argument expect = {
                     .argument     = {
                         .original = arg,
                         .modified = arg,
-                        .arg_type = at::long_option,
-                        .org_pos  = 2,
-                        .org_size = arg.size() - 2,
-                        .mod_pos  = 2,
-                        .mod_size = arg.size() - 2
+                        .arg_type = at::regular_argument,
+                        .org_pos  = 0,
+                        .org_size = arg.size(),
+                        .mod_pos  = 0,
+                        .mod_size = arg.size()
                     },
                     .valid          = valid,
                     .is_parsed      = true,
-                    .ref_option     = option,
-                    .ref_subcommand = nullptr,
+                    .ref_option     = nullptr,
+                    .ref_subcommand = subcommand,
                     .values         = {}
                 };
 
+                std::size_t provided_args = std::min(j,
+                    subcommand->parameters.size());
+                std::size_t provided_defaults = provided_args
+                    - subcommand->parameters.size()
+                    + subcommand->defaults_from_back.size();
+
                 // Add values to expected
-                for (std::size_t k = 0;
-                     k < std::min(j, option->parameters.size()); k++)
+                for (std::size_t k = 0; k < provided_args; k++)
                 {
                     expect.values.emplace_back(std::format("value-{}", k));
+                }
+
+                // Add defaults to expected
+                if (provided_defaults < subcommand->defaults_from_back.size())
+                {
+                    for (std::size_t k = provided_defaults;
+                         k < subcommand->defaults_from_back.size(); k++)
+                    {
+                        expect.values.emplace_back(
+                            subcommand->defaults_from_back[k]);
+                    }
                 }
 
                 expected.emplace_back(expect);
 
                 // Overflowed values are treated as subcommands, and is
                 // unrecognized
-                for (std::size_t k = option->parameters.size();
+                for (std::size_t k = subcommand->parameters.size();
                      k < j; k++)
                 {
                     auto arg = std::format("value-{}", k);
 
-                    al::parsed_argument expect = {
+                    ap::parsed_argument expect = {
                         .argument     = {
                             .original = arg,
                             .modified = arg,
@@ -171,30 +201,30 @@
                     expected.emplace_back(expect);
                 }
 
-                logln("--- Test 5.{} ---", test_index);
-                auto sub_errors = ap_tester(args, expected, options, {});
-                logln("--- End of Test 5.{}, {} errors ---", test_index,
+                logln("--- Test 8.{} ---", test_index);
+                auto sub_errors = ap_tester(args, expected, {}, subcommands);
+                logln("--- End of Test 8.{}, {} errors ---", test_index,
                     sub_errors);
                 if (sub_errors != 0) failed_tests.emplace_back(test_index);
                 errors += sub_errors;
             }
         }
 
-        logln("Failed tests:\n{}\n", al::to_string(failed_tests, ",\n"s,
-            " Test 5."));
+        logln("Failed tests:\n{}\n", sm::to_string(failed_tests, ",\n"s,
+            " Test 8."));
     }
     catch (const std::exception &e)
     {
-        logln("Exception occurred in test_ap_5: {}", e.what());
+        logln("Exception occurred in test_ap_8: {}", e.what());
     }
     catch (...)
     {
-        logln("Unknown exception occurred in test_ap_5");
+        logln("Unknown exception occurred in test_ap_8");
     }
 
-    for (auto &option : options)
+    for (auto &subcommand : subcommands)
     {
-        delete option;
+        delete subcommand;
     }
 
     T_END;

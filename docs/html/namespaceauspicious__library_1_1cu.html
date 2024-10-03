@@ -175,11 +175,11 @@ Typedefs</h2></td></tr>
 <tr class="separator:a0248de8b248ad5631f6331109b9aace1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60b2261436e0343c87c797ba6a750096" id="r_a60b2261436e0343c87c797ba6a750096"><td class="memTemplParams" colspan="2">template&lt;cu_compatible Container&gt; </td></tr>
 <tr class="memitem:a60b2261436e0343c87c797ba6a750096"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a60b2261436e0343c87c797ba6a750096">result_container</a> = std::vector&lt;<a class="el" href="#a0248de8b248ad5631f6331109b9aace1">value_type</a>&lt;Container&gt;&gt;</td></tr>
-<tr class="memdesc:a60b2261436e0343c87c797ba6a750096"><td class="mdescLeft">&#160;</td><td class="mdescRight">All Container Utilities return this container.  <br /></td></tr>
+<tr class="memdesc:a60b2261436e0343c87c797ba6a750096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Many Container Utilities return this container.  <br /></td></tr>
 <tr class="separator:a60b2261436e0343c87c797ba6a750096"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac397b67fa3b542036726c3514a4df4f0" id="r_ac397b67fa3b542036726c3514a4df4f0"><td class="memTemplParams" colspan="2">template&lt;cu_compatible Container&gt; </td></tr>
 <tr class="memitem:ac397b67fa3b542036726c3514a4df4f0"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac397b67fa3b542036726c3514a4df4f0">result_container_nested</a> = std::vector&lt;std::vector&lt;<a class="el" href="#a0248de8b248ad5631f6331109b9aace1">value_type</a>&lt;Container&gt;&gt;&gt;</td></tr>
-<tr class="memdesc:ac397b67fa3b542036726c3514a4df4f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">All Container Utilities return this container if the result is nested.  <br /></td></tr>
+<tr class="memdesc:ac397b67fa3b542036726c3514a4df4f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Many Container Utilities return this container if the result is nested.  <br /></td></tr>
 <tr class="separator:ac397b67fa3b542036726c3514a4df4f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0f48745ffc86475930f5ec468cadc96" id="r_ae0f48745ffc86475930f5ec468cadc96"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0f48745ffc86475930f5ec468cadc96">boundless_string</a> = <a class="el" href="structauspicious__library_1_1cu_1_1boundless__basic__string.html">boundless_basic_string</a>&lt;char&gt;</td></tr>
 <tr class="memdesc:ae0f48745ffc86475930f5ec468cadc96"><td class="mdescLeft">&#160;</td><td class="mdescRight">boundless_A string of <code>char</code> .  <br /></td></tr>
@@ -241,10 +241,10 @@ requires (std::is_same_v&lt;T, U&gt; &amp;&amp; ...)</td></tr>
 <tr class="memitem:a0740fb246315f155192c85d34cac5c9a"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0740fb246315f155192c85d34cac5c9a">boundless_span</a> (I, End) -&gt; boundless_span&lt; std::remove_reference_t&lt; std::iter_reference_t&lt; I &gt; &gt; &gt;</td></tr>
 <tr class="memdesc:a0740fb246315f155192c85d34cac5c9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template parameter deduction guide for <code><a class="el" href="structauspicious__library_1_1cu_1_1boundless__span.html" title="A boundless span.">boundless_span</a></code> .  <br /></td></tr>
 <tr class="separator:a0740fb246315f155192c85d34cac5c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0db2f84b70feb0f0a65958285c348de8" id="r_a0db2f84b70feb0f0a65958285c348de8"><td class="memTemplParams" colspan="2">template&lt;stdr::contiguous_range Range&gt; </td></tr>
-<tr class="memitem:a0db2f84b70feb0f0a65958285c348de8"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0db2f84b70feb0f0a65958285c348de8">boundless_span</a> (Range &amp;&amp;) -&gt; boundless_span&lt; std::remove_reference_t&lt; stdr::range_reference_t&lt; Range &amp; &gt; &gt; &gt;</td></tr>
-<tr class="memdesc:a0db2f84b70feb0f0a65958285c348de8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template parameter deduction guide for <code><a class="el" href="structauspicious__library_1_1cu_1_1boundless__span.html" title="A boundless span.">boundless_span</a></code> .  <br /></td></tr>
-<tr class="separator:a0db2f84b70feb0f0a65958285c348de8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a346fff7e69b4e8056f5455fd1ad50105" id="r_a346fff7e69b4e8056f5455fd1ad50105"><td class="memTemplParams" colspan="2">template&lt;std::ranges::contiguous_range Range&gt; </td></tr>
+<tr class="memitem:a346fff7e69b4e8056f5455fd1ad50105"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a346fff7e69b4e8056f5455fd1ad50105">boundless_span</a> (Range &amp;&amp;) -&gt; boundless_span&lt; std::remove_reference_t&lt; std::ranges::range_reference_t&lt; Range &amp; &gt; &gt; &gt;</td></tr>
+<tr class="memdesc:a346fff7e69b4e8056f5455fd1ad50105"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template parameter deduction guide for <code><a class="el" href="structauspicious__library_1_1cu_1_1boundless__span.html" title="A boundless span.">boundless_span</a></code> .  <br /></td></tr>
+<tr class="separator:a346fff7e69b4e8056f5455fd1ad50105"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12c14d5aa2a21c5f071ffe3e3f805e15" id="r_a12c14d5aa2a21c5f071ffe3e3f805e15"><td class="memTemplParams" colspan="2">template&lt;cu_compatible Container&gt; </td></tr>
 <tr class="memitem:a12c14d5aa2a21c5f071ffe3e3f805e15"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a12c14d5aa2a21c5f071ffe3e3f805e15">subordinate</a> (const Container &amp;container, std::size_t first_inclusive, std::size_t last_exclusive)</td></tr>
 <tr class="memdesc:a12c14d5aa2a21c5f071ffe3e3f805e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the subset of the container's elements.  <br /></td></tr>
@@ -346,7 +346,7 @@ template&lt;cu_compatible Container&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>All Container Utilities return this container. </p>
+<p>Many Container Utilities return this container. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Container</td><td>A compatible container type. </td></tr>
@@ -370,7 +370,7 @@ template&lt;cu_compatible Container&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>All Container Utilities return this container if the result is nested. </p>
+<p>Many Container Utilities return this container if the result is nested. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Container</td><td>A compatible container type. </td></tr>
@@ -797,19 +797,19 @@ template&lt;std::contiguous_iterator I, typename End &gt; </div>
 
 </div>
 </div>
-<a id="a0db2f84b70feb0f0a65958285c348de8" name="a0db2f84b70feb0f0a65958285c348de8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0db2f84b70feb0f0a65958285c348de8">&#9670;&#160;</a></span>boundless_span() <span class="overload">[5/5]</span></h2>
+<a id="a346fff7e69b4e8056f5455fd1ad50105" name="a346fff7e69b4e8056f5455fd1ad50105"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a346fff7e69b4e8056f5455fd1ad50105">&#9670;&#160;</a></span>boundless_span() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;stdr::contiguous_range Range&gt; </div>
+template&lt;std::ranges::contiguous_range Range&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">auspicious_library::cu::boundless_span </td>
           <td>(</td>
           <td class="paramtype">Range &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> -&gt;  boundless_span&lt; std::remove_reference_t&lt; stdr::range_reference_t&lt; Range &amp; &gt; &gt; &gt;</td>
+          <td> -&gt;  boundless_span&lt; std::remove_reference_t&lt; std::ranges::range_reference_t&lt; Range &amp; &gt; &gt; &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">

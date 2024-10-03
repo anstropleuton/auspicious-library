@@ -47,6 +47,8 @@
 
 #include "tester.hpp"
 
+using namespace cu_operators;
+
 /**
  *  @brief  Test CU's @c subordinate function.
  *  @return  Number of errors.
@@ -60,13 +62,13 @@
     std::size_t last      = 7;
     std::vector expected  = { 3, 4, 5, 6, 7 };
 
-    auto subbed = al::subordinate(container, first, last);
+    auto subbed = cu::subordinate(container, first, last);
 
-    logln("container: {}", al::to_string(container));
+    logln("container: {}", sm::to_string(container));
     logln("first: {}",     first);
     logln("last: {}",      last);
-    logln("subbed: {}",    al::to_string(subbed));
-    logln("expected: {}",  al::to_string(expected));
+    logln("subbed: {}",    sm::to_string(subbed));
+    logln("expected: {}",  sm::to_string(expected));
 
     T_ASSERT_CTR(subbed, expected);
 
@@ -85,12 +87,12 @@
     std::vector b        = { 6, 7, 8, 9, 10 };
     std::vector expected = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-    auto combined = al::combine(a, b);
+    auto combined = cu::combine(a, b);
 
-    logln("a: {}",        al::to_string(a));
-    logln("b: {}",        al::to_string(b));
-    logln("combined: {}", al::to_string(combined));
-    logln("expected: {}", al::to_string(expected));
+    logln("a: {}",        sm::to_string(a));
+    logln("b: {}",        sm::to_string(b));
+    logln("combined: {}", sm::to_string(combined));
+    logln("expected: {}", sm::to_string(expected));
 
     T_ASSERT_CTR(combined, expected);
 
@@ -109,12 +111,12 @@
     int         b        = 6;
     std::vector expected = { 1, 2, 3, 4, 5, 6 };
 
-    auto combined = al::combine(a, b);
+    auto combined = cu::combine(a, b);
 
-    logln("a: {}",        al::to_string(a));
+    logln("a: {}",        sm::to_string(a));
     logln("b: {}",        b);
-    logln("combined: {}", al::to_string(combined));
-    logln("expected: {}", al::to_string(expected));
+    logln("combined: {}", sm::to_string(combined));
+    logln("expected: {}", sm::to_string(expected));
 
     T_ASSERT_CTR(combined, expected);
 
@@ -133,12 +135,12 @@
     std::vector filter    = { 4, 5, 6 };
     std::vector expected  = { 1, 2, 3, 7, 8, 9, 10 };
 
-    auto filtered = al::filter_out_seq(container, filter);
+    auto filtered = cu::filter_out_seq(container, filter);
 
-    logln("container: {}", al::to_string(container));
-    logln("filter: {}",    al::to_string(filter));
-    logln("filtered: {}",  al::to_string(filtered));
-    logln("expected: {}",  al::to_string(expected));
+    logln("container: {}", sm::to_string(container));
+    logln("filter: {}",    sm::to_string(filter));
+    logln("filtered: {}",  sm::to_string(filtered));
+    logln("expected: {}",  sm::to_string(expected));
 
     T_ASSERT_CTR(filtered, expected);
 
@@ -157,12 +159,12 @@
     std::vector filter    = { 1, 3, 5, 7, 9 };
     std::vector expected  = { 2, 4, 6, 8, 10 };
 
-    auto filtered = al::filter_out_occ(container, filter);
+    auto filtered = cu::filter_out_occ(container, filter);
 
-    logln("container: {}", al::to_string(container));
-    logln("filter: {}",    al::to_string(filter));
-    logln("filtered: {}",  al::to_string(filtered));
-    logln("expected: {}",  al::to_string(expected));
+    logln("container: {}", sm::to_string(container));
+    logln("filter: {}",    sm::to_string(filter));
+    logln("filtered: {}",  sm::to_string(filtered));
+    logln("expected: {}",  sm::to_string(expected));
 
     T_ASSERT_CTR(filtered, expected);
 
@@ -181,13 +183,13 @@
     std::vector<std::vector<int>> filter = { { 4, 4 }, { 7, 7 } };
     std::vector expected = { 1, 2, 3, 5, 6, 8, 9, 10 };
 
-    auto filtered = al::filter_out_occ_seq(container, filter);
+    auto filtered = cu::filter_out_occ_seq(container, filter);
 
-    logln("container: {}", al::to_string(container));
-    logln("filter[0]: {}", al::to_string(filter[0]));
-    logln("filter[1]: {}", al::to_string(filter[1]));
-    logln("filtered: {}",  al::to_string(filtered));
-    logln("expected: {}",  al::to_string(expected));
+    logln("container: {}", sm::to_string(container));
+    logln("filter[0]: {}", sm::to_string(filter[0]));
+    logln("filter[1]: {}", sm::to_string(filter[1]));
+    logln("filtered: {}",  sm::to_string(filtered));
+    logln("expected: {}",  sm::to_string(expected));
 
     T_ASSERT_CTR(filtered, expected);
 
@@ -206,12 +208,12 @@
     int         filter    = 3;
     std::vector expected  = { 1, 2, 4, 5, 6, 7, 8, 9, 10 };
 
-    auto filtered = al::filter_out(container, filter);
+    auto filtered = cu::filter_out(container, filter);
 
-    logln("container: {}", al::to_string(container));
+    logln("container: {}", sm::to_string(container));
     logln("filter: {}",    filter);
-    logln("filtered: {}",  al::to_string(filtered));
-    logln("expected: {}",  al::to_string(expected));
+    logln("filtered: {}",  sm::to_string(filtered));
+    logln("expected: {}",  sm::to_string(expected));
 
     T_ASSERT_CTR(filtered, expected);
 
@@ -230,12 +232,12 @@
     std::size_t times     = 3;
     std::vector expected  = { 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5 };
 
-    auto repeated = al::repeat(container, times);
+    auto repeated = cu::repeat(container, times);
 
-    logln("container: {}", al::to_string(container));
+    logln("container: {}", sm::to_string(container));
     logln("times: {}",     times);
-    logln("repeated: {}",  al::to_string(repeated));
-    logln("expected: {}",  al::to_string(expected));
+    logln("repeated: {}",  sm::to_string(repeated));
+    logln("expected: {}",  sm::to_string(expected));
 
     T_ASSERT_CTR(repeated, expected);
 
@@ -255,12 +257,12 @@
     std::vector expected  = { 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2,
         3 };
 
-    auto repeated = al::repeat(container, times);
+    auto repeated = cu::repeat(container, times);
 
-    logln("container: {}", al::to_string(container));
+    logln("container: {}", sm::to_string(container));
     logln("times: {}",     times);
-    logln("repeated: {}",  al::to_string(repeated));
-    logln("expected: {}",  al::to_string(expected));
+    logln("repeated: {}",  sm::to_string(repeated));
+    logln("expected: {}",  sm::to_string(expected));
 
     T_ASSERT_CTR(repeated, expected);
 
@@ -282,17 +284,17 @@
         { 8, 9, 10 }
     };
 
-    auto splitted = al::split_seq(container, splitter);
+    auto splitted = cu::split_seq(container, splitter);
 
-    logln("container: {}", al::to_string(container));
-    logln("splitter: {}",  al::to_string(splitter));
+    logln("container: {}", sm::to_string(container));
+    logln("splitter: {}",  sm::to_string(splitter));
 
     T_ASSERT_SIZE(splitted, expected);
 
-    logln("splitted[0]: {}", al::to_string(splitted[0]));
-    logln("splitted[1]: {}", al::to_string(splitted[1]));
-    logln("expected[0]: {}", al::to_string(expected[0]));
-    logln("expected[1]: {}", al::to_string(expected[1]));
+    logln("splitted[0]: {}", sm::to_string(splitted[0]));
+    logln("splitted[1]: {}", sm::to_string(splitted[1]));
+    logln("expected[0]: {}", sm::to_string(expected[0]));
+    logln("expected[1]: {}", sm::to_string(expected[1]));
 
     T_ASSERT_SUB_SIZE(splitted, expected, 0);
 
@@ -317,19 +319,19 @@
         { 9, 10 }
     };
 
-    auto splitted = al::split_occ(container, splitter);
+    auto splitted = cu::split_occ(container, splitter);
 
-    logln("container: {}", al::to_string(container));
-    logln("splitter: {}",  al::to_string(splitter));
+    logln("container: {}", sm::to_string(container));
+    logln("splitter: {}",  sm::to_string(splitter));
 
     T_ASSERT_SIZE(splitted, expected);
 
-    logln("splitted[0]: {}", al::to_string(splitted[0]));
-    logln("splitted[1]: {}", al::to_string(splitted[1]));
-    logln("splitted[2]: {}", al::to_string(splitted[2]));
-    logln("expected[0]: {}", al::to_string(expected[0]));
-    logln("expected[1]: {}", al::to_string(expected[1]));
-    logln("expected[2]: {}", al::to_string(expected[2]));
+    logln("splitted[0]: {}", sm::to_string(splitted[0]));
+    logln("splitted[1]: {}", sm::to_string(splitted[1]));
+    logln("splitted[2]: {}", sm::to_string(splitted[2]));
+    logln("expected[0]: {}", sm::to_string(expected[0]));
+    logln("expected[1]: {}", sm::to_string(expected[1]));
+    logln("expected[2]: {}", sm::to_string(expected[2]));
 
     T_ASSERT_SUB_SIZE(splitted, expected, 0);
 
@@ -356,20 +358,20 @@
         { 9, 10 }
     };
 
-    auto splitted = al::split_occ_seq(container, splitter);
+    auto splitted = cu::split_occ_seq(container, splitter);
 
-    logln("container: {}",   al::to_string(container));
-    logln("splitter[0]: {}", al::to_string(splitter[0]));
-    logln("splitter[1]: {}", al::to_string(splitter[1]));
+    logln("container: {}",   sm::to_string(container));
+    logln("splitter[0]: {}", sm::to_string(splitter[0]));
+    logln("splitter[1]: {}", sm::to_string(splitter[1]));
 
     T_ASSERT_SIZE(splitted, expected);
 
-    logln("splitted[0]: {}", al::to_string(splitted[0]));
-    logln("splitted[1]: {}", al::to_string(splitted[1]));
-    logln("splitted[2]: {}", al::to_string(splitted[2]));
-    logln("expected[0]: {}", al::to_string(expected[0]));
-    logln("expected[1]: {}", al::to_string(expected[1]));
-    logln("expected[2]: {}", al::to_string(expected[2]));
+    logln("splitted[0]: {}", sm::to_string(splitted[0]));
+    logln("splitted[1]: {}", sm::to_string(splitted[1]));
+    logln("splitted[2]: {}", sm::to_string(splitted[2]));
+    logln("expected[0]: {}", sm::to_string(expected[0]));
+    logln("expected[1]: {}", sm::to_string(expected[1]));
+    logln("expected[2]: {}", sm::to_string(expected[2]));
 
     T_ASSERT_SUB_SIZE(splitted, expected, 0);
 
@@ -395,17 +397,17 @@
         { 8, 9, 10 }
     };
 
-    auto splitted = al::split(container, splitter);
+    auto splitted = cu::split(container, splitter);
 
-    logln("container: {}", al::to_string(container));
+    logln("container: {}", sm::to_string(container));
     logln("splitter: {}",  splitter);
 
     T_ASSERT_SIZE(splitted, expected);
 
-    logln("splitted[0]: {}", al::to_string(splitted[0]));
-    logln("splitted[1]: {}", al::to_string(splitted[1]));
-    logln("expected[0]: {}", al::to_string(expected[0]));
-    logln("expected[1]: {}", al::to_string(expected[1]));
+    logln("splitted[0]: {}", sm::to_string(splitted[0]));
+    logln("splitted[1]: {}", sm::to_string(splitted[1]));
+    logln("expected[0]: {}", sm::to_string(expected[0]));
+    logln("expected[1]: {}", sm::to_string(expected[1]));
 
     T_ASSERT_SUB_SIZE(splitted, expected, 0);
 
@@ -428,10 +430,10 @@
 
     auto combined = a + b;
 
-    logln("a: {}",        al::to_string(a));
-    logln("b: {}",        al::to_string(b));
-    logln("combined: {}", al::to_string(combined));
-    logln("expected: {}", al::to_string(expected));
+    logln("a: {}",        sm::to_string(a));
+    logln("b: {}",        sm::to_string(b));
+    logln("combined: {}", sm::to_string(combined));
+    logln("expected: {}", sm::to_string(expected));
 
     T_ASSERT_CTR(combined, expected);
 
@@ -452,10 +454,10 @@
 
     auto combined = a + b;
 
-    logln("a: {}",        al::to_string(a));
+    logln("a: {}",        sm::to_string(a));
     logln("b: {}",        b);
-    logln("combined: {}", al::to_string(combined));
-    logln("expected: {}", al::to_string(expected));
+    logln("combined: {}", sm::to_string(combined));
+    logln("expected: {}", sm::to_string(expected));
 
     T_ASSERT_CTR(combined, expected);
 
@@ -476,10 +478,10 @@
 
     auto filtered = container - filter;
 
-    logln("container: {}", al::to_string(container));
-    logln("filter: {}",    al::to_string(filter));
-    logln("filtered: {}",  al::to_string(filtered));
-    logln("expected: {}",  al::to_string(expected));
+    logln("container: {}", sm::to_string(container));
+    logln("filter: {}",    sm::to_string(filter));
+    logln("filtered: {}",  sm::to_string(filtered));
+    logln("expected: {}",  sm::to_string(expected));
 
     T_ASSERT_CTR(filtered, expected);
 
@@ -500,10 +502,10 @@
 
     auto filtered = container - filter;
 
-    logln("container: {}", al::to_string(container));
+    logln("container: {}", sm::to_string(container));
     logln("filter: {}",    filter);
-    logln("filtered: {}",  al::to_string(filtered));
-    logln("expected: {}",  al::to_string(expected));
+    logln("filtered: {}",  sm::to_string(filtered));
+    logln("expected: {}",  sm::to_string(expected));
 
     T_ASSERT_CTR(filtered, expected);
 
@@ -524,10 +526,10 @@
 
     auto repeated = container * times;
 
-    logln("container: {}", al::to_string(container));
+    logln("container: {}", sm::to_string(container));
     logln("times: {}",     times);
-    logln("repeated: {}",  al::to_string(repeated));
-    logln("expected: {}",  al::to_string(expected));
+    logln("repeated: {}",  sm::to_string(repeated));
+    logln("expected: {}",  sm::to_string(expected));
 
     T_ASSERT_CTR(repeated, expected);
 
@@ -549,10 +551,10 @@
 
     auto repeated = container * times;
 
-    logln("container: {}", al::to_string(container));
+    logln("container: {}", sm::to_string(container));
     logln("times: {}",     times);
-    logln("repeated: {}",  al::to_string(repeated));
-    logln("expected: {}",  al::to_string(expected));
+    logln("repeated: {}",  sm::to_string(repeated));
+    logln("expected: {}",  sm::to_string(expected));
 
     T_ASSERT_CTR(repeated, expected);
 
@@ -576,15 +578,15 @@
 
     auto splitted = container / splitter;
 
-    logln("container: {}", al::to_string(container));
-    logln("splitter: {}",  al::to_string(splitter));
+    logln("container: {}", sm::to_string(container));
+    logln("splitter: {}",  sm::to_string(splitter));
 
     T_ASSERT_SIZE(splitted, expected);
 
-    logln("splitted[0]: {}", al::to_string(splitted[0]));
-    logln("splitted[1]: {}", al::to_string(splitted[1]));
-    logln("expected[0]: {}", al::to_string(expected[0]));
-    logln("expected[1]: {}", al::to_string(expected[1]));
+    logln("splitted[0]: {}", sm::to_string(splitted[0]));
+    logln("splitted[1]: {}", sm::to_string(splitted[1]));
+    logln("expected[0]: {}", sm::to_string(expected[0]));
+    logln("expected[1]: {}", sm::to_string(expected[1]));
 
     T_ASSERT_SUB_SIZE(splitted, expected, 0);
 
@@ -610,15 +612,15 @@
 
     auto splitted = container / splitter;
 
-    logln("container: {}", al::to_string(container));
+    logln("container: {}", sm::to_string(container));
     logln("splitter: {}",  splitter);
 
     T_ASSERT_SIZE(splitted, expected);
 
-    logln("splitted[0]: {}", al::to_string(splitted[0]));
-    logln("splitted[1]: {}", al::to_string(splitted[1]));
-    logln("expected[0]: {}", al::to_string(expected[0]));
-    logln("expected[1]: {}", al::to_string(expected[1]));
+    logln("splitted[0]: {}", sm::to_string(splitted[0]));
+    logln("splitted[1]: {}", sm::to_string(splitted[1]));
+    logln("expected[0]: {}", sm::to_string(expected[0]));
+    logln("expected[1]: {}", sm::to_string(expected[1]));
 
     T_ASSERT_SUB_SIZE(splitted, expected, 0);
 

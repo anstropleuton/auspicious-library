@@ -30,7 +30,7 @@ var namespaceauspicious__library_1_1cu =
     [ "boundless_span", "namespaceauspicious__library_1_1cu.html#a20615a5df61501aab81bf45896220802", null ],
     [ "boundless_span", "namespaceauspicious__library_1_1cu.html#a678a609faa4bb529fdad25f611756a13", null ],
     [ "boundless_span", "namespaceauspicious__library_1_1cu.html#a0740fb246315f155192c85d34cac5c9a", null ],
-    [ "boundless_span", "namespaceauspicious__library_1_1cu.html#a0db2f84b70feb0f0a65958285c348de8", null ],
+    [ "boundless_span", "namespaceauspicious__library_1_1cu.html#a346fff7e69b4e8056f5455fd1ad50105", null ],
     [ "subordinate", "namespaceauspicious__library_1_1cu.html#a12c14d5aa2a21c5f071ffe3e3f805e15", null ],
     [ "combine", "namespaceauspicious__library_1_1cu.html#a2cedb9f639f5066ee04304c33807ecbb", null ],
     [ "combine", "namespaceauspicious__library_1_1cu.html#ad5e419970d7868bbf33b03708f779f29", null ],

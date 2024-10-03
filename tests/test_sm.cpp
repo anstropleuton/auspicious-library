@@ -50,6 +50,8 @@
 
 #include "tester.hpp"
 
+using namespace sm_operators;
+
 /**
  *  @brief  Test SM's @c word_wrap function.
  *  @return  Number of errors.
@@ -91,18 +93,18 @@
         "a lie and hurt you."s
     };
 
-    auto wrapped_1 = al::word_wrap(long_string, 40);
-    auto wrapped_2 = al::word_wrap(long_string, 40, true);
+    auto wrapped_1 = sm::word_wrap(long_string, 40);
+    auto wrapped_2 = sm::word_wrap(long_string, 40, true);
 
     logln("long_string:\n{}", long_string);
 
     T_ASSERT_SIZE(wrapped_1, wrapped_1);
     T_ASSERT_SIZE(wrapped_2, wrapped_2);
 
-    logln("wrapped_1:\n{}",  al::to_string(wrapped_1, "\n"sv, "  \""));
-    logln("expected_1:\n{}", al::to_string(expected_1, "\n"sv, "  \""));
-    logln("wrapped_2:\n{}",  al::to_string(wrapped_2, "\n"sv, "  \""));
-    logln("expected_2:\n{}", al::to_string(expected_2, "\n"sv, "  \""));
+    logln("wrapped_1:\n{}",  sm::to_string(wrapped_1, "\n"sv, "  \""));
+    logln("expected_1:\n{}", sm::to_string(expected_1, "\n"sv, "  \""));
+    logln("wrapped_2:\n{}",  sm::to_string(wrapped_2, "\n"sv, "  \""));
+    logln("expected_2:\n{}", sm::to_string(expected_2, "\n"sv, "  \""));
 
     T_ASSERT_SIZE(wrapped_1, expected_1);
 
@@ -122,7 +124,7 @@
     std::string string   = " \tAyo word \t";
     std::string expected = "Ayo word \t";
 
-    auto trimmed = al::trim_left(string);
+    auto trimmed = sm::trim_left(string);
 
     logln("string: {}",   string);
     logln("trimmed: {}",  trimmed);
@@ -144,7 +146,7 @@
     std::string string   = " \tAyo word \t";
     std::string expected = " \tAyo word";
 
-    auto trimmed = al::trim_right(string);
+    auto trimmed = sm::trim_right(string);
 
     logln("string: {}",   string);
     logln("trimmed: {}",  trimmed);
@@ -166,7 +168,7 @@
     std::string string   = " \tAyo word \t";
     std::string expected = "Ayo word";
 
-    auto trimmed = al::trim(string);
+    auto trimmed = sm::trim(string);
 
     logln("string: {}",   string);
     logln("trimmed: {}",  trimmed);
@@ -188,7 +190,7 @@
     std::string string   = "LaTeX";
     std::string expected = "LATEX";
 
-    auto upper = al::to_upper(string);
+    auto upper = sm::to_upper(string);
 
     logln("string: {}",   string);
     logln("upper: {}",    upper);
@@ -210,7 +212,7 @@
     std::string string   = "LaTeX";
     std::string expected = "latex";
 
-    auto lower = al::to_lower(string);
+    auto lower = sm::to_lower(string);
 
     logln("string: {}",   string);
     logln("lower: {}",    lower);
@@ -232,7 +234,7 @@
     char character = 'a';
     char expected  = 'A';
 
-    auto upper = al::to_upper(character);
+    auto upper = sm::to_upper(character);
 
     logln("character: {}", character);
     logln("upper: {}",     upper);
@@ -254,7 +256,7 @@
     char character = 'A';
     char expected  = 'a';
 
-    auto lower = al::to_lower(character);
+    auto lower = sm::to_lower(character);
 
     logln("character: {}", character);
     logln("lower: {}",     lower);
@@ -280,8 +282,8 @@
     std::string b_2        = "wOrLd";
     bool        expected_2 = false;
 
-    auto value_1 = al::is_equal_ins(a_1, b_1);
-    auto value_2 = al::is_equal_ins(a_2, b_2);
+    auto value_1 = sm::is_equal_ins(a_1, b_1);
+    auto value_2 = sm::is_equal_ins(a_2, b_2);
 
     logln("a_1: {}, b_1: {}", a_1, b_1);
     logln("a_2: {}, b_2: {}", a_2, b_2);
@@ -309,8 +311,8 @@
     char b_2        = 'C';
     bool expected_2 = false;
 
-    auto value_1 = al::is_equal_ins(a_1, b_1);
-    auto value_2 = al::is_equal_ins(a_2, b_2);
+    auto value_1 = sm::is_equal_ins(a_1, b_1);
+    auto value_2 = sm::is_equal_ins(a_2, b_2);
 
     logln("a_1: {}, b_1: {}", a_1, b_1);
     logln("a_2: {}, b_2: {}", a_2, b_2);

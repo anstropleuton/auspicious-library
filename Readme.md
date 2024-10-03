@@ -40,16 +40,11 @@ cd build
 cmake ..
 cmake --build .
 ```
- 3. Set up include path and C++ flags:
-    - Depends on your development environment, generally include the [include](include/) folder as include search path. Additionally, select C++23 as the C++ standard. In Clang++/G++, you can do as so:
-```
-g++ -Iinclude -std=c++23
-```
- 4. Include the library to include all functionality:
+ 3. Include the library to include all functionality:
 ```cpp
 #include "auspicious_library.hpp"
 ```
- 5. Go through [documentation](https://anstropleuton.github.io/auspicious-library) (or [header files](include/auspicious_library.hpp)[*](#Doxygen)) to get a grasp on what you can do using my library. You can check out [examples source files](examples/) for more usage information.
+ 4. Go through [documentation](https://anstropleuton.github.io/auspicious-library) (or [header files](include/auspicious_library.hpp)[*](#Doxygen)) to get a grasp on what you can do using my library. You can check out [examples source files](examples/) for more usage information.
 
 # Documentations
 Refer to the [documentation](https://anstropleuton.github.io/auspicious-library) (or [header files](include/auspicious_library.hpp)[*](#Doxygen)) to get a grasp on what you can do using my library.

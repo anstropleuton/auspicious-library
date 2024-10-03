@@ -1,7 +1,7 @@
 /**
  *  @file    test_ap.cpp
  *  @author  Anstro Pleuton (https://github.com/anstropleuton)
- *  @brief   Test 4 of Argument Parser in Auspicious Library.
+ *  @brief   Test 3 of Argument Parser in Auspicious Library.
  *
  *  @copyright  Copyright (c) 2024 Anstro Pleuton
  *
@@ -49,10 +49,10 @@
 namespace stdr = std::ranges;
 
 /**
- *  @brief  AP Test 4: Nested option recognition tests.
+ *  @brief  AP Test 3: Nested subcommand recognition tests.
  *  @return  Number of errors.
  */
-[[nodiscard]] auto test_ap_4() -> std::size_t
+[[nodiscard]] auto test_ap_3() -> std::size_t
 {
     T_BEGIN;
 
@@ -65,18 +65,18 @@ namespace stdr = std::ranges;
         count = 4;
     }
 
-    std::vector<const al::subcommand_template *> subcommands;
+    std::vector<const ap::subcommand_template *> subcommands;
 
     // Generate nested subcommands hierarchy
-    std::function<void (al::subcommand_template *, std::size_t, std::size_t &)>
+    std::function<void (ap::subcommand_template *, std::size_t, std::size_t &)>
     generate_subcommands;
     generate_subcommands = [&](
-        al::subcommand_template *subcommand,
+        ap::subcommand_template *subcommand,
         std::size_t nesting,
         std::size_t &name_counter
     )
     {
-        *subcommand      = al::subcommand_template {
+        *subcommand      = ap::subcommand_template {
             .description = std::format("Nested subcommand recognition - {}",
                 name_counter),
             .names              = { std::format("name-{}", name_counter) },
@@ -85,15 +85,6 @@ namespace stdr = std::ranges;
             .subcommands        = {},
             .subcommand_options = {}
         };
-
-        subcommand->subcommand_options.emplace_back(new al::option_template {
-            .description = std::format(
-                "Nested subcommand option recognition - {}", name_counter),
-            .long_names         = { std::format("long-name-{}", name_counter) },
-            .short_names        = {},
-            .parameters         = {},
-            .defaults_from_back = {}
-        });
         name_counter++;
 
         if (nesting == 0)
@@ -103,7 +94,7 @@ namespace stdr = std::ranges;
 
         for (std::size_t i = 0; i < nesting; i++)
         {
-            al::subcommand_template *child = new al::subcommand_template;
+            ap::subcommand_template *child = new ap::subcommand_template;
             generate_subcommands(child, nesting - 1, name_counter);
             subcommand->subcommands.emplace_back(child);
         }
@@ -113,52 +104,29 @@ namespace stdr = std::ranges;
     std::size_t name_counter = 0;
     for (std::size_t i = 0; i < count; i++)
     {
-        al::subcommand_template *subcommand = new al::subcommand_template;
+        ap::subcommand_template *subcommand = new ap::subcommand_template;
         generate_subcommands(subcommand, nest, name_counter);
         subcommands.emplace_back(subcommand);
     }
 
     // Find the nested subcommand name for test
-    std::function<bool (al::subcommand_template *, std::size_t &, std::size_t,
-        std::vector<std::string> &, std::vector<al::parsed_argument> &)>
+    std::function<bool (ap::subcommand_template *, std::size_t &, std::size_t,
+        std::vector<std::string> &, std::vector<ap::parsed_argument> &)>
     find_nth_name;
     find_nth_name = [&](
-        al::subcommand_template *subcommand,
+        ap::subcommand_template *subcommand,
         std::size_t &current_index,
         std::size_t target_index,
         std::vector<std::string> &args,
-        std::vector<al::parsed_argument> &expected
+        std::vector<ap::parsed_argument> &expected
     )
     {
         for (auto &name : subcommand->names)
         {
             if (current_index == target_index)
             {
-                // Order is reversed
-                std::string arg = std::format("--long-{}", name);
-                args.emplace_back(arg);
-
-                al::parsed_argument expect = {
-                    .argument     = {
-                        .original = arg,
-                        .modified = arg,
-                        .arg_type = at::long_option,
-                        .org_pos  = 2,
-                        .org_size = arg.size() - 2,
-                        .mod_pos  = 2,
-                        .mod_size = arg.size() - 2
-                    },
-                    .valid          = vdt::valid,
-                    .is_parsed      = true,
-                    .ref_option     = subcommand->subcommand_options.front(),
-                    .ref_subcommand = nullptr,
-                    .values         = {}
-                };
-                expected.emplace_back(expect);
-
                 args.emplace_back(name);
-
-                expect            = {
+                ap::parsed_argument expect = {
                     .argument     = {
                         .original = name,
                         .modified = name,
@@ -175,7 +143,6 @@ namespace stdr = std::ranges;
                     .values         = {}
                 };
                 expected.emplace_back(expect);
-
                 return true;
             }
             current_index++;
@@ -183,36 +150,12 @@ namespace stdr = std::ranges;
 
         for (auto &child : subcommand->subcommands)
         {
-            if (find_nth_name((al::subcommand_template *)child, current_index,
+            if (find_nth_name((ap::subcommand_template *)child, current_index,
                 target_index, args, expected))
             {
                 auto name = subcommand->names.front();
-
-                // Order is reversed
-                std::string arg = std::format("--long-{}", name);
-                args.emplace_back(arg);
-
-                al::parsed_argument expect = {
-                    .argument     = {
-                        .original = arg,
-                        .modified = arg,
-                        .arg_type = at::long_option,
-                        .org_pos  = 2,
-                        .org_size = arg.size() - 2,
-                        .mod_pos  = 2,
-                        .mod_size = arg.size() - 2
-                    },
-                    .valid          = vdt::valid,
-                    .is_parsed      = true,
-                    .ref_option     = subcommand->subcommand_options.front(),
-                    .ref_subcommand = nullptr,
-                    .values         = {}
-                };
-                expected.emplace_back(expect);
-
                 args.emplace_back(name);
-
-                expect            = {
+                ap::parsed_argument expect = {
                     .argument     = {
                         .original = name,
                         .modified = name,
@@ -248,11 +191,11 @@ namespace stdr = std::ranges;
 
             std::size_t current_index = 0;
             std::vector<std::string>         args     = {};
-            std::vector<al::parsed_argument> expected = {};
+            std::vector<ap::parsed_argument> expected = {};
             bool found = false;
             for (auto &subcommand : subcommands)
             {
-                if (find_nth_name((al::subcommand_template *)subcommand,
+                if (find_nth_name((ap::subcommand_template *)subcommand,
                     current_index, i, args, expected))
                 {
                     found = true;
@@ -265,50 +208,46 @@ namespace stdr = std::ranges;
             {
                 logln("Test preparation failed for test {}: `i`th name "
                     "cannot be found, `current_index`: {}, `path`: {}",
-                    test_index, i, current_index, al::to_string(args));
+                    test_index, i, current_index, sm::to_string(args));
             }
 
             stdr::reverse(args);
             stdr::reverse(expected);
 
-            logln("--- Test 4.{} ---", test_index);
+            logln("--- Test 3.{} ---", test_index);
             auto sub_errors = ap_tester(args, expected, {}, subcommands);
-            logln("--- End of Test 4.{}, {} errors ---", test_index,
+            logln("--- End of Test 3.{}, {} errors ---", test_index,
                 sub_errors);
             if (sub_errors != 0) failed_tests.emplace_back(test_index);
             errors += sub_errors;
         }
 
-        logln("Failed tests:\n{}\n", al::to_string(failed_tests, ",\n"s,
-            " Test 4."));
+        logln("Failed tests:\n{}\n", sm::to_string(failed_tests, ",\n"s,
+            " Test 3."));
     }
     catch (const std::exception &e)
     {
-        logln("Exception occurred in test_ap_4: {}", e.what());
+        logln("Exception occurred in test_ap_3: {}", e.what());
     }
     catch (...)
     {
-        logln("Unknown exception occurred in test_ap_4");
+        logln("Unknown exception occurred in test_ap_3");
     }
 
-    std::function<void (al::subcommand_template *)>
+    std::function<void (ap::subcommand_template *)>
     release_subcommands;
-    release_subcommands = [&](al::subcommand_template *subcommand)
+    release_subcommands = [&](ap::subcommand_template *subcommand)
     {
         for (auto &child : subcommand->subcommands)
         {
-            release_subcommands((al::subcommand_template *)child);
-        }
-        for (auto &option : subcommand->subcommand_options)
-        {
-            delete option;
+            release_subcommands((ap::subcommand_template *)child);
         }
         delete subcommand;
     };
 
     for (auto &subcommand : subcommands)
     {
-        release_subcommands((al::subcommand_template *)subcommand);
+        release_subcommands((ap::subcommand_template *)subcommand);
     }
 
     T_END;

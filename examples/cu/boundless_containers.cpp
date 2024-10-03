@@ -1,7 +1,7 @@
 /**
- *  @file    test_ap.cpp
+ *  @file    boundless_containers.hpp
  *  @author  Anstro Pleuton (https://github.com/anstropleuton)
- *  @brief   Test 0 of Argument Parser in Auspicious Library.
+ *  @brief   How to use CU's @c cu::boundless_access and boundless containers.
  *
  *  @copyright  Copyright (c) 2024 Anstro Pleuton
  *
@@ -16,8 +16,6 @@
  *                       |____|___|___/_|_\/_/ \_\_|_\ |_|
  *
  *  Auspicious Library is a collection of utils for Anstro Pleuton's programs.
- *
- *  Never-nesters are advised to not take a look at this source file.
  *
  *  This software is licensed under the terms of MIT License.
  *
@@ -44,35 +42,31 @@
  *    "Standard" (for "Auspicious") and "Small" (for "LIBRARY").
  */
 
-#include "test_ap.hpp"
+#include <print>
+#include <vector>
 
-/**
- *  @brief  AP Test 0: No arguments test.
- *  @return  Number of errors.
- */
-[[nodiscard]] auto test_ap_0() -> std::size_t
+#include "auspicious_library.hpp" // IWYU pragma: export
+
+using namespace auspicious_library;
+
+int main()
 {
-    T_BEGIN;
+    std::vector my_vector = { 1, 2, 3, 4, 5 };
 
-    const char *argv[] = { "./program" };
-    int         argc   = lenof(argv);
+    // Access and edit vector using cu::boundless_access :
+    cu::boundless_access(my_vector, 2) = 8; // Now the vector is { 1, 2, 8, 4,
+                                            // 5 }
 
-    std::vector<std::string>         args(argv + 1, argv + argc);
-    std::vector<al::parsed_argument> expected = {};
+    std::println("cu::boundless_access(my_vector, 2): {}",
+        cu::boundless_access(my_vector, 2));
 
-    auto parsed_1 = al::parse_arguments(argc, argv, {}, {});
-    auto parsed_2 = al::parse_arguments(args,       {}, {});
+    // What happens when the index is out of range?  Well, it writes to a static
+    // variable and is immediately erased after the next call to
+    // cu::boundless_access
+    cu::boundless_access(my_vector, 8) = 10;
 
-    logln("args: {}", al::to_string(args));
-    logln("parsed_1:\n{}\n",
-        al::to_string(parsed_1, arg_to_string, "\n"));
-    logln("parsed_2:\n{}\n",
-        al::to_string(parsed_2, arg_to_string, "\n"));
-    logln("expected:\n{}\n",
-        al::to_string(expected, arg_to_string, "\n"));
+    std::println("cu::boundless_access(my_vector, 8) after editing it: {}",
+        cu::boundless_access(my_vector, 8)); // Prints 0
 
-    T_ASSERT_CTR(parsed_1, expected);
-    T_ASSERT_CTR(parsed_2, expected);
-
-    T_END;
+    // ...
 }

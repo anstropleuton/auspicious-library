@@ -44,11 +44,6 @@
 
 #pragma once
 
-#if !defined(AUSPICIOUS_LIBRARY_HPP_INCLUDED) \
- && !defined(AUSPICIOUS_LIBRARY_NO_INCLUSION_WARN)
-    #warning Its recommended to include auspicious_library.hpp instead.
-#endif // ifndef AUSPICIOUS_LIBRARY_HPP_INCLUDED
-
 #include <cctype>
 #include <cstddef>
 #include <iterator>
@@ -60,36 +55,32 @@
 #include "al_container_utilities.hpp"
 
 /**
- *  @brief  All Auspicious Library's contents in this namespace. Do not
- *          `using namespace auspicious_library;`.  Instead, use this:
-    ```cpp
-    namespace al {
-    using namespace auspicious_library::cu;
-    using namespace auspicious_library::sm;
-    using namespace auspicious_library::aec;
-    using namespace auspicious_library::ap;
-    using namespace auspicious_library::fu;
-    } // namespace al
-    using namespace auspicious_library::aec_operators;
-    using namespace auspicious_library::cu_operators;
-    using namespace auspicious_library::sm_operators;
-    ```
+ *  @brief  All Auspicious Library's contents in this namespace.  Just do
+ *          `using namespace auspicious_library` to make your life easier.
  */
 namespace auspicious_library {
-
-namespace stdr = std::ranges;
-namespace stdv = stdr::views;
 
 /**
  *  @brief  String Manipulators.
  */
 namespace sm {
 
+/**
+ *  @brief  A container of strings compatible for String Manipulators.
+ *
+ *  A container that is CU Compatible with elements type being @c std::string or
+ *  @c std::string_view .
+ *  
+ *  @tparam  Container  The container type.
+ */
 template<typename Container>
 concept sm_compatible = cu::cu_compatible<Container>
     && (std::is_same_v<cu::value_type<Container>, std::string>
      || std::is_same_v<cu::value_type<Container>, std::string_view>);
 
+/**
+ *  @brief  Many String Manipulators return this type.
+ */
 using result_string_nested = std::vector<std::string>;
 
 /**
@@ -122,9 +113,9 @@ requires(!std::is_same_v<Converter, std::string>)
         return std::string(prefix) + converter(element) + std::string(suffix);
     };
 
-    return stdv::transform(container, transformer)
-         | stdv::join_with(std::string(separator))
-         | stdr::to<std::string>();
+    return std::views::transform(container, transformer)
+         | std::views::join_with(std::string(separator))
+         | std::ranges::to<std::string>();
 }
 
 /**
@@ -244,7 +235,7 @@ requires std::is_same_v<cu::value_type<Container>, char>
 [[nodiscard]] inline constexpr auto word_wrap(
     std::string_view string,
     std::size_t      width,
-    bool             force  = false,
+    bool             force = false,
     std::string_view delims = " \t\r\n\f\v\b"
 )
 {
@@ -357,7 +348,7 @@ requires std::is_same_v<cu::value_type<Container>, char>
 [[nodiscard]] inline constexpr auto to_upper(std::string_view string)
 {
     std::string str;
-    stdr::transform(string, std::back_inserter(str), ::toupper);
+    std::ranges::transform(string, std::back_inserter(str), ::toupper);
     return str;
 }
 
@@ -370,7 +361,7 @@ requires std::is_same_v<cu::value_type<Container>, char>
 [[nodiscard]] inline constexpr auto to_lower(std::string_view string)
 {
     std::string str;
-    stdr::transform(string, std::back_inserter(str), ::tolower);
+    std::ranges::transform(string, std::back_inserter(str), ::tolower);
     return str;
 }
 
@@ -560,8 +551,8 @@ template<sm_compatible Strings>
     std::vector<char> string_vec(string.begin(), string.end());
     std::vector<char> pattern_vec(pattern.begin(), pattern.end());
     auto result = cu::split_seq(string_vec, pattern_vec);
-    return stdv::transform(result, sm::chars_to_string<std::vector<char>>)
-         | stdr::to<result_string_nested>();
+    return std::views::transform(result, sm::chars_to_string<std::vector<char>>)
+         | std::ranges::to<result_string_nested>();
 }
 
 /**
@@ -581,8 +572,8 @@ template<sm_compatible Strings>
     std::vector<char> string_vec(string.begin(), string.end());
     std::vector<char> pattern_vec(characters.begin(), characters.end());
     auto result = cu::split_occ(string_vec, pattern_vec);
-    return stdv::transform(result, sm::chars_to_string<std::vector<char>>)
-         | stdr::to<result_string_nested>();
+    return std::views::transform(result, sm::chars_to_string<std::vector<char>>)
+         | std::ranges::to<result_string_nested>();
 }
 
 /**
@@ -608,8 +599,8 @@ template<sm_compatible Strings>
         patterns_vec.emplace_back(pattern.begin(), pattern.end());
     }
     auto result = cu::split_occ_seq(string_vec, patterns_vec);
-    return stdv::transform(result, sm::chars_to_string<std::vector<char>>)
-         | stdr::to<result_string_nested>();
+    return std::views::transform(result, sm::chars_to_string<std::vector<char>>)
+         | std::ranges::to<result_string_nested>();
 }
 
 /**
@@ -628,8 +619,8 @@ template<sm_compatible Strings>
 {
     std::vector<char> string_vec(string.begin(), string.end());
     auto result = cu::split(string_vec, character);
-    return stdv::transform(result, sm::chars_to_string<std::vector<char>>)
-         | stdr::to<result_string_nested>();
+    return std::views::transform(result, sm::chars_to_string<std::vector<char>>)
+         | std::ranges::to<result_string_nested>();
 }
 
 } // namespace sm

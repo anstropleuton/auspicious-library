@@ -1,12 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"structauspicious__library_1_1cu_1_1boundless__basic__string.html#acff2794df191ad1a3916adc85ea3f38b":[14,0,0,3,1,5],
-"structauspicious__library_1_1cu_1_1boundless__basic__string.html#acff2794df191ad1a3916adc85ea3f38b":[16,0,0,2,1,5],
-"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ad2c40423a3f00eceae086e8aab4e7095":[14,0,0,3,1,10],
-"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ad2c40423a3f00eceae086e8aab4e7095":[16,0,0,2,1,10],
-"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ad4d2c8bd78217603d5517673b8f846bb":[14,0,0,3,1,0],
-"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ad4d2c8bd78217603d5517673b8f846bb":[16,0,0,2,1,0],
-"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ae9c4524a10fb4abb76317d04ba46394d":[14,0,0,3,1,25],
 "structauspicious__library_1_1cu_1_1boundless__basic__string.html#ae9c4524a10fb4abb76317d04ba46394d":[16,0,0,2,1,25],
 "structauspicious__library_1_1cu_1_1boundless__basic__string.html#af6b2bc8258cf929e938452232697f439":[14,0,0,3,1,20],
 "structauspicious__library_1_1cu_1_1boundless__basic__string.html#af6b2bc8258cf929e938452232697f439":[16,0,0,2,1,20],

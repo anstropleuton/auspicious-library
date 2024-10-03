@@ -55,21 +55,8 @@
 #include "al_file_utilities.hpp" // IWYU pragma: keep
 
 /**
- *  @brief  All Auspicious Library's contents in this namespace.
- *
- *  Do not `using namespace auspicious_library;`.  Instead, use this:
-    ```cpp
-    namespace al {
-    using namespace auspicious_library::cu;
-    using namespace auspicious_library::sm;
-    using namespace auspicious_library::aec;
-    using namespace auspicious_library::ap;
-    using namespace auspicious_library::fu;
-    } // namespace al
-    using namespace auspicious_library::cu_operators;
-    using namespace auspicious_library::sm_operators;
-    using namespace auspicious_library::aec_operators;
-    ```
+ *  @brief  All Auspicious Library's contents in this namespace.  Just do
+ *          `using namespace auspicious_library` to make your life easier.
  */
 namespace auspicious_library {
 inline constinit std::string_view auspicious_library_version = "0.0.1";

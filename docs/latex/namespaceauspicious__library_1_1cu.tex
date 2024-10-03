@@ -39,9 +39,9 @@ concept \mbox{\hyperlink{conceptauspicious__library_1_1cu_1_1cu__compatible__enu
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{value\+\_\+type}} = Container\+::value\+\_\+type
 \begin{DoxyCompactList}\small\item\em Container\textquotesingle{}s value\+\_\+type member. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a60b2261436e0343c87c797ba6a750096}{result\+\_\+container}} = std\+::vector$<$\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{value\+\_\+type}}$<$Container$>$$>$
-\begin{DoxyCompactList}\small\item\em All Container Utilities return this container. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Many Container Utilities return this container. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_ac397b67fa3b542036726c3514a4df4f0}{result\+\_\+container\+\_\+nested}} = std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{value\+\_\+type}}$<$Container$>$$>$$>$
-\begin{DoxyCompactList}\small\item\em All Container Utilities return this container if the result is nested. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Many Container Utilities return this container if the result is nested. \end{DoxyCompactList}\item 
 using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_ae0f48745ffc86475930f5ec468cadc96}{boundless\+\_\+string}} = \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string}{boundless\+\_\+basic\+\_\+string}}$<$char$>$
 \begin{DoxyCompactList}\small\item\em boundless\+\_\+A string of {\ttfamily char} . \end{DoxyCompactList}\item 
 using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_aec46f54407896b3599b2ff4867562519}{boundless\+\_\+wstring}} = \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string}{boundless\+\_\+basic\+\_\+string}}$<$wchar\+\_\+t$>$
@@ -78,7 +78,7 @@ requires (std\+::is\+\_\+same\+\_\+v$<$T, U$>$ \&\& ...)}\\\mbox{\hyperlink{name
 \begin{DoxyCompactList}\small\item\em Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__span}{boundless\+\_\+span}} . \end{DoxyCompactList}\item 
 {\footnotesize template$<$std\+::contiguous\+\_\+iterator I, typename End $>$ }\\\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0740fb246315f155192c85d34cac5c9a}{boundless\+\_\+span}} (I, End) -\/$>$ boundless\+\_\+span$<$ std\+::remove\+\_\+reference\+\_\+t$<$ std\+::iter\+\_\+reference\+\_\+t$<$ I $>$ $>$ $>$
 \begin{DoxyCompactList}\small\item\em Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__span}{boundless\+\_\+span}} . \end{DoxyCompactList}\item 
-{\footnotesize template$<$stdr\+::contiguous\+\_\+range Range$>$ }\\\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0db2f84b70feb0f0a65958285c348de8}{boundless\+\_\+span}} (Range \&\&) -\/$>$ boundless\+\_\+span$<$ std\+::remove\+\_\+reference\+\_\+t$<$ stdr\+::range\+\_\+reference\+\_\+t$<$ Range \& $>$ $>$ $>$
+{\footnotesize template$<$std\+::ranges\+::contiguous\+\_\+range Range$>$ }\\\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a346fff7e69b4e8056f5455fd1ad50105}{boundless\+\_\+span}} (Range \&\&) -\/$>$ boundless\+\_\+span$<$ std\+::remove\+\_\+reference\+\_\+t$<$ std\+::ranges\+::range\+\_\+reference\+\_\+t$<$ Range \& $>$ $>$ $>$
 \begin{DoxyCompactList}\small\item\em Template parameter deduction guide for {\ttfamily \doxylink{structauspicious__library_1_1cu_1_1boundless__span}{boundless\+\_\+span}} . \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a12c14d5aa2a21c5f071ffe3e3f805e15}{subordinate}} (const Container \&container, std\+::size\+\_\+t first\+\_\+inclusive, std\+::size\+\_\+t last\+\_\+exclusive)
 \begin{DoxyCompactList}\small\item\em Get the subset of the container\textquotesingle{}s elements. \end{DoxyCompactList}\item 
@@ -142,7 +142,7 @@ using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a60b2261436e0343c87c79
 
 
 
-All Container Utilities return this container. 
+Many Container Utilities return this container. 
 
 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -158,7 +158,7 @@ using \mbox{\hyperlink{namespaceauspicious__library_1_1cu_ac397b67fa3b542036726c
 
 
 
-All Container Utilities return this container if the result is nested. 
+Many Container Utilities return this container if the result is nested. 
 
 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -423,12 +423,12 @@ Deduce type from iterators.
 {\em End} & The type of end of the iterator. \\
 \hline
 \end{DoxyTemplParams}
-\Hypertarget{namespaceauspicious__library_1_1cu_a0db2f84b70feb0f0a65958285c348de8}\index{auspicious\_library::cu@{auspicious\_library::cu}!boundless\_span@{boundless\_span}}
+\Hypertarget{namespaceauspicious__library_1_1cu_a346fff7e69b4e8056f5455fd1ad50105}\index{auspicious\_library::cu@{auspicious\_library::cu}!boundless\_span@{boundless\_span}}
 \index{boundless\_span@{boundless\_span}!auspicious\_library::cu@{auspicious\_library::cu}}
 \doxysubsubsection{\texorpdfstring{boundless\_span()}{boundless\_span()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
-{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_a0db2f84b70feb0f0a65958285c348de8} 
-template$<$stdr\+::contiguous\+\_\+range Range$>$ \\
-auspicious\+\_\+library\+::cu\+::boundless\+\_\+span (\begin{DoxyParamCaption}\item[{Range \&\&}]{}{}\end{DoxyParamCaption}) -\/$>$  boundless\+\_\+span$<$ std\+::remove\+\_\+reference\+\_\+t$<$ stdr\+::range\+\_\+reference\+\_\+t$<$ Range \& $>$ $>$ $>$}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_a346fff7e69b4e8056f5455fd1ad50105} 
+template$<$std\+::ranges\+::contiguous\+\_\+range Range$>$ \\
+auspicious\+\_\+library\+::cu\+::boundless\+\_\+span (\begin{DoxyParamCaption}\item[{Range \&\&}]{}{}\end{DoxyParamCaption}) -\/$>$  boundless\+\_\+span$<$ std\+::remove\+\_\+reference\+\_\+t$<$ std\+::ranges\+::range\+\_\+reference\+\_\+t$<$ Range \& $>$ $>$ $>$}
 
 
 

@@ -62,12 +62,12 @@
         names_count = 4;
     }
 
-    std::vector<const al::subcommand_template *> subcommands = {};
+    std::vector<const ap::subcommand_template *> subcommands = {};
 
     // Add subcommands with one name
     for (std::size_t i = 0; i < names_count; i++)
     {
-        subcommands.emplace_back(new al::subcommand_template {
+        subcommands.emplace_back(new ap::subcommand_template {
             .description        = std::format("Subcommand recognition - {}", i),
             .names              = { std::format("name-{}", i) },
             .parameters         = {},
@@ -84,7 +84,7 @@
         names.emplace_back(std::format("name-{}", i));
     }
 
-    subcommands.emplace_back(new al::subcommand_template {
+    subcommands.emplace_back(new ap::subcommand_template {
         .description = std::format("Subcommand recognition - {}",
             names_count),
         .names              = names,
@@ -106,7 +106,7 @@
 
             std::size_t index = i;
             std::vector<std::string>         args     = {};
-            std::vector<al::parsed_argument> expected = {};
+            std::vector<ap::parsed_argument> expected = {};
             std::size_t subcommand_index = (std::size_t)-1;
             std::size_t name_index       = (std::size_t)-1;
 
@@ -143,7 +143,7 @@
             auto name = subcommand->names[name_index];
             args.emplace_back(name);
 
-            al::parsed_argument expect = {
+            ap::parsed_argument expect = {
                 .argument     = {
                     .original = name,
                     .modified = name,
@@ -170,7 +170,7 @@
             errors += sub_errors;
         }
 
-        logln("Failed tests:\n{}\n", al::to_string(failed_tests, ",\n"s,
+        logln("Failed tests:\n{}\n", sm::to_string(failed_tests, ",\n"s,
             " Test 2."));
     }
     catch (const std::exception &e)

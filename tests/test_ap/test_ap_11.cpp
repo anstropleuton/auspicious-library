@@ -58,14 +58,14 @@
 {
     T_BEGIN;
 
-    std::vector<const al::option_template *>     options     = {};
-    std::vector<const al::subcommand_template *> subcommands = {};
+    std::vector<const ap::option_template *>     options     = {};
+    std::vector<const ap::subcommand_template *> subcommands = {};
 
     std::size_t test_index = 0;
     std::vector<std::size_t> failed_tests = {};
 
     // Test throw when an option is null
-    options.emplace_back(new al::option_template {
+    options.emplace_back(new ap::option_template {
         .description        = "Test throw null option - 1",
         .long_names         = {},
         .short_names        = {},
@@ -73,7 +73,7 @@
         .defaults_from_back = {}
     });
     options.emplace_back(nullptr);
-    options.emplace_back(new al::option_template {
+    options.emplace_back(new ap::option_template {
         .description        = "Test throw null option - 3",
         .long_names         = {},
         .short_names        = {},
@@ -85,7 +85,7 @@
     {
         test_index++;
         logln("--- Test 11.{} ---", test_index);
-        auto parsed = al::parse_arguments({}, options, subcommands);
+        auto parsed = ap::parse_arguments({}, options, subcommands);
         failed_tests.emplace_back(test_index);
         logln("--- End of Test 11.{}: Failure to catch valid exception ---",
             test_index);
@@ -134,7 +134,7 @@
     subcommands.clear();
 
     // Test throw when a subcommand is null
-    subcommands.emplace_back(new al::subcommand_template {
+    subcommands.emplace_back(new ap::subcommand_template {
         .description        = "Test throw null subcommand - 1",
         .names              = {},
         .parameters         = {},
@@ -143,7 +143,7 @@
         .subcommand_options = {}
     });
     subcommands.emplace_back(nullptr);
-    subcommands.emplace_back(new al::subcommand_template {
+    subcommands.emplace_back(new ap::subcommand_template {
         .description        = "Test throw null subcommand - 3",
         .names              = {},
         .parameters         = {},
@@ -156,7 +156,7 @@
     {
         test_index++;
         logln("--- Test 11.{} ---", test_index);
-        auto parsed = al::parse_arguments({}, options, subcommands);
+        auto parsed = ap::parse_arguments({}, options, subcommands);
         failed_tests.emplace_back(test_index);
         logln("--- End of Test 11.{}: Failure to catch valid exception ---",
             test_index);
@@ -205,7 +205,7 @@
     subcommands.clear();
 
     // Test throw when option's defaults are more than parameters
-    options.emplace_back(new al::option_template {
+    options.emplace_back(new ap::option_template {
         .description        = "Option with wore defaults than parameters",
         .long_names         = {},
         .short_names        = {},
@@ -217,7 +217,7 @@
     {
         test_index++;
         logln("--- Test 11.{} ---", test_index);
-        auto parsed = al::parse_arguments({}, options, subcommands);
+        auto parsed = ap::parse_arguments({}, options, subcommands);
         failed_tests.emplace_back(test_index);
         logln("--- End of Test 11.{}: Failure to catch valid exception ---",
             test_index);
@@ -267,7 +267,7 @@
     subcommands.clear();
 
     // Test throw when subcommand's defaults are more than parameters
-    subcommands.emplace_back(new al::subcommand_template {
+    subcommands.emplace_back(new ap::subcommand_template {
         .description        = "Subcommand with more defaults than parameters",
         .names              = {},
         .parameters         = { "parameter-1" },
@@ -280,7 +280,7 @@
     {
         test_index++;
         logln("--- Test 11.{} ---", test_index);
-        auto parsed = al::parse_arguments({}, options, subcommands);
+        auto parsed = ap::parse_arguments({}, options, subcommands);
         failed_tests.emplace_back(test_index);
         logln("--- End of Test 11.{}: Failure to catch valid exception ---",
             test_index);
@@ -330,7 +330,7 @@
     subcommands.clear();
 
     // Test throw when option's last parameter is variadic but has defaults
-    options.emplace_back(new al::option_template {
+    options.emplace_back(new ap::option_template {
         .description        = "Option has variadic parameter and defaults",
         .long_names         = {},
         .short_names        = {},
@@ -342,7 +342,7 @@
     {
         test_index++;
         logln("--- Test 11.{} ---", test_index);
-        auto parsed = al::parse_arguments({}, options, subcommands);
+        auto parsed = ap::parse_arguments({}, options, subcommands);
         failed_tests.emplace_back(test_index);
         logln("--- End of Test 11.{}: Failure to catch valid exception ---",
             test_index);
@@ -392,7 +392,7 @@
     subcommands.clear();
 
     // Test throw when subcommand's last parameter is variadic but has defaults
-    subcommands.emplace_back(new al::subcommand_template {
+    subcommands.emplace_back(new ap::subcommand_template {
         .description        = "Subcommand has variadic parameters and defaults",
         .names              = {},
         .parameters         = { "parameters..." },
@@ -405,7 +405,7 @@
     {
         test_index++;
         logln("--- Test 11.{} ---", test_index);
-        auto parsed = al::parse_arguments({}, options, subcommands);
+        auto parsed = ap::parse_arguments({}, options, subcommands);
         failed_tests.emplace_back(test_index);
         logln("--- End of Test 11.{}: Failure to catch valid exception ---",
             test_index);
@@ -454,7 +454,7 @@
     options.clear();
     subcommands.clear();
 
-    al::subcommand_template nested_subcommand = {
+    ap::subcommand_template nested_subcommand = {
         .description        = "Nested subcommand",
         .names              = {},
         .parameters         = {},
@@ -465,7 +465,7 @@
 
     // Test throw when subcommand's last parameter is variadic but nested
     // subcommands are specified
-    subcommands.emplace_back(new al::subcommand_template {
+    subcommands.emplace_back(new ap::subcommand_template {
         .description = "Subcommand has variadic parameters and nested "
                        "subcommand",
         .names              = {},
@@ -479,7 +479,7 @@
     {
         test_index++;
         logln("--- Test 11.{} ---", test_index);
-        auto parsed = al::parse_arguments({}, options, subcommands);
+        auto parsed = ap::parse_arguments({}, options, subcommands);
         failed_tests.emplace_back(test_index);
         logln("--- End of Test 11.{}: Failure to catch valid exception ---",
             test_index);
@@ -529,7 +529,7 @@
     subcommands.clear();
 
     // Test throw when option's non-last parameters are variadic
-    options.emplace_back(new al::option_template {
+    options.emplace_back(new ap::option_template {
         .description        = "Option's non-last parameter is variadic",
         .long_names         = {},
         .short_names        = {},
@@ -541,7 +541,7 @@
     {
         test_index++;
         logln("--- Test 11.{} ---", test_index);
-        auto parsed = al::parse_arguments({}, options, subcommands);
+        auto parsed = ap::parse_arguments({}, options, subcommands);
         failed_tests.emplace_back(test_index);
         logln("--- End of Test 11.{}: Failure to catch valid exception ---",
             test_index);
@@ -591,7 +591,7 @@
     subcommands.clear();
 
     // Test throw when subcommand's non-last parameters are variadic
-    subcommands.emplace_back(new al::subcommand_template {
+    subcommands.emplace_back(new ap::subcommand_template {
         .description        = "Subcommand's non-last parameter is variadic",
         .names              = {},
         .parameters         = { "parameter-1...", "parameter-2" },
@@ -604,7 +604,7 @@
     {
         test_index++;
         logln("--- Test 11.{} ---", test_index);
-        auto parsed = al::parse_arguments({}, options, subcommands);
+        auto parsed = ap::parse_arguments({}, options, subcommands);
         failed_tests.emplace_back(test_index);
         logln("--- End of Test 11.{}: Failure to catch valid exception ---",
             test_index);
@@ -653,7 +653,7 @@
     options.clear();
     subcommands.clear();
 
-    logln("Failed tests:\n{}\n", al::to_string(failed_tests, ",\n"s,
+    logln("Failed tests:\n{}\n", sm::to_string(failed_tests, ",\n"s,
         " Test 11."));
 
     T_END;

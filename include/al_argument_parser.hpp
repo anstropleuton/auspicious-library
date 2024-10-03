@@ -44,11 +44,6 @@
 
 #pragma once
 
-#if !defined(AUSPICIOUS_LIBRARY_HPP_INCLUDED) \
- && !defined(AUSPICIOUS_LIBRARY_NO_INCLUSION_WARN)
-    #warning Its recommended to include auspicious_library.hpp instead.
-#endif // ifndef AUSPICIOUS_LIBRARY_HPP_INCLUDED
-
 #include <print>
 #include <string>
 #include <vector>
@@ -58,25 +53,10 @@
 #include "al_string_manipulators.hpp"
 
 /**
- *  @brief  All Auspicious Library's contents in this namespace.
- *
- *  Do not `using namespace auspicious_library;`.  Instead, use this:
-    ```cpp
-    namespace al {
-    using namespace auspicious_library::cu;
-    using namespace auspicious_library::sm;
-    using namespace auspicious_library::aec;
-    using namespace auspicious_library::ap;
-    using namespace auspicious_library::fu;
-    } // namespace al
-    using namespace auspicious_library::cu_operators;
-    using namespace auspicious_library::sm_operators;
-    using namespace auspicious_library::aec_operators;
-    ```
+ *  @brief  All Auspicious Library's contents in this namespace.  Just do
+ *          `using namespace auspicious_library` to make your life easier.
  */
 namespace auspicious_library {
-
-using namespace std::string_literals;
 
 /**
  *  @brief  Command line argument parser.
@@ -293,6 +273,7 @@ enum class argument_type {
  */
 [[nodiscard]] inline constexpr auto to_string(argument_type arg_type)
 {
+    using namespace std::string_literals;
     switch (arg_type)
     {
         case argument_type::unknown: return "unknown"s;
@@ -366,6 +347,7 @@ enum class variadicity {
  */
 [[nodiscard]] inline constexpr auto to_string(variadicity variadic)
 {
+    using namespace std::string_literals;
     switch (variadic)
     {
         case variadicity::not_variadic: return "not_variadic"s;
@@ -471,6 +453,7 @@ enum class validity {
  */
 [[nodiscard]] inline constexpr auto to_string(validity valid)
 {
+    using namespace std::string_literals;
     switch (valid)
     {
         case validity::unknown: return "unknown"s;
@@ -740,6 +723,7 @@ struct styled_padding {
      */
     [[nodiscard]] inline constexpr auto str(std::size_t subtract = 0) const
     {
+        using namespace std::string_literals;
         if (subtract > width)
         {
             return ""s;

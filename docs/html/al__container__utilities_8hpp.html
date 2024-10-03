@@ -134,7 +134,6 @@ $(function(){initNavTree('al__container__utilities_8hpp.html',''); initResizable
 <code>#include &lt;cstddef&gt;</code><br />
 <code>#include &lt;initializer_list&gt;</code><br />
 <code>#include &lt;iterator&gt;</code><br />
-<code>#include &lt;map&gt;</code><br />
 <code>#include &lt;ranges&gt;</code><br />
 <code>#include &lt;span&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
@@ -172,7 +171,7 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library.html">auspicious_library</a></td></tr>
-<tr class="memdesc:namespaceauspicious__library"><td class="mdescLeft">&#160;</td><td class="mdescRight">All Auspicious Library's contents in this namespace. <br /></td></tr>
+<tr class="memdesc:namespaceauspicious__library"><td class="mdescLeft">&#160;</td><td class="mdescRight">All Auspicious Library's contents in this namespace. Just do <code>using namespace <a class="el" href="namespaceauspicious__library.html" title="All Auspicious Library&#39;s contents in this namespace. Just do using namespace auspicious_library to ma...">auspicious_library</a></code> to make your life easier. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html">auspicious_library::cu</a></td></tr>
 <tr class="memdesc:namespaceauspicious__library_1_1cu"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copper...? No wait, Container Utilities. <br /></td></tr>
@@ -204,11 +203,11 @@ Typedefs</h2></td></tr>
 <tr class="separator:a0248de8b248ad5631f6331109b9aace1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60b2261436e0343c87c797ba6a750096" id="r_a60b2261436e0343c87c797ba6a750096"><td class="memTemplParams" colspan="2">template&lt;cu_compatible Container&gt; </td></tr>
 <tr class="memitem:a60b2261436e0343c87c797ba6a750096"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#a60b2261436e0343c87c797ba6a750096">auspicious_library::cu::result_container</a> = std::vector&lt;<a class="el" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">value_type</a>&lt;Container&gt;&gt;</td></tr>
-<tr class="memdesc:a60b2261436e0343c87c797ba6a750096"><td class="mdescLeft">&#160;</td><td class="mdescRight">All Container Utilities return this container.  <br /></td></tr>
+<tr class="memdesc:a60b2261436e0343c87c797ba6a750096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Many Container Utilities return this container.  <br /></td></tr>
 <tr class="separator:a60b2261436e0343c87c797ba6a750096"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac397b67fa3b542036726c3514a4df4f0" id="r_ac397b67fa3b542036726c3514a4df4f0"><td class="memTemplParams" colspan="2">template&lt;cu_compatible Container&gt; </td></tr>
 <tr class="memitem:ac397b67fa3b542036726c3514a4df4f0"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#ac397b67fa3b542036726c3514a4df4f0">auspicious_library::cu::result_container_nested</a> = std::vector&lt;std::vector&lt;<a class="el" href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">value_type</a>&lt;Container&gt;&gt;&gt;</td></tr>
-<tr class="memdesc:ac397b67fa3b542036726c3514a4df4f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">All Container Utilities return this container if the result is nested.  <br /></td></tr>
+<tr class="memdesc:ac397b67fa3b542036726c3514a4df4f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Many Container Utilities return this container if the result is nested.  <br /></td></tr>
 <tr class="separator:ac397b67fa3b542036726c3514a4df4f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0f48745ffc86475930f5ec468cadc96" id="r_ae0f48745ffc86475930f5ec468cadc96"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#ae0f48745ffc86475930f5ec468cadc96">auspicious_library::cu::boundless_string</a> = <a class="el" href="structauspicious__library_1_1cu_1_1boundless__basic__string.html">boundless_basic_string</a>&lt;char&gt;</td></tr>
 <tr class="memdesc:ae0f48745ffc86475930f5ec468cadc96"><td class="mdescLeft">&#160;</td><td class="mdescRight">boundless_A string of <code>char</code> .  <br /></td></tr>
@@ -270,10 +269,10 @@ requires (std::is_same_v&lt;T, U&gt; &amp;&amp; ...)</td></tr>
 <tr class="memitem:a0740fb246315f155192c85d34cac5c9a"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#a0740fb246315f155192c85d34cac5c9a">auspicious_library::cu::boundless_span</a> (I, End) -&gt; boundless_span&lt; std::remove_reference_t&lt; std::iter_reference_t&lt; I &gt; &gt; &gt;</td></tr>
 <tr class="memdesc:a0740fb246315f155192c85d34cac5c9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template parameter deduction guide for <code><a class="el" href="structauspicious__library_1_1cu_1_1boundless__span.html" title="A boundless span.">boundless_span</a></code> .  <br /></td></tr>
 <tr class="separator:a0740fb246315f155192c85d34cac5c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0db2f84b70feb0f0a65958285c348de8" id="r_a0db2f84b70feb0f0a65958285c348de8"><td class="memTemplParams" colspan="2">template&lt;stdr::contiguous_range Range&gt; </td></tr>
-<tr class="memitem:a0db2f84b70feb0f0a65958285c348de8"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#a0db2f84b70feb0f0a65958285c348de8">auspicious_library::cu::boundless_span</a> (Range &amp;&amp;) -&gt; boundless_span&lt; std::remove_reference_t&lt; stdr::range_reference_t&lt; Range &amp; &gt; &gt; &gt;</td></tr>
-<tr class="memdesc:a0db2f84b70feb0f0a65958285c348de8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template parameter deduction guide for <code><a class="el" href="structauspicious__library_1_1cu_1_1boundless__span.html" title="A boundless span.">boundless_span</a></code> .  <br /></td></tr>
-<tr class="separator:a0db2f84b70feb0f0a65958285c348de8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a346fff7e69b4e8056f5455fd1ad50105" id="r_a346fff7e69b4e8056f5455fd1ad50105"><td class="memTemplParams" colspan="2">template&lt;std::ranges::contiguous_range Range&gt; </td></tr>
+<tr class="memitem:a346fff7e69b4e8056f5455fd1ad50105"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#a346fff7e69b4e8056f5455fd1ad50105">auspicious_library::cu::boundless_span</a> (Range &amp;&amp;) -&gt; boundless_span&lt; std::remove_reference_t&lt; std::ranges::range_reference_t&lt; Range &amp; &gt; &gt; &gt;</td></tr>
+<tr class="memdesc:a346fff7e69b4e8056f5455fd1ad50105"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template parameter deduction guide for <code><a class="el" href="structauspicious__library_1_1cu_1_1boundless__span.html" title="A boundless span.">boundless_span</a></code> .  <br /></td></tr>
+<tr class="separator:a346fff7e69b4e8056f5455fd1ad50105"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12c14d5aa2a21c5f071ffe3e3f805e15" id="r_a12c14d5aa2a21c5f071ffe3e3f805e15"><td class="memTemplParams" colspan="2">template&lt;cu_compatible Container&gt; </td></tr>
 <tr class="memitem:a12c14d5aa2a21c5f071ffe3e3f805e15"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceauspicious__library_1_1cu.html#a12c14d5aa2a21c5f071ffe3e3f805e15">auspicious_library::cu::subordinate</a> (const Container &amp;container, std::size_t first_inclusive, std::size_t last_exclusive)</td></tr>
 <tr class="memdesc:a12c14d5aa2a21c5f071ffe3e3f805e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the subset of the container's elements.  <br /></td></tr>

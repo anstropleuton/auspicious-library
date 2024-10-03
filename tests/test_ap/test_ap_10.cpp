@@ -55,9 +55,9 @@
     T_BEGIN;
 
     // Prepare options
-    std::vector<const al::option_template *> options = {};
+    std::vector<const ap::option_template *> options = {};
 
-    options.emplace_back(new al::option_template {
+    options.emplace_back(new ap::option_template {
         .description        = "Not Variadic Option",
         .long_names         = { "not-variadic" },
         .short_names        = { 'a' },
@@ -65,7 +65,7 @@
         .defaults_from_back = {}
     });
 
-    options.emplace_back(new al::option_template {
+    options.emplace_back(new ap::option_template {
         .description        = "Zero-Or-More Variadic Option",
         .long_names         = { "zero-or-more" },
         .short_names        = { 'b' },
@@ -73,7 +73,7 @@
         .defaults_from_back = {}
     });
 
-    options.emplace_back(new al::option_template {
+    options.emplace_back(new ap::option_template {
         .description        = "One-Or-More Variadic Option",
         .long_names         = { "one-or-more" },
         .short_names        = { 'c' },
@@ -95,7 +95,7 @@
                 test_index++;
 
                 std::vector<std::string>         args     = {};
-                std::vector<al::parsed_argument> expected = {};
+                std::vector<ap::parsed_argument> expected = {};
 
                 args.emplace_back("--" + options[i]->long_names.front());
 
@@ -106,26 +106,26 @@
 
                 // Validity and values based on variadicity
                 vdt valid = vdt::valid;
-                al::variadicity variadicity = al::is_parameter_variadic(
+                ap::variadicity variadicity = ap::is_parameter_variadic(
                     options[i]->parameters.back());
                 std::vector<std::string> values = {};
 
                 switch (variadicity)
                 {
-                    case al::variadicity::not_variadic:
+                    case ap::variadicity::not_variadic:
                         if (args.size() < 2) valid = vdt::not_enough_values;
                         else values.emplace_back(args[1]);
                         break;
-                    case al::variadicity::zero_or_more:
-                        values = al::subordinate(args, 1, args.size());
+                    case ap::variadicity::zero_or_more:
+                        values = cu::subordinate(args, 1, args.size());
                         break;
-                    case al::variadicity::one_or_more:
+                    case ap::variadicity::one_or_more:
                         if (args.size() < 2) valid = vdt::not_enough_values;
-                        else values = al::subordinate(args, 1, args.size());
+                        else values = cu::subordinate(args, 1, args.size());
                         break;
                 }
 
-                expected.emplace_back(al::parsed_argument {
+                expected.emplace_back(ap::parsed_argument {
                     .argument     = {
                         .original = "--" + options[i]->long_names.front(),
                         .modified = "--" + options[i]->long_names.front(),
@@ -143,11 +143,11 @@
                 });
 
                 // Add leftover values as unrecognized subcommand
-                if (variadicity == al::variadicity::not_variadic)
+                if (variadicity == ap::variadicity::not_variadic)
                 {
                     for (std::size_t k = 2; k < args.size(); k++)
                     {
-                        expected.emplace_back(al::parsed_argument {
+                        expected.emplace_back(ap::parsed_argument {
                             .argument     = {
                                 .original = args[k],
                                 .modified = args[k],
@@ -175,7 +175,7 @@
             }
         }
 
-        logln("Failed tests:\n{}\n", al::to_string(failed_tests, ",\n"s,
+        logln("Failed tests:\n{}\n", sm::to_string(failed_tests, ",\n"s,
             " Test 10."));
     }
     catch (const std::exception &e)

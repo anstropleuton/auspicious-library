@@ -1,463 +1,392 @@
-# Guidelines
+I'll be honest with you, I took this straight from ChatGPT and did some tweaks to it. But the guidelines is mine tho.
 
-**NEEDS UPDATING**
+---
+
+# Auspicious Library Coding Guidelines
 
 ## Naming Conventions
 
-### For all names
-- Avoid using abbreviated or truncated names.
-- But you can use acronyms.
-- No single letter names unless dealing with mathematical formula or indexes.
-- Namespace names is an exception.
+### General
+- Don't abbreviate names, acronyms are allowed. And namespace abbreviations are allowed (see [Namespace Names](#namespace-names)).
+- Don't use single letter names, except when it is a mathematical formulas or names of indices.
 
-### Structs
-- Should be in `snake_case`.
-    ```cpp
-    struct my_struct;
-    ```
+### Variable Names
+Use `snake_case` and keep the variable names descriptive.
+```cpp
+int users_count;
+```
 
-### Variables
-- Should be in `snake_case`.
-    ```cpp
-    int my_variable;
-    ```
+### Constant Names
+Use `snake_case`, and keep the constant names descriptive.
+```cpp
+const int max_users = 10;
+```
 
-### Constants
-- Should be in `snake_case`.
-    ```cpp
-    const int max_value = 100;
-    ```
+### Structure Names
+Use `snake_case` and don't append any `_t` at the end. Prefer keeping it simple than descriptive.
+```cpp
+struct user {
+    // ...
+};
+```
 
-### Functions and Methods
-- Should be in `snake_case`.
-    ```cpp
-    auto my_function() -> void;
-    ```
+### Enumerator Names
+Use `snake_case` and prefer keeping it simple than descriptive.
+```cpp
+enum user_type {
+    // ...
+};
+```
 
-### Enumerations
-- **Enumeration names** should be in `snake_case`.
-- **Enumeration values** should be in `snake_case`.
-    ```cpp
-    enum class my_enum {
-        first_value,
-        second_value
-    };
-    ```
+### Function Names
+Use `snake_case` and name the function based on what it does.
+```cpp
+auto create_user(std::string_view username) -> user;
+```
 
-### Namespaces
-- Should be in `snake_case`.
-    ```cpp
-    namespace nsp;
-    ```
-- Here, you should use abbreviations.
-- Should be between 2-5 letters.
+### Namespace Names
+When the namespace is internal use or is not in global space, abbreviate namespaces to 2-5 letters. We don't care about descriptiveness when not in global space.
+```cpp
+namespace nsp {
+    // ...
+};
+```
+In global space, prefer more descriptive name since one can just do `namespace a = a_long_namespace_name;`.
 
-### Template Parameter
-- Should be in `PascalCase`.
-    ```cpp
-    template <typename Type>
-    struct structure;
-    ```
+### Template Parameters
+Use `PascalCase` for template parameters.
+```cpp
+template <typename Type>
+struct structure;
+```
+This may change to `snake_case` for consistency, but is `PascalCase` for the time being.
 
-### Files
-- File names should be in `snake_case`.
-    ```txt
-    my_module.hpp
-    my_module.cpp
-    ```
-- Specificity first. For example, `animated_icon_texture.gif` instead of `texture_icon_animated.gif`.
+### File Names
+Use `snake_case` for file names.
+```txt
+my_module.hpp
+my_module.cpp
+```
+Use specificity-first style, e.g., `animated_icon_texture.gif` over `texture_icon_animated.gif`.
 
 ## Formatting
 
 ### Indentation
-- Use 4 spaces for indentation. Do not use tabs.
+Use 4 spaces for indentation, no tabs.
 
 ### Braces
-- Use Allman style for braces that involve control flow or function definition.
-    ```cpp
-    if (condition)
-    {
-        // code
-    }
-    ```
-- Use K&R style for braces when defining structs, enums or namespaces.
-    ```cpp
-    struct my_struct {
-        // members
-    };
-    ```
+Allman style for control flow or function definitions.
+```cpp
+if (condition)
+{
+    // code
+}
+```
+K&R style for structures, enumerators, or namespaces.
+```cpp
+struct my_struct {
+    // members
+};
+```
 
 ### Line Length
-- Limit lines to 160 characters.
+Limit lines to 80 characters. I use 1920x1080 screen and I use split view, side by side, to work with multiple files, and word wrap or having to scroll horizontally is less convenient.
 
-### Spaces
-- Use spaces around operators.
-    ```cpp
-    int result = a + b;
-    ```
-- Do not use spaces inside parentheses.
-    ```cpp
-    if (a == b)
-    ```
-- Use a space after commas.
-    ```cpp
-    void do_something(int a, int b);
-    ```
+### Spacing
+Use spaces around operators and after commas, but not inside parentheses.
+```cpp
+int result = a + b;
+if (a == b) { /* ... */ }
 
-### Blank Lines
-- Use blank lines to separate logical sections of the code.
-    ```cpp
-    int a = 10;
-
-    if (a > 5)
-    {
-        // code
-    }
-
-    a++;
-    ```
+void do_something(int a, int b);
+```
 
 ### Variable Declaration
-- Use `auto` to deduce types of an expression involving function calls.
-- Do not use `auto` to deduce types from constants.
-    ```cpp
-    auto value = do_something();
-    ```
+Use `auto` for function expressions but not for constants or when the result is a fundamental type (`int`, `float`, etc., including aliases like `std::size_t`).
+```cpp
+auto value = get_value();
+```
 
-### Max width
-- Max width is 80 characters. You can split up a long function declaration as so:
-    ```cpp
-    [[nodiscard]] inline constexpr auto get_value(
-        a_very_long_parameter_type_1 a_very_long_parameter_1,
-        a_long_parameter_type_2      a_very_long_parameter_2
-    ) -> a_very_long_return_type
-    {
-        // relatively short code
-        return a_very_long_return_value;
-    }
-    ```
+### Function Declarations
+Split long function declarations for readability.
+```cpp
+[[nodiscard]] inline constexpr auto get_value(
+    param_type_1 param_1,
+    param_type_2 param_2
+) -> return_type;
+```
 
 ## Comments
 
-### Single-line Comments
-- Use `//` for single-line comments. Place them above or on the line of the code they refer to.
-    ```cpp
-    int my_variable; // This is a single-line comment
-    ```
+### Single-Line Comments
+Use `//` for single-line comments, placed above or on the code line.
+```cpp
+int my_variable; // This is a comment
+```
 
-### Multi-line Comments
-- Use `/* */` for multi-line comments with each line starting from a `*` and two spaces.
-    ```cpp
-    /*
-     *  This is a multi-line comment.
-     *  It can span multiple lines.
-     */
-    int my_variable;
-    ```
-
-### Periods
-- Use two space after a period in a comment.
-    ```cpp
-    /**
-     *  This is a thing.  After that it does this.  So do that.
-     */
-    type thing;
-    ```
+### Multi-Line Comments
+Use `/* */` with asterisks and two spaces at the start of each line.
+```cpp
+/*
+ *  Multi-line comment.
+ */
+```
 
 ### Documentation Comments
-- Use doxygen formatted comments for documentation comments.
-    ```cpp
-    /**
-     *  @brief  This function does something important.
-     *
-     *  @param   a  The first important parameter.
-     *  @param   b  The second important parameter.
-     *  @return  An important value.
-     */
-    int do_something(int a, int b);
-    ```
-- Use two spaces between the tag and the parameter/description.
+Use Doxygen-style comments for documentation.
+```cpp
+/**
+ *  @brief  Function description.
+ *  @param  a  First parameter.
+ *  @param  b  Second parameter.
+ *  @return  Return description.
+ */
+```
+
+### Punctuations
+Use periods to end the sentence in a document comment, and not in regular comment
+```cpp
+/*
+ *  This comment ends with a period.
+ */
+
+// This comment does not end with a period
+```
+Use two space in comment after `.`, `!` and `?` punctuations.
+```cpp
+/*
+ *  This is a sentence.  This is another sentence after period!  Is this a
+ *  life-long question?  And the end.
+ */
+```
+
+### File Comment
+Have a documentation comment on the first line of the file describing the file.
+`header.hpp`:
+```cpp
+/**
+ *  @file    header.hpp
+ *  @author  Your Name (your.mail@email.provider)
+ *  @brief   This is a header file.
+ *
+ *  @copyright  Copyright (C) 2024 I own this code to death
+ *
+ *  SUPER FANCY ART (OPTIONAL).
+ *
+ *  Detailed description.
+ *
+ *  License info.
+ *
+ *  Credits.
+ */
+```
 
 ## Code Structure
 
 ### Header Files
-- Use `#pragma once` to prevent multiple inclusions.
-    ```cpp
-    #pragma once
-    // header content
-    ```
+Use `#pragma once` for include guards.
+```cpp
+#pragma once
+```
+As oppose to `#ifndef` guards.
 
 ### Source Files
-- Source files should include their corresponding header files as the first include.
-    ```cpp
-    #include "my_module.hpp"
-    ```
+Include the corresponding header file first.
+```cpp
+#include "my_module.hpp"
+```
 
-## (Member/) Functions and Lambdas
+## Functions and Lambdas
 
-### (Member/) Function Declaration
-- Use `auto` and trailing return type when declaring functions.
-    ```cpp
-    [[nodiscard]] auto do_something(int a, int b) -> int;
-    ```
+### Function Return Type
+Use `auto` and trailing return types.
+```cpp
+[[nodiscard]] inline constexpr auto add(int a, int b) -> int;
+```
+If you are defining the function in the header file, let the compiler figure out the return type for you.
+```cpp
+[[nodiscard]] inline constexpr auto add(int a, int b)
+{
+    return a + b;
+}
+```
 
-### (Member/) Function Declaration
-- Use `auto` and don't use trailing return type when defining functions.
-    ```cpp
-    auto do_something(int a, int b)
-    {
-    }
-    ```
-- Use trailing return type when the function already has a declaration or when the return type cannot be deduced.
+### `[[nodiscard]]`, `inline` and `constexpr` Functions
+Use `[[nodiscard]]` to indicate the caller should not discard the value (almost always), use `inline` for small or performance-critical functions, and use `constexpr` (if applicable) to let compiler run the code at compile time.
+```cpp
+[[nodiscard]] inline constexpr auto add(int a, int b) -> int
+{
+    return a + b;
+}
+```
 
-### Inline Functions
-- Use `inline` keyword for small, performance-critical functions if they are not part of a struct.
-    ```cpp
-    [[nodiscard]] inline auto add(int a, int b)
+### Lambdas
+Always use reference capture for lambda.
+```cpp
+auto lambda = [&]() { /* code */ };
+```
+
+### Static Functions
+Use `static` for internal functions.
+```cpp
+static inline constexpr auto helper() -> void;
+```
+
+## Structures
+
+### Structure Organization
+Order members as:
+- Data members
+- Constructors
+- Member functions
+- Operators
+- Conversion operators
+```cpp
+struct my_struct {
+
+    // Data members
+    int a;
+    float b;
+
+    // Constructors
+    my_struct() = default;
+    my_struct(int a, float b) : a(a), b(b) {};
+
+    // Member functions
+    [[nodiscard]] inline constexpr auto do_something(int a, float b)
     {
         return a + b;
     }
-    ```
 
-### Lambdas
-- Use `auto` for lambda parameters.
-- Always reference capture everything.
-    ```cpp
-    auto pos = std::ranges::find(my_instances, [&](const auto &my_instance) { return my_instance.value == my_value; });
-    ```
-
-
-### Attributes
-- Always use `[[nodiscard]]` for function returning a value.
-    ```cpp
-    [[nodiscard]] auto get_value()
+    [[nodiscard]] inline constexpr auto do_another_thing(int a, float b)
     {
-        return value;
+        return a - b;
     }
-    ```
 
-### Static
-- Use static to make a function not visible outside a compilation unit.
-    ```cpp
-    static auto internal_helper_function() -> void
+    auto do_way_more_stuff(int a, float b) -> float;
+
+    // Operators
+    inline constexpr auto operator+=(const my_struct &other) -> my_struct &
     {
-        // ...
+        a += other.a;
+        b += other.b;
+        return *this;
     }
-    ```
-- Prefer static functions over lambda, unless there are too many local variables to share between the functions.
 
-## Structs
+    [[nodiscard]] friend inline constexpr auto operator-(
+        const my_struct &a,
+        const my_struct &b
+    )
+    {
+        return my_struct(a.a + a.b, b.a + b.b);
+    }
 
-### struct Organization
-- Define member variables first.
-- Followed by constructors.
-- Followed by member functions.
-- Followed by overloaded operators.
-- Followed by conversion operators.
-    ```cpp
-    struct my_struct {
-        // data members
-        int a;
-        float b;
+    // Conversion operators
+    [[nodiscard]] inline constexpr operator int()
+    {
+        return a;
+    }
 
-        // constructors
-        my_struct() = default;
-        my_struct(int _a, float _b): a(_a), b(_b) {}
-        my_struct(float ab): a(ab), b(ab) {}
-
-        float do_something(int a, float b);
-
-        float do_something_short(int a, float b)
-        {
-            return a + b;
-        }
-
-        // operators
-        my_struct &operator+=(const my_struct& other)
-        {
-            a += other.a;
-            b += other.b;
-            return *this;
-        }
-
-        // conversion operators
-        operator float()
-        {
-            return a + b;
-        }
-    };
-    ```
-
-### Access Specifiers
-- Never use private or protected members.
-
-### Member Variables
-- Define each variable in a new line even if they are of same type.
-    ```cpp
-    struct my_struct {
-        int x;
-        int y;
-        int z;
-        int w;
-    };
-    ```
+    [[nodiscard]] inline constexpr operator float()
+    {
+        return b;
+    }
+};
+```
 
 ### Constructors
-- Don't provide default or parameterized constructor.
+Prefer making a type aggregate unless you really need constructors.
 
 ### Member Functions
-- Define member functions outside the struct declaration in the source file if they are not inline.
-    ```cpp
-    void my_struct::my_function()
-    {
-        // function implementation
-    }
-    ```
-- No need to use the `inline` keyword to define a member function.
+Define non-inline member functions outside the struct in source files.
+```cpp
+auto my_struct::do_way_more_stuff(int a, float b) -> float
+{
+    return a + b - a - b + a + b - a - b;
+}
+```
 
 ### Operator Overloading
-- Use regular member functions for operators that modify the object.
-- Use friend member functions for symmetric operators.
-    ```cpp
-    struct my_struct
-    {
-    public:
-        my_struct& operator+=(const my_struct& rhs);
+Use regular member functions for modifying operators, friend functions non-modifying operators.
+```cpp
+struct my_struct {
+    inline constexpr auto operator+=(const my_struct& other) -> my_struct &
+    { /* ... */ }
 
-        friend my_struct operator+(my_struct lhs, const my_struct& rhs)
-        {
-            lhs += rhs;
-            return lhs;
-        }
-    };
-    ```
+    [[nodiscard]] friend inline constexpr auto operator+(
+        const my_struct &lhs,
+        const my_struct& rhs
+    ) -> my_struct
+    { /* ... */ }
+};
+```
 
 ## Miscellaneous
 
-### Max Enum Member
-- Have a member named max in every enum types intended to be used as index.
+### Enumerators
+Include a `max` member in enumerators intended for use as indexes.
 
 ### Error Handling
-- Use exceptions for error handling.
-    ```cpp
-    throw std::runtime_error("Error message");
-    ```
-- Do not use exceptions on performance-critical functions. Use returned error codes instead.
+Use exceptions for error handling, but return error codes in performance-critical functions.
+```cpp
+throw std::runtime_error("A very descriptive message with some debug info");
+```
 
 ### Concepts
-- Prefer using defined concept instead of `typename`.
-- Prefer defining concept using standard library concepts instead of directly using standard library concepts.
+Prefer using defined concepts over `typename` for template parameters.
 
 ### Standard Library
-- Prefer C++ standard library features over C-style counterparts.
-    ```cpp
-    #include <string>
-    std::string my_string = "Hello, World!";
-    ```
+Prefer C++ standard library features.
+```cpp
+#include <string>
+std::string my_string = "Hello";
+```
 
-### Pointer and Reference
-- Prefer using smart pointers (`std::unique_ptr`, `std::shared_ptr`) over raw pointers.
-    ```cpp
-    std::unique_ptr<my_struct> ptr = std::make_unique<my_struct>();
-    ```
-- Use references when the ownership of the object does not need to be changed.
-    ```cpp
-    void my_function(const my_struct& my_value);
-    ```
-
-### Constants and Literals
-- Use `constexpr` for compile-time constants.
-    ```cpp
-    constexpr int max_value = 100;
-    ```
+### Pointers and References
+Use smart pointers over raw pointers, and references when ownership isn't changing.
+```cpp
+std::unique_ptr<my_struct> ptr = std::make_unique<my_struct>();
+void my_function(const my_struct& obj);
+```
+Use raw pointers if you intend the API to accept address of local variables (still not worth it).
 
 ### Macros
-- Avoid using macros; prefer inline functions, `constexpr`, and templates.
-    ```cpp
-    #define MAX(a, b) ((a) > (b) ? (a) : (b)) // Avoid
-    inline constexpr int max(int a, int b)
-    {
-        return (a > b) ? a : b;
-    }
-    ```
-- If you do use macros, name it `UPPER_SNAKE_CASE`.
-
-### Lambdas
-- Use lambdas defining functions inside of another function when this function is not intended to be used anywhere else.
-    ```cpp
-    auto add = [](int a, int b) { return a + b; };
-    ```
+Avoid macros; use `inline constexpr` or templated functions instead.
+```cpp
+#define MAX(a, b) ((a) > (b) ? (a) : (b)) // Avoid
+```
 
 ### Initialization
-- Use `=` for initializing type with value or literal.
-    ```cpp
-    int value = 10;
-    ```
-- Always initialize to `{}` for when you are not providing parameters.
-    ```cpp
-    Type value = {};
-    ```
-- Always initialize with function-like syntax for creating type with parameters for constructor.
-    ```cpp
-    Type value(parameters);
-    ```
-- Use `{}` for parameters of initializer_list type.
-    ```cpp
-    std::vector<int> value = { 1, 2, 3 };
-    ```
+Use `=` or `{}` for initializing values and `()` for constructing objects.
+```cpp
+int value = 10;
+std::vector vec = {1, 2, 3};
+Type object(param1, param2);
+```
 
-### Range-based For Loops
-- Prefer range-based for loops over traditional loops.
-- Always use `auto &` for range-based loop.
-    ```cpp
-    std::vector<int> values = { 1, 2, 3, 4, 5 };
-    for (auto &value : values)
-    {
-        // use value
-    }
-    ```
-
-### Passing Instance of Newly Constructed Type to Function Parameter
-
-- Use the `Type {}` syntax for passing an instance of a newly created type which uses initializer_list.
-    ```cpp
-    void print_vector(std::vector<int> { 1, 2, 3, 4, 5 });
-    ```
-
-- Use the `Type()` syntax for passing an instance of a newly constructed type which uses constructor.
-    ```cpp
-    void print_string(std::string(5, 'a'));
-    ```
-
-- Use the `Type {}` syntax for default initializing a type.
-    ```cpp
-    void process_t_default(Type(parameters), Type {});
-    ```
+### Range-Based Loops
+Prefer range-based loops and use `auto &` for all.
+```cpp
+for (auto &value : values) { /* code */ }
+```
 
 ### Avoid Magic Numbers
-- Use named constants instead of magic numbers.
-    ```cpp
-    constexpr int max_array_size = 100;
-    int array[max_array_size];
-    ```
+Use named constants instead of magic numbers.
+```cpp
+const int max_size = 100;
+```
 
-### Prefer auto Keyword
-- Use the `auto` keyword for variable declarations that are a result of an function.
-    ```cpp
-    auto my_variable = get_value();
-    ```
+### Use `nullptr`
+Use `nullptr` instead of `NULL`.
+```cpp
+int *ptr = nullptr;
+```
 
-### Use nullptr
-- Use `nullptr` instead of `NULL` or `0` for pointer initialization.
-    ```cpp
-    int* ptr = nullptr;
-    ```
+### Prefix `::`
+Use `::` for calling C standard functions.
+```cpp
+char lowered = ::tolower(c);
+```
 
-### Prefix ::
-- Always prefix :: to indicate that you are using a C standard function.
-    ```cpp
-    char lowered = ::tolower(my_letter);
-    ```
-
-### Long names
-- Abbreviating long names such as `std::ranges` to `stdr` is okay if it is done in a source file.
+### Abbreviations
+Don't use abbreviated thing in API, but you can abbreviate long names like `std::ranges` to shorter names (e.g., `stdr`) within source files.

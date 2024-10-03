@@ -44,40 +44,16 @@
 
 #pragma once
 
-#if !defined(AUSPICIOUS_LIBRARY_HPP_INCLUDED) \
- && !defined(AUSPICIOUS_LIBRARY_NO_INCLUSION_WARN)
-    #warning Its recommended to include auspicious_library.hpp instead.
-#endif // ifndef AUSPICIOUS_LIBRARY_HPP_INCLUDED
-
-#include <bit>
-#include <concepts>
 #include <cstring>
 #include <fstream>
 #include <ios>
 #include <stdexcept>
-#include <vector>
 
 /**
- *  @brief  All Auspicious Library's contents in this namespace.
- *
- *  Do not `using namespace auspicious_library;`.  Instead, use this:
-    ```cpp
-    namespace al {
-    using namespace auspicious_library::cu;
-    using namespace auspicious_library::sm;
-    using namespace auspicious_library::aec;
-    using namespace auspicious_library::ap;
-    using namespace auspicious_library::fu;
-    } // namespace al
-    using namespace auspicious_library::cu_operators;
-    using namespace auspicious_library::sm_operators;
-    using namespace auspicious_library::aec_operators;
-    ```
+ *  @brief  All Auspicious Library's contents in this namespace.  Just do
+ *          `using namespace auspicious_library` to make your life easier.
  */
 namespace auspicious_library {
-
-namespace stdr = std::ranges;
-namespace stdv = stdr::views;
 
 /**
  *  @brief  File Utilities.  Not what you are thinking.

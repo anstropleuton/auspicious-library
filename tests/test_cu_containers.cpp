@@ -60,7 +60,7 @@
     {
         for (std::size_t i = 0; i < values.size(); i++)
         {
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = values[i];
 
             logln("- - - - -");
@@ -72,7 +72,7 @@
         }
         for (std::size_t i = values.size(); i < values.size() * 2; i++)
         {
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = 0;
 
             logln("- - - - -");
@@ -84,7 +84,7 @@
         }
         for (std::size_t i = -values.size(); i != 0; i++)
         {
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = 0;
 
             logln("- - - - -");
@@ -97,9 +97,9 @@
 
         for (std::size_t i = -values.size(); i != values.size(); i++)
         {
-            al::boundless_access(values, i) = i;
+            cu::boundless_access(values, i) = i;
 
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = 0;
 
             if (i < values.size())
@@ -137,13 +137,13 @@
 {
     T_BEGIN;
 
-    al::boundless_vector values = { 1, 2, 3, 4, 5 };
+    cu::boundless_vector values = { 1, 2, 3, 4, 5 };
 
     try
     {
         for (std::size_t i = 0; i < values.size(); i++)
         {
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = values[i];
 
             logln("- - - - -");
@@ -155,7 +155,7 @@
         }
         for (std::size_t i = values.size(); i < values.size() * 2; i++)
         {
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = 0;
 
             logln("- - - - -");
@@ -167,7 +167,7 @@
         }
         for (std::size_t i = -values.size(); i != 0; i++)
         {
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = 0;
 
             logln("- - - - -");
@@ -180,9 +180,9 @@
 
         for (std::size_t i = -values.size(); i != values.size(); i++)
         {
-            al::boundless_access(values, i) = i;
+            cu::boundless_access(values, i) = i;
 
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = 0;
 
             if (i < values.size())
@@ -220,13 +220,13 @@
 {
     T_BEGIN;
 
-    al::boundless_array values = { 1, 2, 3, 4, 5 };
+    cu::boundless_array values = { 1, 2, 3, 4, 5 };
 
     try
     {
         for (std::size_t i = 0; i < values.size(); i++)
         {
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = values[i];
 
             logln("- - - - -");
@@ -238,7 +238,7 @@
         }
         for (std::size_t i = values.size(); i < values.size() * 2; i++)
         {
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = 0;
 
             logln("- - - - -");
@@ -250,7 +250,7 @@
         }
         for (std::size_t i = -values.size(); i != 0; i++)
         {
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = 0;
 
             logln("- - - - -");
@@ -263,9 +263,9 @@
 
         for (std::size_t i = -values.size(); i != values.size(); i++)
         {
-            al::boundless_access(values, i) = i;
+            cu::boundless_access(values, i) = i;
 
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = 0;
 
             if (i < values.size())
@@ -303,14 +303,14 @@
 {
     T_BEGIN;
 
-    al::boundless_vector    vec    = { 1, 2, 3, 4, 5 };
-    al::boundless_span<int> values = vec;
+    cu::boundless_vector    vec    = { 1, 2, 3, 4, 5 };
+    cu::boundless_span<int> values = vec;
 
     try
     {
         for (std::size_t i = 0; i < values.size(); i++)
         {
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = values[i];
 
             logln("- - - - -");
@@ -322,7 +322,7 @@
         }
         for (std::size_t i = values.size(); i < values.size() * 2; i++)
         {
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = 0;
 
             logln("- - - - -");
@@ -334,7 +334,7 @@
         }
         for (std::size_t i = -values.size(); i != 0; i++)
         {
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = 0;
 
             logln("- - - - -");
@@ -367,13 +367,13 @@
 {
     T_BEGIN;
 
-    al::boundless_string values = "String test #9999";
+    cu::boundless_string values = "String test #9999";
 
     try
     {
         for (std::size_t i = 0; i < values.size(); i++)
         {
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = values[i];
 
             logln("- - - - -");
@@ -385,7 +385,7 @@
         }
         for (std::size_t i = values.size(); i < values.size() * 2; i++)
         {
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = '\0';
 
             logln("- - - - -");
@@ -397,7 +397,7 @@
         }
         for (std::size_t i = -values.size(); i != 0; i++)
         {
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = '\0';
 
             logln("- - - - -");
@@ -410,9 +410,9 @@
 
         for (std::size_t i = -values.size(); i != values.size(); i++)
         {
-            al::boundless_access(values, i) = i % ('z' - 'a') + 'a';
+            cu::boundless_access(values, i) = i % ('z' - 'a') + 'a';
 
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = '\0';
 
             if (i < values.size())
@@ -450,13 +450,13 @@
 {
     T_BEGIN;
 
-    al::boundless_string_view values = "String test #9999";
+    cu::boundless_string_view values = "String test #9999";
 
     try
     {
         for (std::size_t i = 0; i < values.size(); i++)
         {
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = values[i];
 
             logln("- - - - -");
@@ -468,7 +468,7 @@
         }
         for (std::size_t i = values.size(); i < values.size() * 2; i++)
         {
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = '\0';
 
             logln("- - - - -");
@@ -480,7 +480,7 @@
         }
         for (std::size_t i = -values.size(); i != 0; i++)
         {
-            auto value    = al::boundless_access(values, i);
+            auto value    = cu::boundless_access(values, i);
             auto expected = '\0';
 
             logln("- - - - -");
@@ -530,7 +530,7 @@
 
     // Best name ever
     std::vector values = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-    al::enumerated_array<int, enumerator> erray = { 0, 1, 2, 3, 4, 5, 6, 7, 8,
+    cu::enumerated_array<int, enumerator> erray = { 0, 1, 2, 3, 4, 5, 6, 7, 8,
         9 };
 
     try

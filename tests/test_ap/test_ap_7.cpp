@@ -64,7 +64,7 @@
         overflow    = 4;
     }
 
-    std::vector<const al::option_template *> options = {};
+    std::vector<const ap::option_template *> options = {};
 
     std::size_t name_counter = 0;
     for (std::size_t i = 0; i < names_count; i++)
@@ -84,7 +84,7 @@
                     std::format("default-value-{}", k));
             }
 
-            options.emplace_back(new al::option_template {
+            options.emplace_back(new ap::option_template {
                 .description = std::format("Option parameter with defaults "
                     "recognition - {}", name_counter),
                 .long_names = { std::format("long-name-{}",
@@ -114,7 +114,7 @@
                 test_index++;
 
                 std::vector<std::string>         args     = {};
-                std::vector<al::parsed_argument> expected = {};
+                std::vector<ap::parsed_argument> expected = {};
 
                 auto arg = std::format("--{}", option->long_names.front());
                 args.emplace_back(arg);
@@ -131,7 +131,7 @@
                             ? vdt::valid
                             : vdt::not_enough_values;
 
-                al::parsed_argument expect = {
+                ap::parsed_argument expect = {
                     .argument     = {
                         .original = arg,
                         .modified = arg,
@@ -180,7 +180,7 @@
                 {
                     auto arg = std::format("value-{}", k);
 
-                    al::parsed_argument expect = {
+                    ap::parsed_argument expect = {
                         .argument     = {
                             .original = arg,
                             .modified = arg,
@@ -209,7 +209,7 @@
             }
         }
 
-        logln("Failed tests:\n{}\n", al::to_string(failed_tests, ",\n"s,
+        logln("Failed tests:\n{}\n", sm::to_string(failed_tests, ",\n"s,
             " Test 7."));
     }
     catch (const std::exception &e)

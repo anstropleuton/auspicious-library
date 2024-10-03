@@ -44,21 +44,11 @@
 
 #include "al_container_utilities.hpp"
 
+#include <map>
+
 /**
- *  @brief  All Auspicious Library's contents in this namespace. Do not
- *          `using namespace auspicious_library;`.  Instead, use this:
-    ```cpp
-    namespace al {
-    using namespace auspicious_library::cu;
-    using namespace auspicious_library::sm;
-    using namespace auspicious_library::aec;
-    using namespace auspicious_library::ap;
-    using namespace auspicious_library::fu;
-    }
-    using namespace auspicious_library::cu_operators;
-    using namespace auspicious_library::sm_operators;
-    using namespace auspicious_library::aec_operators;
-    ```
+ *  @brief  All Auspicious Library's contents in this namespace.  Just do
+ *          `using namespace auspicious_library` to make your life easier.
  */
 namespace auspicious_library {
 
@@ -257,7 +247,7 @@ enumerated_map {
         map.clear();
         auto hint = map.begin();
 
-        for (auto i : stdr::iota(0zu, enum_max_v<key_type>))
+        for (auto i : std::ranges::iota(0zu, enum_max_v<key_type>))
         {
             hint = map.emplace_hint(hint, static_cast<key_type>(i),
                 mapped_type());

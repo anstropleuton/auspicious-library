@@ -1,3 +1,0 @@
-CompileFlags:
-    Add: [-std=c++23, -I., -I.., -I../include, -I../../include]
-    Compiler: g++

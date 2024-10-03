@@ -98,12 +98,12 @@
 
     // I dare you put 13 as value on all the above variable
 
-    std::vector<const al::option_template *> options = {};
+    std::vector<const ap::option_template *> options = {};
 
     // Add options with one long name
     for (std::size_t i = 0; i < long_names_count; i++)
     {
-        options.emplace_back(new al::option_template {
+        options.emplace_back(new ap::option_template {
             .description = std::format(
                 "Long name option recognition - {}", i),
             .long_names         = { std::format("long-name-{}", i) },
@@ -120,7 +120,7 @@
         flat_long_names.emplace_back(std::format("long-name-{}", i));
     }
 
-    options.emplace_back(new al::option_template {
+    options.emplace_back(new ap::option_template {
         .description = std::format("Long name option recognition - {}",
             long_names_count),
         .long_names         = flat_long_names,
@@ -132,7 +132,7 @@
     // Add options with one short name
     for (std::size_t i = 0; i < short_names_count; i++)
     {
-        options.emplace_back(new al::option_template {
+        options.emplace_back(new ap::option_template {
             .description = std::format(
                 "Short name option recognition - {}", i),
             .long_names         = {},
@@ -149,7 +149,7 @@
         flat_short_names.emplace_back(char ('a' + std::fmod(i, 25zu)));
     }
 
-    options.emplace_back(new al::option_template {
+    options.emplace_back(new ap::option_template {
         .description = std::format("Short name option recognition - {}",
             short_names_count),
         .long_names         = {},
@@ -195,7 +195,7 @@
     // Add long name to test
     auto prepare_long_name = [&](
         std::vector<std::string> &args,
-        std::vector<al::parsed_argument> &expected,
+        std::vector<ap::parsed_argument> &expected,
         std::size_t test_index,
         std::size_t index,
         std::size_t option_index,
@@ -220,7 +220,7 @@
         std::string arg       = std::format("--{}", long_name);
         args.emplace_back(arg);
 
-        al::parsed_argument expect = {
+        ap::parsed_argument expect = {
             .argument     = {
                 .original = arg,
                 .modified = arg,
@@ -244,7 +244,7 @@
     // Add short name to test
     auto prepare_short_name = [&](
         std::vector<std::string> &args,
-        std::vector<al::parsed_argument> &expected,
+        std::vector<ap::parsed_argument> &expected,
         std::size_t test_index,
         std::size_t index,
         std::size_t option_index,
@@ -269,7 +269,7 @@
         std::string arg        = std::format("-{}", short_name);
         args.emplace_back(arg);
 
-        al::parsed_argument expect = {
+        ap::parsed_argument expect = {
             .argument     = {
                 .original = arg,
                 .modified = arg,
@@ -292,10 +292,10 @@
 
     // Combine and add short name to temporary to test
     std::string combined_short_name_arg = "-";
-    std::vector<const al::option_template *> combined_short_name_options = {};
+    std::vector<const ap::option_template *> combined_short_name_options = {};
     auto prepare_short_name_combined = [&](
         std::vector<std::string> &args,
-        std::vector<al::parsed_argument> &expected,
+        std::vector<ap::parsed_argument> &expected,
         std::size_t test_index,
         std::size_t index,
         std::size_t option_index,
@@ -326,7 +326,7 @@
     // Add temporary to short name to test
     auto append_combined_short_name = [&](
         std::vector<std::string> &args,
-        std::vector<al::parsed_argument> &expected,
+        std::vector<ap::parsed_argument> &expected,
         std::size_t test_index,
         bool &error
     )
@@ -349,7 +349,7 @@
         for (std::size_t i = 0; i < combined_short_name_options.size(); i++)
         {
             auto &option = combined_short_name_options[i];
-            al::parsed_argument expect = {
+            ap::parsed_argument expect = {
                 .argument     = {
                     .original = combined_short_name_arg,
                     .modified = std::format("-{}",
@@ -377,7 +377,7 @@
     // Add Microsoft-style long and short name as switch to test
     auto prepare_microsoft_switch = [&](
         std::vector<std::string> &args,
-        std::vector<al::parsed_argument> &expected,
+        std::vector<ap::parsed_argument> &expected,
         std::size_t test_index,
         std::size_t index,
         std::size_t option_index,
@@ -393,10 +393,10 @@
         {
             auto        long_name = option->long_names[long_name_index];
             std::string arg       = std::format("/{}", long_name);
-            if (make_upper) arg = al::to_upper(arg);
+            if (make_upper) arg = sm::to_upper(arg);
             args.emplace_back(arg);
 
-            al::parsed_argument expect = {
+            ap::parsed_argument expect = {
                 .argument     = {
                     .original = arg,
                     .modified = arg,
@@ -422,10 +422,10 @@
         {
             auto        short_name = option->short_names[short_name_index];
             std::string arg        = std::format("/{}", short_name);
-            if (make_upper) arg = al::to_upper(arg);
+            if (make_upper) arg = sm::to_upper(arg);
             args.emplace_back(arg);
 
-            al::parsed_argument expect = {
+            ap::parsed_argument expect = {
                 .argument     = {
                     .original = arg,
                     .modified = arg,
@@ -468,7 +468,7 @@
         test_index++;
 
         std::vector<std::string>         args     = {};
-        std::vector<al::parsed_argument> expected = {};
+        std::vector<ap::parsed_argument> expected = {};
 
         for (auto index : indices)
         {
@@ -551,7 +551,7 @@
         run_combo(0, (long_names_count * 2 + short_names_count * 2) * 2,
             combo_count, combo_count + 1, combo,
             test_type::microsoft_switch_test);
-        logln("Failed tests:\n{}\n", al::to_string(failed_tests, ",\n"s,
+        logln("Failed tests:\n{}\n", sm::to_string(failed_tests, ",\n"s,
             " Test 1."));
     }
     catch (const std::exception &e)

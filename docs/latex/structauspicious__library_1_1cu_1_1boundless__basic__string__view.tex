@@ -33,7 +33,7 @@ constexpr \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__
 \begin{DoxyCompactList}\small\item\em Creates a string from a character array. \end{DoxyCompactList}\item 
 {\footnotesize template$<$std\+::input\+\_\+iterator Input\+Iterator$>$ }\\constexpr \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string__view_a4803fd5210d0de735f276e194fd4008d}{boundless\+\_\+basic\+\_\+string\+\_\+view}} (Input\+Iterator first, Input\+Iterator last) noexcept(noexcept(last -\/ first))
 \begin{DoxyCompactList}\small\item\em Creates a string view from a range. \end{DoxyCompactList}\item 
-{\footnotesize template$<$stdr\+::range Range$>$ }\\constexpr \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string__view_a3be9472588d444044c37fea8ab619f2b}{boundless\+\_\+basic\+\_\+string\+\_\+view}} (Range range)
+{\footnotesize template$<$std\+::ranges\+::range Range$>$ }\\constexpr \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string__view_a3be9472588d444044c37fea8ab619f2b}{boundless\+\_\+basic\+\_\+string\+\_\+view}} (Range range)
 \begin{DoxyCompactList}\small\item\em Creates a string view from a C++20 range. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string__view_a38dbd8d13993e96c53c6cbd604baf7f1}{operator=}} (const \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string__view}{boundless\+\_\+basic\+\_\+string\+\_\+view}} \&) noexcept -\/$>$ \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string__view}{boundless\+\_\+basic\+\_\+string\+\_\+view}} \&=default
 \begin{DoxyCompactList}\small\item\em String view assign operator. \end{DoxyCompactList}\item 
@@ -169,7 +169,7 @@ Creates a string view from a range.
 \doxysubsubsection{\texorpdfstring{boundless\_basic\_string\_view()}{boundless\_basic\_string\_view()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
 {\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__basic__string__view_a3be9472588d444044c37fea8ab619f2b} 
 template$<$typename CharT , typename Traits  = std\+::char\+\_\+traits$<$\+Char\+T$>$$>$ \\
-template$<$stdr\+::range Range$>$ \\
+template$<$std\+::ranges\+::range Range$>$ \\
 \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string__view}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+basic\+\_\+string\+\_\+view}}$<$ CharT, Traits $>$\+::boundless\+\_\+basic\+\_\+string\+\_\+view (\begin{DoxyParamCaption}\item[{Range}]{range}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [constexpr]}}
 
 

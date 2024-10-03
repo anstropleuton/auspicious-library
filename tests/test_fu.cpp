@@ -59,7 +59,7 @@
                                 "Utilities's read_all function which reads all "
                                 "the file contents at once.\n";
 
-    auto content = al::read_all(filename);
+    auto content = fu::read_all(filename);
 
     logln("filename: {}", filename);
     logln("content: {}",  content);

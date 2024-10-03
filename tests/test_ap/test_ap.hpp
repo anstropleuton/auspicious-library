@@ -72,8 +72,10 @@
 
 #include "tester.hpp"
 
-using at  = al::argument_type;
-using vdt = al::validity;
+using namespace sm_operators;
+
+using at  = ap::argument_type;
+using vdt = ap::validity;
 
 /**
  *  @brief  Convert option template to string.
@@ -82,7 +84,7 @@ using vdt = al::validity;
  *  @return  String representing option template.
  */
 [[nodiscard]] static inline constexpr auto option_to_string(
-    const al::option_template &option_template
+    const ap::option_template &option_template
 )
 {
     return std::format(
@@ -92,10 +94,10 @@ using vdt = al::validity;
         "  parameters: {}\n"
         "  defaults: {}\n",
         option_template.description,
-        al::to_string(option_template.long_names),
-        al::to_string(option_template.short_names),
-        al::to_string(option_template.parameters),
-        al::to_string(option_template.defaults_from_back)
+        sm::to_string(option_template.long_names),
+        sm::to_string(option_template.short_names),
+        sm::to_string(option_template.parameters),
+        sm::to_string(option_template.defaults_from_back)
     );
 }
 
@@ -106,7 +108,7 @@ using vdt = al::validity;
  *  @return  String representing option template.
  */
 [[nodiscard]] static inline constexpr auto option_ptr_to_string(
-    const al::option_template *option_template
+    const ap::option_template *option_template
 )
 {
     return option_to_string(*option_template);
@@ -119,7 +121,7 @@ using vdt = al::validity;
  *  @return  String representing parsed argument.
  */
 [[nodiscard]] static inline constexpr auto arg_to_string(
-    const al::parsed_argument &parsed_argument
+    const ap::parsed_argument &parsed_argument
 )
 {
     return std::format(
@@ -133,7 +135,7 @@ using vdt = al::validity;
         "  option: {}\n"
         "  subcommand: {}\n"
         "  values: {}\n",
-        al::to_string(parsed_argument.argument.arg_type),
+        ap::to_string(parsed_argument.argument.arg_type),
         parsed_argument.argument.original,
         " "s * parsed_argument.argument.org_pos + "^"s
         + "~"s * (parsed_argument.argument.org_size == 0
@@ -144,7 +146,7 @@ using vdt = al::validity;
         + "~"s * (parsed_argument.argument.mod_size == 0
                   ? 0
                   : parsed_argument.argument.mod_size - 1),
-        al::to_string(parsed_argument.valid),
+        ap::to_string(parsed_argument.valid),
         parsed_argument.is_parsed,
         parsed_argument.ref_option
             ? parsed_argument.ref_option->description
@@ -152,7 +154,7 @@ using vdt = al::validity;
         parsed_argument.ref_subcommand
             ? parsed_argument.ref_subcommand->description
             : "(null)"s,
-        al::to_string(parsed_argument.values)
+        sm::to_string(parsed_argument.values)
     );
 }
 
@@ -160,7 +162,7 @@ using vdt = al::validity;
  *  @brief  Formatter for parsed argument.
  */
 template<>
-struct std::formatter<al::parsed_argument> {
+struct std::formatter<ap::parsed_argument> {
 
     /**
      *  @brief  Parse format specifier
@@ -182,7 +184,7 @@ struct std::formatter<al::parsed_argument> {
 
         if (it != pc.end() && *it != '}')
         {
-            throw std::format_error("Invalid format for al::parsed_argument");
+            throw std::format_error("Invalid format for ap::parsed_argument");
         }
 
         return it;
@@ -198,7 +200,7 @@ struct std::formatter<al::parsed_argument> {
      */
     template<typename FormatContext>
     [[nodiscard]] inline constexpr auto format(
-        const al::parsed_argument &parsed_argument, FormatContext &fc) const
+        const ap::parsed_argument &parsed_argument, FormatContext &fc) const
     {
         return std::format_to(fc.out(), "\"{}\" (\"{}\")",
             parsed_argument.argument.original,
@@ -214,8 +216,8 @@ struct std::formatter<al::parsed_argument> {
  *  @return  True if they are equal.
  */
 [[nodiscard]] static inline constexpr auto compare(
-    const al::parsed_argument &a,
-    const al::parsed_argument &b
+    const ap::parsed_argument &a,
+    const ap::parsed_argument &b
 )
 {
     return a.argument.original == b.argument.original
@@ -241,8 +243,8 @@ struct std::formatter<al::parsed_argument> {
  *  @return  True if they are equal, except the values member.
  */
 [[nodiscard]] static inline constexpr auto compare_no_values(
-    const al::parsed_argument &a,
-    const al::parsed_argument &b
+    const ap::parsed_argument &a,
+    const ap::parsed_argument &b
 )
 {
     return a.argument.original == b.argument.original
@@ -266,8 +268,8 @@ struct std::formatter<al::parsed_argument> {
  *  @return  True if values member of them are equal.
  */
 [[nodiscard]] static inline constexpr auto compare_only_values(
-    const al::parsed_argument &a,
-    const al::parsed_argument &b
+    const ap::parsed_argument &a,
+    const ap::parsed_argument &b
 )
 {
     return a.values == b.values;
@@ -281,8 +283,8 @@ struct std::formatter<al::parsed_argument> {
  *  @return  True if they are equal.
  */
 [[nodiscard]] static inline constexpr auto operator== (
-    const al::parsed_argument &a,
-    const al::parsed_argument &b
+    const ap::parsed_argument &a,
+    const ap::parsed_argument &b
 )
 {
     return compare(a, b);
@@ -364,19 +366,19 @@ static auto run_combo(
  */
 [[nodiscard, maybe_unused]] static auto ap_tester(
     const std::vector<std::string>                    &args,
-    const std::vector<al::parsed_argument>            &expected,
-    const std::vector<const al::option_template *>     options,
-    const std::vector<const al::subcommand_template *> subcommands
+    const std::vector<ap::parsed_argument>            &expected,
+    const std::vector<const ap::option_template *>     options,
+    const std::vector<const ap::subcommand_template *> subcommands
 ) -> std::size_t
 {
     T_BEGIN;
 
-    auto parsed = al::parse_arguments(args, options, subcommands);
+    auto parsed = ap::parse_arguments(args, options, subcommands);
 
-    logln("args: {}",      al::to_string(args));
-    logln("parsed:\n{}\n", al::to_string(parsed, arg_to_string, "\n"));
+    logln("args: {}",      sm::to_string(args));
+    logln("parsed:\n{}\n", sm::to_string(parsed, arg_to_string, "\n"));
     logln("expected:\n{}\n",
-        al::to_string(expected, arg_to_string, "\n"));
+        sm::to_string(expected, arg_to_string, "\n"));
 
     T_ASSERT_CTR(parsed, expected);
 

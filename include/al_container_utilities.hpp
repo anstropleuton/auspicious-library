@@ -44,18 +44,12 @@
 
 #pragma once
 
-#if !defined(AUSPICIOUS_LIBRARY_HPP_INCLUDED) \
- && !defined(AUSPICIOUS_LIBRARY_NO_INCLUSION_WARN)
-    #warning Its recommended to include auspicious_library.hpp instead.
-#endif // ifndef AUSPICIOUS_LIBRARY_HPP_INCLUDED
-
 #include <algorithm>
 #include <array>
 #include <cmath>
 #include <cstddef>
 #include <initializer_list>
 #include <iterator>
-#include <map>
 #include <ranges>
 #include <span>
 #include <string>
@@ -65,26 +59,10 @@
 #include <vector>
 
 /**
- *  @brief  All Auspicious Library's contents in this namespace.
- *
- *  Do not `using namespace auspicious_library;`.  Instead, use this:
-    ```cpp
-    namespace al {
-    using namespace auspicious_library::cu;
-    using namespace auspicious_library::sm;
-    using namespace auspicious_library::aec;
-    using namespace auspicious_library::ap;
-    using namespace auspicious_library::fu;
-    } // namespace al
-    using namespace auspicious_library::cu_operators;
-    using namespace auspicious_library::sm_operators;
-    using namespace auspicious_library::aec_operators;
-    ```
+ *  @brief  All Auspicious Library's contents in this namespace.  Just do
+ *          `using namespace auspicious_library` to make your life easier.
  */
 namespace auspicious_library {
-
-namespace stdr = std::ranges;
-namespace stdv = stdr::views;
 
 /**
  *  @brief  Copper...?  No wait, Container Utilities.
@@ -115,14 +93,14 @@ template<cu_compatible Container>
 using value_type = Container::value_type;
 
 /**
- *  @brief  All Container Utilities return this container.
+ *  @brief  Many Container Utilities return this container.
  *  @tparam  Container  A compatible container type.
  */
 template<cu_compatible Container>
 using result_container = std::vector<value_type<Container>>;
 
 /**
- *  @brief  All Container Utilities return this container if the result is
+ *  @brief  Many Container Utilities return this container if the result is
  *          nested.
  *  @tparam  Container  A compatible container type.
  */
@@ -167,8 +145,8 @@ concept boundless_accessible = cu_compatible<Container>
  */
 template<cu_compatible Container>
 [[nodiscard]] inline constexpr auto boundless_access(
-    const Container  &container,
-    std::size_t index
+    const Container &container,
+    std::size_t      index
 )
 {
     if (index >= container.size()) return value_type<Container>();
@@ -706,9 +684,9 @@ boundless_span(I, End)
  *
  *  @tparam  Range  A range type.
  */
-template<stdr::contiguous_range Range>
-boundless_span(Range &&)
--> boundless_span<std::remove_reference_t<stdr::range_reference_t<Range &>>>;
+template<std::ranges::contiguous_range Range>
+boundless_span(Range &&) -> boundless_span<
+    std::remove_reference_t<std::ranges::range_reference_t<Range &>>>;
 
 /**
  *  @brief  A boundless basic string.
@@ -1118,7 +1096,7 @@ struct boundless_basic_string_view : std::basic_string_view<CharT, Traits> {
      *  @tparam  Range  A range type.
      *  @param   range  A range of char type.
      */
-    template<stdr::range Range>
+    template<std::ranges::range Range>
     explicit inline constexpr boundless_basic_string_view(
         Range range
     ) : base(range) {}
@@ -1238,7 +1216,7 @@ concept cu_compatible_enum = std::is_enum_v<E> && requires { { E::max }; };
  */
 template<cu_compatible_enum E>
 struct enum_max : std::integral_constant<std::underlying_type_t<E>,
-    std::to_underlying (E::max)> {};
+        std::to_underlying (E::max)> {};
 
 /**
  *  @brief  Helper to get the value of the enumerator's @c max member.
@@ -1263,7 +1241,7 @@ struct enumerated_array : std::array<T, enum_max_v<E>> {
 
     /**
      *  @brief  Get the element at enumerator.
-     *  
+     *
      *  @param  enumerator  Enumerator specifying index.
      *  @return  Element at index.
      */
@@ -1274,7 +1252,7 @@ struct enumerated_array : std::array<T, enum_max_v<E>> {
 
     /**
      *  @brief  Get the element at enumerator.
-     *  
+     *
      *  @param  enumerator  Enumerator specifying index.
      *  @return  Element at index.
      */
@@ -1285,7 +1263,7 @@ struct enumerated_array : std::array<T, enum_max_v<E>> {
 
     /**
      *  @brief  Get the element at enumerator.
-     *  
+     *
      *  @param  enumerator  Enumerator specifying index.
      *  @return  Element at index.
      */
@@ -1296,7 +1274,7 @@ struct enumerated_array : std::array<T, enum_max_v<E>> {
 
     /**
      *  @brief  Get the element at enumerator.
-     *  
+     *
      *  @param  enumerator  Enumerator specifying index.
      *  @return  Element at index.
      */
@@ -1344,8 +1322,8 @@ template<cu_compatible Container>
     return result_container_nested<Container> {
         result_container<Container>(container_a.begin(), container_a.end()),
         result_container<Container>(container_b.begin(), container_b.end())
-    } | stdv::join
-      | stdr::to<result_container<Container>>();
+    } | std::views::join
+      | std::ranges::to<result_container<Container>>();
 }
 
 /**
@@ -1379,9 +1357,9 @@ template<cu_compatible Container>
     const Container &pattern
 )
 {
-    return stdv::split(container, pattern)
-         | stdv::join
-         | stdr::to<result_container<Container>>();
+    return std::views::split(container, pattern)
+         | std::views::join
+         | std::ranges::to<result_container<Container>>();
 }
 
 /**
@@ -1400,11 +1378,11 @@ template<cu_compatible Container>
 {
     auto filterer = [&](const cu::value_type<Container> &element)
     {
-        return stdr::find(values, element) == values.end();
+        return std::ranges::find(values, element) == values.end();
     };
 
-    return stdv::filter(container, filterer)
-         | stdr::to<result_container<Container>>();
+    return std::views::filter(container, filterer)
+         | std::ranges::to<result_container<Container>>();
 }
 
 /**
@@ -1461,9 +1439,9 @@ template<cu_compatible Container>
     std::size_t      n
 )
 {
-    return stdv::repeat(container, n)
-         | stdv::join
-         | stdr::to<result_container<Container>>();
+    return std::views::repeat(container, n)
+         | std::views::join
+         | std::ranges::to<result_container<Container>>();
 }
 
 /**
@@ -1510,8 +1488,8 @@ template<cu_compatible Container>
     const Container &pattern
 )
 {
-    return stdv::split(container, pattern)
-         | stdr::to<result_container_nested<Container>>();
+    return std::views::split(container, pattern)
+         | std::ranges::to<result_container_nested<Container>>();
 }
 
 /**

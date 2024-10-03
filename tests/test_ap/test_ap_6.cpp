@@ -64,7 +64,7 @@
         overflow    = 4;
     }
 
-    std::vector<const al::subcommand_template *> subcommands = {};
+    std::vector<const ap::subcommand_template *> subcommands = {};
 
     // Generate subcommands
     for (std::size_t i = 0; i < names_count; i++)
@@ -75,7 +75,7 @@
             parameters.emplace_back(std::format("parameter-{}", j));
         }
 
-        subcommands.emplace_back(new al::subcommand_template {
+        subcommands.emplace_back(new ap::subcommand_template {
             .description = std::format("Subcommand parameter recognition"
                 " - {}", i),
             .names              = { std::format("name-{}", i) },
@@ -103,7 +103,7 @@
                 test_index++;
 
                 std::vector<std::string>         args     = {};
-                std::vector<al::parsed_argument> expected = {};
+                std::vector<ap::parsed_argument> expected = {};
 
                 auto arg = subcommand->names.front();
                 args.emplace_back(arg);
@@ -119,7 +119,7 @@
                             ? vdt::valid
                             : vdt::not_enough_values;
 
-                al::parsed_argument expect = {
+                ap::parsed_argument expect = {
                     .argument     = {
                         .original = arg,
                         .modified = arg,
@@ -153,7 +153,7 @@
                 {
                     auto arg = std::format("value-{}", k);
 
-                    al::parsed_argument expect = {
+                    ap::parsed_argument expect = {
                         .argument     = {
                             .original = arg,
                             .modified = arg,
@@ -182,7 +182,7 @@
             }
         }
 
-        logln("Failed tests:\n{}\n", al::to_string(failed_tests, ",\n"s,
+        logln("Failed tests:\n{}\n", sm::to_string(failed_tests, ",\n"s,
             " Test 6."));
     }
     catch (const std::exception &e)

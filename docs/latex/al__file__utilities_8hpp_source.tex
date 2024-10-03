@@ -5,57 +5,46 @@
 \DoxyCodeLine{00001\ }
 \DoxyCodeLine{00045\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#if\ !defined(AUSPICIOUS\_LIBRARY\_HPP\_INCLUDED)\ \(\backslash\)}}
-\DoxyCodeLine{00048\ \textcolor{preprocessor}{\ \&\&\ !defined(AUSPICIOUS\_LIBRARY\_NO\_INCLUSION\_WARN)}}
-\DoxyCodeLine{00049\ \textcolor{preprocessor}{\ \ \ \ \#warning\ Its\ recommended\ to\ include\ auspicious\_library.hpp\ instead.}}
-\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ifndef\ AUSPICIOUS\_LIBRARY\_HPP\_INCLUDED}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ <ios>}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
 \DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ <bit>}}
-\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ <concepts>}}
-\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ <cstring>}}
-\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#include\ <fstream>}}
-\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#include\ <ios>}}
-\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
-\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00077\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceauspicious__library}{auspicious\_library}}\ \{}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00079\ \textcolor{keyword}{namespace\ }stdr\ =\ std::ranges;}
-\DoxyCodeLine{00080\ \textcolor{keyword}{namespace\ }stdv\ =\ stdr::views;}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00100\ \textcolor{keyword}{namespace\ }fu\ \{}
-\DoxyCodeLine{00101\ }
-\DoxyCodeLine{00111\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1fu_a0ed8ef9dc19914c7f8d747f37234ddc4}{read\_all}}(std::string\_view\ filename)}
-\DoxyCodeLine{00112\ \{}
-\DoxyCodeLine{00113\ \ \ \ \ std::ifstream\ infile((std::string(filename)));}
-\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{if}\ (!infile)}
-\DoxyCodeLine{00115\ \ \ \ \ \{}
-\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(std::format(\textcolor{stringliteral}{"{}Failed\ to\ open\ file\ \{\}"{}},}
-\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ filename));}
-\DoxyCodeLine{00118\ \ \ \ \ \}}
-\DoxyCodeLine{00119\ }
-\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(std::istreambuf\_iterator(infile),\ \{\});}
-\DoxyCodeLine{00121\ \}}
-\DoxyCodeLine{00122\ }
-\DoxyCodeLine{00127\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structauspicious__library_1_1fu_1_1sd__chunk}{sd\_chunk}}\ \{}
-\DoxyCodeLine{00128\ }
-\DoxyCodeLine{00132\ \ \ \ \ std::size\_t\ \mbox{\hyperlink{structauspicious__library_1_1fu_1_1sd__chunk_a8bec068fd94a885520116f341a1976ac}{size}};}
-\DoxyCodeLine{00133\ }
-\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structauspicious__library_1_1fu_1_1sd__chunk_ace08b3afc60b72859a0ceeb093161ae8}{data}};}
-\DoxyCodeLine{00144\ \};}
+\DoxyCodeLine{00056\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceauspicious__library}{auspicious\_library}}\ \{}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00076\ \textcolor{keyword}{namespace\ }fu\ \{}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00087\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1fu_a0ed8ef9dc19914c7f8d747f37234ddc4}{read\_all}}(std::string\_view\ filename)}
+\DoxyCodeLine{00088\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ std::ifstream\ infile((std::string(filename)));}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{if}\ (!infile)}
+\DoxyCodeLine{00091\ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(std::format(\textcolor{stringliteral}{"{}Failed\ to\ open\ file\ \{\}"{}},}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ filename));}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(std::istreambuf\_iterator(infile),\ \{\});}
+\DoxyCodeLine{00097\ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00103\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structauspicious__library_1_1fu_1_1sd__chunk}{sd\_chunk}}\ \{}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00108\ \ \ \ \ std::size\_t\ \mbox{\hyperlink{structauspicious__library_1_1fu_1_1sd__chunk_a8bec068fd94a885520116f341a1976ac}{size}};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structauspicious__library_1_1fu_1_1sd__chunk_ace08b3afc60b72859a0ceeb093161ae8}{data}};}
+\DoxyCodeLine{00120\ \};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00131\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00132\ \textcolor{keyword}{requires}(std::is\_trivially\_copyable\_v<T>)}
+\DoxyCodeLine{00133\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1fu_a15831521f1aac2bddb5103565ba1a6dc}{to\_new\_sd\_chunk}}(\textcolor{keyword}{const}\ T\ \&t)\ -\/>\ \mbox{\hyperlink{structauspicious__library_1_1fu_1_1sd__chunk}{sd\_chunk}};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00142\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00143\ \textcolor{keyword}{requires}(std::is\_trivially\_copyable\_v<T>)}
+\DoxyCodeLine{00144\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1fu_a3b3020c8a950c5329b8dc88b1ac3c556}{from\_sd\_chunk}}(\mbox{\hyperlink{structauspicious__library_1_1fu_1_1sd__chunk}{sd\_chunk}}\ chunk)\ -\/>\ T;}
 \DoxyCodeLine{00145\ }
-\DoxyCodeLine{00155\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00156\ \textcolor{keyword}{requires}(std::is\_trivially\_copyable\_v<T>)}
-\DoxyCodeLine{00157\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1fu_a15831521f1aac2bddb5103565ba1a6dc}{to\_new\_sd\_chunk}}(\textcolor{keyword}{const}\ T\ \&t)\ -\/>\ \mbox{\hyperlink{structauspicious__library_1_1fu_1_1sd__chunk}{sd\_chunk}};}
+\DoxyCodeLine{00155\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1fu_acce90dfc2b4f1fa9f964122252086ca8}{delete\_sd\_chunk}}(\mbox{\hyperlink{structauspicious__library_1_1fu_1_1sd__chunk}{sd\_chunk}}\ chunk)\ -\/>\ void;}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \}\ \textcolor{comment}{//\ namespace\ fu}}
 \DoxyCodeLine{00158\ }
-\DoxyCodeLine{00166\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00167\ \textcolor{keyword}{requires}(std::is\_trivially\_copyable\_v<T>)}
-\DoxyCodeLine{00168\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1fu_a3b3020c8a950c5329b8dc88b1ac3c556}{from\_sd\_chunk}}(\mbox{\hyperlink{structauspicious__library_1_1fu_1_1sd__chunk}{sd\_chunk}}\ chunk)\ -\/>\ T;}
-\DoxyCodeLine{00169\ }
-\DoxyCodeLine{00179\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1fu_acce90dfc2b4f1fa9f964122252086ca8}{delete\_sd\_chunk}}(\mbox{\hyperlink{structauspicious__library_1_1fu_1_1sd__chunk}{sd\_chunk}}\ chunk)\ -\/>\ void;}
-\DoxyCodeLine{00180\ }
-\DoxyCodeLine{00181\ \}\ \textcolor{comment}{//\ namespace\ fu}}
-\DoxyCodeLine{00182\ }
-\DoxyCodeLine{00183\ \}\ \textcolor{comment}{//\ namespace\ auspicious\_library}}
+\DoxyCodeLine{00159\ \}\ \textcolor{comment}{//\ namespace\ auspicious\_library}}
 
 \end{DoxyCode}

@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['white_0',['white',['../namespaceauspicious__library_1_1aec.html#adfafe71a431254a561ca01ac9d1ca553',1,'auspicious_library::aec']]],
-  ['white_5fbg_1',['white_bg',['../namespaceauspicious__library_1_1aec.html#a150bf3834bcc9ce317be4c8ac9c1fe95',1,'auspicious_library::aec']]],
-  ['width_2',['width',['../md_Guidelines.html#autotoc_md20',1,'Max width'],['../structauspicious__library_1_1ap_1_1styled__padding.html#a5d868eefad6d1bc4bcfa1928083dccbe',1,'auspicious_library::ap::styled_padding::width']]],
-  ['word_5fwrap_3',['word_wrap',['../namespaceauspicious__library_1_1sm.html#a557e590ecf315060dbbe49015d5e90fb',1,'auspicious_library::sm']]]
+  ['yellow_0',['yellow',['../namespaceauspicious__library_1_1aec.html#a37621c3422cff4932689ed9aa1f76206',1,'auspicious_library::aec']]],
+  ['yellow_5fbg_1',['yellow_bg',['../namespaceauspicious__library_1_1aec.html#aaca788a678edbd2a1e1387395dc2a827',1,'auspicious_library::aec']]]
 ];

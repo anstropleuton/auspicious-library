@@ -1,12 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"structauspicious__library_1_1ap_1_1microsoft__help__format.html#a3117027cc4efb46789a8e3f0ee34f160":[14,0,0,2,1,2],
-"structauspicious__library_1_1ap_1_1microsoft__help__format.html#a3117027cc4efb46789a8e3f0ee34f160":[16,0,0,1,1,2],
-"structauspicious__library_1_1ap_1_1microsoft__help__format.html#a3bc911e355dbfc1f71231b1a662adeb1":[14,0,0,2,1,10],
-"structauspicious__library_1_1ap_1_1microsoft__help__format.html#a3bc911e355dbfc1f71231b1a662adeb1":[16,0,0,1,1,10],
-"structauspicious__library_1_1ap_1_1microsoft__help__format.html#a445bbb83062e38e48b25788e9d2762f8":[14,0,0,2,1,18],
-"structauspicious__library_1_1ap_1_1microsoft__help__format.html#a445bbb83062e38e48b25788e9d2762f8":[16,0,0,1,1,18],
-"structauspicious__library_1_1ap_1_1microsoft__help__format.html#a5393f9bc2f540f341e8637eedd451bb3":[14,0,0,2,1,3],
 "structauspicious__library_1_1ap_1_1microsoft__help__format.html#a5393f9bc2f540f341e8637eedd451bb3":[16,0,0,1,1,3],
 "structauspicious__library_1_1ap_1_1microsoft__help__format.html#a564dc8a19631a267d10ecb2427039f1c":[14,0,0,2,1,12],
 "structauspicious__library_1_1ap_1_1microsoft__help__format.html#a564dc8a19631a267d10ecb2427039f1c":[16,0,0,1,1,12],
@@ -249,5 +242,12 @@ var NAVTREEINDEX2 =
 "structauspicious__library_1_1cu_1_1boundless__basic__string.html#ab6e79fbebdd9c5a7c1dd21d88cca5f70":[14,0,0,3,1,17],
 "structauspicious__library_1_1cu_1_1boundless__basic__string.html#ab6e79fbebdd9c5a7c1dd21d88cca5f70":[16,0,0,2,1,17],
 "structauspicious__library_1_1cu_1_1boundless__basic__string.html#ac23e2e42ada70f0491cf08a7f3f760fd":[14,0,0,3,1,7],
-"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ac23e2e42ada70f0491cf08a7f3f760fd":[16,0,0,2,1,7]
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ac23e2e42ada70f0491cf08a7f3f760fd":[16,0,0,2,1,7],
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html#acff2794df191ad1a3916adc85ea3f38b":[14,0,0,3,1,5],
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html#acff2794df191ad1a3916adc85ea3f38b":[16,0,0,2,1,5],
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ad2c40423a3f00eceae086e8aab4e7095":[14,0,0,3,1,10],
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ad2c40423a3f00eceae086e8aab4e7095":[16,0,0,2,1,10],
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ad4d2c8bd78217603d5517673b8f846bb":[14,0,0,3,1,0],
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ad4d2c8bd78217603d5517673b8f846bb":[16,0,0,2,1,0],
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ae9c4524a10fb4abb76317d04ba46394d":[14,0,0,3,1,25]
 };

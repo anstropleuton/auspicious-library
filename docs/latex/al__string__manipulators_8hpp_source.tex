@@ -5,396 +5,388 @@
 \DoxyCodeLine{00001\ }
 \DoxyCodeLine{00045\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#if\ !defined(AUSPICIOUS\_LIBRARY\_HPP\_INCLUDED)\ \(\backslash\)}}
-\DoxyCodeLine{00048\ \textcolor{preprocessor}{\ \&\&\ !defined(AUSPICIOUS\_LIBRARY\_NO\_INCLUSION\_WARN)}}
-\DoxyCodeLine{00049\ \textcolor{preprocessor}{\ \ \ \ \#warning\ Its\ recommended\ to\ include\ auspicious\_library.hpp\ instead.}}
-\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ifndef\ AUSPICIOUS\_LIBRARY\_HPP\_INCLUDED}}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ <cctype>}}
-\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ <cstddef>}}
-\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ <iterator>}}
-\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#include\ <ranges>}}
-\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
-\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{al__container__utilities_8hpp}{al\_container\_utilities.hpp}}"{}}}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00078\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceauspicious__library}{auspicious\_library}}\ \{}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \textcolor{keyword}{namespace\ }stdr\ =\ std::ranges;}
-\DoxyCodeLine{00081\ \textcolor{keyword}{namespace\ }stdv\ =\ stdr::views;}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00086\ \textcolor{keyword}{namespace\ }sm\ \{}
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00088\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Container>}
-\DoxyCodeLine{00089\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptauspicious__library_1_1sm_1_1sm__compatible}{sm\_compatible}}\ =\ \mbox{\hyperlink{conceptauspicious__library_1_1cu_1_1cu__compatible}{cu::cu\_compatible<Container>}}}
-\DoxyCodeLine{00090\ \ \ \ \ \&\&\ (std::is\_same\_v<cu::value\_type<Container>,\ std::string>}
-\DoxyCodeLine{00091\ \ \ \ \ \ ||\ std::is\_same\_v<cu::value\_type<Container>,\ std::string\_view>);}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00093\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceauspicious__library_1_1sm_ae5e68b09b89152e03842b8c0a0028f5f}{result\_string\_nested}}\ =\ std::vector<std::string>;}
-\DoxyCodeLine{00094\ }
-\DoxyCodeLine{00109\ \textcolor{keyword}{template}<cu::cu\_compatible\ Container,\ \textcolor{keyword}{typename}\ Converter>}
-\DoxyCodeLine{00110\ \textcolor{keyword}{requires}(!std::is\_same\_v<Converter,\ std::string>)}
-\DoxyCodeLine{00111\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_af4d2d6d72a9c765f4fe02a0462d35bcf}{to\_string}}(}
-\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{const}\ Container\ \&container,}
-\DoxyCodeLine{00113\ \ \ \ \ Converter\ \ \ \ \ \ \ \ converter,}
-\DoxyCodeLine{00114\ \ \ \ \ std::string\_view\ separator\ =\ \textcolor{stringliteral}{"{},\ "{}},}
-\DoxyCodeLine{00115\ \ \ \ \ std::string\_view\ prefix\ \ \ \ =\ \textcolor{stringliteral}{"{}"{}},}
-\DoxyCodeLine{00116\ \ \ \ \ std::string\_view\ suffix\ \ \ \ =\ \textcolor{stringliteral}{"{}"{}}}
-\DoxyCodeLine{00117\ )}
-\DoxyCodeLine{00118\ \{}
-\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{auto}\ transformer\ =\ [\&](\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{cu::value\_type<Container>}}\ \&element)}
-\DoxyCodeLine{00120\ \ \ \ \ \{}
-\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(prefix)\ +\ converter(element)\ +\ std::string(suffix);}
-\DoxyCodeLine{00123\ \ \ \ \ \};}
-\DoxyCodeLine{00124\ }
-\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{return}\ stdv::transform(container,\ transformer)}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ |\ stdv::join\_with(std::string(separator))}
-\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ |\ stdr::to<std::string>();}
-\DoxyCodeLine{00128\ \}}
-\DoxyCodeLine{00129\ }
-\DoxyCodeLine{00142\ \textcolor{keyword}{template}<cu::cu\_compatible\ Container>}
-\DoxyCodeLine{00143\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_af4d2d6d72a9c765f4fe02a0462d35bcf}{to\_string}}(}
-\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{const}\ Container\ \&container,}
-\DoxyCodeLine{00145\ \ \ \ \ std::string\_view\ separator\ =\ \textcolor{stringliteral}{"{},\ "{}},}
-\DoxyCodeLine{00146\ \ \ \ \ std::string\_view\ prefix\ \ \ \ =\ \textcolor{stringliteral}{"{}"{}},}
-\DoxyCodeLine{00147\ \ \ \ \ std::string\_view\ suffix\ \ \ \ =\ \textcolor{stringliteral}{"{}"{}}}
-\DoxyCodeLine{00148\ )}
-\DoxyCodeLine{00149\ \{}
-\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_af4d2d6d72a9c765f4fe02a0462d35bcf}{to\_string}}<Container,\ std::string\ (*)(\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{cu::value\_type<Container>}})>(}
-\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ container,\ std::to\_string,\ separator,\ prefix,\ suffix);}
-\DoxyCodeLine{00152\ \}}
-\DoxyCodeLine{00153\ }
-\DoxyCodeLine{00167\ \textcolor{keyword}{template}<cu::cu\_compatible\ Container>}
-\DoxyCodeLine{00168\ \textcolor{keyword}{requires}\ std::is\_same\_v<cu::value\_type<Container>,\ \textcolor{keywordtype}{char}>}
-\DoxyCodeLine{00169\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_af4d2d6d72a9c765f4fe02a0462d35bcf}{to\_string}}(}
-\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keyword}{const}\ Container\ \&container,}
-\DoxyCodeLine{00171\ \ \ \ \ std::string\_view\ separator\ =\ \textcolor{stringliteral}{"{},\ "{}},}
-\DoxyCodeLine{00172\ \ \ \ \ std::string\_view\ prefix\ \ \ \ =\ \textcolor{stringliteral}{"{}\(\backslash\)'"{}},}
-\DoxyCodeLine{00173\ \ \ \ \ std::string\_view\ suffix\ \ \ \ =\ \textcolor{stringliteral}{"{}\(\backslash\)'"{}}}
-\DoxyCodeLine{00174\ )}
-\DoxyCodeLine{00175\ \{}
-\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keyword}{auto}\ converter\ =\ [\&](\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{cu::value\_type<Container>}}\ \&element)}
-\DoxyCodeLine{00177\ \ \ \ \ \{}
-\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(1,\ element);}
-\DoxyCodeLine{00179\ \ \ \ \ \};}
-\DoxyCodeLine{00180\ }
-\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_af4d2d6d72a9c765f4fe02a0462d35bcf}{to\_string}}(container,\ converter,\ separator,\ prefix,\ suffix);}
-\DoxyCodeLine{00182\ \}}
-\DoxyCodeLine{00183\ }
-\DoxyCodeLine{00197\ \textcolor{keyword}{template}<cu::cu\_compatible\ Container>}
-\DoxyCodeLine{00198\ \textcolor{keyword}{requires}\ std::is\_same\_v<cu::value\_type<Container>,\ std::string>}
-\DoxyCodeLine{00199\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_af4d2d6d72a9c765f4fe02a0462d35bcf}{to\_string}}(}
-\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keyword}{const}\ Container\ \&container,}
-\DoxyCodeLine{00201\ \ \ \ \ std::string\_view\ separator\ =\ \textcolor{stringliteral}{"{},\ "{}},}
-\DoxyCodeLine{00202\ \ \ \ \ std::string\_view\ prefix\ \ \ \ =\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}},}
-\DoxyCodeLine{00203\ \ \ \ \ std::string\_view\ suffix\ \ \ \ =\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}}
-\DoxyCodeLine{00204\ )}
-\DoxyCodeLine{00205\ \{}
-\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_af4d2d6d72a9c765f4fe02a0462d35bcf}{to\_string}}(container,\ std::identity\ \{\},\ separator,\ prefix,\ suffix);}
-\DoxyCodeLine{00207\ \}}
-\DoxyCodeLine{00208\ }
-\DoxyCodeLine{00216\ \textcolor{keyword}{template}<cu::cu\_compatible\ Container>}
-\DoxyCodeLine{00217\ \textcolor{keyword}{requires}\ std::is\_same\_v<cu::value\_type<Container>,\ \textcolor{keywordtype}{char}>}
-\DoxyCodeLine{00218\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{chars\_to\_string}}(\textcolor{keyword}{const}\ Container\ \&container)}
-\DoxyCodeLine{00219\ \{}
-\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(std::begin(container),\ std::end(container));}
-\DoxyCodeLine{00221\ \}}
-\DoxyCodeLine{00222\ }
-\DoxyCodeLine{00224\ }
-\DoxyCodeLine{00244\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a557e590ecf315060dbbe49015d5e90fb}{word\_wrap}}(}
-\DoxyCodeLine{00245\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
-\DoxyCodeLine{00246\ \ \ \ \ std::size\_t\ \ \ \ \ \ width,}
-\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ force\ \ =\ \textcolor{keyword}{false},}
-\DoxyCodeLine{00248\ \ \ \ \ std::string\_view\ delims\ =\ \textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r\(\backslash\)n\(\backslash\)f\(\backslash\)v\(\backslash\)b"{}}}
-\DoxyCodeLine{00249\ )}
-\DoxyCodeLine{00250\ \{}
-\DoxyCodeLine{00251\ \ \ \ \ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ae5e68b09b89152e03842b8c0a0028f5f}{result\_string\_nested}}\ lines\ =\ \{\};}
-\DoxyCodeLine{00252\ }
-\DoxyCodeLine{00253\ \ \ \ \ \textcolor{comment}{//\ Functions\ expect\ inclusive\ width,\ and\ also\ works\ as\ a\ measure\ to\ have\ at}}
-\DoxyCodeLine{00254\ \ \ \ \ \textcolor{comment}{//\ least\ one\ as\ width\ (as\ a\ side\ effect)}}
-\DoxyCodeLine{00255\ \ \ \ \ width++;}
-\DoxyCodeLine{00256\ }
-\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keywordtype}{string}.size()\ >\ width)}
-\DoxyCodeLine{00258\ \ \ \ \ \{}
-\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First\ non-\/delim\ character\ before\ or\ at\ width}}
-\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ pos\ =\ \textcolor{keywordtype}{string}.substr(0,\ width).find\_last\_of(delims);}
-\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ ==\ std::string\_view::npos)}
-\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Split\ without\ consuming\ character}}
-\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (force)}
-\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pos\ \ \ \ \ \ \ =\ \textcolor{keywordtype}{string}.substr(0,\ width).size()\ -\/\ 1;}
-\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ line\ =\ \textcolor{keywordtype}{string}.substr(0,\ pos);}
-\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \ \ \ =\ \textcolor{keywordtype}{string}.substr(pos);}
-\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lines.emplace\_back(std::string(line));}
-\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00272\ }
-\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ not,\ first\ non-\/delim\ character\ after\ width}}
-\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ pos\ =\ \textcolor{keywordtype}{string}.substr(width\ +\ 1).find\_first\_of(delims);}
-\DoxyCodeLine{00275\ }
-\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ still\ not,\ eof\ reached?\ \ Prevent\ overflow}}
-\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ ==\ std::string\_view::npos)\ pos-\/-\/;}
-\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ pos\ +=\ width\ +\ 1;}
-\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00280\ }
-\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ line\ =\ \textcolor{keywordtype}{string}.substr(0,\ pos);}
-\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \ \ \ =\ \textcolor{keywordtype}{string}.substr(pos\ +\ 1);}
-\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ lines.emplace\_back(std::string(line));}
-\DoxyCodeLine{00284\ \ \ \ \ \}}
-\DoxyCodeLine{00285\ }
-\DoxyCodeLine{00286\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\textcolor{keywordtype}{string}.empty())}
-\DoxyCodeLine{00287\ \ \ \ \ \{}
-\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ lines.emplace\_back(std::string(\textcolor{keywordtype}{string}));}
-\DoxyCodeLine{00289\ \ \ \ \ \}}
-\DoxyCodeLine{00290\ }
-\DoxyCodeLine{00291\ \ \ \ \ \textcolor{keywordflow}{return}\ lines;}
-\DoxyCodeLine{00292\ \}}
-\DoxyCodeLine{00293\ }
-\DoxyCodeLine{00302\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a91e4f4e6edfccde8c0964cf8f2fc09eb}{trim\_left}}(}
-\DoxyCodeLine{00303\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
-\DoxyCodeLine{00304\ \ \ \ \ std::string\_view\ delims\ =\ \textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r\(\backslash\)n\(\backslash\)f\(\backslash\)v\(\backslash\)b"{}}}
-\DoxyCodeLine{00305\ )}
-\DoxyCodeLine{00306\ \{}
-\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keyword}{auto}\ pos\ =\ \textcolor{keywordtype}{string}.find\_first\_not\_of(delims);}
-\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ ==\ std::string\_view::npos)}
-\DoxyCodeLine{00309\ \ \ \ \ \{}
-\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ string;}
-\DoxyCodeLine{00311\ \ \ \ \ \}}
-\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{string}.substr(pos);}
-\DoxyCodeLine{00313\ \}}
-\DoxyCodeLine{00314\ }
-\DoxyCodeLine{00323\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a55b2357d69a9c2aca3c664a11edef447}{trim\_right}}(}
-\DoxyCodeLine{00324\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
-\DoxyCodeLine{00325\ \ \ \ \ std::string\_view\ delims\ =\ \textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r\(\backslash\)n\(\backslash\)f\(\backslash\)v\(\backslash\)b"{}}}
-\DoxyCodeLine{00326\ )}
-\DoxyCodeLine{00327\ \{}
-\DoxyCodeLine{00328\ \ \ \ \ \textcolor{keyword}{auto}\ pos\ =\ \textcolor{keywordtype}{string}.find\_last\_not\_of(delims);}
-\DoxyCodeLine{00329\ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ ==\ std::string\_view::npos)}
-\DoxyCodeLine{00330\ \ \ \ \ \{}
-\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ string;}
-\DoxyCodeLine{00332\ \ \ \ \ \}}
-\DoxyCodeLine{00333\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{string}.substr(0,\ pos\ +\ 1);}
-\DoxyCodeLine{00334\ \}}
-\DoxyCodeLine{00335\ }
-\DoxyCodeLine{00343\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a20d0b77f9560412bb418469be0280f4a}{trim}}(}
-\DoxyCodeLine{00344\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
-\DoxyCodeLine{00345\ \ \ \ \ std::string\_view\ delims\ =\ \textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r\(\backslash\)n\(\backslash\)f\(\backslash\)v\(\backslash\)b"{}}}
-\DoxyCodeLine{00346\ )}
-\DoxyCodeLine{00347\ \{}
-\DoxyCodeLine{00348\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a91e4f4e6edfccde8c0964cf8f2fc09eb}{trim\_left}}(\mbox{\hyperlink{namespaceauspicious__library_1_1sm_a55b2357d69a9c2aca3c664a11edef447}{trim\_right}}(\textcolor{keywordtype}{string},\ delims),\ delims);}
-\DoxyCodeLine{00349\ \}}
-\DoxyCodeLine{00350\ }
-\DoxyCodeLine{00357\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a83d4984eda2a08277292831d76fccf0b}{to\_upper}}(std::string\_view\ \textcolor{keywordtype}{string})}
-\DoxyCodeLine{00358\ \{}
-\DoxyCodeLine{00359\ \ \ \ \ std::string\ str;}
-\DoxyCodeLine{00360\ \ \ \ \ stdr::transform(\textcolor{keywordtype}{string},\ std::back\_inserter(str),\ ::toupper);}
-\DoxyCodeLine{00361\ \ \ \ \ \textcolor{keywordflow}{return}\ str;}
-\DoxyCodeLine{00362\ \}}
-\DoxyCodeLine{00363\ }
-\DoxyCodeLine{00370\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a1d6a54aba13267a7eef4c6307136b3d7}{to\_lower}}(std::string\_view\ \textcolor{keywordtype}{string})}
-\DoxyCodeLine{00371\ \{}
-\DoxyCodeLine{00372\ \ \ \ \ std::string\ str;}
-\DoxyCodeLine{00373\ \ \ \ \ stdr::transform(\textcolor{keywordtype}{string},\ std::back\_inserter(str),\ ::tolower);}
-\DoxyCodeLine{00374\ \ \ \ \ \textcolor{keywordflow}{return}\ str;}
-\DoxyCodeLine{00375\ \}}
-\DoxyCodeLine{00376\ }
-\DoxyCodeLine{00383\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a83d4984eda2a08277292831d76fccf0b}{to\_upper}}(\textcolor{keywordtype}{char}\ character)}
-\DoxyCodeLine{00384\ \{}
-\DoxyCodeLine{00385\ \ \ \ \ return\ ::toupper(character);}
-\DoxyCodeLine{00386\ \}}
-\DoxyCodeLine{00387\ }
-\DoxyCodeLine{00394\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a1d6a54aba13267a7eef4c6307136b3d7}{to\_lower}}(\textcolor{keywordtype}{char}\ character)}
-\DoxyCodeLine{00395\ \{}
-\DoxyCodeLine{00396\ \ \ \ \ return\ ::tolower(character);}
-\DoxyCodeLine{00397\ \}}
-\DoxyCodeLine{00398\ }
-\DoxyCodeLine{00406\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_aae67781b035e596bb886e7980aae5863}{is\_equal\_ins}}(}
-\DoxyCodeLine{00407\ \ \ \ \ std::string\_view\ a,}
-\DoxyCodeLine{00408\ \ \ \ \ std::string\_view\ b}
-\DoxyCodeLine{00409\ )}
-\DoxyCodeLine{00410\ \{}
-\DoxyCodeLine{00411\ \ \ \ \ \textcolor{comment}{//\ Either\ of\ them\ will\ do...}}
-\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a1d6a54aba13267a7eef4c6307136b3d7}{to\_lower}}(a)\ ==\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a1d6a54aba13267a7eef4c6307136b3d7}{to\_lower}}(b);}
-\DoxyCodeLine{00413\ \}}
-\DoxyCodeLine{00414\ }
-\DoxyCodeLine{00422\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_aae67781b035e596bb886e7980aae5863}{is\_equal\_ins}}(\textcolor{keywordtype}{char}\ a,\ \textcolor{keywordtype}{char}\ b)}
-\DoxyCodeLine{00423\ \{}
-\DoxyCodeLine{00424\ \ \ \ \ \textcolor{comment}{//\ Either\ of\ them\ will\ do...}}
-\DoxyCodeLine{00425\ \ \ \ \ return\ ::tolower(a)\ ==\ ::tolower(b);}
-\DoxyCodeLine{00426\ \}}
-\DoxyCodeLine{00427\ }
-\DoxyCodeLine{00437\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a22ca7926c4634482cb23d63564e79143}{filter\_out\_seq}}(}
-\DoxyCodeLine{00438\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
-\DoxyCodeLine{00439\ \ \ \ \ std::string\_view\ pattern}
-\DoxyCodeLine{00440\ )}
-\DoxyCodeLine{00441\ \{}
-\DoxyCodeLine{00442\ \ \ \ \ std::vector<char>\ string\_vec(\textcolor{keywordtype}{string}.begin(),\ \textcolor{keywordtype}{string}.end());}
-\DoxyCodeLine{00443\ \ \ \ \ std::vector<char>\ values\_vec(pattern.begin(),\ pattern.end());}
-\DoxyCodeLine{00444\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{sm::chars\_to\_string}}(\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a28c9c721c79f51cbf14c0c9c9e020293}{cu::filter\_out\_seq}}(string\_vec,\ values\_vec));}
-\DoxyCodeLine{00445\ \}}
-\DoxyCodeLine{00446\ }
-\DoxyCodeLine{00456\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a7f359e194344f49c506c6c3d29f1e458}{filter\_out\_occ}}(}
-\DoxyCodeLine{00457\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
-\DoxyCodeLine{00458\ \ \ \ \ std::string\_view\ characters}
-\DoxyCodeLine{00459\ )}
-\DoxyCodeLine{00460\ \{}
-\DoxyCodeLine{00461\ \ \ \ \ std::vector<char>\ string\_vec(\textcolor{keywordtype}{string}.begin(),\ \textcolor{keywordtype}{string}.end());}
-\DoxyCodeLine{00462\ \ \ \ \ std::vector<char>\ values\_vec(characters.begin(),\ characters.end());}
-\DoxyCodeLine{00463\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{sm::chars\_to\_string}}(\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a367b35bf13b81eac704c433070427e6d}{cu::filter\_out\_occ}}(string\_vec,\ values\_vec));}
-\DoxyCodeLine{00464\ \}}
-\DoxyCodeLine{00465\ }
-\DoxyCodeLine{00476\ \textcolor{keyword}{template}<sm\_compatible\ Strings>}
-\DoxyCodeLine{00477\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a6b80e12541f7b76d1d15d14be2bcee9a}{filter\_out\_occ\_seq}}(}
-\DoxyCodeLine{00478\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
-\DoxyCodeLine{00479\ \ \ \ \ \textcolor{keyword}{const}\ Strings\ \ \ \&patterns}
-\DoxyCodeLine{00480\ )}
-\DoxyCodeLine{00481\ \{}
-\DoxyCodeLine{00482\ \ \ \ \ std::vector<char>\ string\_vec(\textcolor{keywordtype}{string}.begin(),\ \textcolor{keywordtype}{string}.end());}
-\DoxyCodeLine{00483\ \ \ \ \ std::vector<std::vector<char>>\ patterns\_vec\ =\ \{\};}
-\DoxyCodeLine{00484\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&pattern\ :\ patterns)}
-\DoxyCodeLine{00485\ \ \ \ \ \{}
-\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ patterns\_vec.emplace\_back(pattern.begin(),\ pattern.end());}
-\DoxyCodeLine{00487\ \ \ \ \ \}}
-\DoxyCodeLine{00488\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{sm::chars\_to\_string}}(\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0e0d8bbb85dbc2dcd3af2f255c9a0b39}{cu::filter\_out\_occ\_seq}}(string\_vec,}
-\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ patterns\_vec));}
-\DoxyCodeLine{00490\ \}}
-\DoxyCodeLine{00491\ }
-\DoxyCodeLine{00501\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a62f8598e9739e2594d516db8f8d7b9f6}{filter\_out}}(}
-\DoxyCodeLine{00502\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
-\DoxyCodeLine{00503\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ character}
-\DoxyCodeLine{00504\ )}
-\DoxyCodeLine{00505\ \{}
-\DoxyCodeLine{00506\ \ \ \ \ std::vector<char>\ string\_vec(\textcolor{keywordtype}{string}.begin(),\ \textcolor{keywordtype}{string}.end());}
-\DoxyCodeLine{00507\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{sm::chars\_to\_string}}(\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a3d0869d9e35bc3f395f91a5cbde0345e}{cu::filter\_out}}(string\_vec,\ character));}
-\DoxyCodeLine{00508\ \}}
-\DoxyCodeLine{00509\ }
-\DoxyCodeLine{00519\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad690389f2fb57f67873923c62be4805c}{repeat}}(}
-\DoxyCodeLine{00520\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
-\DoxyCodeLine{00521\ \ \ \ \ std::size\_t\ \ \ \ \ \ n}
-\DoxyCodeLine{00522\ )}
-\DoxyCodeLine{00523\ \{}
-\DoxyCodeLine{00524\ \ \ \ \ std::vector<char>\ string\_vec(\textcolor{keywordtype}{string}.begin(),\ \textcolor{keywordtype}{string}.end());}
-\DoxyCodeLine{00525\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{sm::chars\_to\_string}}(\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{cu::repeat}}(string\_vec,\ n));}
-\DoxyCodeLine{00526\ \}}
-\DoxyCodeLine{00527\ }
-\DoxyCodeLine{00537\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad690389f2fb57f67873923c62be4805c}{repeat}}(}
-\DoxyCodeLine{00538\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
-\DoxyCodeLine{00539\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double}\ \ \ \ \ \ n}
-\DoxyCodeLine{00540\ )}
-\DoxyCodeLine{00541\ \{}
-\DoxyCodeLine{00542\ \ \ \ \ std::vector<char>\ string\_vec(\textcolor{keywordtype}{string}.begin(),\ \textcolor{keywordtype}{string}.end());}
-\DoxyCodeLine{00543\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{sm::chars\_to\_string}}(\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{cu::repeat}}(string\_vec,\ n));}
-\DoxyCodeLine{00544\ \}}
-\DoxyCodeLine{00545\ }
-\DoxyCodeLine{00555\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ac1ae37388aa1aaac0bedc25f353b3092}{split\_seq}}(}
-\DoxyCodeLine{00556\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
-\DoxyCodeLine{00557\ \ \ \ \ std::string\_view\ pattern}
-\DoxyCodeLine{00558\ )}
-\DoxyCodeLine{00559\ \{}
-\DoxyCodeLine{00560\ \ \ \ \ std::vector<char>\ string\_vec(\textcolor{keywordtype}{string}.begin(),\ \textcolor{keywordtype}{string}.end());}
-\DoxyCodeLine{00561\ \ \ \ \ std::vector<char>\ pattern\_vec(pattern.begin(),\ pattern.end());}
-\DoxyCodeLine{00562\ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a02a640ca3898e63a8338b562d23a6ca7}{cu::split\_seq}}(string\_vec,\ pattern\_vec);}
-\DoxyCodeLine{00563\ \ \ \ \ \textcolor{keywordflow}{return}\ stdv::transform(result,\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{sm::chars\_to\_string}}<std::vector<char>>)}
-\DoxyCodeLine{00564\ \ \ \ \ \ \ \ \ \ |\ stdr::to<result\_string\_nested>();}
-\DoxyCodeLine{00565\ \}}
-\DoxyCodeLine{00566\ }
-\DoxyCodeLine{00576\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a37cacfd93ff6f2ceb3a556026791df73}{split\_occ}}(}
-\DoxyCodeLine{00577\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
-\DoxyCodeLine{00578\ \ \ \ \ std::string\_view\ characters}
-\DoxyCodeLine{00579\ )}
-\DoxyCodeLine{00580\ \{}
-\DoxyCodeLine{00581\ \ \ \ \ std::vector<char>\ string\_vec(\textcolor{keywordtype}{string}.begin(),\ \textcolor{keywordtype}{string}.end());}
-\DoxyCodeLine{00582\ \ \ \ \ std::vector<char>\ pattern\_vec(characters.begin(),\ characters.end());}
-\DoxyCodeLine{00583\ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_acc1b463c87ef5ec1f72cd652c70f9b0d}{cu::split\_occ}}(string\_vec,\ pattern\_vec);}
-\DoxyCodeLine{00584\ \ \ \ \ \textcolor{keywordflow}{return}\ stdv::transform(result,\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{sm::chars\_to\_string}}<std::vector<char>>)}
-\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ \ |\ stdr::to<result\_string\_nested>();}
-\DoxyCodeLine{00586\ \}}
-\DoxyCodeLine{00587\ }
-\DoxyCodeLine{00598\ \textcolor{keyword}{template}<sm\_compatible\ Strings>}
-\DoxyCodeLine{00599\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a12f6442f3f2e83c922896cdaf3ca325c}{split\_occ\_seq}}(}
-\DoxyCodeLine{00600\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
-\DoxyCodeLine{00601\ \ \ \ \ \textcolor{keyword}{const}\ Strings\ \ \ \&patterns}
-\DoxyCodeLine{00602\ )}
-\DoxyCodeLine{00603\ \{}
-\DoxyCodeLine{00604\ \ \ \ \ std::vector<char>\ string\_vec(\textcolor{keywordtype}{string}.begin(),\ \textcolor{keywordtype}{string}.end());}
-\DoxyCodeLine{00605\ \ \ \ \ std::vector<std::vector<char>>\ patterns\_vec\ =\ \{\};}
-\DoxyCodeLine{00606\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&pattern\ :\ patterns)}
-\DoxyCodeLine{00607\ \ \ \ \ \{}
-\DoxyCodeLine{00608\ \ \ \ \ \ \ \ \ patterns\_vec.emplace\_back(pattern.begin(),\ pattern.end());}
-\DoxyCodeLine{00609\ \ \ \ \ \}}
-\DoxyCodeLine{00610\ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a7c2c97e55ed45d82a370ac456aac90a0}{cu::split\_occ\_seq}}(string\_vec,\ patterns\_vec);}
-\DoxyCodeLine{00611\ \ \ \ \ \textcolor{keywordflow}{return}\ stdv::transform(result,\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{sm::chars\_to\_string}}<std::vector<char>>)}
-\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ \ |\ stdr::to<result\_string\_nested>();}
-\DoxyCodeLine{00613\ \}}
-\DoxyCodeLine{00614\ }
-\DoxyCodeLine{00624\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ae64d11727ab3db9d0631321bd293de2b}{split}}(}
-\DoxyCodeLine{00625\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
-\DoxyCodeLine{00626\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ character}
-\DoxyCodeLine{00627\ )}
-\DoxyCodeLine{00628\ \{}
-\DoxyCodeLine{00629\ \ \ \ \ std::vector<char>\ string\_vec(\textcolor{keywordtype}{string}.begin(),\ \textcolor{keywordtype}{string}.end());}
-\DoxyCodeLine{00630\ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_ab9f44279e734a8b0963ba9a1a1d805b9}{cu::split}}(string\_vec,\ character);}
-\DoxyCodeLine{00631\ \ \ \ \ \textcolor{keywordflow}{return}\ stdv::transform(result,\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{sm::chars\_to\_string}}<std::vector<char>>)}
-\DoxyCodeLine{00632\ \ \ \ \ \ \ \ \ \ |\ stdr::to<result\_string\_nested>();}
-\DoxyCodeLine{00633\ \}}
-\DoxyCodeLine{00634\ }
-\DoxyCodeLine{00635\ \}\ \textcolor{comment}{//\ namespace\ sm}}
-\DoxyCodeLine{00636\ }
-\DoxyCodeLine{00640\ \textcolor{keyword}{namespace\ }sm\_operators\ \{}
-\DoxyCodeLine{00641\ }
-\DoxyCodeLine{00651\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_a2f573f091724effa15a5d8c54c09fdcf}{operator-\/\ }}(}
-\DoxyCodeLine{00652\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
-\DoxyCodeLine{00653\ \ \ \ \ std::string\_view\ pattern}
-\DoxyCodeLine{00654\ )}
-\DoxyCodeLine{00655\ \{}
-\DoxyCodeLine{00656\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a22ca7926c4634482cb23d63564e79143}{sm::filter\_out\_seq}}(\textcolor{keywordtype}{string},\ pattern);}
-\DoxyCodeLine{00657\ \}}
-\DoxyCodeLine{00658\ }
-\DoxyCodeLine{00668\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_a2f573f091724effa15a5d8c54c09fdcf}{operator-\/\ }}(}
-\DoxyCodeLine{00669\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
-\DoxyCodeLine{00670\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ character}
-\DoxyCodeLine{00671\ )}
-\DoxyCodeLine{00672\ \{}
-\DoxyCodeLine{00673\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a62f8598e9739e2594d516db8f8d7b9f6}{sm::filter\_out}}(\textcolor{keywordtype}{string},\ character);}
-\DoxyCodeLine{00674\ \}}
-\DoxyCodeLine{00675\ }
-\DoxyCodeLine{00685\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_ade2cae3d13c20704ca4c478083470141}{operator*\ }}(}
-\DoxyCodeLine{00686\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
-\DoxyCodeLine{00687\ \ \ \ \ std::size\_t\ \ \ \ \ \ n}
-\DoxyCodeLine{00688\ )}
-\DoxyCodeLine{00689\ \{}
-\DoxyCodeLine{00690\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad690389f2fb57f67873923c62be4805c}{sm::repeat}}(\textcolor{keywordtype}{string},\ n);}
-\DoxyCodeLine{00691\ \}}
-\DoxyCodeLine{00692\ }
-\DoxyCodeLine{00702\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_ade2cae3d13c20704ca4c478083470141}{operator*\ }}(}
-\DoxyCodeLine{00703\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
-\DoxyCodeLine{00704\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double}\ \ \ \ \ \ n}
-\DoxyCodeLine{00705\ )}
-\DoxyCodeLine{00706\ \{}
-\DoxyCodeLine{00707\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad690389f2fb57f67873923c62be4805c}{sm::repeat}}(\textcolor{keywordtype}{string},\ n);}
-\DoxyCodeLine{00708\ \}}
-\DoxyCodeLine{00709\ }
-\DoxyCodeLine{00719\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_acbd16f06d2b7028804b2886e2de60318}{operator/\ }}(}
-\DoxyCodeLine{00720\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
-\DoxyCodeLine{00721\ \ \ \ \ std::string\_view\ pattern}
-\DoxyCodeLine{00722\ )}
-\DoxyCodeLine{00723\ \{}
-\DoxyCodeLine{00724\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ac1ae37388aa1aaac0bedc25f353b3092}{sm::split\_seq}}(\textcolor{keywordtype}{string},\ pattern);}
-\DoxyCodeLine{00725\ \}}
-\DoxyCodeLine{00726\ }
-\DoxyCodeLine{00736\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_acbd16f06d2b7028804b2886e2de60318}{operator/\ }}(}
-\DoxyCodeLine{00737\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
-\DoxyCodeLine{00738\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ character}
-\DoxyCodeLine{00739\ )}
-\DoxyCodeLine{00740\ \{}
-\DoxyCodeLine{00741\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ae64d11727ab3db9d0631321bd293de2b}{sm::split}}(\textcolor{keywordtype}{string},\ character);}
-\DoxyCodeLine{00742\ \}}
-\DoxyCodeLine{00743\ }
-\DoxyCodeLine{00744\ \}\ \textcolor{comment}{//\ namespace\ sm\_operators}}
-\DoxyCodeLine{00745\ }
-\DoxyCodeLine{00746\ \}\ \textcolor{comment}{//\ namespace\ auspicious\_library}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ <cctype>}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ <iterator>}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ <ranges>}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{al__container__utilities_8hpp}{al\_container\_utilities.hpp}}"{}}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceauspicious__library}{auspicious\_library}}\ \{}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{namespace\ }sm\ \{}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00076\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Container>}
+\DoxyCodeLine{00077\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptauspicious__library_1_1sm_1_1sm__compatible}{sm\_compatible}}\ =\ \mbox{\hyperlink{conceptauspicious__library_1_1cu_1_1cu__compatible}{cu::cu\_compatible<Container>}}}
+\DoxyCodeLine{00078\ \ \ \ \ \&\&\ (std::is\_same\_v<cu::value\_type<Container>,\ std::string>}
+\DoxyCodeLine{00079\ \ \ \ \ \ ||\ std::is\_same\_v<cu::value\_type<Container>,\ std::string\_view>);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceauspicious__library_1_1sm_ae5e68b09b89152e03842b8c0a0028f5f}{result\_string\_nested}}\ =\ std::vector<std::string>;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00100\ \textcolor{keyword}{template}<cu::cu\_compatible\ Container,\ \textcolor{keyword}{typename}\ Converter>}
+\DoxyCodeLine{00101\ \textcolor{keyword}{requires}(!std::is\_same\_v<Converter,\ std::string>)}
+\DoxyCodeLine{00102\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_af4d2d6d72a9c765f4fe02a0462d35bcf}{to\_string}}(}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{const}\ Container\ \&container,}
+\DoxyCodeLine{00104\ \ \ \ \ Converter\ \ \ \ \ \ \ \ converter,}
+\DoxyCodeLine{00105\ \ \ \ \ std::string\_view\ separator\ =\ \textcolor{stringliteral}{"{},\ "{}},}
+\DoxyCodeLine{00106\ \ \ \ \ std::string\_view\ prefix\ \ \ \ =\ \textcolor{stringliteral}{"{}"{}},}
+\DoxyCodeLine{00107\ \ \ \ \ std::string\_view\ suffix\ \ \ \ =\ \textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00108\ )}
+\DoxyCodeLine{00109\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{auto}\ transformer\ =\ [\&](\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{cu::value\_type<Container>}}\ \&element)}
+\DoxyCodeLine{00111\ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(prefix)\ +\ converter(element)\ +\ std::string(suffix);}
+\DoxyCodeLine{00114\ \ \ \ \ \};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{return}\ std::views::transform(container,\ transformer)}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ |\ std::views::join\_with(std::string(separator))}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ |\ std::ranges::to<std::string>();}
+\DoxyCodeLine{00119\ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00133\ \textcolor{keyword}{template}<cu::cu\_compatible\ Container>}
+\DoxyCodeLine{00134\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_af4d2d6d72a9c765f4fe02a0462d35bcf}{to\_string}}(}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keyword}{const}\ Container\ \&container,}
+\DoxyCodeLine{00136\ \ \ \ \ std::string\_view\ separator\ =\ \textcolor{stringliteral}{"{},\ "{}},}
+\DoxyCodeLine{00137\ \ \ \ \ std::string\_view\ prefix\ \ \ \ =\ \textcolor{stringliteral}{"{}"{}},}
+\DoxyCodeLine{00138\ \ \ \ \ std::string\_view\ suffix\ \ \ \ =\ \textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00139\ )}
+\DoxyCodeLine{00140\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_af4d2d6d72a9c765f4fe02a0462d35bcf}{to\_string}}<Container,\ std::string\ (*)(\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{cu::value\_type<Container>}})>(}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ container,\ std::to\_string,\ separator,\ prefix,\ suffix);}
+\DoxyCodeLine{00143\ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00158\ \textcolor{keyword}{template}<cu::cu\_compatible\ Container>}
+\DoxyCodeLine{00159\ \textcolor{keyword}{requires}\ std::is\_same\_v<cu::value\_type<Container>,\ \textcolor{keywordtype}{char}>}
+\DoxyCodeLine{00160\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_af4d2d6d72a9c765f4fe02a0462d35bcf}{to\_string}}(}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keyword}{const}\ Container\ \&container,}
+\DoxyCodeLine{00162\ \ \ \ \ std::string\_view\ separator\ =\ \textcolor{stringliteral}{"{},\ "{}},}
+\DoxyCodeLine{00163\ \ \ \ \ std::string\_view\ prefix\ \ \ \ =\ \textcolor{stringliteral}{"{}\(\backslash\)'"{}},}
+\DoxyCodeLine{00164\ \ \ \ \ std::string\_view\ suffix\ \ \ \ =\ \textcolor{stringliteral}{"{}\(\backslash\)'"{}}}
+\DoxyCodeLine{00165\ )}
+\DoxyCodeLine{00166\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{auto}\ converter\ =\ [\&](\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{cu::value\_type<Container>}}\ \&element)}
+\DoxyCodeLine{00168\ \ \ \ \ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(1,\ element);}
+\DoxyCodeLine{00170\ \ \ \ \ \};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_af4d2d6d72a9c765f4fe02a0462d35bcf}{to\_string}}(container,\ converter,\ separator,\ prefix,\ suffix);}
+\DoxyCodeLine{00173\ \}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00188\ \textcolor{keyword}{template}<cu::cu\_compatible\ Container>}
+\DoxyCodeLine{00189\ \textcolor{keyword}{requires}\ std::is\_same\_v<cu::value\_type<Container>,\ std::string>}
+\DoxyCodeLine{00190\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_af4d2d6d72a9c765f4fe02a0462d35bcf}{to\_string}}(}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{const}\ Container\ \&container,}
+\DoxyCodeLine{00192\ \ \ \ \ std::string\_view\ separator\ =\ \textcolor{stringliteral}{"{},\ "{}},}
+\DoxyCodeLine{00193\ \ \ \ \ std::string\_view\ prefix\ \ \ \ =\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}},}
+\DoxyCodeLine{00194\ \ \ \ \ std::string\_view\ suffix\ \ \ \ =\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}}
+\DoxyCodeLine{00195\ )}
+\DoxyCodeLine{00196\ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_af4d2d6d72a9c765f4fe02a0462d35bcf}{to\_string}}(container,\ std::identity\ \{\},\ separator,\ prefix,\ suffix);}
+\DoxyCodeLine{00198\ \}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00207\ \textcolor{keyword}{template}<cu::cu\_compatible\ Container>}
+\DoxyCodeLine{00208\ \textcolor{keyword}{requires}\ std::is\_same\_v<cu::value\_type<Container>,\ \textcolor{keywordtype}{char}>}
+\DoxyCodeLine{00209\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{chars\_to\_string}}(\textcolor{keyword}{const}\ Container\ \&container)}
+\DoxyCodeLine{00210\ \{}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(std::begin(container),\ std::end(container));}
+\DoxyCodeLine{00212\ \}}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00235\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a557e590ecf315060dbbe49015d5e90fb}{word\_wrap}}(}
+\DoxyCodeLine{00236\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
+\DoxyCodeLine{00237\ \ \ \ \ std::size\_t\ \ \ \ \ \ width,}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ force\ =\ \textcolor{keyword}{false},}
+\DoxyCodeLine{00239\ \ \ \ \ std::string\_view\ delims\ =\ \textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r\(\backslash\)n\(\backslash\)f\(\backslash\)v\(\backslash\)b"{}}}
+\DoxyCodeLine{00240\ )}
+\DoxyCodeLine{00241\ \{}
+\DoxyCodeLine{00242\ \ \ \ \ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ae5e68b09b89152e03842b8c0a0028f5f}{result\_string\_nested}}\ lines\ =\ \{\};}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{comment}{//\ Functions\ expect\ inclusive\ width,\ and\ also\ works\ as\ a\ measure\ to\ have\ at}}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{comment}{//\ least\ one\ as\ width\ (as\ a\ side\ effect)}}
+\DoxyCodeLine{00246\ \ \ \ \ width++;}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keywordtype}{string}.size()\ >\ width)}
+\DoxyCodeLine{00249\ \ \ \ \ \{}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First\ non-\/delim\ character\ before\ or\ at\ width}}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ pos\ =\ \textcolor{keywordtype}{string}.substr(0,\ width).find\_last\_of(delims);}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ ==\ std::string\_view::npos)}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Split\ without\ consuming\ character}}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (force)}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pos\ \ \ \ \ \ \ =\ \textcolor{keywordtype}{string}.substr(0,\ width).size()\ -\/\ 1;}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ line\ =\ \textcolor{keywordtype}{string}.substr(0,\ pos);}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \ \ \ =\ \textcolor{keywordtype}{string}.substr(pos);}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lines.emplace\_back(std::string(line));}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ not,\ first\ non-\/delim\ character\ after\ width}}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ pos\ =\ \textcolor{keywordtype}{string}.substr(width\ +\ 1).find\_first\_of(delims);}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ still\ not,\ eof\ reached?\ \ Prevent\ overflow}}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ ==\ std::string\_view::npos)\ pos-\/-\/;}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ pos\ +=\ width\ +\ 1;}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ line\ =\ \textcolor{keywordtype}{string}.substr(0,\ pos);}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \ \ \ =\ \textcolor{keywordtype}{string}.substr(pos\ +\ 1);}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ lines.emplace\_back(std::string(line));}
+\DoxyCodeLine{00275\ \ \ \ \ \}}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\textcolor{keywordtype}{string}.empty())}
+\DoxyCodeLine{00278\ \ \ \ \ \{}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ lines.emplace\_back(std::string(\textcolor{keywordtype}{string}));}
+\DoxyCodeLine{00280\ \ \ \ \ \}}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keywordflow}{return}\ lines;}
+\DoxyCodeLine{00283\ \}}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00293\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a91e4f4e6edfccde8c0964cf8f2fc09eb}{trim\_left}}(}
+\DoxyCodeLine{00294\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
+\DoxyCodeLine{00295\ \ \ \ \ std::string\_view\ delims\ =\ \textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r\(\backslash\)n\(\backslash\)f\(\backslash\)v\(\backslash\)b"{}}}
+\DoxyCodeLine{00296\ )}
+\DoxyCodeLine{00297\ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \textcolor{keyword}{auto}\ pos\ =\ \textcolor{keywordtype}{string}.find\_first\_not\_of(delims);}
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ ==\ std::string\_view::npos)}
+\DoxyCodeLine{00300\ \ \ \ \ \{}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ string;}
+\DoxyCodeLine{00302\ \ \ \ \ \}}
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{string}.substr(pos);}
+\DoxyCodeLine{00304\ \}}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00314\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a55b2357d69a9c2aca3c664a11edef447}{trim\_right}}(}
+\DoxyCodeLine{00315\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
+\DoxyCodeLine{00316\ \ \ \ \ std::string\_view\ delims\ =\ \textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r\(\backslash\)n\(\backslash\)f\(\backslash\)v\(\backslash\)b"{}}}
+\DoxyCodeLine{00317\ )}
+\DoxyCodeLine{00318\ \{}
+\DoxyCodeLine{00319\ \ \ \ \ \textcolor{keyword}{auto}\ pos\ =\ \textcolor{keywordtype}{string}.find\_last\_not\_of(delims);}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ ==\ std::string\_view::npos)}
+\DoxyCodeLine{00321\ \ \ \ \ \{}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ string;}
+\DoxyCodeLine{00323\ \ \ \ \ \}}
+\DoxyCodeLine{00324\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{string}.substr(0,\ pos\ +\ 1);}
+\DoxyCodeLine{00325\ \}}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00334\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a20d0b77f9560412bb418469be0280f4a}{trim}}(}
+\DoxyCodeLine{00335\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
+\DoxyCodeLine{00336\ \ \ \ \ std::string\_view\ delims\ =\ \textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r\(\backslash\)n\(\backslash\)f\(\backslash\)v\(\backslash\)b"{}}}
+\DoxyCodeLine{00337\ )}
+\DoxyCodeLine{00338\ \{}
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a91e4f4e6edfccde8c0964cf8f2fc09eb}{trim\_left}}(\mbox{\hyperlink{namespaceauspicious__library_1_1sm_a55b2357d69a9c2aca3c664a11edef447}{trim\_right}}(\textcolor{keywordtype}{string},\ delims),\ delims);}
+\DoxyCodeLine{00340\ \}}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00348\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a83d4984eda2a08277292831d76fccf0b}{to\_upper}}(std::string\_view\ \textcolor{keywordtype}{string})}
+\DoxyCodeLine{00349\ \{}
+\DoxyCodeLine{00350\ \ \ \ \ std::string\ str;}
+\DoxyCodeLine{00351\ \ \ \ \ std::ranges::transform(\textcolor{keywordtype}{string},\ std::back\_inserter(str),\ ::toupper);}
+\DoxyCodeLine{00352\ \ \ \ \ \textcolor{keywordflow}{return}\ str;}
+\DoxyCodeLine{00353\ \}}
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00361\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a1d6a54aba13267a7eef4c6307136b3d7}{to\_lower}}(std::string\_view\ \textcolor{keywordtype}{string})}
+\DoxyCodeLine{00362\ \{}
+\DoxyCodeLine{00363\ \ \ \ \ std::string\ str;}
+\DoxyCodeLine{00364\ \ \ \ \ std::ranges::transform(\textcolor{keywordtype}{string},\ std::back\_inserter(str),\ ::tolower);}
+\DoxyCodeLine{00365\ \ \ \ \ \textcolor{keywordflow}{return}\ str;}
+\DoxyCodeLine{00366\ \}}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00374\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a83d4984eda2a08277292831d76fccf0b}{to\_upper}}(\textcolor{keywordtype}{char}\ character)}
+\DoxyCodeLine{00375\ \{}
+\DoxyCodeLine{00376\ \ \ \ \ return\ ::toupper(character);}
+\DoxyCodeLine{00377\ \}}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00385\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a1d6a54aba13267a7eef4c6307136b3d7}{to\_lower}}(\textcolor{keywordtype}{char}\ character)}
+\DoxyCodeLine{00386\ \{}
+\DoxyCodeLine{00387\ \ \ \ \ return\ ::tolower(character);}
+\DoxyCodeLine{00388\ \}}
+\DoxyCodeLine{00389\ }
+\DoxyCodeLine{00397\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_aae67781b035e596bb886e7980aae5863}{is\_equal\_ins}}(}
+\DoxyCodeLine{00398\ \ \ \ \ std::string\_view\ a,}
+\DoxyCodeLine{00399\ \ \ \ \ std::string\_view\ b}
+\DoxyCodeLine{00400\ )}
+\DoxyCodeLine{00401\ \{}
+\DoxyCodeLine{00402\ \ \ \ \ \textcolor{comment}{//\ Either\ of\ them\ will\ do...}}
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a1d6a54aba13267a7eef4c6307136b3d7}{to\_lower}}(a)\ ==\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a1d6a54aba13267a7eef4c6307136b3d7}{to\_lower}}(b);}
+\DoxyCodeLine{00404\ \}}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00413\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_aae67781b035e596bb886e7980aae5863}{is\_equal\_ins}}(\textcolor{keywordtype}{char}\ a,\ \textcolor{keywordtype}{char}\ b)}
+\DoxyCodeLine{00414\ \{}
+\DoxyCodeLine{00415\ \ \ \ \ \textcolor{comment}{//\ Either\ of\ them\ will\ do...}}
+\DoxyCodeLine{00416\ \ \ \ \ return\ ::tolower(a)\ ==\ ::tolower(b);}
+\DoxyCodeLine{00417\ \}}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00428\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a22ca7926c4634482cb23d63564e79143}{filter\_out\_seq}}(}
+\DoxyCodeLine{00429\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
+\DoxyCodeLine{00430\ \ \ \ \ std::string\_view\ pattern}
+\DoxyCodeLine{00431\ )}
+\DoxyCodeLine{00432\ \{}
+\DoxyCodeLine{00433\ \ \ \ \ std::vector<char>\ string\_vec(\textcolor{keywordtype}{string}.begin(),\ \textcolor{keywordtype}{string}.end());}
+\DoxyCodeLine{00434\ \ \ \ \ std::vector<char>\ values\_vec(pattern.begin(),\ pattern.end());}
+\DoxyCodeLine{00435\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{sm::chars\_to\_string}}(\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a28c9c721c79f51cbf14c0c9c9e020293}{cu::filter\_out\_seq}}(string\_vec,\ values\_vec));}
+\DoxyCodeLine{00436\ \}}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00447\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a7f359e194344f49c506c6c3d29f1e458}{filter\_out\_occ}}(}
+\DoxyCodeLine{00448\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
+\DoxyCodeLine{00449\ \ \ \ \ std::string\_view\ characters}
+\DoxyCodeLine{00450\ )}
+\DoxyCodeLine{00451\ \{}
+\DoxyCodeLine{00452\ \ \ \ \ std::vector<char>\ string\_vec(\textcolor{keywordtype}{string}.begin(),\ \textcolor{keywordtype}{string}.end());}
+\DoxyCodeLine{00453\ \ \ \ \ std::vector<char>\ values\_vec(characters.begin(),\ characters.end());}
+\DoxyCodeLine{00454\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{sm::chars\_to\_string}}(\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a367b35bf13b81eac704c433070427e6d}{cu::filter\_out\_occ}}(string\_vec,\ values\_vec));}
+\DoxyCodeLine{00455\ \}}
+\DoxyCodeLine{00456\ }
+\DoxyCodeLine{00467\ \textcolor{keyword}{template}<sm\_compatible\ Strings>}
+\DoxyCodeLine{00468\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a6b80e12541f7b76d1d15d14be2bcee9a}{filter\_out\_occ\_seq}}(}
+\DoxyCodeLine{00469\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
+\DoxyCodeLine{00470\ \ \ \ \ \textcolor{keyword}{const}\ Strings\ \ \ \&patterns}
+\DoxyCodeLine{00471\ )}
+\DoxyCodeLine{00472\ \{}
+\DoxyCodeLine{00473\ \ \ \ \ std::vector<char>\ string\_vec(\textcolor{keywordtype}{string}.begin(),\ \textcolor{keywordtype}{string}.end());}
+\DoxyCodeLine{00474\ \ \ \ \ std::vector<std::vector<char>>\ patterns\_vec\ =\ \{\};}
+\DoxyCodeLine{00475\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&pattern\ :\ patterns)}
+\DoxyCodeLine{00476\ \ \ \ \ \{}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ patterns\_vec.emplace\_back(pattern.begin(),\ pattern.end());}
+\DoxyCodeLine{00478\ \ \ \ \ \}}
+\DoxyCodeLine{00479\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{sm::chars\_to\_string}}(\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0e0d8bbb85dbc2dcd3af2f255c9a0b39}{cu::filter\_out\_occ\_seq}}(string\_vec,}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ patterns\_vec));}
+\DoxyCodeLine{00481\ \}}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00492\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a62f8598e9739e2594d516db8f8d7b9f6}{filter\_out}}(}
+\DoxyCodeLine{00493\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
+\DoxyCodeLine{00494\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ character}
+\DoxyCodeLine{00495\ )}
+\DoxyCodeLine{00496\ \{}
+\DoxyCodeLine{00497\ \ \ \ \ std::vector<char>\ string\_vec(\textcolor{keywordtype}{string}.begin(),\ \textcolor{keywordtype}{string}.end());}
+\DoxyCodeLine{00498\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{sm::chars\_to\_string}}(\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a3d0869d9e35bc3f395f91a5cbde0345e}{cu::filter\_out}}(string\_vec,\ character));}
+\DoxyCodeLine{00499\ \}}
+\DoxyCodeLine{00500\ }
+\DoxyCodeLine{00510\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad690389f2fb57f67873923c62be4805c}{repeat}}(}
+\DoxyCodeLine{00511\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
+\DoxyCodeLine{00512\ \ \ \ \ std::size\_t\ \ \ \ \ \ n}
+\DoxyCodeLine{00513\ )}
+\DoxyCodeLine{00514\ \{}
+\DoxyCodeLine{00515\ \ \ \ \ std::vector<char>\ string\_vec(\textcolor{keywordtype}{string}.begin(),\ \textcolor{keywordtype}{string}.end());}
+\DoxyCodeLine{00516\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{sm::chars\_to\_string}}(\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{cu::repeat}}(string\_vec,\ n));}
+\DoxyCodeLine{00517\ \}}
+\DoxyCodeLine{00518\ }
+\DoxyCodeLine{00528\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad690389f2fb57f67873923c62be4805c}{repeat}}(}
+\DoxyCodeLine{00529\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
+\DoxyCodeLine{00530\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double}\ \ \ \ \ \ n}
+\DoxyCodeLine{00531\ )}
+\DoxyCodeLine{00532\ \{}
+\DoxyCodeLine{00533\ \ \ \ \ std::vector<char>\ string\_vec(\textcolor{keywordtype}{string}.begin(),\ \textcolor{keywordtype}{string}.end());}
+\DoxyCodeLine{00534\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{sm::chars\_to\_string}}(\mbox{\hyperlink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{cu::repeat}}(string\_vec,\ n));}
+\DoxyCodeLine{00535\ \}}
+\DoxyCodeLine{00536\ }
+\DoxyCodeLine{00546\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ac1ae37388aa1aaac0bedc25f353b3092}{split\_seq}}(}
+\DoxyCodeLine{00547\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
+\DoxyCodeLine{00548\ \ \ \ \ std::string\_view\ pattern}
+\DoxyCodeLine{00549\ )}
+\DoxyCodeLine{00550\ \{}
+\DoxyCodeLine{00551\ \ \ \ \ std::vector<char>\ string\_vec(\textcolor{keywordtype}{string}.begin(),\ \textcolor{keywordtype}{string}.end());}
+\DoxyCodeLine{00552\ \ \ \ \ std::vector<char>\ pattern\_vec(pattern.begin(),\ pattern.end());}
+\DoxyCodeLine{00553\ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a02a640ca3898e63a8338b562d23a6ca7}{cu::split\_seq}}(string\_vec,\ pattern\_vec);}
+\DoxyCodeLine{00554\ \ \ \ \ \textcolor{keywordflow}{return}\ std::views::transform(result,\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{sm::chars\_to\_string}}<std::vector<char>>)}
+\DoxyCodeLine{00555\ \ \ \ \ \ \ \ \ \ |\ std::ranges::to<result\_string\_nested>();}
+\DoxyCodeLine{00556\ \}}
+\DoxyCodeLine{00557\ }
+\DoxyCodeLine{00567\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a37cacfd93ff6f2ceb3a556026791df73}{split\_occ}}(}
+\DoxyCodeLine{00568\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
+\DoxyCodeLine{00569\ \ \ \ \ std::string\_view\ characters}
+\DoxyCodeLine{00570\ )}
+\DoxyCodeLine{00571\ \{}
+\DoxyCodeLine{00572\ \ \ \ \ std::vector<char>\ string\_vec(\textcolor{keywordtype}{string}.begin(),\ \textcolor{keywordtype}{string}.end());}
+\DoxyCodeLine{00573\ \ \ \ \ std::vector<char>\ pattern\_vec(characters.begin(),\ characters.end());}
+\DoxyCodeLine{00574\ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_acc1b463c87ef5ec1f72cd652c70f9b0d}{cu::split\_occ}}(string\_vec,\ pattern\_vec);}
+\DoxyCodeLine{00575\ \ \ \ \ \textcolor{keywordflow}{return}\ std::views::transform(result,\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{sm::chars\_to\_string}}<std::vector<char>>)}
+\DoxyCodeLine{00576\ \ \ \ \ \ \ \ \ \ |\ std::ranges::to<result\_string\_nested>();}
+\DoxyCodeLine{00577\ \}}
+\DoxyCodeLine{00578\ }
+\DoxyCodeLine{00589\ \textcolor{keyword}{template}<sm\_compatible\ Strings>}
+\DoxyCodeLine{00590\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a12f6442f3f2e83c922896cdaf3ca325c}{split\_occ\_seq}}(}
+\DoxyCodeLine{00591\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
+\DoxyCodeLine{00592\ \ \ \ \ \textcolor{keyword}{const}\ Strings\ \ \ \&patterns}
+\DoxyCodeLine{00593\ )}
+\DoxyCodeLine{00594\ \{}
+\DoxyCodeLine{00595\ \ \ \ \ std::vector<char>\ string\_vec(\textcolor{keywordtype}{string}.begin(),\ \textcolor{keywordtype}{string}.end());}
+\DoxyCodeLine{00596\ \ \ \ \ std::vector<std::vector<char>>\ patterns\_vec\ =\ \{\};}
+\DoxyCodeLine{00597\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&pattern\ :\ patterns)}
+\DoxyCodeLine{00598\ \ \ \ \ \{}
+\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ patterns\_vec.emplace\_back(pattern.begin(),\ pattern.end());}
+\DoxyCodeLine{00600\ \ \ \ \ \}}
+\DoxyCodeLine{00601\ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a7c2c97e55ed45d82a370ac456aac90a0}{cu::split\_occ\_seq}}(string\_vec,\ patterns\_vec);}
+\DoxyCodeLine{00602\ \ \ \ \ \textcolor{keywordflow}{return}\ std::views::transform(result,\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{sm::chars\_to\_string}}<std::vector<char>>)}
+\DoxyCodeLine{00603\ \ \ \ \ \ \ \ \ \ |\ std::ranges::to<result\_string\_nested>();}
+\DoxyCodeLine{00604\ \}}
+\DoxyCodeLine{00605\ }
+\DoxyCodeLine{00615\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ae64d11727ab3db9d0631321bd293de2b}{split}}(}
+\DoxyCodeLine{00616\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
+\DoxyCodeLine{00617\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ character}
+\DoxyCodeLine{00618\ )}
+\DoxyCodeLine{00619\ \{}
+\DoxyCodeLine{00620\ \ \ \ \ std::vector<char>\ string\_vec(\textcolor{keywordtype}{string}.begin(),\ \textcolor{keywordtype}{string}.end());}
+\DoxyCodeLine{00621\ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ \mbox{\hyperlink{namespaceauspicious__library_1_1cu_ab9f44279e734a8b0963ba9a1a1d805b9}{cu::split}}(string\_vec,\ character);}
+\DoxyCodeLine{00622\ \ \ \ \ \textcolor{keywordflow}{return}\ std::views::transform(result,\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad0d9136fae4ffdd686cddfc170b3ed60}{sm::chars\_to\_string}}<std::vector<char>>)}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \ |\ std::ranges::to<result\_string\_nested>();}
+\DoxyCodeLine{00624\ \}}
+\DoxyCodeLine{00625\ }
+\DoxyCodeLine{00626\ \}\ \textcolor{comment}{//\ namespace\ sm}}
+\DoxyCodeLine{00627\ }
+\DoxyCodeLine{00631\ \textcolor{keyword}{namespace\ }sm\_operators\ \{}
+\DoxyCodeLine{00632\ }
+\DoxyCodeLine{00642\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_a2f573f091724effa15a5d8c54c09fdcf}{operator-\/\ }}(}
+\DoxyCodeLine{00643\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
+\DoxyCodeLine{00644\ \ \ \ \ std::string\_view\ pattern}
+\DoxyCodeLine{00645\ )}
+\DoxyCodeLine{00646\ \{}
+\DoxyCodeLine{00647\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a22ca7926c4634482cb23d63564e79143}{sm::filter\_out\_seq}}(\textcolor{keywordtype}{string},\ pattern);}
+\DoxyCodeLine{00648\ \}}
+\DoxyCodeLine{00649\ }
+\DoxyCodeLine{00659\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_a2f573f091724effa15a5d8c54c09fdcf}{operator-\/\ }}(}
+\DoxyCodeLine{00660\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
+\DoxyCodeLine{00661\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ character}
+\DoxyCodeLine{00662\ )}
+\DoxyCodeLine{00663\ \{}
+\DoxyCodeLine{00664\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a62f8598e9739e2594d516db8f8d7b9f6}{sm::filter\_out}}(\textcolor{keywordtype}{string},\ character);}
+\DoxyCodeLine{00665\ \}}
+\DoxyCodeLine{00666\ }
+\DoxyCodeLine{00676\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_ade2cae3d13c20704ca4c478083470141}{operator*\ }}(}
+\DoxyCodeLine{00677\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
+\DoxyCodeLine{00678\ \ \ \ \ std::size\_t\ \ \ \ \ \ n}
+\DoxyCodeLine{00679\ )}
+\DoxyCodeLine{00680\ \{}
+\DoxyCodeLine{00681\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad690389f2fb57f67873923c62be4805c}{sm::repeat}}(\textcolor{keywordtype}{string},\ n);}
+\DoxyCodeLine{00682\ \}}
+\DoxyCodeLine{00683\ }
+\DoxyCodeLine{00693\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_ade2cae3d13c20704ca4c478083470141}{operator*\ }}(}
+\DoxyCodeLine{00694\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
+\DoxyCodeLine{00695\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double}\ \ \ \ \ \ n}
+\DoxyCodeLine{00696\ )}
+\DoxyCodeLine{00697\ \{}
+\DoxyCodeLine{00698\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad690389f2fb57f67873923c62be4805c}{sm::repeat}}(\textcolor{keywordtype}{string},\ n);}
+\DoxyCodeLine{00699\ \}}
+\DoxyCodeLine{00700\ }
+\DoxyCodeLine{00710\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_acbd16f06d2b7028804b2886e2de60318}{operator/\ }}(}
+\DoxyCodeLine{00711\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
+\DoxyCodeLine{00712\ \ \ \ \ std::string\_view\ pattern}
+\DoxyCodeLine{00713\ )}
+\DoxyCodeLine{00714\ \{}
+\DoxyCodeLine{00715\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ac1ae37388aa1aaac0bedc25f353b3092}{sm::split\_seq}}(\textcolor{keywordtype}{string},\ pattern);}
+\DoxyCodeLine{00716\ \}}
+\DoxyCodeLine{00717\ }
+\DoxyCodeLine{00727\ [[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm__operators_acbd16f06d2b7028804b2886e2de60318}{operator/\ }}(}
+\DoxyCodeLine{00728\ \ \ \ \ std::string\_view\ \textcolor{keywordtype}{string},}
+\DoxyCodeLine{00729\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ character}
+\DoxyCodeLine{00730\ )}
+\DoxyCodeLine{00731\ \{}
+\DoxyCodeLine{00732\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ae64d11727ab3db9d0631321bd293de2b}{sm::split}}(\textcolor{keywordtype}{string},\ character);}
+\DoxyCodeLine{00733\ \}}
+\DoxyCodeLine{00734\ }
+\DoxyCodeLine{00735\ \}\ \textcolor{comment}{//\ namespace\ sm\_operators}}
+\DoxyCodeLine{00736\ }
+\DoxyCodeLine{00737\ \}\ \textcolor{comment}{//\ namespace\ auspicious\_library}}
 
 \end{DoxyCode}
