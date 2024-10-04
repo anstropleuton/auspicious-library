@@ -69,12 +69,20 @@ constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__ba
 \begin{DoxyCompactList}\small\item\em Set value of string from a {\ttfamily std\+::basic\+\_\+string\+\_\+view} . \end{DoxyCompactList}\item 
 constexpr \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string_a7baeddaaa350f7901a8fc428f03b8af5}{operator std\+::basic\+\_\+string\+\_\+view$<$ Char\+T $>$}} () const noexcept
 \begin{DoxyCompactList}\small\item\em Convert to a {\ttfamily std\+::basic\+\_\+string\+\_\+view} . \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string_abb2d0e40b4146515dc6bacad4e68abe1}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t index) -\/$>$ CharT \&
+\begin{DoxyCompactList}\small\item\em Get a character at index, or a default constructed instance of the character type when index is invalid. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string_a950890d381189ce23d3a2190286ce30e}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t index) const -\/$>$ CharT
+\begin{DoxyCompactList}\small\item\em Get a character at index, or a default constructed instance of the character type when index is invalid. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string_afa46cbeadcbf58fdf3a9ca6f5837c33a}{at}} (std\+::size\+\_\+t index) -\/$>$ CharT \&
 \begin{DoxyCompactList}\small\item\em Get a character at index, or a default constructed instance of the character type when index is invalid. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string_ae9c4524a10fb4abb76317d04ba46394d}{at}} (std\+::size\+\_\+t index) const -\/$>$ CharT
 \begin{DoxyCompactList}\small\item\em Get a character at index, or a default constructed instance of the character type when index is invalid. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string_ad25ee957169c776e2a3e9e827fb775a9}{front}} () -\/$>$ CharT \&
+\begin{DoxyCompactList}\small\item\em Get the first character, or a default constructed instance of the character type when the string is empty. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string_a433b798e915e486e400231c4fd541220}{front}} () const -\/$>$ CharT
 \begin{DoxyCompactList}\small\item\em Get the first character, or a default constructed instance of the character type when the string is empty. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string_a118dbc7e9b8ff1563b004770275dca10}{back}} () -\/$>$ CharT \&
+\begin{DoxyCompactList}\small\item\em Get the last character, or a default constructed instance of the character type when the string is empty. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string_a7ec4427dc6f80551c352237f6e4782e9}{back}} () const -\/$>$ CharT
 \begin{DoxyCompactList}\small\item\em Get the last character, or a default constructed instance of the character type when the string is empty. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -553,9 +561,28 @@ Convert to a {\ttfamily std\+::basic\+\_\+string\+\_\+view} .
 \begin{DoxyReturn}{Returns}
 {\ttfamily std\+::basic\+\_\+string\+\_\+view} of this string. 
 \end{DoxyReturn}
+\Hypertarget{structauspicious__library_1_1cu_1_1boundless__basic__string_abb2d0e40b4146515dc6bacad4e68abe1}\index{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$@{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$@{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__basic__string_abb2d0e40b4146515dc6bacad4e68abe1} 
+template$<$typename CharT , typename Traits  = std\+::char\+\_\+traits$<$\+Char\+T$>$, typename Alloc  = std\+::allocator$<$\+Char\+T$>$$>$ \\
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+basic\+\_\+string}}$<$ CharT, Traits, Alloc $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index}{}\end{DoxyParamCaption}) -\/$>$ CharT \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Get a character at index, or a default constructed instance of the character type when index is invalid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & An index specifying element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Character at index or default constructed instance. 
+\end{DoxyReturn}
 \Hypertarget{structauspicious__library_1_1cu_1_1boundless__basic__string_a950890d381189ce23d3a2190286ce30e}\index{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$@{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$@{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$}}
-\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__basic__string_a950890d381189ce23d3a2190286ce30e} 
 template$<$typename CharT , typename Traits  = std\+::char\+\_\+traits$<$\+Char\+T$>$, typename Alloc  = std\+::allocator$<$\+Char\+T$>$$>$ \\
 auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+basic\+\_\+string}}$<$ CharT, Traits, Alloc $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index}{}\end{DoxyParamCaption}) const -\/$>$ CharT     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
@@ -572,9 +599,28 @@ Get a character at index, or a default constructed instance of the character typ
 \begin{DoxyReturn}{Returns}
 Character at index or default constructed instance. 
 \end{DoxyReturn}
+\Hypertarget{structauspicious__library_1_1cu_1_1boundless__basic__string_afa46cbeadcbf58fdf3a9ca6f5837c33a}\index{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$@{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$}!at@{at}}
+\index{at@{at}!auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$@{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__basic__string_afa46cbeadcbf58fdf3a9ca6f5837c33a} 
+template$<$typename CharT , typename Traits  = std\+::char\+\_\+traits$<$\+Char\+T$>$, typename Alloc  = std\+::allocator$<$\+Char\+T$>$$>$ \\
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+basic\+\_\+string}}$<$ CharT, Traits, Alloc $>$\+::at (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index}{}\end{DoxyParamCaption}) -\/$>$ CharT \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Get a character at index, or a default constructed instance of the character type when index is invalid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & An index specifying element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Character at index or default constructed instance. 
+\end{DoxyReturn}
 \Hypertarget{structauspicious__library_1_1cu_1_1boundless__basic__string_ae9c4524a10fb4abb76317d04ba46394d}\index{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$@{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$}!at@{at}}
 \index{at@{at}!auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$@{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$}}
-\doxysubsubsection{\texorpdfstring{at()}{at()}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__basic__string_ae9c4524a10fb4abb76317d04ba46394d} 
 template$<$typename CharT , typename Traits  = std\+::char\+\_\+traits$<$\+Char\+T$>$, typename Alloc  = std\+::allocator$<$\+Char\+T$>$$>$ \\
 auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+basic\+\_\+string}}$<$ CharT, Traits, Alloc $>$\+::at (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index}{}\end{DoxyParamCaption}) const -\/$>$ CharT     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
@@ -591,9 +637,23 @@ Get a character at index, or a default constructed instance of the character typ
 \begin{DoxyReturn}{Returns}
 Character at index or default constructed instance. 
 \end{DoxyReturn}
+\Hypertarget{structauspicious__library_1_1cu_1_1boundless__basic__string_ad25ee957169c776e2a3e9e827fb775a9}\index{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$@{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$}!front@{front}}
+\index{front@{front}!auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$@{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$}}
+\doxysubsubsection{\texorpdfstring{front()}{front()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__basic__string_ad25ee957169c776e2a3e9e827fb775a9} 
+template$<$typename CharT , typename Traits  = std\+::char\+\_\+traits$<$\+Char\+T$>$, typename Alloc  = std\+::allocator$<$\+Char\+T$>$$>$ \\
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+basic\+\_\+string}}$<$ CharT, Traits, Alloc $>$\+::front (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) -\/$>$ CharT \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Get the first character, or a default constructed instance of the character type when the string is empty. 
+
+\begin{DoxyReturn}{Returns}
+First character or default constructed instance. 
+\end{DoxyReturn}
 \Hypertarget{structauspicious__library_1_1cu_1_1boundless__basic__string_a433b798e915e486e400231c4fd541220}\index{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$@{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$}!front@{front}}
 \index{front@{front}!auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$@{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$}}
-\doxysubsubsection{\texorpdfstring{front()}{front()}}
+\doxysubsubsection{\texorpdfstring{front()}{front()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__basic__string_a433b798e915e486e400231c4fd541220} 
 template$<$typename CharT , typename Traits  = std\+::char\+\_\+traits$<$\+Char\+T$>$, typename Alloc  = std\+::allocator$<$\+Char\+T$>$$>$ \\
 auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+basic\+\_\+string}}$<$ CharT, Traits, Alloc $>$\+::front (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const -\/$>$ CharT     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
@@ -605,9 +665,23 @@ Get the first character, or a default constructed instance of the character type
 \begin{DoxyReturn}{Returns}
 First character or default constructed instance. 
 \end{DoxyReturn}
+\Hypertarget{structauspicious__library_1_1cu_1_1boundless__basic__string_a118dbc7e9b8ff1563b004770275dca10}\index{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$@{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$}!back@{back}}
+\index{back@{back}!auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$@{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$}}
+\doxysubsubsection{\texorpdfstring{back()}{back()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__basic__string_a118dbc7e9b8ff1563b004770275dca10} 
+template$<$typename CharT , typename Traits  = std\+::char\+\_\+traits$<$\+Char\+T$>$, typename Alloc  = std\+::allocator$<$\+Char\+T$>$$>$ \\
+auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+basic\+\_\+string}}$<$ CharT, Traits, Alloc $>$\+::back (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) -\/$>$ CharT \&     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Get the last character, or a default constructed instance of the character type when the string is empty. 
+
+\begin{DoxyReturn}{Returns}
+Last character or default constructed instance. 
+\end{DoxyReturn}
 \Hypertarget{structauspicious__library_1_1cu_1_1boundless__basic__string_a7ec4427dc6f80551c352237f6e4782e9}\index{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$@{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$}!back@{back}}
 \index{back@{back}!auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$@{auspicious\_library::cu::boundless\_basic\_string$<$ CharT, Traits, Alloc $>$}}
-\doxysubsubsection{\texorpdfstring{back()}{back()}}
+\doxysubsubsection{\texorpdfstring{back()}{back()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \label{structauspicious__library_1_1cu_1_1boundless__basic__string_a7ec4427dc6f80551c352237f6e4782e9} 
 template$<$typename CharT , typename Traits  = std\+::char\+\_\+traits$<$\+Char\+T$>$, typename Alloc  = std\+::allocator$<$\+Char\+T$>$$>$ \\
 auto \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__string}{auspicious\+\_\+library\+::cu\+::boundless\+\_\+basic\+\_\+string}}$<$ CharT, Traits, Alloc $>$\+::back (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const -\/$>$ CharT     \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}

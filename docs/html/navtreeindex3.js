@@ -1,8 +1,16 @@
 var NAVTREEINDEX3 =
 {
-"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ae9c4524a10fb4abb76317d04ba46394d":[16,0,0,2,1,25],
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ad25ee957169c776e2a3e9e827fb775a9":[16,0,0,2,1,28],
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ad2c40423a3f00eceae086e8aab4e7095":[14,0,0,3,1,10],
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ad2c40423a3f00eceae086e8aab4e7095":[16,0,0,2,1,10],
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ad4d2c8bd78217603d5517673b8f846bb":[14,0,0,3,1,0],
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ad4d2c8bd78217603d5517673b8f846bb":[16,0,0,2,1,0],
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ae9c4524a10fb4abb76317d04ba46394d":[14,0,0,3,1,27],
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html#ae9c4524a10fb4abb76317d04ba46394d":[16,0,0,2,1,27],
 "structauspicious__library_1_1cu_1_1boundless__basic__string.html#af6b2bc8258cf929e938452232697f439":[14,0,0,3,1,20],
 "structauspicious__library_1_1cu_1_1boundless__basic__string.html#af6b2bc8258cf929e938452232697f439":[16,0,0,2,1,20],
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html#afa46cbeadcbf58fdf3a9ca6f5837c33a":[14,0,0,3,1,26],
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html#afa46cbeadcbf58fdf3a9ca6f5837c33a":[16,0,0,2,1,26],
 "structauspicious__library_1_1cu_1_1boundless__basic__string__view.html":[14,0,0,3,2],
 "structauspicious__library_1_1cu_1_1boundless__basic__string__view.html":[16,0,0,2,2],
 "structauspicious__library_1_1cu_1_1boundless__basic__string__view.html#a15ee31ed29f5d965e1322a58cd6227d6":[14,0,0,3,2,4],
@@ -107,5 +115,11 @@ var NAVTREEINDEX3 =
 "structauspicious__library_1_1fu_1_1sd__chunk.html#a8bec068fd94a885520116f341a1976ac":[16,0,0,3,0,0],
 "structauspicious__library_1_1fu_1_1sd__chunk.html#ace08b3afc60b72859a0ceeb093161ae8":[14,0,0,5,0,1],
 "structauspicious__library_1_1fu_1_1sd__chunk.html#ace08b3afc60b72859a0ceeb093161ae8":[16,0,0,3,0,1],
+"structstd_1_1std_1_1formatter_3_01auspicious__library_1_1cu_1_1boundless__basic__string_3_01Char430276a2aefc156067655d1b098b4d49.html":[16,0,1,0,0],
+"structstd_1_1std_1_1formatter_3_01auspicious__library_1_1cu_1_1boundless__basic__string_3_01Char430276a2aefc156067655d1b098b4d49.html#a665b6bb49514817220c7207ee4c1af19":[16,0,1,0,0,0],
+"structstd_1_1std_1_1formatter_3_01auspicious__library_1_1cu_1_1boundless__basic__string_3_01Char430276a2aefc156067655d1b098b4d49.html#acf9c25fa266b6c3968a5d03e3b30ddfb":[16,0,1,0,0,1],
+"structstd_1_1std_1_1formatter_3_01auspicious__library_1_1cu_1_1boundless__basic__string__view_3_3f317a5d740b64eff4e1122fcba0a619.html":[16,0,1,0,1],
+"structstd_1_1std_1_1formatter_3_01auspicious__library_1_1cu_1_1boundless__basic__string__view_3_3f317a5d740b64eff4e1122fcba0a619.html#a6aa282e39f639bec5fea94324b9a987f":[16,0,1,0,1,1],
+"structstd_1_1std_1_1formatter_3_01auspicious__library_1_1cu_1_1boundless__basic__string__view_3_3f317a5d740b64eff4e1122fcba0a619.html#ab9ae3ac02d1d645ab650fb2c252170fd":[16,0,1,0,1,0],
 "todo.html":[13]
 };

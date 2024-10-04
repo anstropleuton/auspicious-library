@@ -28,5 +28,11 @@ var annotated_dup =
       [ "fu", "namespaceauspicious__library_1_1fu.html", [
         [ "sd_chunk", "structauspicious__library_1_1fu_1_1sd__chunk.html", "structauspicious__library_1_1fu_1_1sd__chunk" ]
       ] ]
+    ] ],
+    [ "std", "namespacestd.html", [
+      [ "std", null, [
+        [ "formatter< auspicious_library::cu::boundless_basic_string< CharT, Traits, Alloc >, CharT >", "structstd_1_1std_1_1formatter_3_01auspicious__library_1_1cu_1_1boundless__basic__string_3_01Char430276a2aefc156067655d1b098b4d49.html", "structstd_1_1std_1_1formatter_3_01auspicious__library_1_1cu_1_1boundless__basic__string_3_01Char430276a2aefc156067655d1b098b4d49" ],
+        [ "formatter< auspicious_library::cu::boundless_basic_string_view< CharT, Traits >, CharT >", "structstd_1_1std_1_1formatter_3_01auspicious__library_1_1cu_1_1boundless__basic__string__view_3_3f317a5d740b64eff4e1122fcba0a619.html", "structstd_1_1std_1_1formatter_3_01auspicious__library_1_1cu_1_1boundless__basic__string__view_3_3f317a5d740b64eff4e1122fcba0a619" ]
+      ] ]
     ] ]
 ];

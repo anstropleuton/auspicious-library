@@ -9,6 +9,7 @@ General functionality for container types with operators.
 {\ttfamily \#include $<$array$>$}\newline
 {\ttfamily \#include $<$cmath$>$}\newline
 {\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$format$>$}\newline
 {\ttfamily \#include $<$initializer\+\_\+list$>$}\newline
 {\ttfamily \#include $<$iterator$>$}\newline
 {\ttfamily \#include $<$ranges$>$}\newline
@@ -34,7 +35,11 @@ struct \mbox{\hyperlink{structauspicious__library_1_1cu_1_1boundless__basic__str
 struct \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enum__max}{auspicious\+\_\+library\+::cu\+::enum\+\_\+max$<$ E $>$}}
 \begin{DoxyCompactList}\small\item\em Integral constant for the enumerator\textquotesingle{}s {\ttfamily max} member. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structauspicious__library_1_1cu_1_1enumerated__array}{auspicious\+\_\+library\+::cu\+::enumerated\+\_\+array$<$ T, E $>$}}
-\begin{DoxyCompactList}\small\item\em Array with enumerator as index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Array with enumerator as index. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structstd_1_1std_1_1formatter_3_01auspicious__library_1_1cu_1_1boundless__basic__string_3_01Char430276a2aefc156067655d1b098b4d49}{std\+::std\+::formatter$<$ auspicious\+\_\+library\+::cu\+::boundless\+\_\+basic\+\_\+string$<$ Char\+T, Traits, Alloc $>$, Char\+T $>$}}
+\begin{DoxyCompactList}\small\item\em Formatter for {\ttfamily cu\+::boundless\+\_\+basic\+\_\+string} . \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structstd_1_1std_1_1formatter_3_01auspicious__library_1_1cu_1_1boundless__basic__string__view_3_3f317a5d740b64eff4e1122fcba0a619}{std\+::std\+::formatter$<$ auspicious\+\_\+library\+::cu\+::boundless\+\_\+basic\+\_\+string\+\_\+view$<$ Char\+T, Traits $>$, Char\+T $>$}}
+\begin{DoxyCompactList}\small\item\em Formatter for {\ttfamily cu\+::boundless\+\_\+basic\+\_\+string\+\_\+view} . \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
@@ -43,7 +48,9 @@ namespace \mbox{\hyperlink{namespaceauspicious__library}{auspicious\+\_\+library
 namespace \mbox{\hyperlink{namespaceauspicious__library_1_1cu}{auspicious\+\_\+library\+::cu}}
 \begin{DoxyCompactList}\small\item\em Copper...? No wait, Container Utilities. \end{DoxyCompactList}\item 
 namespace \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators}{auspicious\+\_\+library\+::cu\+\_\+operators}}
-\begin{DoxyCompactList}\small\item\em Container Utilities, operators version. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Container Utilities, operators version. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacestd}{std}}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Concepts}
 \begin{DoxyCompactItemize}
 \item 

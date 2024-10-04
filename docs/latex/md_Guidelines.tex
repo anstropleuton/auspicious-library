@@ -3,26 +3,26 @@
 I\textquotesingle{}ll be honest with you, I took this straight from Chat\+GPT and did some tweaks to it. But the guidelines is mine tho.
 
 \DoxyHorRuler{0}
-\hypertarget{md_Guidelines_autotoc_md3}{}\doxysection{\texorpdfstring{Auspicious Library Coding Guidelines}{Auspicious Library Coding Guidelines}}\label{md_Guidelines_autotoc_md3}
-\hypertarget{md_Guidelines_autotoc_md4}{}\doxysubsection{\texorpdfstring{Naming Conventions}{Naming Conventions}}\label{md_Guidelines_autotoc_md4}
-\hypertarget{md_Guidelines_autotoc_md5}{}\doxysubsubsection{\texorpdfstring{General}{General}}\label{md_Guidelines_autotoc_md5}
+\hypertarget{md_Guidelines_autotoc_md2}{}\doxysection{\texorpdfstring{Auspicious Library Coding Guidelines}{Auspicious Library Coding Guidelines}}\label{md_Guidelines_autotoc_md2}
+\hypertarget{md_Guidelines_autotoc_md3}{}\doxysubsection{\texorpdfstring{Naming Conventions}{Naming Conventions}}\label{md_Guidelines_autotoc_md3}
+\hypertarget{md_Guidelines_autotoc_md4}{}\doxysubsubsection{\texorpdfstring{General}{General}}\label{md_Guidelines_autotoc_md4}
 
 \begin{DoxyItemize}
 \item Don\textquotesingle{}t abbreviate names, acronyms are allowed. And namespace abbreviations are allowed (see Namespace Names).
 \item Don\textquotesingle{}t use single letter names, except when it is a mathematical formulas or names of indices.
-\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md6}{}\doxysubsubsection{\texorpdfstring{Variable Names}{Variable Names}}\label{md_Guidelines_autotoc_md6}
+\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md5}{}\doxysubsubsection{\texorpdfstring{Variable Names}{Variable Names}}\label{md_Guidelines_autotoc_md5}
 Use {\ttfamily snake\+\_\+case} and keep the variable names descriptive. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keywordtype}{int}\ users\_count;}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md7}{}\doxysubsubsection{\texorpdfstring{Constant Names}{Constant Names}}\label{md_Guidelines_autotoc_md7}
+\hypertarget{md_Guidelines_autotoc_md6}{}\doxysubsubsection{\texorpdfstring{Constant Names}{Constant Names}}\label{md_Guidelines_autotoc_md6}
 Use {\ttfamily snake\+\_\+case}, and keep the constant names descriptive. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ max\_users\ =\ 10;}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md8}{}\doxysubsubsection{\texorpdfstring{Structure Names}{Structure Names}}\label{md_Guidelines_autotoc_md8}
+\hypertarget{md_Guidelines_autotoc_md7}{}\doxysubsubsection{\texorpdfstring{Structure Names}{Structure Names}}\label{md_Guidelines_autotoc_md7}
 Use {\ttfamily snake\+\_\+case} and don\textquotesingle{}t append any {\ttfamily \+\_\+t} at the end. Prefer keeping it simple than descriptive. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{struct\ }user\ \{}
@@ -30,7 +30,7 @@ Use {\ttfamily snake\+\_\+case} and don\textquotesingle{}t append any {\ttfamily
 \DoxyCodeLine{\};}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md9}{}\doxysubsubsection{\texorpdfstring{Enumerator Names}{Enumerator Names}}\label{md_Guidelines_autotoc_md9}
+\hypertarget{md_Guidelines_autotoc_md8}{}\doxysubsubsection{\texorpdfstring{Enumerator Names}{Enumerator Names}}\label{md_Guidelines_autotoc_md8}
 Use {\ttfamily snake\+\_\+case} and prefer keeping it simple than descriptive. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{enum}\ user\_type\ \{}
@@ -38,13 +38,13 @@ Use {\ttfamily snake\+\_\+case} and prefer keeping it simple than descriptive.
 \DoxyCodeLine{\};}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md10}{}\doxysubsubsection{\texorpdfstring{Function Names}{Function Names}}\label{md_Guidelines_autotoc_md10}
+\hypertarget{md_Guidelines_autotoc_md9}{}\doxysubsubsection{\texorpdfstring{Function Names}{Function Names}}\label{md_Guidelines_autotoc_md9}
 Use {\ttfamily snake\+\_\+case} and name the function based on what it does. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ create\_user(std::string\_view\ username)\ -\/>\ user;}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md11}{}\doxysubsubsection{\texorpdfstring{Namespace Names}{Namespace Names}}\label{md_Guidelines_autotoc_md11}
+\hypertarget{md_Guidelines_autotoc_md10}{}\doxysubsubsection{\texorpdfstring{Namespace Names}{Namespace Names}}\label{md_Guidelines_autotoc_md10}
 When the namespace is internal use or is not in global space, abbreviate namespaces to 2-\/5 letters. We don\textquotesingle{}t care about descriptiveness when not in global space. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{namespace\ }nsp\ \{}
@@ -52,23 +52,23 @@ When the namespace is internal use or is not in global space, abbreviate namespa
 \DoxyCodeLine{\};}
 
 \end{DoxyCode}
- In global space, prefer more descriptive name since one can just do {\ttfamily namespace a = a\+\_\+long\+\_\+namespace\+\_\+name;}.\hypertarget{md_Guidelines_autotoc_md12}{}\doxysubsubsection{\texorpdfstring{Template Parameters}{Template Parameters}}\label{md_Guidelines_autotoc_md12}
+ In global space, prefer more descriptive name since one can just do {\ttfamily namespace a = a\+\_\+long\+\_\+namespace\+\_\+name;}.\hypertarget{md_Guidelines_autotoc_md11}{}\doxysubsubsection{\texorpdfstring{Template Parameters}{Template Parameters}}\label{md_Guidelines_autotoc_md11}
 Use {\ttfamily Pascal\+Case} for template parameters. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Type>}
 \DoxyCodeLine{\textcolor{keyword}{struct\ }structure;}
 
 \end{DoxyCode}
- This may change to {\ttfamily snake\+\_\+case} for consistency, but is {\ttfamily Pascal\+Case} for the time being.\hypertarget{md_Guidelines_autotoc_md13}{}\doxysubsubsection{\texorpdfstring{File Names}{File Names}}\label{md_Guidelines_autotoc_md13}
+ This may change to {\ttfamily snake\+\_\+case} for consistency, but is {\ttfamily Pascal\+Case} for the time being.\hypertarget{md_Guidelines_autotoc_md12}{}\doxysubsubsection{\texorpdfstring{File Names}{File Names}}\label{md_Guidelines_autotoc_md12}
 Use {\ttfamily snake\+\_\+case} for file names. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{my\_module.hpp}
 \DoxyCodeLine{my\_module.cpp}
 
 \end{DoxyCode}
- Use specificity-\/first style, e.\+g., {\ttfamily animated\+\_\+icon\+\_\+texture.\+gif} over {\ttfamily texture\+\_\+icon\+\_\+animated.\+gif}.\hypertarget{md_Guidelines_autotoc_md14}{}\doxysubsection{\texorpdfstring{Formatting}{Formatting}}\label{md_Guidelines_autotoc_md14}
-\hypertarget{md_Guidelines_autotoc_md15}{}\doxysubsubsection{\texorpdfstring{Indentation}{Indentation}}\label{md_Guidelines_autotoc_md15}
-Use 4 spaces for indentation, no tabs.\hypertarget{md_Guidelines_autotoc_md16}{}\doxysubsubsection{\texorpdfstring{Braces}{Braces}}\label{md_Guidelines_autotoc_md16}
+ Use specificity-\/first style, e.\+g., {\ttfamily animated\+\_\+icon\+\_\+texture.\+gif} over {\ttfamily texture\+\_\+icon\+\_\+animated.\+gif}.\hypertarget{md_Guidelines_autotoc_md13}{}\doxysubsection{\texorpdfstring{Formatting}{Formatting}}\label{md_Guidelines_autotoc_md13}
+\hypertarget{md_Guidelines_autotoc_md14}{}\doxysubsubsection{\texorpdfstring{Indentation}{Indentation}}\label{md_Guidelines_autotoc_md14}
+Use 4 spaces for indentation, no tabs.\hypertarget{md_Guidelines_autotoc_md15}{}\doxysubsubsection{\texorpdfstring{Braces}{Braces}}\label{md_Guidelines_autotoc_md15}
 Allman style for control flow or function definitions. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keywordflow}{if}\ (condition)}
@@ -84,8 +84,8 @@ Allman style for control flow or function definitions.
 \DoxyCodeLine{\};}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md17}{}\doxysubsubsection{\texorpdfstring{Line Length}{Line Length}}\label{md_Guidelines_autotoc_md17}
-Limit lines to 80 characters. I use 1920x1080 screen and I use split view, side by side, to work with multiple files, and word wrap or having to scroll horizontally is less convenient.\hypertarget{md_Guidelines_autotoc_md18}{}\doxysubsubsection{\texorpdfstring{Spacing}{Spacing}}\label{md_Guidelines_autotoc_md18}
+\hypertarget{md_Guidelines_autotoc_md16}{}\doxysubsubsection{\texorpdfstring{Line Length}{Line Length}}\label{md_Guidelines_autotoc_md16}
+Limit lines to 80 characters. I use 1920x1080 screen and I use split view, side by side, to work with multiple files, and word wrap or having to scroll horizontally is less convenient.\hypertarget{md_Guidelines_autotoc_md17}{}\doxysubsubsection{\texorpdfstring{Spacing}{Spacing}}\label{md_Guidelines_autotoc_md17}
 Use spaces around operators and after commas, but not inside parentheses. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keywordtype}{int}\ result\ =\ a\ +\ b;}
@@ -94,13 +94,13 @@ Use spaces around operators and after commas, but not inside parentheses.
 \DoxyCodeLine{\textcolor{keywordtype}{void}\ do\_something(\textcolor{keywordtype}{int}\ a,\ \textcolor{keywordtype}{int}\ b);}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md19}{}\doxysubsubsection{\texorpdfstring{Variable Declaration}{Variable Declaration}}\label{md_Guidelines_autotoc_md19}
+\hypertarget{md_Guidelines_autotoc_md18}{}\doxysubsubsection{\texorpdfstring{Variable Declaration}{Variable Declaration}}\label{md_Guidelines_autotoc_md18}
 Use {\ttfamily auto} for function expressions but not for constants or when the result is a fundamental type ({\ttfamily int}, {\ttfamily float}, etc., including aliases like {\ttfamily std\+::size\+\_\+t}). 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ value\ =\ get\_value();}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md20}{}\doxysubsubsection{\texorpdfstring{Function Declarations}{Function Declarations}}\label{md_Guidelines_autotoc_md20}
+\hypertarget{md_Guidelines_autotoc_md19}{}\doxysubsubsection{\texorpdfstring{Function Declarations}{Function Declarations}}\label{md_Guidelines_autotoc_md19}
 Split long function declarations for readability. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{[[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ get\_value(}
@@ -109,14 +109,14 @@ Split long function declarations for readability.
 \DoxyCodeLine{)\ -\/>\ return\_type;}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md21}{}\doxysubsection{\texorpdfstring{Comments}{Comments}}\label{md_Guidelines_autotoc_md21}
-\hypertarget{md_Guidelines_autotoc_md22}{}\doxysubsubsection{\texorpdfstring{Single-\/\+Line Comments}{Single-\/\+Line Comments}}\label{md_Guidelines_autotoc_md22}
+\hypertarget{md_Guidelines_autotoc_md20}{}\doxysubsection{\texorpdfstring{Comments}{Comments}}\label{md_Guidelines_autotoc_md20}
+\hypertarget{md_Guidelines_autotoc_md21}{}\doxysubsubsection{\texorpdfstring{Single-\/\+Line Comments}{Single-\/\+Line Comments}}\label{md_Guidelines_autotoc_md21}
 Use {\ttfamily //} for single-\/line comments, placed above or on the code line. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keywordtype}{int}\ my\_variable;\ \textcolor{comment}{//\ This\ is\ a\ comment}}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md23}{}\doxysubsubsection{\texorpdfstring{Multi-\/\+Line Comments}{Multi-\/\+Line Comments}}\label{md_Guidelines_autotoc_md23}
+\hypertarget{md_Guidelines_autotoc_md22}{}\doxysubsubsection{\texorpdfstring{Multi-\/\+Line Comments}{Multi-\/\+Line Comments}}\label{md_Guidelines_autotoc_md22}
 Use {\ttfamily /\texorpdfstring{$\ast$}{*} \texorpdfstring{$\ast$}{*}/} with asterisks and two spaces at the start of each line. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{comment}{/*}}
@@ -124,14 +124,14 @@ Use {\ttfamily /\texorpdfstring{$\ast$}{*} \texorpdfstring{$\ast$}{*}/} with ast
 \DoxyCodeLine{\textcolor{comment}{\ */}}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md24}{}\doxysubsubsection{\texorpdfstring{Documentation Comments}{Documentation Comments}}\label{md_Guidelines_autotoc_md24}
+\hypertarget{md_Guidelines_autotoc_md23}{}\doxysubsubsection{\texorpdfstring{Documentation Comments}{Documentation Comments}}\label{md_Guidelines_autotoc_md23}
 Use Doxygen-\/style comments for documentation. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md25}{}\doxysubsubsection{\texorpdfstring{Punctuations}{Punctuations}}\label{md_Guidelines_autotoc_md25}
+\hypertarget{md_Guidelines_autotoc_md24}{}\doxysubsubsection{\texorpdfstring{Punctuations}{Punctuations}}\label{md_Guidelines_autotoc_md24}
 Use periods to end the sentence in a document comment, and not in regular comment 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{comment}{/*}}
@@ -149,28 +149,28 @@ Use periods to end the sentence in a document comment, and not in regular commen
 \DoxyCodeLine{\textcolor{comment}{\ */}}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md26}{}\doxysubsubsection{\texorpdfstring{File Comment}{File Comment}}\label{md_Guidelines_autotoc_md26}
+\hypertarget{md_Guidelines_autotoc_md25}{}\doxysubsubsection{\texorpdfstring{File Comment}{File Comment}}\label{md_Guidelines_autotoc_md25}
 Have a documentation comment on the first line of the file describing the file. {\ttfamily header.\+hpp}\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md27}{}\doxysubsection{\texorpdfstring{Code Structure}{Code Structure}}\label{md_Guidelines_autotoc_md27}
-\hypertarget{md_Guidelines_autotoc_md28}{}\doxysubsubsection{\texorpdfstring{Header Files}{Header Files}}\label{md_Guidelines_autotoc_md28}
+\hypertarget{md_Guidelines_autotoc_md26}{}\doxysubsection{\texorpdfstring{Code Structure}{Code Structure}}\label{md_Guidelines_autotoc_md26}
+\hypertarget{md_Guidelines_autotoc_md27}{}\doxysubsubsection{\texorpdfstring{Header Files}{Header Files}}\label{md_Guidelines_autotoc_md27}
 Use {\ttfamily \#pragma once} for include guards. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#pragma\ once}}
 
 \end{DoxyCode}
- As oppose to {\ttfamily \#ifndef} guards.\hypertarget{md_Guidelines_autotoc_md29}{}\doxysubsubsection{\texorpdfstring{Source Files}{Source Files}}\label{md_Guidelines_autotoc_md29}
+ As oppose to {\ttfamily \#ifndef} guards.\hypertarget{md_Guidelines_autotoc_md28}{}\doxysubsubsection{\texorpdfstring{Source Files}{Source Files}}\label{md_Guidelines_autotoc_md28}
 Include the corresponding header file first. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}my\_module.hpp"{}}}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md30}{}\doxysubsection{\texorpdfstring{Functions and Lambdas}{Functions and Lambdas}}\label{md_Guidelines_autotoc_md30}
-\hypertarget{md_Guidelines_autotoc_md31}{}\doxysubsubsection{\texorpdfstring{Function Return Type}{Function Return Type}}\label{md_Guidelines_autotoc_md31}
+\hypertarget{md_Guidelines_autotoc_md29}{}\doxysubsection{\texorpdfstring{Functions and Lambdas}{Functions and Lambdas}}\label{md_Guidelines_autotoc_md29}
+\hypertarget{md_Guidelines_autotoc_md30}{}\doxysubsubsection{\texorpdfstring{Function Return Type}{Function Return Type}}\label{md_Guidelines_autotoc_md30}
 Use {\ttfamily auto} and trailing return types. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{[[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ add(\textcolor{keywordtype}{int}\ a,\ \textcolor{keywordtype}{int}\ b)\ -\/>\ int;}
@@ -184,7 +184,7 @@ Use {\ttfamily auto} and trailing return types.
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md32}{}\doxysubsubsection{\texorpdfstring{{\ttfamily \mbox{[}\mbox{[}nodiscard\mbox{]}\mbox{]}}, {\ttfamily inline} and {\ttfamily constexpr} Functions}{{\ttfamily \mbox{[}\mbox{[}nodiscard\mbox{]}\mbox{]}}, {\ttfamily inline} and {\ttfamily constexpr} Functions}}\label{md_Guidelines_autotoc_md32}
+\hypertarget{md_Guidelines_autotoc_md31}{}\doxysubsubsection{\texorpdfstring{{\ttfamily \mbox{[}\mbox{[}nodiscard\mbox{]}\mbox{]}}, {\ttfamily inline} and {\ttfamily constexpr} Functions}{{\ttfamily \mbox{[}\mbox{[}nodiscard\mbox{]}\mbox{]}}, {\ttfamily inline} and {\ttfamily constexpr} Functions}}\label{md_Guidelines_autotoc_md31}
 Use {\ttfamily \mbox{[}\mbox{[}nodiscard\mbox{]}\mbox{]}} to indicate the caller should not discard the value (almost always), use {\ttfamily inline} for small or performance-\/critical functions, and use {\ttfamily constexpr} (if applicable) to let compiler run the code at compile time. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{[[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ add(\textcolor{keywordtype}{int}\ a,\ \textcolor{keywordtype}{int}\ b)\ -\/>\ \textcolor{keywordtype}{int}}
@@ -193,20 +193,20 @@ Use {\ttfamily \mbox{[}\mbox{[}nodiscard\mbox{]}\mbox{]}} to indicate the caller
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md33}{}\doxysubsubsection{\texorpdfstring{Lambdas}{Lambdas}}\label{md_Guidelines_autotoc_md33}
+\hypertarget{md_Guidelines_autotoc_md32}{}\doxysubsubsection{\texorpdfstring{Lambdas}{Lambdas}}\label{md_Guidelines_autotoc_md32}
 Always use reference capture for lambda. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ lambda\ =\ [\&]()\ \{\ \textcolor{comment}{/*\ code\ */}\ \};}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md34}{}\doxysubsubsection{\texorpdfstring{Static Functions}{Static Functions}}\label{md_Guidelines_autotoc_md34}
+\hypertarget{md_Guidelines_autotoc_md33}{}\doxysubsubsection{\texorpdfstring{Static Functions}{Static Functions}}\label{md_Guidelines_autotoc_md33}
 Use {\ttfamily static} for internal functions. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ helper()\ -\/>\ void;}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md35}{}\doxysubsection{\texorpdfstring{Structures}{Structures}}\label{md_Guidelines_autotoc_md35}
-\hypertarget{md_Guidelines_autotoc_md36}{}\doxysubsubsection{\texorpdfstring{Structure Organization}{Structure Organization}}\label{md_Guidelines_autotoc_md36}
+\hypertarget{md_Guidelines_autotoc_md34}{}\doxysubsection{\texorpdfstring{Structures}{Structures}}\label{md_Guidelines_autotoc_md34}
+\hypertarget{md_Guidelines_autotoc_md35}{}\doxysubsubsection{\texorpdfstring{Structure Organization}{Structure Organization}}\label{md_Guidelines_autotoc_md35}
 Order members as\+:
 \begin{DoxyItemize}
 \item Data members
@@ -268,8 +268,8 @@ Order members as\+:
 
 \end{DoxyCode}
 
-\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md37}{}\doxysubsubsection{\texorpdfstring{Constructors}{Constructors}}\label{md_Guidelines_autotoc_md37}
-Prefer making a type aggregate unless you really need constructors.\hypertarget{md_Guidelines_autotoc_md38}{}\doxysubsubsection{\texorpdfstring{Member Functions}{Member Functions}}\label{md_Guidelines_autotoc_md38}
+\end{DoxyItemize}\hypertarget{md_Guidelines_autotoc_md36}{}\doxysubsubsection{\texorpdfstring{Constructors}{Constructors}}\label{md_Guidelines_autotoc_md36}
+Prefer making a type aggregate unless you really need constructors.\hypertarget{md_Guidelines_autotoc_md37}{}\doxysubsubsection{\texorpdfstring{Member Functions}{Member Functions}}\label{md_Guidelines_autotoc_md37}
 Define non-\/inline member functions outside the struct in source files. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ my\_struct::do\_way\_more\_stuff(\textcolor{keywordtype}{int}\ a,\ \textcolor{keywordtype}{float}\ b)\ -\/>\ \textcolor{keywordtype}{float}}
@@ -278,7 +278,7 @@ Define non-\/inline member functions outside the struct in source files.
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md39}{}\doxysubsubsection{\texorpdfstring{Operator Overloading}{Operator Overloading}}\label{md_Guidelines_autotoc_md39}
+\hypertarget{md_Guidelines_autotoc_md38}{}\doxysubsubsection{\texorpdfstring{Operator Overloading}{Operator Overloading}}\label{md_Guidelines_autotoc_md38}
 Use regular member functions for modifying operators, friend functions non-\/modifying operators. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{struct\ }my\_struct\ \{}
@@ -293,36 +293,36 @@ Use regular member functions for modifying operators, friend functions non-\/mod
 \DoxyCodeLine{\};}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md40}{}\doxysubsection{\texorpdfstring{Miscellaneous}{Miscellaneous}}\label{md_Guidelines_autotoc_md40}
-\hypertarget{md_Guidelines_autotoc_md41}{}\doxysubsubsection{\texorpdfstring{Enumerators}{Enumerators}}\label{md_Guidelines_autotoc_md41}
-Include a {\ttfamily max} member in enumerators intended for use as indexes.\hypertarget{md_Guidelines_autotoc_md42}{}\doxysubsubsection{\texorpdfstring{Error Handling}{Error Handling}}\label{md_Guidelines_autotoc_md42}
+\hypertarget{md_Guidelines_autotoc_md39}{}\doxysubsection{\texorpdfstring{Miscellaneous}{Miscellaneous}}\label{md_Guidelines_autotoc_md39}
+\hypertarget{md_Guidelines_autotoc_md40}{}\doxysubsubsection{\texorpdfstring{Enumerators}{Enumerators}}\label{md_Guidelines_autotoc_md40}
+Include a {\ttfamily max} member in enumerators intended for use as indexes.\hypertarget{md_Guidelines_autotoc_md41}{}\doxysubsubsection{\texorpdfstring{Error Handling}{Error Handling}}\label{md_Guidelines_autotoc_md41}
 Use exceptions for error handling, but return error codes in performance-\/critical functions. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}A\ very\ descriptive\ message\ with\ some\ debug\ info"{}});}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md43}{}\doxysubsubsection{\texorpdfstring{Concepts}{Concepts}}\label{md_Guidelines_autotoc_md43}
-Prefer using defined concepts over {\ttfamily typename} for template parameters.\hypertarget{md_Guidelines_autotoc_md44}{}\doxysubsubsection{\texorpdfstring{Standard Library}{Standard Library}}\label{md_Guidelines_autotoc_md44}
+\hypertarget{md_Guidelines_autotoc_md42}{}\doxysubsubsection{\texorpdfstring{Concepts}{Concepts}}\label{md_Guidelines_autotoc_md42}
+Prefer using defined concepts over {\ttfamily typename} for template parameters.\hypertarget{md_Guidelines_autotoc_md43}{}\doxysubsubsection{\texorpdfstring{Standard Library}{Standard Library}}\label{md_Guidelines_autotoc_md43}
 Prefer C++ standard library features. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string>}}
 \DoxyCodeLine{std::string\ my\_string\ =\ \textcolor{stringliteral}{"{}Hello"{}};}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md45}{}\doxysubsubsection{\texorpdfstring{Pointers and References}{Pointers and References}}\label{md_Guidelines_autotoc_md45}
+\hypertarget{md_Guidelines_autotoc_md44}{}\doxysubsubsection{\texorpdfstring{Pointers and References}{Pointers and References}}\label{md_Guidelines_autotoc_md44}
 Use smart pointers over raw pointers, and references when ownership isn\textquotesingle{}t changing. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{std::unique\_ptr<my\_struct>\ ptr\ =\ std::make\_unique<my\_struct>();}
 \DoxyCodeLine{\textcolor{keywordtype}{void}\ my\_function(\textcolor{keyword}{const}\ my\_struct\&\ obj);}
 
 \end{DoxyCode}
- Use raw pointers if you intend the API to accept address of local variables (still not worth it).\hypertarget{md_Guidelines_autotoc_md46}{}\doxysubsubsection{\texorpdfstring{Macros}{Macros}}\label{md_Guidelines_autotoc_md46}
+ Use raw pointers if you intend the API to accept address of local variables (still not worth it).\hypertarget{md_Guidelines_autotoc_md45}{}\doxysubsubsection{\texorpdfstring{Macros}{Macros}}\label{md_Guidelines_autotoc_md45}
 Avoid macros; use {\ttfamily inline constexpr} or templated functions instead. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#define\ MAX(a,\ b)\ ((a)\ >\ (b)\ ?\ (a)\ :\ (b))\ }\textcolor{comment}{//\ Avoid}}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md47}{}\doxysubsubsection{\texorpdfstring{Initialization}{Initialization}}\label{md_Guidelines_autotoc_md47}
+\hypertarget{md_Guidelines_autotoc_md46}{}\doxysubsubsection{\texorpdfstring{Initialization}{Initialization}}\label{md_Guidelines_autotoc_md46}
 Use {\ttfamily =} or {\ttfamily \{\}} for initializing values and {\ttfamily ()} for constructing objects. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keywordtype}{int}\ value\ =\ 10;}
@@ -330,29 +330,29 @@ Use {\ttfamily =} or {\ttfamily \{\}} for initializing values and {\ttfamily ()}
 \DoxyCodeLine{Type\ object(param1,\ param2);}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md48}{}\doxysubsubsection{\texorpdfstring{Range-\/\+Based Loops}{Range-\/\+Based Loops}}\label{md_Guidelines_autotoc_md48}
+\hypertarget{md_Guidelines_autotoc_md47}{}\doxysubsubsection{\texorpdfstring{Range-\/\+Based Loops}{Range-\/\+Based Loops}}\label{md_Guidelines_autotoc_md47}
 Prefer range-\/based loops and use {\ttfamily auto \&} for all. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&value\ :\ values)\ \{\ \textcolor{comment}{/*\ code\ */}\ \}}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md49}{}\doxysubsubsection{\texorpdfstring{Avoid Magic Numbers}{Avoid Magic Numbers}}\label{md_Guidelines_autotoc_md49}
+\hypertarget{md_Guidelines_autotoc_md48}{}\doxysubsubsection{\texorpdfstring{Avoid Magic Numbers}{Avoid Magic Numbers}}\label{md_Guidelines_autotoc_md48}
 Use named constants instead of magic numbers. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ max\_size\ =\ 100;}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md50}{}\doxysubsubsection{\texorpdfstring{Use {\ttfamily nullptr}}{Use {\ttfamily nullptr}}}\label{md_Guidelines_autotoc_md50}
+\hypertarget{md_Guidelines_autotoc_md49}{}\doxysubsubsection{\texorpdfstring{Use {\ttfamily nullptr}}{Use {\ttfamily nullptr}}}\label{md_Guidelines_autotoc_md49}
 Use {\ttfamily nullptr} instead of {\ttfamily NULL}. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keywordtype}{int}\ *ptr\ =\ \textcolor{keyword}{nullptr};}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md51}{}\doxysubsubsection{\texorpdfstring{Prefix {\ttfamily \+::}}{Prefix {\ttfamily \+::}}}\label{md_Guidelines_autotoc_md51}
+\hypertarget{md_Guidelines_autotoc_md50}{}\doxysubsubsection{\texorpdfstring{Prefix {\ttfamily \+::}}{Prefix {\ttfamily \+::}}}\label{md_Guidelines_autotoc_md50}
 Use {\ttfamily \+::} for calling C standard functions. 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keywordtype}{char}\ lowered\ =\ ::tolower(c);}
 
 \end{DoxyCode}
-\hypertarget{md_Guidelines_autotoc_md52}{}\doxysubsubsection{\texorpdfstring{Abbreviations}{Abbreviations}}\label{md_Guidelines_autotoc_md52}
+\hypertarget{md_Guidelines_autotoc_md51}{}\doxysubsubsection{\texorpdfstring{Abbreviations}{Abbreviations}}\label{md_Guidelines_autotoc_md51}
 Don\textquotesingle{}t use abbreviated thing in API, but you can abbreviate long names like {\ttfamily std\+::ranges} to shorter names (e.\+g., {\ttfamily stdr}) within source files. 

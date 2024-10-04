@@ -36,3 +36,6 @@
 
 # Build files
 build
+
+# Clangd cash files
+.cache

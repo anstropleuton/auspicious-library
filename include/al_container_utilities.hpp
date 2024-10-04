@@ -48,6 +48,7 @@
 #include <array>
 #include <cmath>
 #include <cstddef>
+#include <format>
 #include <initializer_list>
 #include <iterator>
 #include <ranges>
@@ -986,7 +987,34 @@ struct boundless_basic_string : std::basic_string<CharT, Traits, Alloc> {
      */
     [[nodiscard]] inline constexpr auto operator[] (
         std::size_t index
+    ) -> CharT &
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get a character at index, or a default constructed instance of
+     *          the character type when index is invalid.
+     *
+     *  @param  index  An index specifying element.
+     *  @return  Character at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto operator[] (
+        std::size_t index
     ) const -> CharT
+    {
+        return boundless_access(*this, index);
+    }
+
+    /**
+     *  @brief  Get a character at index, or a default constructed instance of
+     *          the character type when index is invalid.
+     *
+     *  @param  index  An index specifying element.
+     *  @return  Character at index or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto at(std::size_t index)
+    -> CharT &
     {
         return boundless_access(*this, index);
     }
@@ -1009,9 +1037,29 @@ struct boundless_basic_string : std::basic_string<CharT, Traits, Alloc> {
      *          the character type when the string is empty.
      *  @return  First character or default constructed instance.
      */
+    [[nodiscard]] inline constexpr auto front() -> CharT &
+    {
+        return boundless_access(*this, 0);
+    }
+
+    /**
+     *  @brief  Get the first character, or a default constructed instance of
+     *          the character type when the string is empty.
+     *  @return  First character or default constructed instance.
+     */
     [[nodiscard]] inline constexpr auto front() const -> CharT
     {
         return boundless_access(*this, 0);
+    }
+
+    /**
+     *  @brief  Get the last character, or a default constructed instance of
+     *          the character type when the string is empty.
+     *  @return  Last character or default constructed instance.
+     */
+    [[nodiscard]] inline constexpr auto back() -> CharT &
+    {
+        return boundless_access(*this, this->size() - 1);
     }
 
     /**
@@ -1779,3 +1827,94 @@ requires(!std::is_same_v<Container, std::string>
 } // namespace cu_operators
 
 } // namespace auspicious_library
+
+namespace std {
+
+/**
+ *  @brief  Formatter for @c cu::boundless_basic_string .
+ *  
+ *  @tparam  CharT   The character type.
+ *  @tparam  Traits  The character traits type.
+ *  @tparam  Alloc   The allocator type, defaults to @c std::allocator<CharT> .
+ */
+template<typename CharT, typename Traits, typename Alloc>
+struct std::formatter<auspicious_library::cu::boundless_basic_string<CharT,
+    Traits, Alloc>, CharT> {
+
+    /**
+     *  @brief  Parse the format specifiers (none).
+     *  
+     *  @tparam  ParseContext  A parse context type.
+     *  @param   ctx           A parse context.
+     *  @return  Iterator to begin of parse context.
+     */
+    template<typename ParseContext>
+    [[nodiscard]] inline constexpr auto parse(ParseContext &ctx)
+    {
+        // No format specifiers
+        return ctx.begin();
+    }
+
+    /**
+     *  @brief  Format the string using parsed specifiers (none).
+     *  
+     *  @tparam  FormatContext  A format context type.
+     *  @param   string         The string to format.
+     *  @param   ctx            A format context.
+     *  @return  Iterator to end of format context.
+     */
+    template<typename FormatContext>
+    [[nodiscard]] inline constexpr auto format(
+        auspicious_library::cu::boundless_basic_string<CharT, Traits, Alloc>
+        string,
+        FormatContext &ctx
+    )
+    {
+        return std::ranges::copy(string, ctx.out()).out;
+    }
+};
+
+/**
+ *  @brief  Formatter for @c cu::boundless_basic_string_view .
+ *  
+ *  @tparam  CharT   The character type.
+ *  @tparam  Traits  The character traits type.
+ */
+template<typename CharT, typename Traits>
+struct std::formatter<auspicious_library::cu::boundless_basic_string_view<CharT,
+    Traits>, CharT> {
+
+    /**
+     *  @brief  Parse the format specifiers (none).
+     *  
+     *  @tparam  ParseContext  A parse context type.
+     *  @param   ctx           A parse context.
+     *  @return  Iterator to begin of parse context.
+     */
+    template<typename ParseContext>
+    [[nodiscard]] inline constexpr auto parse(ParseContext &ctx)
+    {
+        // No format specifiers
+        return ctx.begin();
+    }
+
+    /**
+     *  @brief  Format the string using parsed specifiers (none).
+     *  
+     *  @tparam  FormatContext  A format context type.
+     *  @param   string         The string to format.
+     *  @param   ctx            A format context.
+     *  @return  Iterator to end of format context.
+     */
+    template<typename FormatContext>
+    [[nodiscard]] inline constexpr auto format(
+        auspicious_library::cu::boundless_basic_string_view<CharT, Traits>
+        string,
+        FormatContext &ctx
+    )
+    {
+        return std::ranges::copy(string, ctx.out()).out;
+    }
+};
+
+} // namespace std

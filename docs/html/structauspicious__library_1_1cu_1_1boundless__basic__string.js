@@ -24,8 +24,12 @@ var structauspicious__library_1_1cu_1_1boundless__basic__string =
     [ "operator=", "structauspicious__library_1_1cu_1_1boundless__basic__string.html#a85284aad6d18bf537addeed605c4f11d", null ],
     [ "operator=", "structauspicious__library_1_1cu_1_1boundless__basic__string.html#a95edbd84420ca93dd028ee213307681a", null ],
     [ "operator std::basic_string_view< CharT >", "structauspicious__library_1_1cu_1_1boundless__basic__string.html#a7baeddaaa350f7901a8fc428f03b8af5", null ],
+    [ "operator[]", "structauspicious__library_1_1cu_1_1boundless__basic__string.html#abb2d0e40b4146515dc6bacad4e68abe1", null ],
     [ "operator[]", "structauspicious__library_1_1cu_1_1boundless__basic__string.html#a950890d381189ce23d3a2190286ce30e", null ],
+    [ "at", "structauspicious__library_1_1cu_1_1boundless__basic__string.html#afa46cbeadcbf58fdf3a9ca6f5837c33a", null ],
     [ "at", "structauspicious__library_1_1cu_1_1boundless__basic__string.html#ae9c4524a10fb4abb76317d04ba46394d", null ],
+    [ "front", "structauspicious__library_1_1cu_1_1boundless__basic__string.html#ad25ee957169c776e2a3e9e827fb775a9", null ],
     [ "front", "structauspicious__library_1_1cu_1_1boundless__basic__string.html#a433b798e915e486e400231c4fd541220", null ],
+    [ "back", "structauspicious__library_1_1cu_1_1boundless__basic__string.html#a118dbc7e9b8ff1563b004770275dca10", null ],
     [ "back", "structauspicious__library_1_1cu_1_1boundless__basic__string.html#a7ec4427dc6f80551c352237f6e4782e9", null ]
 ];

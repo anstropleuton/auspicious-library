@@ -1,0 +1,5 @@
+var structstd_1_1std_1_1formatter_3_01auspicious__library_1_1cu_1_1boundless__basic__string__view_3_3f317a5d740b64eff4e1122fcba0a619 =
+[
+    [ "parse", "structstd_1_1std_1_1formatter_3_01auspicious__library_1_1cu_1_1boundless__basic__string__view_3_3f317a5d740b64eff4e1122fcba0a619.html#ab9ae3ac02d1d645ab650fb2c252170fd", null ],
+    [ "format", "structstd_1_1std_1_1formatter_3_01auspicious__library_1_1cu_1_1boundless__basic__string__view_3_3f317a5d740b64eff4e1122fcba0a619.html#a6aa282e39f639bec5fea94324b9a987f", null ]
+];
