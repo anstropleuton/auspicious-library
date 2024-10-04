@@ -30,15 +30,20 @@ endif()
 
 if(BUILD_EXAMPLES)
     add_executable(sm_to_string examples/sm/to_string.cpp)
+    add_executable(cu_boundless_containers examples/sm/to_string.cpp)
 
     set_target_properties(sm_to_string PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/examples")
+    set_target_properties(cu_boundless_containers PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/examples")
 
     target_link_libraries(sm_to_string PRIVATE auspicious_library)
+    target_link_libraries(cu_boundless_containers PRIVATE auspicious_library)
 
     if(BUILD_DEBUG)
         target_compile_options(sm_to_string PRIVATE -Wall -g)
+        target_compile_options(cu_boundless_containers PRIVATE -Wall -g)
     else()
         target_compile_options(sm_to_string PRIVATE -Wall -s -O3)
+        target_compile_options(cu_boundless_containers PRIVATE -Wall -s -O3)
     endif()
 endif()
 

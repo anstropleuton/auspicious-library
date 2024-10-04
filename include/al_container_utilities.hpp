@@ -1332,6 +1332,8 @@ struct enumerated_array : std::array<T, enum_max_v<E>> {
     }
 };
 
+
+
 /**
  *  @brief  Get the subset of the container's elements.
  *
@@ -1838,7 +1840,7 @@ namespace std {
  *  @tparam  Alloc   The allocator type, defaults to @c std::allocator<CharT> .
  */
 template<typename CharT, typename Traits, typename Alloc>
-struct std::formatter<auspicious_library::cu::boundless_basic_string<CharT,
+struct formatter<auspicious_library::cu::boundless_basic_string<CharT,
     Traits, Alloc>, CharT> {
 
     /**
@@ -1881,7 +1883,7 @@ struct std::formatter<auspicious_library::cu::boundless_basic_string<CharT,
  *  @tparam  Traits  The character traits type.
  */
 template<typename CharT, typename Traits>
-struct std::formatter<auspicious_library::cu::boundless_basic_string_view<CharT,
+struct formatter<auspicious_library::cu::boundless_basic_string_view<CharT,
     Traits>, CharT> {
 
     /**

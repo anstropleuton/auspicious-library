@@ -49,6 +49,9 @@
 
 using namespace auspicious_library;
 
+// This example is meant to be a kick-starter to start using boundless
+// containers from container utilities, but they do not teach everything.  Refer
+// to the documentation for more details
 int main()
 {
     std::vector my_vector = { 1, 2, 3, 4, 5 };
@@ -63,11 +66,26 @@ int main()
     // Print it, see examples/sm/to_string.cpp for more info on sm::to_string .
     std::println("my_vector: {}", sm::to_string(my_vector));
 
-    // What happens when the index is out of range?  Well, it writes to a static
-    // variable and is immediately erased after the next call to
-    // cu::boundless_access , so when you write to out of bound index, it is not
-    // saved and you should be careful about that
-    cu::boundless_access(my_vector, 7) = 9;
+    // Accessing elements that are out of bound will always return 0 and does
+    // not throw.  That's what "boundless" is.  This helps you ignore bounds by
+    // proceeding to validate elements instead of having to care about bounds
+    // and validating elements at the same time
+    std::println("cu::boundless_access(my_vector, 6): {}",
+        cu::boundless_access(my_vector, 6));
+
+    // What happens when the index is out of range and when you try to write to
+    // it?  Don't.  The data written goes to an internal static variable with
+    // only purpose is to comply with C++ language design, i.e., returning a
+    // reference to a temporary variable is illegal, hence the existence of this
+    // static variable to allow returning reference to non-static container's
+    // element and also using this static variable when the index is out of
+    // bound. This static variable is immediately reset to {} (which will be 0
+    // in this case) every time this function is called.  This is not undefined
+    // behavior, it is defined to be erased.  Hence, the written data is not
+    // accessible.  Effectively, **writing to a void**.
+    //
+    // TL;DR: Don't, and handle bounds checks when writing to it
+    cu::boundless_access(my_vector, 7) = 9; // Don't
 
     std::println("cu::boundless_access(my_vector, 7) after setting it to 9: {}",
         cu::boundless_access(my_vector, 7)); // Prints 0
@@ -109,4 +127,26 @@ int main()
     std::println("infinite_string[4] after setting it to 'r': '{}'",
         infinite_string[4]); // Note: prints a null character
     std::println("infinite_string: {}", infinite_string);
+
+
+
+/*
+
+    // One use case would be when parsing
+    cu::boundless_string input =
+        "#include <print>\nint main() { std::println(\"Input program\\n\"); }";
+    std::vector<std::string> tokens = {};
+
+    std::size_t current = 0;
+    while (input[current] != '\0') // No need to care about bounds!
+    {
+        if (std::isdigit(input[current]))
+        {
+            // Parse integers?
+        }
+        // ...
+        current++;
+    }
+
+*/
 }
