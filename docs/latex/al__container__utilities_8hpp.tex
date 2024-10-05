@@ -125,7 +125,21 @@ requires (std\+::is\+\_\+same\+\_\+v$<$T, U$>$ \&\& ...)}\\\mbox{\hyperlink{name
 \begin{DoxyCompactList}\small\item\em Filter out the occurrences of value from the container. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{auspicious\+\_\+library\+::cu\+::repeat}} (const Container \&container, std\+::size\+\_\+t n)
 \begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a836f3455cfb84b82c660299aa8278bf5}{auspicious\+\_\+library\+::cu\+::repeat}} (const Container \&container, int n)
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a18a5152bb7227b1b36607c558eb6efd6}{auspicious\+\_\+library\+::cu\+::repeat}} (const Container \&container, unsigned n)
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_ac6b9a488f1303a34b836393a91024fb7}{auspicious\+\_\+library\+::cu\+::repeat}} (const Container \&container, long n)
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a2ebf21d97134d8e9cb2b5bb19bf6bf52}{auspicious\+\_\+library\+::cu\+::repeat}} (const Container \&container, long long n)
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a13f522ed3177f04d76385cb825c5d25d}{auspicious\+\_\+library\+::cu\+::repeat}} (const Container \&container, unsigned long long n)
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a01fbb9b65897848dc6d883266688a9f8}{auspicious\+\_\+library\+::cu\+::repeat}} (const Container \&container, long double n)
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_aa4c60cec5530e6be5c0b997a34f54c33}{auspicious\+\_\+library\+::cu\+::repeat}} (const Container \&container, float n)
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a03b6d383c075aa7d4d174490904701b4}{auspicious\+\_\+library\+::cu\+::repeat}} (const Container \&container, double n)
 \begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a02a640ca3898e63a8338b562d23a6ca7}{auspicious\+\_\+library\+::cu\+::split\+\_\+seq}} (const Container \&container, const Container \&pattern)
 \begin{DoxyCompactList}\small\item\em Split the container with pattern. \end{DoxyCompactList}\item 
@@ -148,7 +162,28 @@ requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+:
 requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_afa4d292db15db85521b037bd037daf21}{auspicious\+\_\+library\+::cu\+\_\+operators\+::operator-\/}} (const Container \&container, const \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a0248de8b248ad5631f6331109b9aace1}{cu\+::value\+\_\+type}}$<$ Container $>$ \&value)
 \begin{DoxyCompactList}\small\item\em Filter out the occurrences of value from the container. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
-requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_aaa17bda2ec419e473439d07bc5cef7ee}{auspicious\+\_\+library\+::cu\+\_\+operators\+::operator\texorpdfstring{$\ast$}{*}}} (const Container \&container, std\+::size\+\_\+t n)
+requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_afd72b40fcec1fb71219a9bfd15de73c6}{auspicious\+\_\+library\+::cu\+\_\+operators\+::operator\texorpdfstring{$\ast$}{*}}} (const Container \&container, int n)
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
+requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_aa7d2fe4e8e14a1978d83290b41b9fd25}{auspicious\+\_\+library\+::cu\+\_\+operators\+::operator\texorpdfstring{$\ast$}{*}}} (const Container \&container, unsigned n)
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
+requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_a875425c72c71882f2dd3695e4d718bd6}{auspicious\+\_\+library\+::cu\+\_\+operators\+::operator\texorpdfstring{$\ast$}{*}}} (const Container \&container, long n)
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
+requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_a9580fef143d9292294bb41a30f3054c7}{auspicious\+\_\+library\+::cu\+\_\+operators\+::operator\texorpdfstring{$\ast$}{*}}} (const Container \&container, unsigned long n)
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
+requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_ac8302e68bb04f6a2cfc9af6bd332930e}{auspicious\+\_\+library\+::cu\+\_\+operators\+::operator\texorpdfstring{$\ast$}{*}}} (const Container \&container, long long n)
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
+requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_a94581ddd8765f334d53731d0afd2de17}{auspicious\+\_\+library\+::cu\+\_\+operators\+::operator\texorpdfstring{$\ast$}{*}}} (const Container \&container, unsigned long long n)
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
+requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_ac2fe30f7f78c31d30abf86f4ef5a4dfb}{auspicious\+\_\+library\+::cu\+\_\+operators\+::operator\texorpdfstring{$\ast$}{*}}} (const Container \&container, float n)
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
+requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_a42e7c80ce7615dae18c93ab05fb6f79f}{auspicious\+\_\+library\+::cu\+\_\+operators\+::operator\texorpdfstring{$\ast$}{*}}} (const Container \&container, double n)
 \begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+::cu\+\_\+compatible Container$>$ \newline
 requires (!std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string$>$ \&\& !std\+::is\+\_\+same\+\_\+v$<$Container, std\+::string\+\_\+view$>$)}\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu__operators_ad23d0eeab43a44de13ab2e20b2bbf979}{auspicious\+\_\+library\+::cu\+\_\+operators\+::operator\texorpdfstring{$\ast$}{*}}} (const Container \&container, long double n)

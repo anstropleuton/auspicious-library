@@ -30,24 +30,31 @@ endif()
 
 if(BUILD_EXAMPLES)
     add_executable(sm_to_string examples/sm/to_string.cpp)
-    add_executable(cu_boundless_containers examples/sm/to_string.cpp)
+    add_executable(cu_boundless_containers examples/cu/boundless_containers.cpp)
+    add_executable(cu_enumerated_array examples/cu/enumerated_array.cpp)
 
     set_target_properties(sm_to_string PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/examples")
     set_target_properties(cu_boundless_containers PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/examples")
+    set_target_properties(cu_enumerated_array PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/examples")
 
     target_link_libraries(sm_to_string PRIVATE auspicious_library)
     target_link_libraries(cu_boundless_containers PRIVATE auspicious_library)
+    target_link_libraries(cu_enumerated_array PRIVATE auspicious_library)
 
     if(BUILD_DEBUG)
         target_compile_options(sm_to_string PRIVATE -Wall -g)
         target_compile_options(cu_boundless_containers PRIVATE -Wall -g)
+        target_compile_options(cu_enumerated_array PRIVATE -Wall -g)
     else()
         target_compile_options(sm_to_string PRIVATE -Wall -s -O3)
         target_compile_options(cu_boundless_containers PRIVATE -Wall -s -O3)
+        target_compile_options(cu_enumerated_array PRIVATE -Wall -s -O3)
     endif()
 endif()
 
 if(BUILD_TESTS)
+    enable_testing()
+
     set(TEST_SOURCES
         tests/test_to_string.cpp
         tests/test_cu.cpp
@@ -91,4 +98,6 @@ if(BUILD_TESTS)
         ${CMAKE_SOURCE_DIR}/tests/test_fu_read_all_file.txt
         ${CMAKE_BINARY_DIR}/tests/test_fu_read_all_file.txt
     )
+
+    add_test(NAME run_tester COMMAND tester)
 endif()

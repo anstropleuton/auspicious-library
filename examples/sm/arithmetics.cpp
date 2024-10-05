@@ -1,7 +1,7 @@
 /**
- *  @file    boundless_containers.hpp
+ *  @file    arithmetics.hpp
  *  @author  Anstro Pleuton (https://github.com/anstropleuton)
- *  @brief   How to use CU's @c cu::enumerated_array .
+ *  @brief   How to use CU's string arithmetic functions.
  *
  *  @copyright  Copyright (c) 2024 Anstro Pleuton
  *
@@ -48,60 +48,39 @@
 
 using namespace auspicious_library;
 
-// This example is meant to be a kick-starter to start using enumerated array
+// This example is meant to be a kick-starter to start using string arithmetic
 // from container utilities, but they do not teach everything.  Refer to the
 // documentation for more details
 int main()
 {
-    // Let's consider an RPG game example where each character is an enum member
-    // and has different stats
-    struct character_stats {
-        std::string name;
-        int health;
-        int mana; // Resources to cast spell
-        int attack_power;
+    // I recommend you to check out examples/cu/arithmetic.cpp before this one
 
-        void print()
-        {
-            std::println("{}:",                 name);
-            std::println("  Health: {}:",       health);
-            std::println("  Mana: {}:",         mana);
-            std::println("  Attack Power: {}:", attack_power);
-        }
-    };
+    std::string hello_world = "Hello, world! ";
 
-    // The scoped enumerator must be casted to an integer type in order to be
-    // used as index, this is where enumerated array comes in which does *not*
-    // require you to cast it to an integer type!
-    enum class character_type {
-        warrior,
-        mage,
-        archer,
-        max
-    };
+    // No need for sm::combine because std::string has operator+
 
-    // All the stats in the enumerated array
-    cu::enumerated_array<character_stats, character_type> characters = {
-        character_stats { "Warrior", 150, 50,  30 },
-        character_stats { "Mage",    80,  200, 15 },
-        character_stats { "Archer",  100, 75,  45 }
-    };
+    // Filtering out occurrences the elements
+    // Note: we are using c
+    auto e = sm::filter_out_occ(hello_world, " "); // e is "Hello,world!"
 
-    // Access specific character stats
-    auto warrior_stats = characters[character_type::warrior]; // Just access
-                                                              // from the enum!
-    warrior_stats.print();
+    // Repeating the container
+    // Note: we are using a
+    auto f = sm::repeat(hello_world, 2); // f is "Hello, world! Hello, world! "
 
-    // Access using instance of enumerator
-    character_type current_character = character_type::mage;
-    auto           current_stats     = characters[current_character];
-    current_stats.print();
+    // Splitting the container into sub containers
+    // Note: we are using c
+    auto g = sm::split_seq(hello_world, ", "); // g is { "Hello", "world! " }
 
-    // Buff the character after advancement?
-    characters[current_character].health += 20;
+    using namespace sm_operators;
 
+    // Same examples using operators
 
+    // Filtering out
+    e = hello_world - " ";
 
-    // The use case is beyond the described example, you can use it wherever
-    // index is an enumerator and you hate ugly cast operators
+    // Repeating
+    f = hello_world * 2;
+
+    // Splitting
+    g = hello_world / ", ";
 }

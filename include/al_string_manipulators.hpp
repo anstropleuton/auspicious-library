@@ -527,7 +527,133 @@ template<sm_compatible Strings>
  */
 [[nodiscard]] inline constexpr auto repeat(
     std::string_view string,
+    int      n
+)
+{
+    std::vector<char> string_vec(string.begin(), string.end());
+    return sm::chars_to_string(cu::repeat(string_vec, n));
+}
+
+/**
+ *  @brief  Repeat string @c n times.
+ *
+ *  @param  string  A string.
+ *  @param  n       The number of times to repeat.
+ *  @return  Repeated string as @c std::string .
+ *
+ *  @see  cu::repeat.
+ */
+[[nodiscard]] inline constexpr auto repeat(
+    std::string_view string,
+    unsigned      n
+)
+{
+    std::vector<char> string_vec(string.begin(), string.end());
+    return sm::chars_to_string(cu::repeat(string_vec, n));
+}
+
+/**
+ *  @brief  Repeat string @c n times.
+ *
+ *  @param  string  A string.
+ *  @param  n       The number of times to repeat.
+ *  @return  Repeated string as @c std::string .
+ *
+ *  @see  cu::repeat.
+ */
+[[nodiscard]] inline constexpr auto repeat(
+    std::string_view string,
+    long      n
+)
+{
+    std::vector<char> string_vec(string.begin(), string.end());
+    return sm::chars_to_string(cu::repeat(string_vec, n));
+}
+
+/**
+ *  @brief  Repeat string @c n times.
+ *
+ *  @param  string  A string.
+ *  @param  n       The number of times to repeat.
+ *  @return  Repeated string as @c std::string .
+ *
+ *  @see  cu::repeat.
+ */
+[[nodiscard]] inline constexpr auto repeat(
+    std::string_view string,
+    long long      n
+)
+{
+    std::vector<char> string_vec(string.begin(), string.end());
+    return sm::chars_to_string(cu::repeat(string_vec, n));
+}
+
+/**
+ *  @brief  Repeat string @c n times.
+ *
+ *  @param  string  A string.
+ *  @param  n       The number of times to repeat.
+ *  @return  Repeated string as @c std::string .
+ *
+ *  @see  cu::repeat.
+ */
+[[nodiscard]] inline constexpr auto repeat(
+    std::string_view string,
+    unsigned long long      n
+)
+{
+    std::vector<char> string_vec(string.begin(), string.end());
+    return sm::chars_to_string(cu::repeat(string_vec, n));
+}
+
+/**
+ *  @brief  Repeat string @c n times.
+ *
+ *  @param  string  A string.
+ *  @param  n       The number of times to repeat.
+ *  @return  Repeated string as @c std::string .
+ *
+ *  @see  cu::repeat.
+ */
+[[nodiscard]] inline constexpr auto repeat(
+    std::string_view string,
     long double      n
+)
+{
+    std::vector<char> string_vec(string.begin(), string.end());
+    return sm::chars_to_string(cu::repeat(string_vec, n));
+}
+
+/**
+ *  @brief  Repeat string @c n times.
+ *
+ *  @param  string  A string.
+ *  @param  n       The number of times to repeat.
+ *  @return  Repeated string as @c std::string .
+ *
+ *  @see  cu::repeat.
+ */
+[[nodiscard]] inline constexpr auto repeat(
+    std::string_view string,
+    float      n
+)
+{
+    std::vector<char> string_vec(string.begin(), string.end());
+    return sm::chars_to_string(cu::repeat(string_vec, n));
+}
+
+/**
+ *  @brief  Repeat string @c n times.
+ *
+ *  @param  string  A string.
+ *  @param  n       The number of times to repeat.
+ *  @return  Repeated string as @c std::string .
+ *
+ *  @see  cu::repeat.
+ */
+[[nodiscard]] inline constexpr auto repeat(
+    std::string_view string,
+    double      n
 )
 {
     std::vector<char> string_vec(string.begin(), string.end());
@@ -692,7 +818,126 @@ namespace sm_operators {
  */
 [[nodiscard]] inline constexpr auto operator* (
     std::string_view string,
+    int      n
+)
+{
+    return sm::repeat(string, n);
+}
+
+/**
+ *  @brief  Repeat string @c n times.
+ *
+ *  @param  string  A string.
+ *  @param  n       The number of times to repeat.
+ *  @return  Repeated string as @c std::string .
+ *
+ *  @see  sm::repeat.
+ */
+[[nodiscard]] inline constexpr auto operator* (
+    std::string_view string,
+    unsigned      n
+)
+{
+    return sm::repeat(string, n);
+}
+
+/**
+ *  @brief  Repeat string @c n times.
+ *
+ *  @param  string  A string.
+ *  @param  n       The number of times to repeat.
+ *  @return  Repeated string as @c std::string .
+ *
+ *  @see  sm::repeat.
+ */
+[[nodiscard]] inline constexpr auto operator* (
+    std::string_view string,
+    long      n
+)
+{
+    return sm::repeat(string, n);
+}
+
+/**
+ *  @brief  Repeat string @c n times.
+ *
+ *  @param  string  A string.
+ *  @param  n       The number of times to repeat.
+ *  @return  Repeated string as @c std::string .
+ *
+ *  @see  sm::repeat.
+ */
+[[nodiscard]] inline constexpr auto operator* (
+    std::string_view string,
+    long long      n
+)
+{
+    return sm::repeat(string, n);
+}
+
+/**
+ *  @brief  Repeat string @c n times.
+ *
+ *  @param  string  A string.
+ *  @param  n       The number of times to repeat.
+ *  @return  Repeated string as @c std::string .
+ *
+ *  @see  sm::repeat.
+ */
+[[nodiscard]] inline constexpr auto operator* (
+    std::string_view string,
+    unsigned long long      n
+)
+{
+    return sm::repeat(string, n);
+}
+
+/**
+ *  @brief  Repeat string @c n times.
+ *
+ *  @param  string  A string.
+ *  @param  n       The number of times to repeat.
+ *  @return  Repeated string as @c std::string .
+ *
+ *  @see  sm::repeat.
+ */
+[[nodiscard]] inline constexpr auto operator* (
+    std::string_view string,
     long double      n
+)
+{
+    return sm::repeat(string, n);
+}
+
+/**
+ *  @brief  Repeat string @c n times.
+ *
+ *  @param  string  A string.
+ *  @param  n       The number of times to repeat.
+ *  @return  Repeated string as @c std::string .
+ *
+ *  @see  sm::repeat.
+ */
+[[nodiscard]] inline constexpr auto operator* (
+    std::string_view string,
+    float      n
+)
+{
+    return sm::repeat(string, n);
+}
+
+/**
+ *  @brief  Repeat string @c n times.
+ *
+ *  @param  string  A string.
+ *  @param  n       The number of times to repeat.
+ *  @return  Repeated string as @c std::string .
+ *
+ *  @see  sm::repeat.
+ */
+[[nodiscard]] inline constexpr auto operator* (
+    std::string_view string,
+    double      n
 )
 {
     return sm::repeat(string, n);

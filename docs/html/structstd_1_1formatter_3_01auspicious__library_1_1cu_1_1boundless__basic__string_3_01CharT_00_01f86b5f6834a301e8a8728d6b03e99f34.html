@@ -129,14 +129,14 @@ $(function(){initNavTree('structstd_1_1formatter_3_01auspicious__library_1_1cu_1
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aec6ab2b713f1f6897630a8753c4e9a6a" id="r_aec6ab2b713f1f6897630a8753c4e9a6a"><td class="memTemplParams" colspan="2">template&lt;typename ParseContext &gt; </td></tr>
-<tr class="memitem:aec6ab2b713f1f6897630a8753c4e9a6a"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aec6ab2b713f1f6897630a8753c4e9a6a">parse</a> (ParseContext &amp;ctx)</td></tr>
-<tr class="memdesc:aec6ab2b713f1f6897630a8753c4e9a6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the format specifiers (none).  <br /></td></tr>
-<tr class="separator:aec6ab2b713f1f6897630a8753c4e9a6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af82f851ecbb6fd23315e7d154a5bc44c" id="r_af82f851ecbb6fd23315e7d154a5bc44c"><td class="memTemplParams" colspan="2">template&lt;typename FormatContext &gt; </td></tr>
-<tr class="memitem:af82f851ecbb6fd23315e7d154a5bc44c"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af82f851ecbb6fd23315e7d154a5bc44c">format</a> (<a class="el" href="structauspicious__library_1_1cu_1_1boundless__basic__string.html">auspicious_library::cu::boundless_basic_string</a>&lt; CharT, Traits, Alloc &gt; string, FormatContext &amp;ctx)</td></tr>
-<tr class="memdesc:af82f851ecbb6fd23315e7d154a5bc44c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format the string using parsed specifiers (none).  <br /></td></tr>
-<tr class="separator:af82f851ecbb6fd23315e7d154a5bc44c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0da057a9644b37e68c72b93bdec7951" id="r_aa0da057a9644b37e68c72b93bdec7951"><td class="memTemplParams" colspan="2">template&lt;typename ParseContext &gt; </td></tr>
+<tr class="memitem:aa0da057a9644b37e68c72b93bdec7951"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa0da057a9644b37e68c72b93bdec7951">parse</a> (ParseContext &amp;ctx) -&gt; ParseContext::iterator</td></tr>
+<tr class="memdesc:aa0da057a9644b37e68c72b93bdec7951"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the format specifiers (none).  <br /></td></tr>
+<tr class="separator:aa0da057a9644b37e68c72b93bdec7951"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af12f233f1ebd481f2089721c268bb6ec" id="r_af12f233f1ebd481f2089721c268bb6ec"><td class="memTemplParams" colspan="2">template&lt;typename FormatContext &gt; </td></tr>
+<tr class="memitem:af12f233f1ebd481f2089721c268bb6ec"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af12f233f1ebd481f2089721c268bb6ec">format</a> (const <a class="el" href="structauspicious__library_1_1cu_1_1boundless__basic__string.html">auspicious_library::cu::boundless_basic_string</a>&lt; CharT, Traits, Alloc &gt; &amp;string, FormatContext &amp;ctx) const</td></tr>
+<tr class="memdesc:af12f233f1ebd481f2089721c268bb6ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format the string using parsed specifiers (none).  <br /></td></tr>
+<tr class="separator:af12f233f1ebd481f2089721c268bb6ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename CharT, typename Traits, typename Alloc&gt;<br />
@@ -150,8 +150,8 @@ struct std::formatter&lt; auspicious_library::cu::boundless_basic_string&lt; Cha
   </dd>
 </dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="aec6ab2b713f1f6897630a8753c4e9a6a" name="aec6ab2b713f1f6897630a8753c4e9a6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec6ab2b713f1f6897630a8753c4e9a6a">&#9670;&#160;</a></span>parse()</h2>
+<a id="aa0da057a9644b37e68c72b93bdec7951" name="aa0da057a9644b37e68c72b93bdec7951"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0da057a9644b37e68c72b93bdec7951">&#9670;&#160;</a></span>parse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -167,7 +167,8 @@ template&lt;typename ParseContext &gt; </div>
           <td class="memname">auto std::formatter&lt; <a class="el" href="structauspicious__library_1_1cu_1_1boundless__basic__string.html">auspicious_library::cu::boundless_basic_string</a>&lt; CharT, Traits, Alloc &gt;, CharT &gt;::parse </td>
           <td>(</td>
           <td class="paramtype">ParseContext &amp;</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
-          <td></td>
+          <td> -&gt; ParseContext::iterator
+    </td>
         </tr>
       </table>
   </td>
@@ -194,8 +195,8 @@ template&lt;typename ParseContext &gt; </div>
 
 </div>
 </div>
-<a id="af82f851ecbb6fd23315e7d154a5bc44c" name="af82f851ecbb6fd23315e7d154a5bc44c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af82f851ecbb6fd23315e7d154a5bc44c">&#9670;&#160;</a></span>format()</h2>
+<a id="af12f233f1ebd481f2089721c268bb6ec" name="af12f233f1ebd481f2089721c268bb6ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af12f233f1ebd481f2089721c268bb6ec">&#9670;&#160;</a></span>format()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -210,12 +211,12 @@ template&lt;typename FormatContext &gt; </div>
         <tr>
           <td class="memname">auto std::formatter&lt; <a class="el" href="structauspicious__library_1_1cu_1_1boundless__basic__string.html">auspicious_library::cu::boundless_basic_string</a>&lt; CharT, Traits, Alloc &gt;, CharT &gt;::format </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structauspicious__library_1_1cu_1_1boundless__basic__string.html">auspicious_library::cu::boundless_basic_string</a>&lt; CharT, Traits, Alloc &gt;</td>          <td class="paramname"><span class="paramname"><em>string</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="structauspicious__library_1_1cu_1_1boundless__basic__string.html">auspicious_library::cu::boundless_basic_string</a>&lt; CharT, Traits, Alloc &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>string</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">FormatContext &amp;</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>&#160;)</td>
+          <td class="paramtype">FormatContext &amp;</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>

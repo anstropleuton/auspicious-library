@@ -62,7 +62,21 @@ constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a62f8598e9739
 \begin{DoxyCompactList}\small\item\em Filter out the occurrences of character from the string. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ad690389f2fb57f67873923c62be4805c}{repeat}} (std\+::string\+\_\+view string, std\+::size\+\_\+t n)
 \begin{DoxyCompactList}\small\item\em Repeat string {\ttfamily n} times. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a9a5f281d154ccf51c41b5ac31f754e66}{repeat}} (std\+::string\+\_\+view string, int n)
+\begin{DoxyCompactList}\small\item\em Repeat string {\ttfamily n} times. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a60dbedfa93f73c76422fcdfaeab8a88d}{repeat}} (std\+::string\+\_\+view string, unsigned n)
+\begin{DoxyCompactList}\small\item\em Repeat string {\ttfamily n} times. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ae9c9d9245c39a10130aa8814099456ef}{repeat}} (std\+::string\+\_\+view string, long n)
+\begin{DoxyCompactList}\small\item\em Repeat string {\ttfamily n} times. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a51a5e801725c0939db6829a9e82b7b82}{repeat}} (std\+::string\+\_\+view string, long long n)
+\begin{DoxyCompactList}\small\item\em Repeat string {\ttfamily n} times. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a176609474fe532a53b0a43d10bb4490c}{repeat}} (std\+::string\+\_\+view string, unsigned long long n)
+\begin{DoxyCompactList}\small\item\em Repeat string {\ttfamily n} times. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_a58a21b34af1c52495469cf5c96bf36e3}{repeat}} (std\+::string\+\_\+view string, long double n)
+\begin{DoxyCompactList}\small\item\em Repeat string {\ttfamily n} times. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_acdddba424960b47e5a4173b3cf769523}{repeat}} (std\+::string\+\_\+view string, float n)
+\begin{DoxyCompactList}\small\item\em Repeat string {\ttfamily n} times. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ac6a53b6232a843cfd1aabba745355398}{repeat}} (std\+::string\+\_\+view string, double n)
 \begin{DoxyCompactList}\small\item\em Repeat string {\ttfamily n} times. \end{DoxyCompactList}\item 
 constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1sm_ac1ae37388aa1aaac0bedc25f353b3092}{split\+\_\+seq}} (std\+::string\+\_\+view string, std\+::string\+\_\+view pattern)
 \begin{DoxyCompactList}\small\item\em Split the string with pattern. \end{DoxyCompactList}\item 
@@ -562,7 +576,7 @@ Filtered string as {\ttfamily std\+::string} .
 \end{DoxySeeAlso}
 \Hypertarget{namespaceauspicious__library_1_1sm_ad690389f2fb57f67873923c62be4805c}\index{auspicious\_library::sm@{auspicious\_library::sm}!repeat@{repeat}}
 \index{repeat@{repeat}!auspicious\_library::sm@{auspicious\_library::sm}}
-\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/9]}}
 {\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_ad690389f2fb57f67873923c62be4805c} 
 auto auspicious\+\_\+library\+::sm\+::repeat (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{std\+::size\+\_\+t}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
 
@@ -583,11 +597,172 @@ Repeated string as {\ttfamily std\+::string} .
 \begin{DoxySeeAlso}{See also}
 \doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{cu\+::repeat}. 
 \end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1sm_a9a5f281d154ccf51c41b5ac31f754e66}\index{auspicious\_library::sm@{auspicious\_library::sm}!repeat@{repeat}}
+\index{repeat@{repeat}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/9]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a9a5f281d154ccf51c41b5ac31f754e66} 
+auto auspicious\+\_\+library\+::sm\+::repeat (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{int}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Repeat string {\ttfamily n} times. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A string. \\
+\hline
+{\em n} & The number of times to repeat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Repeated string as {\ttfamily std\+::string} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{cu\+::repeat}. 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1sm_a60dbedfa93f73c76422fcdfaeab8a88d}\index{auspicious\_library::sm@{auspicious\_library::sm}!repeat@{repeat}}
+\index{repeat@{repeat}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [3/9]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a60dbedfa93f73c76422fcdfaeab8a88d} 
+auto auspicious\+\_\+library\+::sm\+::repeat (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{unsigned}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Repeat string {\ttfamily n} times. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A string. \\
+\hline
+{\em n} & The number of times to repeat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Repeated string as {\ttfamily std\+::string} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{cu\+::repeat}. 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1sm_ae9c9d9245c39a10130aa8814099456ef}\index{auspicious\_library::sm@{auspicious\_library::sm}!repeat@{repeat}}
+\index{repeat@{repeat}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [4/9]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_ae9c9d9245c39a10130aa8814099456ef} 
+auto auspicious\+\_\+library\+::sm\+::repeat (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{long}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Repeat string {\ttfamily n} times. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A string. \\
+\hline
+{\em n} & The number of times to repeat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Repeated string as {\ttfamily std\+::string} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{cu\+::repeat}. 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1sm_a51a5e801725c0939db6829a9e82b7b82}\index{auspicious\_library::sm@{auspicious\_library::sm}!repeat@{repeat}}
+\index{repeat@{repeat}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [5/9]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a51a5e801725c0939db6829a9e82b7b82} 
+auto auspicious\+\_\+library\+::sm\+::repeat (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{long long}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Repeat string {\ttfamily n} times. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A string. \\
+\hline
+{\em n} & The number of times to repeat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Repeated string as {\ttfamily std\+::string} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{cu\+::repeat}. 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1sm_a176609474fe532a53b0a43d10bb4490c}\index{auspicious\_library::sm@{auspicious\_library::sm}!repeat@{repeat}}
+\index{repeat@{repeat}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [6/9]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a176609474fe532a53b0a43d10bb4490c} 
+auto auspicious\+\_\+library\+::sm\+::repeat (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{unsigned long long}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Repeat string {\ttfamily n} times. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A string. \\
+\hline
+{\em n} & The number of times to repeat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Repeated string as {\ttfamily std\+::string} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{cu\+::repeat}. 
+\end{DoxySeeAlso}
 \Hypertarget{namespaceauspicious__library_1_1sm_a58a21b34af1c52495469cf5c96bf36e3}\index{auspicious\_library::sm@{auspicious\_library::sm}!repeat@{repeat}}
 \index{repeat@{repeat}!auspicious\_library::sm@{auspicious\_library::sm}}
-\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [7/9]}}
 {\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_a58a21b34af1c52495469cf5c96bf36e3} 
 auto auspicious\+\_\+library\+::sm\+::repeat (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{long double}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Repeat string {\ttfamily n} times. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A string. \\
+\hline
+{\em n} & The number of times to repeat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Repeated string as {\ttfamily std\+::string} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{cu\+::repeat}. 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1sm_acdddba424960b47e5a4173b3cf769523}\index{auspicious\_library::sm@{auspicious\_library::sm}!repeat@{repeat}}
+\index{repeat@{repeat}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [8/9]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_acdddba424960b47e5a4173b3cf769523} 
+auto auspicious\+\_\+library\+::sm\+::repeat (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{float}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Repeat string {\ttfamily n} times. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & A string. \\
+\hline
+{\em n} & The number of times to repeat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Repeated string as {\ttfamily std\+::string} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{cu\+::repeat}. 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1sm_ac6a53b6232a843cfd1aabba745355398}\index{auspicious\_library::sm@{auspicious\_library::sm}!repeat@{repeat}}
+\index{repeat@{repeat}!auspicious\_library::sm@{auspicious\_library::sm}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [9/9]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1sm_ac6a53b6232a843cfd1aabba745355398} 
+auto auspicious\+\_\+library\+::sm\+::repeat (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{string}{, }\item[{double}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
 
 
 

@@ -1497,8 +1497,109 @@ template<cu_compatible Container>
 /**
  *  @brief  Repeat container @c n times.
  *
+ *  @tparam  Container  A compatible container type.
+ *  @param   container  A container.
+ *  @param   n          The number of times to repeat.
+ *  @return  Repeated container as @c result_container .
+ *
+ *  @see  @c std::size_t overload of @c repeat .
+ */
+template<cu_compatible Container>
+[[nodiscard]] inline constexpr auto repeat(
+    const Container &container,
+    int              n
+)
+{
+    // Performance-critical, don't use exceptions
+    if (n < 0) n = 0;
+    return repeat(container, (std::size_t)n);
+}
+
+/**
+ *  @brief  Repeat container @c n times.
+ *
+ *  @tparam  Container  A compatible container type.
+ *  @param   container  A container.
+ *  @param   n          The number of times to repeat.
+ *  @return  Repeated container as @c result_container .
+ *
+ *  @see  @c std::size_t overload of @c repeat .
+ */
+template<cu_compatible Container>
+[[nodiscard]] inline constexpr auto repeat(
+    const Container &container,
+    unsigned         n
+)
+{
+    return repeat(container, (std::size_t)n);
+}
+
+/**
+ *  @brief  Repeat container @c n times.
+ *
+ *  @tparam  Container  A compatible container type.
+ *  @param   container  A container.
+ *  @param   n          The number of times to repeat.
+ *  @return  Repeated container as @c result_container .
+ *
+ *  @see  @c std::size_t overload of @c repeat .
+ */
+template<cu_compatible Container>
+[[nodiscard]] inline constexpr auto repeat(
+    const Container &container,
+    long             n
+)
+{
+    // Performance-critical, don't use exceptions
+    if (n < 0) n = 0;
+    return repeat(container, (std::size_t)n);
+}
+
+/**
+ *  @brief  Repeat container @c n times.
+ *
+ *  @tparam  Container  A compatible container type.
+ *  @param   container  A container.
+ *  @param   n          The number of times to repeat.
+ *  @return  Repeated container as @c result_container .
+ *
+ *  @see  @c std::size_t overload of @c repeat .
+ */
+template<cu_compatible Container>
+[[nodiscard]] inline constexpr auto repeat(
+    const Container &container,
+    long long        n
+)
+{
+    // Performance-critical, don't use exceptions
+    if (n < 0) n = 0;
+    return repeat(container, (std::size_t)n);
+}
+
+/**
+ *  @brief  Repeat container @c n times.
+ *
+ *  @tparam  Container  A compatible container type.
+ *  @param   container  A container.
+ *  @param   n          The number of times to repeat.
+ *  @return  Repeated container as @c result_container .
+ *
+ *  @see  @c std::size_t overload of @c repeat .
+ */
+template<cu_compatible Container>
+[[nodiscard]] inline constexpr auto repeat(
+    const Container   &container,
+    unsigned long long n
+)
+{
+    return repeat(container, (std::size_t)n);
+}
+
+/**
+ *  @brief  Repeat container @c n times.
+ *
  *  Considering integer part of the number @c n as @c i, and fraction part as
- *  @c f, the container is repeated @c i.0 times, and then the container is
+ *  @c f. The container is repeated @c i.0 times, and then the container is
  *  added with subordinate container with `round(0.f * container.size())`
  *  elements from the beginning.
  *
@@ -1515,13 +1616,56 @@ template<cu_compatible Container>
     long double      n
 )
 {
-    long double i_part         = 0;
+    // Performance-critical, don't use exceptions
+    if (n < 0.0l) n = 0.0l;
+
+    long double i_part         = 0.0l;
     long double f_part         = std::modf(n, &i_part);
     std::size_t regular_repeat = i_part;
     std::size_t sub_size       = std::floor(f_part * container.size());
     Container   sub = subordinate(container, 0, sub_size);
 
     return combine(repeat(container, regular_repeat), sub);
+}
+
+/**
+ *  @brief  Repeat container @c n times.
+ *
+ *  @tparam  Container  A compatible container type.
+ *  @param   container  A container.
+ *  @param   n          The number of times to repeat.
+ *  @return  Repeated container as @c result_container .
+ *
+ *  @note  This is scuffed.
+ *  @see  `long double` overload of @c repeat .
+ */
+template<cu_compatible Container>
+[[nodiscard]] inline constexpr auto repeat(
+    const Container &container,
+    float            n
+)
+{
+    return repeat(container, (long double)n);
+}
+
+/**
+ *  @brief  Repeat container @c n times.
+ *
+ *  @tparam  Container  A compatible container type.
+ *  @param   container  A container.
+ *  @param   n          The number of times to repeat.
+ *  @return  Repeated container as @c result_container .
+ *
+ *  @note  This is scuffed.
+ *  @see  `long double` overload of @c repeat .
+ */
+template<cu_compatible Container>
+[[nodiscard]] inline constexpr auto repeat(
+    const Container &container,
+    double           n
+)
+{
+    return repeat(container, (long double)n);
 }
 
 /**
@@ -1748,7 +1892,175 @@ requires(!std::is_same_v<Container, std::string>
       && !std::is_same_v<Container, std::string_view>)
 [[nodiscard]] inline constexpr auto operator* (
     const Container &container,
-    std::size_t      n
+    int      n
+)
+{
+    return cu::repeat(container, n);
+}
+
+/**
+ *  @brief  Repeat container @c n times.
+ *
+ *  @tparam  Container  A compatible container type.
+ *  @param   container  A container.
+ *  @param   n          The number of times to repeat.
+ *  @return  Repeated container as @c result_container .
+ *
+ *  @note  Use String Manipulators' operators for @c std::string or
+ *         @c std::basic_string_view .
+ *
+ *  @see  cu::repeat.
+ */
+template<cu::cu_compatible Container>
+requires(!std::is_same_v<Container, std::string>
+      && !std::is_same_v<Container, std::string_view>)
+[[nodiscard]] inline constexpr auto operator* (
+    const Container &container,
+    unsigned      n
+)
+{
+    return cu::repeat(container, n);
+}
+
+/**
+ *  @brief  Repeat container @c n times.
+ *
+ *  @tparam  Container  A compatible container type.
+ *  @param   container  A container.
+ *  @param   n          The number of times to repeat.
+ *  @return  Repeated container as @c result_container .
+ *
+ *  @note  Use String Manipulators' operators for @c std::string or
+ *         @c std::basic_string_view .
+ *
+ *  @see  cu::repeat.
+ */
+template<cu::cu_compatible Container>
+requires(!std::is_same_v<Container, std::string>
+      && !std::is_same_v<Container, std::string_view>)
+[[nodiscard]] inline constexpr auto operator* (
+    const Container &container,
+    long      n
+)
+{
+    return cu::repeat(container, n);
+}
+
+/**
+ *  @brief  Repeat container @c n times.
+ *
+ *  @tparam  Container  A compatible container type.
+ *  @param   container  A container.
+ *  @param   n          The number of times to repeat.
+ *  @return  Repeated container as @c result_container .
+ *
+ *  @note  Use String Manipulators' operators for @c std::string or
+ *         @c std::basic_string_view .
+ *
+ *  @see  cu::repeat.
+ */
+template<cu::cu_compatible Container>
+requires(!std::is_same_v<Container, std::string>
+      && !std::is_same_v<Container, std::string_view>)
+[[nodiscard]] inline constexpr auto operator* (
+    const Container &container,
+    unsigned long      n
+)
+{
+    return cu::repeat(container, n);
+}
+
+/**
+ *  @brief  Repeat container @c n times.
+ *
+ *  @tparam  Container  A compatible container type.
+ *  @param   container  A container.
+ *  @param   n          The number of times to repeat.
+ *  @return  Repeated container as @c result_container .
+ *
+ *  @note  Use String Manipulators' operators for @c std::string or
+ *         @c std::basic_string_view .
+ *
+ *  @see  cu::repeat.
+ */
+template<cu::cu_compatible Container>
+requires(!std::is_same_v<Container, std::string>
+      && !std::is_same_v<Container, std::string_view>)
+[[nodiscard]] inline constexpr auto operator* (
+    const Container &container,
+    long long      n
+)
+{
+    return cu::repeat(container, n);
+}
+
+/**
+ *  @brief  Repeat container @c n times.
+ *
+ *  @tparam  Container  A compatible container type.
+ *  @param   container  A container.
+ *  @param   n          The number of times to repeat.
+ *  @return  Repeated container as @c result_container .
+ *
+ *  @note  Use String Manipulators' operators for @c std::string or
+ *         @c std::basic_string_view .
+ *
+ *  @see  cu::repeat.
+ */
+template<cu::cu_compatible Container>
+requires(!std::is_same_v<Container, std::string>
+      && !std::is_same_v<Container, std::string_view>)
+[[nodiscard]] inline constexpr auto operator* (
+    const Container &container,
+    unsigned long long      n
+)
+{
+    return cu::repeat(container, n);
+}
+
+/**
+ *  @brief  Repeat container @c n times.
+ *
+ *  @tparam  Container  A compatible container type.
+ *  @param   container  A container.
+ *  @param   n          The number of times to repeat.
+ *  @return  Repeated container as @c result_container .
+ *
+ *  @note  Use String Manipulators' operators for @c std::string or
+ *         @c std::basic_string_view .
+ *
+ *  @see  cu::repeat.
+ */
+template<cu::cu_compatible Container>
+requires(!std::is_same_v<Container, std::string>
+      && !std::is_same_v<Container, std::string_view>)
+[[nodiscard]] inline constexpr auto operator* (
+    const Container &container,
+    float      n
+)
+{
+    return cu::repeat(container, n);
+}
+
+/**
+ *  @brief  Repeat container @c n times.
+ *
+ *  @tparam  Container  A compatible container type.
+ *  @param   container  A container.
+ *  @param   n          The number of times to repeat.
+ *  @return  Repeated container as @c result_container .
+ *
+ *  @note  Use String Manipulators' operators for @c std::string or
+ *         @c std::basic_string_view .
+ *
+ *  @see  cu::repeat.
+ */
+template<cu::cu_compatible Container>
+requires(!std::is_same_v<Container, std::string>
+      && !std::is_same_v<Container, std::string_view>)
+[[nodiscard]] inline constexpr auto operator* (
+    const Container &container,
+    double      n
 )
 {
     return cu::repeat(container, n);
@@ -1834,7 +2146,7 @@ namespace std {
 
 /**
  *  @brief  Formatter for @c cu::boundless_basic_string .
- *  
+ *
  *  @tparam  CharT   The character type.
  *  @tparam  Traits  The character traits type.
  *  @tparam  Alloc   The allocator type, defaults to @c std::allocator<CharT> .
@@ -1845,13 +2157,14 @@ struct formatter<auspicious_library::cu::boundless_basic_string<CharT,
 
     /**
      *  @brief  Parse the format specifiers (none).
-     *  
+     *
      *  @tparam  ParseContext  A parse context type.
      *  @param   ctx           A parse context.
      *  @return  Iterator to begin of parse context.
      */
     template<typename ParseContext>
     [[nodiscard]] inline constexpr auto parse(ParseContext &ctx)
+    -> ParseContext::iterator
     {
         // No format specifiers
         return ctx.begin();
@@ -1859,7 +2172,7 @@ struct formatter<auspicious_library::cu::boundless_basic_string<CharT,
 
     /**
      *  @brief  Format the string using parsed specifiers (none).
-     *  
+     *
      *  @tparam  FormatContext  A format context type.
      *  @param   string         The string to format.
      *  @param   ctx            A format context.
@@ -1867,10 +2180,10 @@ struct formatter<auspicious_library::cu::boundless_basic_string<CharT,
      */
     template<typename FormatContext>
     [[nodiscard]] inline constexpr auto format(
-        auspicious_library::cu::boundless_basic_string<CharT, Traits, Alloc>
-        string,
+        const auspicious_library::cu::boundless_basic_string<CharT, Traits,
+            Alloc>    &string,
         FormatContext &ctx
-    )
+    ) const
     {
         return std::ranges::copy(string, ctx.out()).out;
     }
@@ -1878,7 +2191,7 @@ struct formatter<auspicious_library::cu::boundless_basic_string<CharT,
 
 /**
  *  @brief  Formatter for @c cu::boundless_basic_string_view .
- *  
+ *
  *  @tparam  CharT   The character type.
  *  @tparam  Traits  The character traits type.
  */
@@ -1888,7 +2201,7 @@ struct formatter<auspicious_library::cu::boundless_basic_string_view<CharT,
 
     /**
      *  @brief  Parse the format specifiers (none).
-     *  
+     *
      *  @tparam  ParseContext  A parse context type.
      *  @param   ctx           A parse context.
      *  @return  Iterator to begin of parse context.
@@ -1902,7 +2215,7 @@ struct formatter<auspicious_library::cu::boundless_basic_string_view<CharT,
 
     /**
      *  @brief  Format the string using parsed specifiers (none).
-     *  
+     *
      *  @tparam  FormatContext  A format context type.
      *  @param   string         The string to format.
      *  @param   ctx            A format context.
@@ -1910,10 +2223,10 @@ struct formatter<auspicious_library::cu::boundless_basic_string_view<CharT,
      */
     template<typename FormatContext>
     [[nodiscard]] inline constexpr auto format(
-        auspicious_library::cu::boundless_basic_string_view<CharT, Traits>
-        string,
+        const auspicious_library::cu::boundless_basic_string_view<CharT,
+            Traits>   &string,
         FormatContext &ctx
-    )
+    ) const
     {
         return std::ranges::copy(string, ctx.out()).out;
     }

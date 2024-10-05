@@ -5,11 +5,16 @@ This file is just an index for the examples, but a note for all you reading: **C
 
 ## CU
 - [cu/boundless_containers.cpp](cu/boundless_containers.cpp): How to use `cu::boundless_access` and boundless containers.
+- [cu/enumerated_array.cpp](cu/enumerated_array.cpp): How to use CU's `cu::enumerated_array`.
+- [cu/arithmetics.cpp](cu/arithmetics.cpp): How to use CU's container arithmetic functions.
 
 ## SM
+- [sm/arithmetics.cpp](sm/arithmetics.cpp): How to use CU's string arithmetic functions.
 
 ## AEC
+Example file noticeably absent, because it is too simple that you can just figure it out. Or check out [al_ansi_escape_codes.hpp](../include/al_ansi_escape_codes.hpp). There is a small example in the documentation.
 
 ## AP
+
 
 ## FU

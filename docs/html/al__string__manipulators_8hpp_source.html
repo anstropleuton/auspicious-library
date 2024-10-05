@@ -430,9 +430,9 @@ $(function(){initNavTree('al__string__manipulators_8hpp_source.html',''); initRe
 </div>
 <div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span> </div>
 <div class="foldopen" id="foldopen00528" data-start="{" data-end="}">
-<div class="line"><a id="l00528" name="l00528"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm.html#a58a21b34af1c52495469cf5c96bf36e3">  528</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad690389f2fb57f67873923c62be4805c">repeat</a>(</div>
+<div class="line"><a id="l00528" name="l00528"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm.html#a9a5f281d154ccf51c41b5ac31f754e66">  528</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad690389f2fb57f67873923c62be4805c">repeat</a>(</div>
 <div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span>    std::string_view <span class="keywordtype">string</span>,</div>
-<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span>    <span class="keywordtype">long</span> <span class="keywordtype">double</span>      n</div>
+<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span>    <span class="keywordtype">int</span>      n</div>
 <div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span>)</div>
 <div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span>{</div>
 <div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span>    std::vector&lt;char&gt; string_vec(<span class="keywordtype">string</span>.begin(), <span class="keywordtype">string</span>.end());</div>
@@ -441,156 +441,303 @@ $(function(){initNavTree('al__string__manipulators_8hpp_source.html',''); initRe
 </div>
 <div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span> </div>
 <div class="foldopen" id="foldopen00546" data-start="{" data-end="}">
-<div class="line"><a id="l00546" name="l00546"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm.html#ac1ae37388aa1aaac0bedc25f353b3092">  546</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ac1ae37388aa1aaac0bedc25f353b3092">split_seq</a>(</div>
+<div class="line"><a id="l00546" name="l00546"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm.html#a60dbedfa93f73c76422fcdfaeab8a88d">  546</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad690389f2fb57f67873923c62be4805c">repeat</a>(</div>
 <div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>    std::string_view <span class="keywordtype">string</span>,</div>
-<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>    std::string_view pattern</div>
+<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>    <span class="keywordtype">unsigned</span>      n</div>
 <div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span>)</div>
 <div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>{</div>
 <div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span>    std::vector&lt;char&gt; string_vec(<span class="keywordtype">string</span>.begin(), <span class="keywordtype">string</span>.end());</div>
-<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span>    std::vector&lt;char&gt; pattern_vec(pattern.begin(), pattern.end());</div>
-<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span>    <span class="keyword">auto</span> result = <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a02a640ca3898e63a8338b562d23a6ca7">cu::split_seq</a>(string_vec, pattern_vec);</div>
-<div class="line"><a id="l00554" name="l00554"></a><span class="lineno">  554</span>    <span class="keywordflow">return</span> std::views::transform(result, <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad0d9136fae4ffdd686cddfc170b3ed60">sm::chars_to_string</a>&lt;std::vector&lt;char&gt;&gt;)</div>
-<div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span>         | std::ranges::to&lt;result_string_nested&gt;();</div>
-<div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span>}</div>
+<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad0d9136fae4ffdd686cddfc170b3ed60">sm::chars_to_string</a>(<a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37">cu::repeat</a>(string_vec, n));</div>
+<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span>}</div>
 </div>
-<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span> </div>
-<div class="foldopen" id="foldopen00567" data-start="{" data-end="}">
-<div class="line"><a id="l00567" name="l00567"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm.html#a37cacfd93ff6f2ceb3a556026791df73">  567</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#a37cacfd93ff6f2ceb3a556026791df73">split_occ</a>(</div>
-<div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span>    std::string_view <span class="keywordtype">string</span>,</div>
-<div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span>    std::string_view characters</div>
-<div class="line"><a id="l00570" name="l00570"></a><span class="lineno">  570</span>)</div>
-<div class="line"><a id="l00571" name="l00571"></a><span class="lineno">  571</span>{</div>
-<div class="line"><a id="l00572" name="l00572"></a><span class="lineno">  572</span>    std::vector&lt;char&gt; string_vec(<span class="keywordtype">string</span>.begin(), <span class="keywordtype">string</span>.end());</div>
-<div class="line"><a id="l00573" name="l00573"></a><span class="lineno">  573</span>    std::vector&lt;char&gt; pattern_vec(characters.begin(), characters.end());</div>
-<div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span>    <span class="keyword">auto</span> result = <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#acc1b463c87ef5ec1f72cd652c70f9b0d">cu::split_occ</a>(string_vec, pattern_vec);</div>
-<div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span>    <span class="keywordflow">return</span> std::views::transform(result, <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad0d9136fae4ffdd686cddfc170b3ed60">sm::chars_to_string</a>&lt;std::vector&lt;char&gt;&gt;)</div>
-<div class="line"><a id="l00576" name="l00576"></a><span class="lineno">  576</span>         | std::ranges::to&lt;result_string_nested&gt;();</div>
-<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span>}</div>
+<div class="line"><a id="l00554" name="l00554"></a><span class="lineno">  554</span> </div>
+<div class="foldopen" id="foldopen00564" data-start="{" data-end="}">
+<div class="line"><a id="l00564" name="l00564"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm.html#ae9c9d9245c39a10130aa8814099456ef">  564</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad690389f2fb57f67873923c62be4805c">repeat</a>(</div>
+<div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00566" name="l00566"></a><span class="lineno">  566</span>    <span class="keywordtype">long</span>      n</div>
+<div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span>)</div>
+<div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span>{</div>
+<div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span>    std::vector&lt;char&gt; string_vec(<span class="keywordtype">string</span>.begin(), <span class="keywordtype">string</span>.end());</div>
+<div class="line"><a id="l00570" name="l00570"></a><span class="lineno">  570</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad0d9136fae4ffdd686cddfc170b3ed60">sm::chars_to_string</a>(<a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37">cu::repeat</a>(string_vec, n));</div>
+<div class="line"><a id="l00571" name="l00571"></a><span class="lineno">  571</span>}</div>
 </div>
-<div class="line"><a id="l00578" name="l00578"></a><span class="lineno">  578</span> </div>
-<div class="line"><a id="l00589" name="l00589"></a><span class="lineno">  589</span><span class="keyword">template</span>&lt;sm_compatible Strings&gt;</div>
-<div class="foldopen" id="foldopen00590" data-start="{" data-end="}">
-<div class="line"><a id="l00590" name="l00590"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm.html#a12f6442f3f2e83c922896cdaf3ca325c">  590</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#a12f6442f3f2e83c922896cdaf3ca325c">split_occ_seq</a>(</div>
-<div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span>    std::string_view <span class="keywordtype">string</span>,</div>
-<div class="line"><a id="l00592" name="l00592"></a><span class="lineno">  592</span>    <span class="keyword">const</span> Strings   &amp;patterns</div>
-<div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span>)</div>
-<div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span>{</div>
-<div class="line"><a id="l00595" name="l00595"></a><span class="lineno">  595</span>    std::vector&lt;char&gt; string_vec(<span class="keywordtype">string</span>.begin(), <span class="keywordtype">string</span>.end());</div>
-<div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span>    std::vector&lt;std::vector&lt;char&gt;&gt; patterns_vec = {};</div>
-<div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;pattern : patterns)</div>
-<div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span>    {</div>
-<div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span>        patterns_vec.emplace_back(pattern.begin(), pattern.end());</div>
-<div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span>    }</div>
-<div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span>    <span class="keyword">auto</span> result = <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a7c2c97e55ed45d82a370ac456aac90a0">cu::split_occ_seq</a>(string_vec, patterns_vec);</div>
-<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>    <span class="keywordflow">return</span> std::views::transform(result, <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad0d9136fae4ffdd686cddfc170b3ed60">sm::chars_to_string</a>&lt;std::vector&lt;char&gt;&gt;)</div>
-<div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span>         | std::ranges::to&lt;result_string_nested&gt;();</div>
-<div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span>}</div>
+<div class="line"><a id="l00572" name="l00572"></a><span class="lineno">  572</span> </div>
+<div class="foldopen" id="foldopen00582" data-start="{" data-end="}">
+<div class="line"><a id="l00582" name="l00582"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm.html#a51a5e801725c0939db6829a9e82b7b82">  582</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad690389f2fb57f67873923c62be4805c">repeat</a>(</div>
+<div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span>      n</div>
+<div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span>)</div>
+<div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span>{</div>
+<div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span>    std::vector&lt;char&gt; string_vec(<span class="keywordtype">string</span>.begin(), <span class="keywordtype">string</span>.end());</div>
+<div class="line"><a id="l00588" name="l00588"></a><span class="lineno">  588</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad0d9136fae4ffdd686cddfc170b3ed60">sm::chars_to_string</a>(<a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37">cu::repeat</a>(string_vec, n));</div>
+<div class="line"><a id="l00589" name="l00589"></a><span class="lineno">  589</span>}</div>
 </div>
-<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span> </div>
-<div class="foldopen" id="foldopen00615" data-start="{" data-end="}">
-<div class="line"><a id="l00615" name="l00615"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm.html#ae64d11727ab3db9d0631321bd293de2b">  615</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ae64d11727ab3db9d0631321bd293de2b">split</a>(</div>
-<div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span>    std::string_view <span class="keywordtype">string</span>,</div>
-<div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span>    <span class="keywordtype">char</span>             character</div>
-<div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span>)</div>
-<div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span>{</div>
-<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span>    std::vector&lt;char&gt; string_vec(<span class="keywordtype">string</span>.begin(), <span class="keywordtype">string</span>.end());</div>
-<div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span>    <span class="keyword">auto</span> result = <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#ab9f44279e734a8b0963ba9a1a1d805b9">cu::split</a>(string_vec, character);</div>
-<div class="line"><a id="l00622" name="l00622"></a><span class="lineno">  622</span>    <span class="keywordflow">return</span> std::views::transform(result, <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad0d9136fae4ffdd686cddfc170b3ed60">sm::chars_to_string</a>&lt;std::vector&lt;char&gt;&gt;)</div>
-<div class="line"><a id="l00623" name="l00623"></a><span class="lineno">  623</span>         | std::ranges::to&lt;result_string_nested&gt;();</div>
-<div class="line"><a id="l00624" name="l00624"></a><span class="lineno">  624</span>}</div>
+<div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span> </div>
+<div class="foldopen" id="foldopen00600" data-start="{" data-end="}">
+<div class="line"><a id="l00600" name="l00600"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm.html#a176609474fe532a53b0a43d10bb4490c">  600</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad690389f2fb57f67873923c62be4805c">repeat</a>(</div>
+<div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span>      n</div>
+<div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span>)</div>
+<div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span>{</div>
+<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span>    std::vector&lt;char&gt; string_vec(<span class="keywordtype">string</span>.begin(), <span class="keywordtype">string</span>.end());</div>
+<div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad0d9136fae4ffdd686cddfc170b3ed60">sm::chars_to_string</a>(<a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37">cu::repeat</a>(string_vec, n));</div>
+<div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span>}</div>
 </div>
-<div class="line"><a id="l00625" name="l00625"></a><span class="lineno">  625</span> </div>
-<div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span>} <span class="comment">// namespace sm</span></div>
+<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span> </div>
+<div class="foldopen" id="foldopen00618" data-start="{" data-end="}">
+<div class="line"><a id="l00618" name="l00618"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm.html#a58a21b34af1c52495469cf5c96bf36e3">  618</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad690389f2fb57f67873923c62be4805c">repeat</a>(</div>
+<div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span>    <span class="keywordtype">long</span> <span class="keywordtype">double</span>      n</div>
+<div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span>)</div>
+<div class="line"><a id="l00622" name="l00622"></a><span class="lineno">  622</span>{</div>
+<div class="line"><a id="l00623" name="l00623"></a><span class="lineno">  623</span>    std::vector&lt;char&gt; string_vec(<span class="keywordtype">string</span>.begin(), <span class="keywordtype">string</span>.end());</div>
+<div class="line"><a id="l00624" name="l00624"></a><span class="lineno">  624</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad0d9136fae4ffdd686cddfc170b3ed60">sm::chars_to_string</a>(<a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37">cu::repeat</a>(string_vec, n));</div>
+<div class="line"><a id="l00625" name="l00625"></a><span class="lineno">  625</span>}</div>
 </div>
-<div class="line"><a id="l00627" name="l00627"></a><span class="lineno">  627</span> </div>
-<div class="foldopen" id="foldopen00631" data-start="{" data-end="}">
-<div class="line"><a id="l00631" name="l00631"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm__operators.html">  631</a></span><span class="keyword">namespace </span>sm_operators {</div>
-<div class="line"><a id="l00632" name="l00632"></a><span class="lineno">  632</span> </div>
-<div class="foldopen" id="foldopen00642" data-start="{" data-end="}">
-<div class="line"><a id="l00642" name="l00642"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm__operators.html#a2f573f091724effa15a5d8c54c09fdcf">  642</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm__operators.html#a2f573f091724effa15a5d8c54c09fdcf">operator- </a>(</div>
-<div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span>    std::string_view <span class="keywordtype">string</span>,</div>
-<div class="line"><a id="l00644" name="l00644"></a><span class="lineno">  644</span>    std::string_view pattern</div>
-<div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span>)</div>
-<div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span>{</div>
-<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#a22ca7926c4634482cb23d63564e79143">sm::filter_out_seq</a>(<span class="keywordtype">string</span>, pattern);</div>
-<div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span>}</div>
+<div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span> </div>
+<div class="foldopen" id="foldopen00636" data-start="{" data-end="}">
+<div class="line"><a id="l00636" name="l00636"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm.html#acdddba424960b47e5a4173b3cf769523">  636</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad690389f2fb57f67873923c62be4805c">repeat</a>(</div>
+<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span>    <span class="keywordtype">float</span>      n</div>
+<div class="line"><a id="l00639" name="l00639"></a><span class="lineno">  639</span>)</div>
+<div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span>{</div>
+<div class="line"><a id="l00641" name="l00641"></a><span class="lineno">  641</span>    std::vector&lt;char&gt; string_vec(<span class="keywordtype">string</span>.begin(), <span class="keywordtype">string</span>.end());</div>
+<div class="line"><a id="l00642" name="l00642"></a><span class="lineno">  642</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad0d9136fae4ffdd686cddfc170b3ed60">sm::chars_to_string</a>(<a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37">cu::repeat</a>(string_vec, n));</div>
+<div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span>}</div>
 </div>
-<div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span> </div>
-<div class="foldopen" id="foldopen00659" data-start="{" data-end="}">
-<div class="line"><a id="l00659" name="l00659"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm__operators.html#aa30082a9ba2ba36b8cec026f7b0ea1c1">  659</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm__operators.html#a2f573f091724effa15a5d8c54c09fdcf">operator- </a>(</div>
-<div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>    std::string_view <span class="keywordtype">string</span>,</div>
-<div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span>    <span class="keywordtype">char</span>             character</div>
-<div class="line"><a id="l00662" name="l00662"></a><span class="lineno">  662</span>)</div>
-<div class="line"><a id="l00663" name="l00663"></a><span class="lineno">  663</span>{</div>
-<div class="line"><a id="l00664" name="l00664"></a><span class="lineno">  664</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#a62f8598e9739e2594d516db8f8d7b9f6">sm::filter_out</a>(<span class="keywordtype">string</span>, character);</div>
-<div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span>}</div>
+<div class="line"><a id="l00644" name="l00644"></a><span class="lineno">  644</span> </div>
+<div class="foldopen" id="foldopen00654" data-start="{" data-end="}">
+<div class="line"><a id="l00654" name="l00654"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm.html#ac6a53b6232a843cfd1aabba745355398">  654</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad690389f2fb57f67873923c62be4805c">repeat</a>(</div>
+<div class="line"><a id="l00655" name="l00655"></a><span class="lineno">  655</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00656" name="l00656"></a><span class="lineno">  656</span>    <span class="keywordtype">double</span>      n</div>
+<div class="line"><a id="l00657" name="l00657"></a><span class="lineno">  657</span>)</div>
+<div class="line"><a id="l00658" name="l00658"></a><span class="lineno">  658</span>{</div>
+<div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span>    std::vector&lt;char&gt; string_vec(<span class="keywordtype">string</span>.begin(), <span class="keywordtype">string</span>.end());</div>
+<div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad0d9136fae4ffdd686cddfc170b3ed60">sm::chars_to_string</a>(<a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37">cu::repeat</a>(string_vec, n));</div>
+<div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span>}</div>
 </div>
-<div class="line"><a id="l00666" name="l00666"></a><span class="lineno">  666</span> </div>
-<div class="foldopen" id="foldopen00676" data-start="{" data-end="}">
-<div class="line"><a id="l00676" name="l00676"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm__operators.html#ade2cae3d13c20704ca4c478083470141">  676</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm__operators.html#ade2cae3d13c20704ca4c478083470141">operator* </a>(</div>
-<div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span>    std::string_view <span class="keywordtype">string</span>,</div>
-<div class="line"><a id="l00678" name="l00678"></a><span class="lineno">  678</span>    std::size_t      n</div>
-<div class="line"><a id="l00679" name="l00679"></a><span class="lineno">  679</span>)</div>
-<div class="line"><a id="l00680" name="l00680"></a><span class="lineno">  680</span>{</div>
-<div class="line"><a id="l00681" name="l00681"></a><span class="lineno">  681</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad690389f2fb57f67873923c62be4805c">sm::repeat</a>(<span class="keywordtype">string</span>, n);</div>
+<div class="line"><a id="l00662" name="l00662"></a><span class="lineno">  662</span> </div>
+<div class="foldopen" id="foldopen00672" data-start="{" data-end="}">
+<div class="line"><a id="l00672" name="l00672"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm.html#ac1ae37388aa1aaac0bedc25f353b3092">  672</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ac1ae37388aa1aaac0bedc25f353b3092">split_seq</a>(</div>
+<div class="line"><a id="l00673" name="l00673"></a><span class="lineno">  673</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00674" name="l00674"></a><span class="lineno">  674</span>    std::string_view pattern</div>
+<div class="line"><a id="l00675" name="l00675"></a><span class="lineno">  675</span>)</div>
+<div class="line"><a id="l00676" name="l00676"></a><span class="lineno">  676</span>{</div>
+<div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span>    std::vector&lt;char&gt; string_vec(<span class="keywordtype">string</span>.begin(), <span class="keywordtype">string</span>.end());</div>
+<div class="line"><a id="l00678" name="l00678"></a><span class="lineno">  678</span>    std::vector&lt;char&gt; pattern_vec(pattern.begin(), pattern.end());</div>
+<div class="line"><a id="l00679" name="l00679"></a><span class="lineno">  679</span>    <span class="keyword">auto</span> result = <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a02a640ca3898e63a8338b562d23a6ca7">cu::split_seq</a>(string_vec, pattern_vec);</div>
+<div class="line"><a id="l00680" name="l00680"></a><span class="lineno">  680</span>    <span class="keywordflow">return</span> std::views::transform(result, <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad0d9136fae4ffdd686cddfc170b3ed60">sm::chars_to_string</a>&lt;std::vector&lt;char&gt;&gt;)</div>
+<div class="line"><a id="l00681" name="l00681"></a><span class="lineno">  681</span>         | std::ranges::to&lt;result_string_nested&gt;();</div>
 <div class="line"><a id="l00682" name="l00682"></a><span class="lineno">  682</span>}</div>
 </div>
 <div class="line"><a id="l00683" name="l00683"></a><span class="lineno">  683</span> </div>
 <div class="foldopen" id="foldopen00693" data-start="{" data-end="}">
-<div class="line"><a id="l00693" name="l00693"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm__operators.html#a6bcdbcc35657032459dcb9e4dd49a0c5">  693</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm__operators.html#ade2cae3d13c20704ca4c478083470141">operator* </a>(</div>
+<div class="line"><a id="l00693" name="l00693"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm.html#a37cacfd93ff6f2ceb3a556026791df73">  693</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#a37cacfd93ff6f2ceb3a556026791df73">split_occ</a>(</div>
 <div class="line"><a id="l00694" name="l00694"></a><span class="lineno">  694</span>    std::string_view <span class="keywordtype">string</span>,</div>
-<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span>    <span class="keywordtype">long</span> <span class="keywordtype">double</span>      n</div>
+<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span>    std::string_view characters</div>
 <div class="line"><a id="l00696" name="l00696"></a><span class="lineno">  696</span>)</div>
 <div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span>{</div>
-<div class="line"><a id="l00698" name="l00698"></a><span class="lineno">  698</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad690389f2fb57f67873923c62be4805c">sm::repeat</a>(<span class="keywordtype">string</span>, n);</div>
-<div class="line"><a id="l00699" name="l00699"></a><span class="lineno">  699</span>}</div>
+<div class="line"><a id="l00698" name="l00698"></a><span class="lineno">  698</span>    std::vector&lt;char&gt; string_vec(<span class="keywordtype">string</span>.begin(), <span class="keywordtype">string</span>.end());</div>
+<div class="line"><a id="l00699" name="l00699"></a><span class="lineno">  699</span>    std::vector&lt;char&gt; pattern_vec(characters.begin(), characters.end());</div>
+<div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span>    <span class="keyword">auto</span> result = <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#acc1b463c87ef5ec1f72cd652c70f9b0d">cu::split_occ</a>(string_vec, pattern_vec);</div>
+<div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span>    <span class="keywordflow">return</span> std::views::transform(result, <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad0d9136fae4ffdd686cddfc170b3ed60">sm::chars_to_string</a>&lt;std::vector&lt;char&gt;&gt;)</div>
+<div class="line"><a id="l00702" name="l00702"></a><span class="lineno">  702</span>         | std::ranges::to&lt;result_string_nested&gt;();</div>
+<div class="line"><a id="l00703" name="l00703"></a><span class="lineno">  703</span>}</div>
 </div>
-<div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span> </div>
-<div class="foldopen" id="foldopen00710" data-start="{" data-end="}">
-<div class="line"><a id="l00710" name="l00710"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm__operators.html#acbd16f06d2b7028804b2886e2de60318">  710</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm__operators.html#acbd16f06d2b7028804b2886e2de60318">operator/ </a>(</div>
-<div class="line"><a id="l00711" name="l00711"></a><span class="lineno">  711</span>    std::string_view <span class="keywordtype">string</span>,</div>
-<div class="line"><a id="l00712" name="l00712"></a><span class="lineno">  712</span>    std::string_view pattern</div>
-<div class="line"><a id="l00713" name="l00713"></a><span class="lineno">  713</span>)</div>
-<div class="line"><a id="l00714" name="l00714"></a><span class="lineno">  714</span>{</div>
-<div class="line"><a id="l00715" name="l00715"></a><span class="lineno">  715</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ac1ae37388aa1aaac0bedc25f353b3092">sm::split_seq</a>(<span class="keywordtype">string</span>, pattern);</div>
-<div class="line"><a id="l00716" name="l00716"></a><span class="lineno">  716</span>}</div>
+<div class="line"><a id="l00704" name="l00704"></a><span class="lineno">  704</span> </div>
+<div class="line"><a id="l00715" name="l00715"></a><span class="lineno">  715</span><span class="keyword">template</span>&lt;sm_compatible Strings&gt;</div>
+<div class="foldopen" id="foldopen00716" data-start="{" data-end="}">
+<div class="line"><a id="l00716" name="l00716"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm.html#a12f6442f3f2e83c922896cdaf3ca325c">  716</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#a12f6442f3f2e83c922896cdaf3ca325c">split_occ_seq</a>(</div>
+<div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00718" name="l00718"></a><span class="lineno">  718</span>    <span class="keyword">const</span> Strings   &amp;patterns</div>
+<div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span>)</div>
+<div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span>{</div>
+<div class="line"><a id="l00721" name="l00721"></a><span class="lineno">  721</span>    std::vector&lt;char&gt; string_vec(<span class="keywordtype">string</span>.begin(), <span class="keywordtype">string</span>.end());</div>
+<div class="line"><a id="l00722" name="l00722"></a><span class="lineno">  722</span>    std::vector&lt;std::vector&lt;char&gt;&gt; patterns_vec = {};</div>
+<div class="line"><a id="l00723" name="l00723"></a><span class="lineno">  723</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;pattern : patterns)</div>
+<div class="line"><a id="l00724" name="l00724"></a><span class="lineno">  724</span>    {</div>
+<div class="line"><a id="l00725" name="l00725"></a><span class="lineno">  725</span>        patterns_vec.emplace_back(pattern.begin(), pattern.end());</div>
+<div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span>    }</div>
+<div class="line"><a id="l00727" name="l00727"></a><span class="lineno">  727</span>    <span class="keyword">auto</span> result = <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#a7c2c97e55ed45d82a370ac456aac90a0">cu::split_occ_seq</a>(string_vec, patterns_vec);</div>
+<div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span>    <span class="keywordflow">return</span> std::views::transform(result, <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad0d9136fae4ffdd686cddfc170b3ed60">sm::chars_to_string</a>&lt;std::vector&lt;char&gt;&gt;)</div>
+<div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span>         | std::ranges::to&lt;result_string_nested&gt;();</div>
+<div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span>}</div>
 </div>
-<div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span> </div>
-<div class="foldopen" id="foldopen00727" data-start="{" data-end="}">
-<div class="line"><a id="l00727" name="l00727"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm__operators.html#ae5e90c84f0e93e4e83f00b236534f483">  727</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm__operators.html#acbd16f06d2b7028804b2886e2de60318">operator/ </a>(</div>
-<div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span>    std::string_view <span class="keywordtype">string</span>,</div>
-<div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span>    <span class="keywordtype">char</span>             character</div>
-<div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span>)</div>
-<div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span>{</div>
-<div class="line"><a id="l00732" name="l00732"></a><span class="lineno">  732</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ae64d11727ab3db9d0631321bd293de2b">sm::split</a>(<span class="keywordtype">string</span>, character);</div>
-<div class="line"><a id="l00733" name="l00733"></a><span class="lineno">  733</span>}</div>
+<div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span> </div>
+<div class="foldopen" id="foldopen00741" data-start="{" data-end="}">
+<div class="line"><a id="l00741" name="l00741"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm.html#ae64d11727ab3db9d0631321bd293de2b">  741</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ae64d11727ab3db9d0631321bd293de2b">split</a>(</div>
+<div class="line"><a id="l00742" name="l00742"></a><span class="lineno">  742</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00743" name="l00743"></a><span class="lineno">  743</span>    <span class="keywordtype">char</span>             character</div>
+<div class="line"><a id="l00744" name="l00744"></a><span class="lineno">  744</span>)</div>
+<div class="line"><a id="l00745" name="l00745"></a><span class="lineno">  745</span>{</div>
+<div class="line"><a id="l00746" name="l00746"></a><span class="lineno">  746</span>    std::vector&lt;char&gt; string_vec(<span class="keywordtype">string</span>.begin(), <span class="keywordtype">string</span>.end());</div>
+<div class="line"><a id="l00747" name="l00747"></a><span class="lineno">  747</span>    <span class="keyword">auto</span> result = <a class="code hl_function" href="namespaceauspicious__library_1_1cu.html#ab9f44279e734a8b0963ba9a1a1d805b9">cu::split</a>(string_vec, character);</div>
+<div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span>    <span class="keywordflow">return</span> std::views::transform(result, <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad0d9136fae4ffdd686cddfc170b3ed60">sm::chars_to_string</a>&lt;std::vector&lt;char&gt;&gt;)</div>
+<div class="line"><a id="l00749" name="l00749"></a><span class="lineno">  749</span>         | std::ranges::to&lt;result_string_nested&gt;();</div>
+<div class="line"><a id="l00750" name="l00750"></a><span class="lineno">  750</span>}</div>
 </div>
-<div class="line"><a id="l00734" name="l00734"></a><span class="lineno">  734</span> </div>
-<div class="line"><a id="l00735" name="l00735"></a><span class="lineno">  735</span>} <span class="comment">// namespace sm_operators</span></div>
+<div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span> </div>
+<div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span>} <span class="comment">// namespace sm</span></div>
 </div>
-<div class="line"><a id="l00736" name="l00736"></a><span class="lineno">  736</span> </div>
-<div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span>} <span class="comment">// namespace auspicious_library</span></div>
+<div class="line"><a id="l00753" name="l00753"></a><span class="lineno">  753</span> </div>
+<div class="foldopen" id="foldopen00757" data-start="{" data-end="}">
+<div class="line"><a id="l00757" name="l00757"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm__operators.html">  757</a></span><span class="keyword">namespace </span>sm_operators {</div>
+<div class="line"><a id="l00758" name="l00758"></a><span class="lineno">  758</span> </div>
+<div class="foldopen" id="foldopen00768" data-start="{" data-end="}">
+<div class="line"><a id="l00768" name="l00768"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm__operators.html#a2f573f091724effa15a5d8c54c09fdcf">  768</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm__operators.html#a2f573f091724effa15a5d8c54c09fdcf">operator- </a>(</div>
+<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span>    std::string_view pattern</div>
+<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span>)</div>
+<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span>{</div>
+<div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#a22ca7926c4634482cb23d63564e79143">sm::filter_out_seq</a>(<span class="keywordtype">string</span>, pattern);</div>
+<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>}</div>
+</div>
+<div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span> </div>
+<div class="foldopen" id="foldopen00785" data-start="{" data-end="}">
+<div class="line"><a id="l00785" name="l00785"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm__operators.html#aa30082a9ba2ba36b8cec026f7b0ea1c1">  785</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm__operators.html#a2f573f091724effa15a5d8c54c09fdcf">operator- </a>(</div>
+<div class="line"><a id="l00786" name="l00786"></a><span class="lineno">  786</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span>    <span class="keywordtype">char</span>             character</div>
+<div class="line"><a id="l00788" name="l00788"></a><span class="lineno">  788</span>)</div>
+<div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span>{</div>
+<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#a62f8598e9739e2594d516db8f8d7b9f6">sm::filter_out</a>(<span class="keywordtype">string</span>, character);</div>
+<div class="line"><a id="l00791" name="l00791"></a><span class="lineno">  791</span>}</div>
+</div>
+<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span> </div>
+<div class="foldopen" id="foldopen00802" data-start="{" data-end="}">
+<div class="line"><a id="l00802" name="l00802"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm__operators.html#ade2cae3d13c20704ca4c478083470141">  802</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm__operators.html#ade2cae3d13c20704ca4c478083470141">operator* </a>(</div>
+<div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00804" name="l00804"></a><span class="lineno">  804</span>    std::size_t      n</div>
+<div class="line"><a id="l00805" name="l00805"></a><span class="lineno">  805</span>)</div>
+<div class="line"><a id="l00806" name="l00806"></a><span class="lineno">  806</span>{</div>
+<div class="line"><a id="l00807" name="l00807"></a><span class="lineno">  807</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad690389f2fb57f67873923c62be4805c">sm::repeat</a>(<span class="keywordtype">string</span>, n);</div>
+<div class="line"><a id="l00808" name="l00808"></a><span class="lineno">  808</span>}</div>
+</div>
+<div class="line"><a id="l00809" name="l00809"></a><span class="lineno">  809</span> </div>
+<div class="foldopen" id="foldopen00819" data-start="{" data-end="}">
+<div class="line"><a id="l00819" name="l00819"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm__operators.html#a67624657b7db38ebcbf580c2f3308dca">  819</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm__operators.html#ade2cae3d13c20704ca4c478083470141">operator* </a>(</div>
+<div class="line"><a id="l00820" name="l00820"></a><span class="lineno">  820</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00821" name="l00821"></a><span class="lineno">  821</span>    <span class="keywordtype">int</span>      n</div>
+<div class="line"><a id="l00822" name="l00822"></a><span class="lineno">  822</span>)</div>
+<div class="line"><a id="l00823" name="l00823"></a><span class="lineno">  823</span>{</div>
+<div class="line"><a id="l00824" name="l00824"></a><span class="lineno">  824</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad690389f2fb57f67873923c62be4805c">sm::repeat</a>(<span class="keywordtype">string</span>, n);</div>
+<div class="line"><a id="l00825" name="l00825"></a><span class="lineno">  825</span>}</div>
+</div>
+<div class="line"><a id="l00826" name="l00826"></a><span class="lineno">  826</span> </div>
+<div class="foldopen" id="foldopen00836" data-start="{" data-end="}">
+<div class="line"><a id="l00836" name="l00836"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm__operators.html#abe6c15265610e3b93e21285654eb8e80">  836</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm__operators.html#ade2cae3d13c20704ca4c478083470141">operator* </a>(</div>
+<div class="line"><a id="l00837" name="l00837"></a><span class="lineno">  837</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00838" name="l00838"></a><span class="lineno">  838</span>    <span class="keywordtype">unsigned</span>      n</div>
+<div class="line"><a id="l00839" name="l00839"></a><span class="lineno">  839</span>)</div>
+<div class="line"><a id="l00840" name="l00840"></a><span class="lineno">  840</span>{</div>
+<div class="line"><a id="l00841" name="l00841"></a><span class="lineno">  841</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad690389f2fb57f67873923c62be4805c">sm::repeat</a>(<span class="keywordtype">string</span>, n);</div>
+<div class="line"><a id="l00842" name="l00842"></a><span class="lineno">  842</span>}</div>
+</div>
+<div class="line"><a id="l00843" name="l00843"></a><span class="lineno">  843</span> </div>
+<div class="foldopen" id="foldopen00853" data-start="{" data-end="}">
+<div class="line"><a id="l00853" name="l00853"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm__operators.html#a6fd0ab23a54de7293644932fd13f2256">  853</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm__operators.html#ade2cae3d13c20704ca4c478083470141">operator* </a>(</div>
+<div class="line"><a id="l00854" name="l00854"></a><span class="lineno">  854</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00855" name="l00855"></a><span class="lineno">  855</span>    <span class="keywordtype">long</span>      n</div>
+<div class="line"><a id="l00856" name="l00856"></a><span class="lineno">  856</span>)</div>
+<div class="line"><a id="l00857" name="l00857"></a><span class="lineno">  857</span>{</div>
+<div class="line"><a id="l00858" name="l00858"></a><span class="lineno">  858</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad690389f2fb57f67873923c62be4805c">sm::repeat</a>(<span class="keywordtype">string</span>, n);</div>
+<div class="line"><a id="l00859" name="l00859"></a><span class="lineno">  859</span>}</div>
+</div>
+<div class="line"><a id="l00860" name="l00860"></a><span class="lineno">  860</span> </div>
+<div class="foldopen" id="foldopen00870" data-start="{" data-end="}">
+<div class="line"><a id="l00870" name="l00870"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm__operators.html#a848838ddb85d488b7ed3e6861c25fec3">  870</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm__operators.html#ade2cae3d13c20704ca4c478083470141">operator* </a>(</div>
+<div class="line"><a id="l00871" name="l00871"></a><span class="lineno">  871</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00872" name="l00872"></a><span class="lineno">  872</span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span>      n</div>
+<div class="line"><a id="l00873" name="l00873"></a><span class="lineno">  873</span>)</div>
+<div class="line"><a id="l00874" name="l00874"></a><span class="lineno">  874</span>{</div>
+<div class="line"><a id="l00875" name="l00875"></a><span class="lineno">  875</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad690389f2fb57f67873923c62be4805c">sm::repeat</a>(<span class="keywordtype">string</span>, n);</div>
+<div class="line"><a id="l00876" name="l00876"></a><span class="lineno">  876</span>}</div>
+</div>
+<div class="line"><a id="l00877" name="l00877"></a><span class="lineno">  877</span> </div>
+<div class="foldopen" id="foldopen00887" data-start="{" data-end="}">
+<div class="line"><a id="l00887" name="l00887"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm__operators.html#adb0ad66535c0b9f3f32aeb4dc078cae3">  887</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm__operators.html#ade2cae3d13c20704ca4c478083470141">operator* </a>(</div>
+<div class="line"><a id="l00888" name="l00888"></a><span class="lineno">  888</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00889" name="l00889"></a><span class="lineno">  889</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span>      n</div>
+<div class="line"><a id="l00890" name="l00890"></a><span class="lineno">  890</span>)</div>
+<div class="line"><a id="l00891" name="l00891"></a><span class="lineno">  891</span>{</div>
+<div class="line"><a id="l00892" name="l00892"></a><span class="lineno">  892</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad690389f2fb57f67873923c62be4805c">sm::repeat</a>(<span class="keywordtype">string</span>, n);</div>
+<div class="line"><a id="l00893" name="l00893"></a><span class="lineno">  893</span>}</div>
+</div>
+<div class="line"><a id="l00894" name="l00894"></a><span class="lineno">  894</span> </div>
+<div class="foldopen" id="foldopen00904" data-start="{" data-end="}">
+<div class="line"><a id="l00904" name="l00904"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm__operators.html#a6bcdbcc35657032459dcb9e4dd49a0c5">  904</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm__operators.html#ade2cae3d13c20704ca4c478083470141">operator* </a>(</div>
+<div class="line"><a id="l00905" name="l00905"></a><span class="lineno">  905</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00906" name="l00906"></a><span class="lineno">  906</span>    <span class="keywordtype">long</span> <span class="keywordtype">double</span>      n</div>
+<div class="line"><a id="l00907" name="l00907"></a><span class="lineno">  907</span>)</div>
+<div class="line"><a id="l00908" name="l00908"></a><span class="lineno">  908</span>{</div>
+<div class="line"><a id="l00909" name="l00909"></a><span class="lineno">  909</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad690389f2fb57f67873923c62be4805c">sm::repeat</a>(<span class="keywordtype">string</span>, n);</div>
+<div class="line"><a id="l00910" name="l00910"></a><span class="lineno">  910</span>}</div>
+</div>
+<div class="line"><a id="l00911" name="l00911"></a><span class="lineno">  911</span> </div>
+<div class="foldopen" id="foldopen00921" data-start="{" data-end="}">
+<div class="line"><a id="l00921" name="l00921"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm__operators.html#a7cab0b9dc5fc4ce8860656023755dd5a">  921</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm__operators.html#ade2cae3d13c20704ca4c478083470141">operator* </a>(</div>
+<div class="line"><a id="l00922" name="l00922"></a><span class="lineno">  922</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00923" name="l00923"></a><span class="lineno">  923</span>    <span class="keywordtype">float</span>      n</div>
+<div class="line"><a id="l00924" name="l00924"></a><span class="lineno">  924</span>)</div>
+<div class="line"><a id="l00925" name="l00925"></a><span class="lineno">  925</span>{</div>
+<div class="line"><a id="l00926" name="l00926"></a><span class="lineno">  926</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad690389f2fb57f67873923c62be4805c">sm::repeat</a>(<span class="keywordtype">string</span>, n);</div>
+<div class="line"><a id="l00927" name="l00927"></a><span class="lineno">  927</span>}</div>
+</div>
+<div class="line"><a id="l00928" name="l00928"></a><span class="lineno">  928</span> </div>
+<div class="foldopen" id="foldopen00938" data-start="{" data-end="}">
+<div class="line"><a id="l00938" name="l00938"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm__operators.html#a2daa632f3dc8c9aa3bfd91ae72cd6674">  938</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm__operators.html#ade2cae3d13c20704ca4c478083470141">operator* </a>(</div>
+<div class="line"><a id="l00939" name="l00939"></a><span class="lineno">  939</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00940" name="l00940"></a><span class="lineno">  940</span>    <span class="keywordtype">double</span>      n</div>
+<div class="line"><a id="l00941" name="l00941"></a><span class="lineno">  941</span>)</div>
+<div class="line"><a id="l00942" name="l00942"></a><span class="lineno">  942</span>{</div>
+<div class="line"><a id="l00943" name="l00943"></a><span class="lineno">  943</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ad690389f2fb57f67873923c62be4805c">sm::repeat</a>(<span class="keywordtype">string</span>, n);</div>
+<div class="line"><a id="l00944" name="l00944"></a><span class="lineno">  944</span>}</div>
+</div>
+<div class="line"><a id="l00945" name="l00945"></a><span class="lineno">  945</span> </div>
+<div class="foldopen" id="foldopen00955" data-start="{" data-end="}">
+<div class="line"><a id="l00955" name="l00955"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm__operators.html#acbd16f06d2b7028804b2886e2de60318">  955</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm__operators.html#acbd16f06d2b7028804b2886e2de60318">operator/ </a>(</div>
+<div class="line"><a id="l00956" name="l00956"></a><span class="lineno">  956</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00957" name="l00957"></a><span class="lineno">  957</span>    std::string_view pattern</div>
+<div class="line"><a id="l00958" name="l00958"></a><span class="lineno">  958</span>)</div>
+<div class="line"><a id="l00959" name="l00959"></a><span class="lineno">  959</span>{</div>
+<div class="line"><a id="l00960" name="l00960"></a><span class="lineno">  960</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ac1ae37388aa1aaac0bedc25f353b3092">sm::split_seq</a>(<span class="keywordtype">string</span>, pattern);</div>
+<div class="line"><a id="l00961" name="l00961"></a><span class="lineno">  961</span>}</div>
+</div>
+<div class="line"><a id="l00962" name="l00962"></a><span class="lineno">  962</span> </div>
+<div class="foldopen" id="foldopen00972" data-start="{" data-end="}">
+<div class="line"><a id="l00972" name="l00972"></a><span class="lineno"><a class="line" href="namespaceauspicious__library_1_1sm__operators.html#ae5e90c84f0e93e4e83f00b236534f483">  972</a></span>[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm__operators.html#acbd16f06d2b7028804b2886e2de60318">operator/ </a>(</div>
+<div class="line"><a id="l00973" name="l00973"></a><span class="lineno">  973</span>    std::string_view <span class="keywordtype">string</span>,</div>
+<div class="line"><a id="l00974" name="l00974"></a><span class="lineno">  974</span>    <span class="keywordtype">char</span>             character</div>
+<div class="line"><a id="l00975" name="l00975"></a><span class="lineno">  975</span>)</div>
+<div class="line"><a id="l00976" name="l00976"></a><span class="lineno">  976</span>{</div>
+<div class="line"><a id="l00977" name="l00977"></a><span class="lineno">  977</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceauspicious__library_1_1sm.html#ae64d11727ab3db9d0631321bd293de2b">sm::split</a>(<span class="keywordtype">string</span>, character);</div>
+<div class="line"><a id="l00978" name="l00978"></a><span class="lineno">  978</span>}</div>
+</div>
+<div class="line"><a id="l00979" name="l00979"></a><span class="lineno">  979</span> </div>
+<div class="line"><a id="l00980" name="l00980"></a><span class="lineno">  980</span>} <span class="comment">// namespace sm_operators</span></div>
+</div>
+<div class="line"><a id="l00981" name="l00981"></a><span class="lineno">  981</span> </div>
+<div class="line"><a id="l00982" name="l00982"></a><span class="lineno">  982</span>} <span class="comment">// namespace auspicious_library</span></div>
 <div class="ttc" id="aal__container__utilities_8hpp_html"><div class="ttname"><a href="al__container__utilities_8hpp.html">al_container_utilities.hpp</a></div><div class="ttdoc">General functionality for container types with operators.</div></div>
 <div class="ttc" id="aconceptauspicious__library_1_1cu_1_1cu__compatible_html"><div class="ttname"><a href="conceptauspicious__library_1_1cu_1_1cu__compatible.html">auspicious_library::cu::cu_compatible</a></div><div class="ttdoc">Container compatible for Container Utilities.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:83</div></div>
 <div class="ttc" id="aconceptauspicious__library_1_1sm_1_1sm__compatible_html"><div class="ttname"><a href="conceptauspicious__library_1_1sm_1_1sm__compatible.html">auspicious_library::sm::sm_compatible</a></div><div class="ttdoc">A container of strings compatible for String Manipulators.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:77</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a0248de8b248ad5631f6331109b9aace1"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a0248de8b248ad5631f6331109b9aace1">auspicious_library::cu::value_type</a></div><div class="ttdeci">Container::value_type value_type</div><div class="ttdoc">Container's value_type member.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:94</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a02a640ca3898e63a8338b562d23a6ca7"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a02a640ca3898e63a8338b562d23a6ca7">auspicious_library::cu::split_seq</a></div><div class="ttdeci">constexpr auto split_seq(const Container &amp;container, const Container &amp;pattern)</div><div class="ttdoc">Split the container with pattern.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1536</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a02a640ca3898e63a8338b562d23a6ca7"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a02a640ca3898e63a8338b562d23a6ca7">auspicious_library::cu::split_seq</a></div><div class="ttdeci">constexpr auto split_seq(const Container &amp;container, const Container &amp;pattern)</div><div class="ttdoc">Split the container with pattern.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1680</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a0e0d8bbb85dbc2dcd3af2f255c9a0b39"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a0e0d8bbb85dbc2dcd3af2f255c9a0b39">auspicious_library::cu::filter_out_occ_seq</a></div><div class="ttdeci">constexpr auto filter_out_occ_seq(const Container &amp;container, const NestedContainer &amp;patterns)</div><div class="ttdoc">Filter out the occurrences of any of sequences from the container.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1448</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a28c9c721c79f51cbf14c0c9c9e020293"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a28c9c721c79f51cbf14c0c9c9e020293">auspicious_library::cu::filter_out_seq</a></div><div class="ttdeci">constexpr auto filter_out_seq(const Container &amp;container, const Container &amp;pattern)</div><div class="ttdoc">Filter out the occurrences of sequence from the container.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1405</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a367b35bf13b81eac704c433070427e6d"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a367b35bf13b81eac704c433070427e6d">auspicious_library::cu::filter_out_occ</a></div><div class="ttdeci">constexpr auto filter_out_occ(const Container &amp;container, const Container &amp;values)</div><div class="ttdoc">Filter out the occurrences of any of values from the container.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1424</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a3d0869d9e35bc3f395f91a5cbde0345e"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a3d0869d9e35bc3f395f91a5cbde0345e">auspicious_library::cu::filter_out</a></div><div class="ttdeci">constexpr auto filter_out(const Container &amp;container, const value_type&lt; Container &gt; &amp;value)</div><div class="ttdoc">Filter out the occurrences of value from the container.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1470</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a420a931bdf075a5d34bbc908aafaae37"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a420a931bdf075a5d34bbc908aafaae37">auspicious_library::cu::repeat</a></div><div class="ttdeci">constexpr auto repeat(const Container &amp;container, std::size_t n)</div><div class="ttdoc">Repeat container n times.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1487</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a7c2c97e55ed45d82a370ac456aac90a0"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a7c2c97e55ed45d82a370ac456aac90a0">auspicious_library::cu::split_occ_seq</a></div><div class="ttdeci">constexpr auto split_occ_seq(const Container &amp;container, const NestedContainer &amp;patterns)</div><div class="ttdoc">Split the container with occurrences of any of pattern.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1585</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_ab9f44279e734a8b0963ba9a1a1d805b9"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#ab9f44279e734a8b0963ba9a1a1d805b9">auspicious_library::cu::split</a></div><div class="ttdeci">constexpr auto split(const Container &amp;container, const value_type&lt; Container &gt; &amp;value)</div><div class="ttdoc">Split the container with value.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1628</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_acc1b463c87ef5ec1f72cd652c70f9b0d"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#acc1b463c87ef5ec1f72cd652c70f9b0d">auspicious_library::cu::split_occ</a></div><div class="ttdeci">constexpr auto split_occ(const Container &amp;container, const Container &amp;values)</div><div class="ttdoc">Split the container with occurrences of value.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1554</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1sm__operators_html_a2f573f091724effa15a5d8c54c09fdcf"><div class="ttname"><a href="namespaceauspicious__library_1_1sm__operators.html#a2f573f091724effa15a5d8c54c09fdcf">auspicious_library::sm_operators::operator-</a></div><div class="ttdeci">constexpr auto operator-(std::string_view string, std::string_view pattern)</div><div class="ttdoc">Filter out the occurrences of sequence from the string.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:642</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1sm__operators_html_acbd16f06d2b7028804b2886e2de60318"><div class="ttname"><a href="namespaceauspicious__library_1_1sm__operators.html#acbd16f06d2b7028804b2886e2de60318">auspicious_library::sm_operators::operator/</a></div><div class="ttdeci">constexpr auto operator/(std::string_view string, std::string_view pattern)</div><div class="ttdoc">Split the string with pattern.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:710</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1sm__operators_html_ade2cae3d13c20704ca4c478083470141"><div class="ttname"><a href="namespaceauspicious__library_1_1sm__operators.html#ade2cae3d13c20704ca4c478083470141">auspicious_library::sm_operators::operator*</a></div><div class="ttdeci">constexpr auto operator*(std::string_view string, std::size_t n)</div><div class="ttdoc">Repeat string n times.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:676</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1sm_html_a12f6442f3f2e83c922896cdaf3ca325c"><div class="ttname"><a href="namespaceauspicious__library_1_1sm.html#a12f6442f3f2e83c922896cdaf3ca325c">auspicious_library::sm::split_occ_seq</a></div><div class="ttdeci">constexpr auto split_occ_seq(std::string_view string, const Strings &amp;patterns)</div><div class="ttdoc">Split the string with occurrences of any of pattern.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:590</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_a7c2c97e55ed45d82a370ac456aac90a0"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#a7c2c97e55ed45d82a370ac456aac90a0">auspicious_library::cu::split_occ_seq</a></div><div class="ttdeci">constexpr auto split_occ_seq(const Container &amp;container, const NestedContainer &amp;patterns)</div><div class="ttdoc">Split the container with occurrences of any of pattern.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1729</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_ab9f44279e734a8b0963ba9a1a1d805b9"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#ab9f44279e734a8b0963ba9a1a1d805b9">auspicious_library::cu::split</a></div><div class="ttdeci">constexpr auto split(const Container &amp;container, const value_type&lt; Container &gt; &amp;value)</div><div class="ttdoc">Split the container with value.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1772</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1cu_html_acc1b463c87ef5ec1f72cd652c70f9b0d"><div class="ttname"><a href="namespaceauspicious__library_1_1cu.html#acc1b463c87ef5ec1f72cd652c70f9b0d">auspicious_library::cu::split_occ</a></div><div class="ttdeci">constexpr auto split_occ(const Container &amp;container, const Container &amp;values)</div><div class="ttdoc">Split the container with occurrences of value.</div><div class="ttdef"><b>Definition</b> al_container_utilities.hpp:1698</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1sm__operators_html_a2f573f091724effa15a5d8c54c09fdcf"><div class="ttname"><a href="namespaceauspicious__library_1_1sm__operators.html#a2f573f091724effa15a5d8c54c09fdcf">auspicious_library::sm_operators::operator-</a></div><div class="ttdeci">constexpr auto operator-(std::string_view string, std::string_view pattern)</div><div class="ttdoc">Filter out the occurrences of sequence from the string.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:768</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1sm__operators_html_acbd16f06d2b7028804b2886e2de60318"><div class="ttname"><a href="namespaceauspicious__library_1_1sm__operators.html#acbd16f06d2b7028804b2886e2de60318">auspicious_library::sm_operators::operator/</a></div><div class="ttdeci">constexpr auto operator/(std::string_view string, std::string_view pattern)</div><div class="ttdoc">Split the string with pattern.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:955</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1sm__operators_html_ade2cae3d13c20704ca4c478083470141"><div class="ttname"><a href="namespaceauspicious__library_1_1sm__operators.html#ade2cae3d13c20704ca4c478083470141">auspicious_library::sm_operators::operator*</a></div><div class="ttdeci">constexpr auto operator*(std::string_view string, std::size_t n)</div><div class="ttdoc">Repeat string n times.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:802</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1sm_html_a12f6442f3f2e83c922896cdaf3ca325c"><div class="ttname"><a href="namespaceauspicious__library_1_1sm.html#a12f6442f3f2e83c922896cdaf3ca325c">auspicious_library::sm::split_occ_seq</a></div><div class="ttdeci">constexpr auto split_occ_seq(std::string_view string, const Strings &amp;patterns)</div><div class="ttdoc">Split the string with occurrences of any of pattern.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:716</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1sm_html_a1d6a54aba13267a7eef4c6307136b3d7"><div class="ttname"><a href="namespaceauspicious__library_1_1sm.html#a1d6a54aba13267a7eef4c6307136b3d7">auspicious_library::sm::to_lower</a></div><div class="ttdeci">constexpr auto to_lower(std::string_view string)</div><div class="ttdoc">Convert string to lowercase.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:361</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1sm_html_a20d0b77f9560412bb418469be0280f4a"><div class="ttname"><a href="namespaceauspicious__library_1_1sm.html#a20d0b77f9560412bb418469be0280f4a">auspicious_library::sm::trim</a></div><div class="ttdeci">constexpr auto trim(std::string_view string, std::string_view delims=&quot; \t\r\n\f\v\b&quot;)</div><div class="ttdoc">Trim a string using delimiters (usually whitespace).</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:334</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1sm_html_a22ca7926c4634482cb23d63564e79143"><div class="ttname"><a href="namespaceauspicious__library_1_1sm.html#a22ca7926c4634482cb23d63564e79143">auspicious_library::sm::filter_out_seq</a></div><div class="ttdeci">constexpr auto filter_out_seq(std::string_view string, std::string_view pattern)</div><div class="ttdoc">Filter out the occurrences of sequence from the string.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:428</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1sm_html_a37cacfd93ff6f2ceb3a556026791df73"><div class="ttname"><a href="namespaceauspicious__library_1_1sm.html#a37cacfd93ff6f2ceb3a556026791df73">auspicious_library::sm::split_occ</a></div><div class="ttdeci">constexpr auto split_occ(std::string_view string, std::string_view characters)</div><div class="ttdoc">Split the string with occurrences of value.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:567</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1sm_html_a37cacfd93ff6f2ceb3a556026791df73"><div class="ttname"><a href="namespaceauspicious__library_1_1sm.html#a37cacfd93ff6f2ceb3a556026791df73">auspicious_library::sm::split_occ</a></div><div class="ttdeci">constexpr auto split_occ(std::string_view string, std::string_view characters)</div><div class="ttdoc">Split the string with occurrences of value.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:693</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1sm_html_a557e590ecf315060dbbe49015d5e90fb"><div class="ttname"><a href="namespaceauspicious__library_1_1sm.html#a557e590ecf315060dbbe49015d5e90fb">auspicious_library::sm::word_wrap</a></div><div class="ttdeci">constexpr auto word_wrap(std::string_view string, std::size_t width, bool force=false, std::string_view delims=&quot; \t\r\n\f\v\b&quot;)</div><div class="ttdoc">Word-wrap a string at width or before width depending on the delim.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:235</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1sm_html_a55b2357d69a9c2aca3c664a11edef447"><div class="ttname"><a href="namespaceauspicious__library_1_1sm.html#a55b2357d69a9c2aca3c664a11edef447">auspicious_library::sm::trim_right</a></div><div class="ttdeci">constexpr auto trim_right(std::string_view string, std::string_view delims=&quot; \t\r\n\f\v\b&quot;)</div><div class="ttdoc">Trim a string (only from right side) using delimiters (usually whitespace).</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:314</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1sm_html_a62f8598e9739e2594d516db8f8d7b9f6"><div class="ttname"><a href="namespaceauspicious__library_1_1sm.html#a62f8598e9739e2594d516db8f8d7b9f6">auspicious_library::sm::filter_out</a></div><div class="ttdeci">constexpr auto filter_out(std::string_view string, char character)</div><div class="ttdoc">Filter out the occurrences of character from the string.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:492</div></div>
@@ -599,11 +746,11 @@ $(function(){initNavTree('al__string__manipulators_8hpp_source.html',''); initRe
 <div class="ttc" id="anamespaceauspicious__library_1_1sm_html_a83d4984eda2a08277292831d76fccf0b"><div class="ttname"><a href="namespaceauspicious__library_1_1sm.html#a83d4984eda2a08277292831d76fccf0b">auspicious_library::sm::to_upper</a></div><div class="ttdeci">constexpr auto to_upper(std::string_view string)</div><div class="ttdoc">Convert string to uppercase.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:348</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1sm_html_a91e4f4e6edfccde8c0964cf8f2fc09eb"><div class="ttname"><a href="namespaceauspicious__library_1_1sm.html#a91e4f4e6edfccde8c0964cf8f2fc09eb">auspicious_library::sm::trim_left</a></div><div class="ttdeci">constexpr auto trim_left(std::string_view string, std::string_view delims=&quot; \t\r\n\f\v\b&quot;)</div><div class="ttdoc">Trim a string (only from left side) using delimiters (usually whitespace).</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:293</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1sm_html_aae67781b035e596bb886e7980aae5863"><div class="ttname"><a href="namespaceauspicious__library_1_1sm.html#aae67781b035e596bb886e7980aae5863">auspicious_library::sm::is_equal_ins</a></div><div class="ttdeci">constexpr auto is_equal_ins(std::string_view a, std::string_view b)</div><div class="ttdoc">Compare string, case insensitivity.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:397</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1sm_html_ac1ae37388aa1aaac0bedc25f353b3092"><div class="ttname"><a href="namespaceauspicious__library_1_1sm.html#ac1ae37388aa1aaac0bedc25f353b3092">auspicious_library::sm::split_seq</a></div><div class="ttdeci">constexpr auto split_seq(std::string_view string, std::string_view pattern)</div><div class="ttdoc">Split the string with pattern.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:546</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1sm_html_ac1ae37388aa1aaac0bedc25f353b3092"><div class="ttname"><a href="namespaceauspicious__library_1_1sm.html#ac1ae37388aa1aaac0bedc25f353b3092">auspicious_library::sm::split_seq</a></div><div class="ttdeci">constexpr auto split_seq(std::string_view string, std::string_view pattern)</div><div class="ttdoc">Split the string with pattern.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:672</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1sm_html_ad0d9136fae4ffdd686cddfc170b3ed60"><div class="ttname"><a href="namespaceauspicious__library_1_1sm.html#ad0d9136fae4ffdd686cddfc170b3ed60">auspicious_library::sm::chars_to_string</a></div><div class="ttdeci">constexpr auto chars_to_string(const Container &amp;container)</div><div class="ttdoc">Convert a container of char to a regular string.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:209</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1sm_html_ad690389f2fb57f67873923c62be4805c"><div class="ttname"><a href="namespaceauspicious__library_1_1sm.html#ad690389f2fb57f67873923c62be4805c">auspicious_library::sm::repeat</a></div><div class="ttdeci">constexpr auto repeat(std::string_view string, std::size_t n)</div><div class="ttdoc">Repeat string n times.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:510</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1sm_html_ae5e68b09b89152e03842b8c0a0028f5f"><div class="ttname"><a href="namespaceauspicious__library_1_1sm.html#ae5e68b09b89152e03842b8c0a0028f5f">auspicious_library::sm::result_string_nested</a></div><div class="ttdeci">std::vector&lt; std::string &gt; result_string_nested</div><div class="ttdoc">Many String Manipulators return this type.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:84</div></div>
-<div class="ttc" id="anamespaceauspicious__library_1_1sm_html_ae64d11727ab3db9d0631321bd293de2b"><div class="ttname"><a href="namespaceauspicious__library_1_1sm.html#ae64d11727ab3db9d0631321bd293de2b">auspicious_library::sm::split</a></div><div class="ttdeci">constexpr auto split(std::string_view string, char character)</div><div class="ttdoc">Split the string with value.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:615</div></div>
+<div class="ttc" id="anamespaceauspicious__library_1_1sm_html_ae64d11727ab3db9d0631321bd293de2b"><div class="ttname"><a href="namespaceauspicious__library_1_1sm.html#ae64d11727ab3db9d0631321bd293de2b">auspicious_library::sm::split</a></div><div class="ttdeci">constexpr auto split(std::string_view string, char character)</div><div class="ttdoc">Split the string with value.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:741</div></div>
 <div class="ttc" id="anamespaceauspicious__library_1_1sm_html_af4d2d6d72a9c765f4fe02a0462d35bcf"><div class="ttname"><a href="namespaceauspicious__library_1_1sm.html#af4d2d6d72a9c765f4fe02a0462d35bcf">auspicious_library::sm::to_string</a></div><div class="ttdeci">constexpr auto to_string(const Container &amp;container, Converter converter, std::string_view separator=&quot;, &quot;, std::string_view prefix=&quot;&quot;, std::string_view suffix=&quot;&quot;)</div><div class="ttdoc">Convert a container to comma separated string.</div><div class="ttdef"><b>Definition</b> al_string_manipulators.hpp:102</div></div>
 <div class="ttc" id="anamespaceauspicious__library_html"><div class="ttname"><a href="namespaceauspicious__library.html">auspicious_library</a></div><div class="ttdoc">All Auspicious Library's contents in this namespace. Just do using namespace auspicious_library to ma...</div><div class="ttdef"><b>Definition</b> al_ansi_escape_codes.hpp:54</div></div>
 </div><!-- fragment --></div><!-- contents -->

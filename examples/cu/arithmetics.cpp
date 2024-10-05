@@ -1,7 +1,7 @@
 /**
- *  @file    boundless_containers.hpp
+ *  @file    arithmetics.hpp
  *  @author  Anstro Pleuton (https://github.com/anstropleuton)
- *  @brief   How to use CU's @c cu::enumerated_array .
+ *  @brief   How to use CU's container arithmetic functions.
  *
  *  @copyright  Copyright (c) 2024 Anstro Pleuton
  *
@@ -48,60 +48,50 @@
 
 using namespace auspicious_library;
 
-// This example is meant to be a kick-starter to start using enumerated array
-// from container utilities, but they do not teach everything.  Refer to the
-// documentation for more details
+// This example is meant to be a kick-starter to start using container
+// arithmetic from container utilities, but they do not teach everything.  Refer
+// to the documentation for more details
 int main()
 {
-    // Let's consider an RPG game example where each character is an enum member
-    // and has different stats
-    struct character_stats {
-        std::string name;
-        int health;
-        int mana; // Resources to cast spell
-        int attack_power;
+    std::vector a = { 1, 2, 3, 4, 5 };
+    std::vector b = { 6, 7, 8, 9, 10 };
+    std::vector c = { 1, 2, 3, 6, 5, 4, 1, 2, 3, 6, 5, 4 };
 
-        void print()
-        {
-            std::println("{}:",                 name);
-            std::println("  Health: {}:",       health);
-            std::println("  Mana: {}:",         mana);
-            std::println("  Attack Power: {}:", attack_power);
-        }
-    };
+    // Combining containers of same element type
+    auto d = cu::combine(a, b); // d is { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
 
-    // The scoped enumerator must be casted to an integer type in order to be
-    // used as index, this is where enumerated array comes in which does *not*
-    // require you to cast it to an integer type!
-    enum class character_type {
-        warrior,
-        mage,
-        archer,
-        max
-    };
+    // Filtering out occurrences the elements
+    // Note: we are using c
+    auto e = cu::filter_out_occ(c, { 1, 2 }); // e is { 3, 6, 5, 4, 3, 6, 5, 4 }
 
-    // All the stats in the enumerated array
-    cu::enumerated_array<character_stats, character_type> characters = {
-        character_stats { "Warrior", 150, 50,  30 },
-        character_stats { "Mage",    80,  200, 15 },
-        character_stats { "Archer",  100, 75,  45 }
-    };
+    // Repeating the container
+    // Note: we are using a
+    auto f = cu::repeat(a, 2); // f is { 1, 2, 3, 4, 5, 1, 2, 3, 4, 5 }
 
-    // Access specific character stats
-    auto warrior_stats = characters[character_type::warrior]; // Just access
-                                                              // from the enum!
-    warrior_stats.print();
+    // Splitting the container into sub containers
+    // Note: we are using c
+    auto g = cu::split_seq(c, { 3, 6 }); // g is { { 1, 2 }, { 5, 4 }, { 1, 2 },
+                                         // { 5, 4 } }
 
-    // Access using instance of enumerator
-    character_type current_character = character_type::mage;
-    auto           current_stats     = characters[current_character];
-    current_stats.print();
+    // How is that "arithmetic"?  Try out operators to make it obvious
+    using namespace cu_operators;
 
-    // Buff the character after advancement?
-    characters[current_character].health += 20;
+    // Same examples using operators
+
+    // Combining
+    d = a + b;
+
+    // Filtering out
+    e = c - std::vector { 1, 2 };
+
+    // Repeating
+    f = a * 2;
+
+    // Splitting
+    g = c / std::vector { 3, 6 };
 
 
 
-    // The use case is beyond the described example, you can use it wherever
-    // index is an enumerator and you hate ugly cast operators
+    // Still hard to wrap your head around these numbers?  No worries!  A string
+    // version in examples/sm/arithmetics.cpp is here for you!
 }

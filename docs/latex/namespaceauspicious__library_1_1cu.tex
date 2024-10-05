@@ -96,7 +96,21 @@ requires (std\+::is\+\_\+same\+\_\+v$<$T, U$>$ \&\& ...)}\\\mbox{\hyperlink{name
 \begin{DoxyCompactList}\small\item\em Filter out the occurrences of value from the container. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{repeat}} (const Container \&container, std\+::size\+\_\+t n)
 \begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a836f3455cfb84b82c660299aa8278bf5}{repeat}} (const Container \&container, int n)
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a18a5152bb7227b1b36607c558eb6efd6}{repeat}} (const Container \&container, unsigned n)
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_ac6b9a488f1303a34b836393a91024fb7}{repeat}} (const Container \&container, long n)
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a2ebf21d97134d8e9cb2b5bb19bf6bf52}{repeat}} (const Container \&container, long long n)
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a13f522ed3177f04d76385cb825c5d25d}{repeat}} (const Container \&container, unsigned long long n)
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a01fbb9b65897848dc6d883266688a9f8}{repeat}} (const Container \&container, long double n)
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_aa4c60cec5530e6be5c0b997a34f54c33}{repeat}} (const Container \&container, float n)
+\begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
+{\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a03b6d383c075aa7d4d174490904701b4}{repeat}} (const Container \&container, double n)
 \begin{DoxyCompactList}\small\item\em Repeat container {\ttfamily n} times. \end{DoxyCompactList}\item 
 {\footnotesize template$<$cu\+\_\+compatible Container$>$ }\\constexpr auto \mbox{\hyperlink{namespaceauspicious__library_1_1cu_a02a640ca3898e63a8338b562d23a6ca7}{split\+\_\+seq}} (const Container \&container, const Container \&pattern)
 \begin{DoxyCompactList}\small\item\em Split the container with pattern. \end{DoxyCompactList}\item 
@@ -629,7 +643,7 @@ Filtered container as {\ttfamily result\+\_\+container} .
 \end{DoxyReturn}
 \Hypertarget{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}\index{auspicious\_library::cu@{auspicious\_library::cu}!repeat@{repeat}}
 \index{repeat@{repeat}!auspicious\_library::cu@{auspicious\_library::cu}}
-\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/9]}}
 {\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37} 
 template$<$cu\+\_\+compatible Container$>$ \\
 auto auspicious\+\_\+library\+::cu\+::repeat (\begin{DoxyParamCaption}\item[{const Container \&}]{container}{, }\item[{std\+::size\+\_\+t}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
@@ -653,9 +667,154 @@ Repeat container {\ttfamily n} times.
 \begin{DoxyReturn}{Returns}
 Repeated container as {\ttfamily result\+\_\+container} . 
 \end{DoxyReturn}
+\Hypertarget{namespaceauspicious__library_1_1cu_a836f3455cfb84b82c660299aa8278bf5}\index{auspicious\_library::cu@{auspicious\_library::cu}!repeat@{repeat}}
+\index{repeat@{repeat}!auspicious\_library::cu@{auspicious\_library::cu}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/9]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_a836f3455cfb84b82c660299aa8278bf5} 
+template$<$cu\+\_\+compatible Container$>$ \\
+auto auspicious\+\_\+library\+::cu\+::repeat (\begin{DoxyParamCaption}\item[{const Container \&}]{container}{, }\item[{int}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Repeat container {\ttfamily n} times. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Container} & A compatible container type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em container} & A container. \\
+\hline
+{\em n} & The number of times to repeat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Repeated container as {\ttfamily result\+\_\+container} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+{\ttfamily std\+::size\+\_\+t} overload of {\ttfamily \doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{repeat}} . 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1cu_a18a5152bb7227b1b36607c558eb6efd6}\index{auspicious\_library::cu@{auspicious\_library::cu}!repeat@{repeat}}
+\index{repeat@{repeat}!auspicious\_library::cu@{auspicious\_library::cu}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [3/9]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_a18a5152bb7227b1b36607c558eb6efd6} 
+template$<$cu\+\_\+compatible Container$>$ \\
+auto auspicious\+\_\+library\+::cu\+::repeat (\begin{DoxyParamCaption}\item[{const Container \&}]{container}{, }\item[{unsigned}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Repeat container {\ttfamily n} times. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Container} & A compatible container type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em container} & A container. \\
+\hline
+{\em n} & The number of times to repeat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Repeated container as {\ttfamily result\+\_\+container} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+{\ttfamily std\+::size\+\_\+t} overload of {\ttfamily \doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{repeat}} . 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1cu_ac6b9a488f1303a34b836393a91024fb7}\index{auspicious\_library::cu@{auspicious\_library::cu}!repeat@{repeat}}
+\index{repeat@{repeat}!auspicious\_library::cu@{auspicious\_library::cu}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [4/9]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_ac6b9a488f1303a34b836393a91024fb7} 
+template$<$cu\+\_\+compatible Container$>$ \\
+auto auspicious\+\_\+library\+::cu\+::repeat (\begin{DoxyParamCaption}\item[{const Container \&}]{container}{, }\item[{long}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Repeat container {\ttfamily n} times. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Container} & A compatible container type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em container} & A container. \\
+\hline
+{\em n} & The number of times to repeat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Repeated container as {\ttfamily result\+\_\+container} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+{\ttfamily std\+::size\+\_\+t} overload of {\ttfamily \doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{repeat}} . 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1cu_a2ebf21d97134d8e9cb2b5bb19bf6bf52}\index{auspicious\_library::cu@{auspicious\_library::cu}!repeat@{repeat}}
+\index{repeat@{repeat}!auspicious\_library::cu@{auspicious\_library::cu}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [5/9]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_a2ebf21d97134d8e9cb2b5bb19bf6bf52} 
+template$<$cu\+\_\+compatible Container$>$ \\
+auto auspicious\+\_\+library\+::cu\+::repeat (\begin{DoxyParamCaption}\item[{const Container \&}]{container}{, }\item[{long long}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Repeat container {\ttfamily n} times. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Container} & A compatible container type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em container} & A container. \\
+\hline
+{\em n} & The number of times to repeat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Repeated container as {\ttfamily result\+\_\+container} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+{\ttfamily std\+::size\+\_\+t} overload of {\ttfamily \doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{repeat}} . 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1cu_a13f522ed3177f04d76385cb825c5d25d}\index{auspicious\_library::cu@{auspicious\_library::cu}!repeat@{repeat}}
+\index{repeat@{repeat}!auspicious\_library::cu@{auspicious\_library::cu}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [6/9]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_a13f522ed3177f04d76385cb825c5d25d} 
+template$<$cu\+\_\+compatible Container$>$ \\
+auto auspicious\+\_\+library\+::cu\+::repeat (\begin{DoxyParamCaption}\item[{const Container \&}]{container}{, }\item[{unsigned long long}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Repeat container {\ttfamily n} times. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Container} & A compatible container type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em container} & A container. \\
+\hline
+{\em n} & The number of times to repeat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Repeated container as {\ttfamily result\+\_\+container} .
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+{\ttfamily std\+::size\+\_\+t} overload of {\ttfamily \doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{repeat}} . 
+\end{DoxySeeAlso}
 \Hypertarget{namespaceauspicious__library_1_1cu_a01fbb9b65897848dc6d883266688a9f8}\index{auspicious\_library::cu@{auspicious\_library::cu}!repeat@{repeat}}
 \index{repeat@{repeat}!auspicious\_library::cu@{auspicious\_library::cu}}
-\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [7/9]}}
 {\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_a01fbb9b65897848dc6d883266688a9f8} 
 template$<$cu\+\_\+compatible Container$>$ \\
 auto auspicious\+\_\+library\+::cu\+::repeat (\begin{DoxyParamCaption}\item[{const Container \&}]{container}{, }\item[{long double}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
@@ -664,7 +823,7 @@ auto auspicious\+\_\+library\+::cu\+::repeat (\begin{DoxyParamCaption}\item[{con
 
 Repeat container {\ttfamily n} times. 
 
-Considering integer part of the number {\ttfamily n} as {\ttfamily i}, and fraction part as {\ttfamily f}, the container is repeated {\ttfamily i.\+0} times, and then the container is added with subordinate container with {\ttfamily round(0.\+f \texorpdfstring{$\ast$}{*} container.\+size())} elements from the beginning.
+Considering integer part of the number {\ttfamily n} as {\ttfamily i}, and fraction part as {\ttfamily f}. The container is repeated {\ttfamily i.\+0} times, and then the container is added with subordinate container with {\ttfamily round(0.\+f \texorpdfstring{$\ast$}{*} container.\+size())} elements from the beginning.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -684,6 +843,70 @@ Repeated container as {\ttfamily result\+\_\+container} .
 \begin{DoxyNote}{Note}
 This is scuffed. 
 \end{DoxyNote}
+\Hypertarget{namespaceauspicious__library_1_1cu_aa4c60cec5530e6be5c0b997a34f54c33}\index{auspicious\_library::cu@{auspicious\_library::cu}!repeat@{repeat}}
+\index{repeat@{repeat}!auspicious\_library::cu@{auspicious\_library::cu}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [8/9]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_aa4c60cec5530e6be5c0b997a34f54c33} 
+template$<$cu\+\_\+compatible Container$>$ \\
+auto auspicious\+\_\+library\+::cu\+::repeat (\begin{DoxyParamCaption}\item[{const Container \&}]{container}{, }\item[{float}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Repeat container {\ttfamily n} times. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Container} & A compatible container type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em container} & A container. \\
+\hline
+{\em n} & The number of times to repeat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Repeated container as {\ttfamily result\+\_\+container} .
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This is scuffed. 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+{\ttfamily long double} overload of {\ttfamily \doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{repeat}} . 
+\end{DoxySeeAlso}
+\Hypertarget{namespaceauspicious__library_1_1cu_a03b6d383c075aa7d4d174490904701b4}\index{auspicious\_library::cu@{auspicious\_library::cu}!repeat@{repeat}}
+\index{repeat@{repeat}!auspicious\_library::cu@{auspicious\_library::cu}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}\hspace{0.1cm}{\footnotesize\ttfamily [9/9]}}
+{\footnotesize\ttfamily \label{namespaceauspicious__library_1_1cu_a03b6d383c075aa7d4d174490904701b4} 
+template$<$cu\+\_\+compatible Container$>$ \\
+auto auspicious\+\_\+library\+::cu\+::repeat (\begin{DoxyParamCaption}\item[{const Container \&}]{container}{, }\item[{double}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [constexpr]}}
+
+
+
+Repeat container {\ttfamily n} times. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Container} & A compatible container type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em container} & A container. \\
+\hline
+{\em n} & The number of times to repeat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Repeated container as {\ttfamily result\+\_\+container} .
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This is scuffed. 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+{\ttfamily long double} overload of {\ttfamily \doxylink{namespaceauspicious__library_1_1cu_a420a931bdf075a5d34bbc908aafaae37}{repeat}} . 
+\end{DoxySeeAlso}
 \Hypertarget{namespaceauspicious__library_1_1cu_a02a640ca3898e63a8338b562d23a6ca7}\index{auspicious\_library::cu@{auspicious\_library::cu}!split\_seq@{split\_seq}}
 \index{split\_seq@{split\_seq}!auspicious\_library::cu@{auspicious\_library::cu}}
 \doxysubsubsection{\texorpdfstring{split\_seq()}{split\_seq()}}
