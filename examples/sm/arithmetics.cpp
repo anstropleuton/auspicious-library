@@ -1,5 +1,5 @@
 /**
- *  @file    arithmetics.hpp
+ *  @file    arithmetics.cpp
  *  @author  Anstro Pleuton (https://github.com/anstropleuton)
  *  @brief   How to use CU's string arithmetic functions.
  *
