@@ -2,7 +2,7 @@
  *  @file    al_argument_parser.cpp
  *  @author  Anstro Pleuton (https://github.com/anstropleuton)
  *  @brief   Implementations for non-inline functions from
- *           al_argument_parser.hpp.
+ *           @c al_argument_parser.hpp .
  *
  *  @copyright  Copyright (c) 2024 Anstro Pleuton
  *
@@ -42,11 +42,6 @@
  *  - ASCII Art generated using https://www.patorjk.com/software/taag with font
  *    "Standard" (for "Auspicious") and "Small" (for "LIBRARY").
  */
-
-/**
- *  @brief  Prevent warning for directly including module header file.
- */
-#define AUSPICIOUS_LIBRARY_NO_INCLUSION_WARN
 
 #include <print>
 #include <stdexcept>

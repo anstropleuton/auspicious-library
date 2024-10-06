@@ -31,7 +31,6 @@ var searchData=
   ['auspicious_5flibrary_3a_3asm_28',['sm',['../namespaceauspicious__library_1_1sm.html',1,'auspicious_library']]],
   ['auspicious_5flibrary_3a_3asm_3a_3asm_5fcompatible_29',['sm_compatible',['../conceptauspicious__library_1_1sm_1_1sm__compatible.html',1,'auspicious_library::sm']]],
   ['auspicious_5flibrary_3a_3asm_5foperators_30',['sm_operators',['../namespaceauspicious__library_1_1sm__operators.html',1,'auspicious_library']]],
-  ['auspicious_5flibrary_5fhpp_5fincluded_31',['AUSPICIOUS_LIBRARY_HPP_INCLUDED',['../auspicious__library_8hpp.html#a96e6325d4a7db1d94b9dcd5d08e9de7e',1,'auspicious_library.hpp']]],
-  ['auspicious_5flibrary_5fversion_32',['auspicious_library_version',['../namespaceauspicious__library.html#a6c2435b48d6170e6b62581cc5459094a',1,'auspicious_library']]],
-  ['avoid_20magic_20numbers_33',['Avoid Magic Numbers',['../md_Guidelines.html#autotoc_md48',1,'']]]
+  ['auspicious_5flibrary_5fversion_31',['auspicious_library_version',['../namespaceauspicious__library.html#a6c2435b48d6170e6b62581cc5459094a',1,'auspicious_library']]],
+  ['avoid_20magic_20numbers_32',['Avoid Magic Numbers',['../md_Guidelines.html#autotoc_md48',1,'']]]
 ];

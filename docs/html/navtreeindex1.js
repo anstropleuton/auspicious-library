@@ -1,8 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"md_Guidelines.html#autotoc_md16":[11,0,1,2],
-"md_Guidelines.html#autotoc_md17":[11,0,1,3],
-"md_Guidelines.html#autotoc_md18":[11,0,1,4],
 "md_Guidelines.html#autotoc_md19":[11,0,1,5],
 "md_Guidelines.html#autotoc_md2":[11,0],
 "md_Guidelines.html#autotoc_md20":[11,0,2],
@@ -249,5 +246,8 @@ var NAVTREEINDEX1 =
 "namespaceauspicious__library_1_1sm__operators.html#adb0ad66535c0b9f3f32aeb4dc078cae3":[14,0,0,7,7],
 "namespaceauspicious__library_1_1sm__operators.html#ade2cae3d13c20704ca4c478083470141":[14,0,0,7,2],
 "namespaceauspicious__library_1_1sm__operators.html#ae5e90c84f0e93e4e83f00b236534f483":[14,0,0,7,12],
-"namespacemembers.html":[14,1,0]
+"namespacemembers.html":[14,1,0],
+"namespacemembers_enum.html":[14,1,4],
+"namespacemembers_func.html":[14,1,1],
+"namespacemembers_type.html":[14,1,3]
 };

@@ -1,103 +1,108 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.30)
 
-project(auspicious_library VERSION 0.0.1 LANGUAGES CXX)
+project(auspicious_library
+    VERSION 0.0.1
+    DESCRIPTION "Auspicious Library is a collection of utils for Anstro Pleuton's programs."
+    LANGUAGES CXX
+)
 
+# Set C++ standard
 set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-option(BUILD_SHARED "Build shared library" OFF)
-option(BUILD_DEBUG "Build debug mode" OFF)
+# Options
+option(BUILD_SHARED_LIBS "Build using shared libraries" OFF)
 option(BUILD_EXAMPLES "Build example programs" OFF)
 option(BUILD_TESTS "Build tests" OFF)
 
-include_directories(include)
+# Include GNUInstallDirs for standard installation directories
+include(GNUInstallDirs)
 
-set(SOURCES
-    src/argument_parser.cpp
+# Collect library sources
+file(GLOB_RECURSE LIB_SOURCES CONFIGURE_DEPENDS src/*.cpp)
+
+# Configure the config header
+configure_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/include/auspicious_library_config.hpp.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/include/auspicious_library_config.hpp"
 )
 
-if(BUILD_SHARED)
-    add_library(auspicious_library SHARED ${SOURCES})
-else()
-    add_library(auspicious_library STATIC ${SOURCES})
-endif()
+# Create library
+add_library(auspicious_library
+    ${LIB_SOURCES}
+    "${CMAKE_CURRENT_BINARY_DIR}/include/auspicious_library_config.hpp"
+)
 
-if(BUILD_DEBUG)
-    target_compile_options(auspicious_library PRIVATE -Wall -g)
-else()
-    target_compile_options(auspicious_library PRIVATE -Wall -s -O3)
-endif()
+# Specify library properties
+target_compile_features(auspicious_library PUBLIC cxx_std_23)
+target_include_directories(auspicious_library
+    PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>
+        $<INSTALL_INTERFACE:include>
+)
+target_compile_options(auspicious_library PRIVATE
+    $<$<CONFIG:Debug>:-Wall -Wextra -Wpedantic -g>
+    $<$<CONFIG:Release>:-Wall -Wextra -Wpedantic -O3>
+)
 
-if(BUILD_EXAMPLES)
-    add_executable(sm_to_string examples/sm/to_string.cpp)
-    add_executable(cu_boundless_containers examples/cu/boundless_containers.cpp)
-    add_executable(cu_enumerated_array examples/cu/enumerated_array.cpp)
+# Ensure position-independent code for shared libraries
+set_target_properties(auspicious_library PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
-    set_target_properties(sm_to_string PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/examples")
-    set_target_properties(cu_boundless_containers PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/examples")
-    set_target_properties(cu_enumerated_array PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/examples")
-
-    target_link_libraries(sm_to_string PRIVATE auspicious_library)
-    target_link_libraries(cu_boundless_containers PRIVATE auspicious_library)
-    target_link_libraries(cu_enumerated_array PRIVATE auspicious_library)
-
-    if(BUILD_DEBUG)
-        target_compile_options(sm_to_string PRIVATE -Wall -g)
-        target_compile_options(cu_boundless_containers PRIVATE -Wall -g)
-        target_compile_options(cu_enumerated_array PRIVATE -Wall -g)
-    else()
-        target_compile_options(sm_to_string PRIVATE -Wall -s -O3)
-        target_compile_options(cu_boundless_containers PRIVATE -Wall -s -O3)
-        target_compile_options(cu_enumerated_array PRIVATE -Wall -s -O3)
-    endif()
-endif()
-
+# Enable testing if BUILD_TESTS is ON
 if(BUILD_TESTS)
     enable_testing()
-
-    set(TEST_SOURCES
-        tests/test_to_string.cpp
-        tests/test_cu.cpp
-        tests/test_cu_containers.cpp
-        tests/test_sm.cpp
-        tests/test_aec.cpp
-        tests/test_ap/test_ap_0.cpp
-        tests/test_ap/test_ap_1.cpp
-        tests/test_ap/test_ap_2.cpp
-        tests/test_ap/test_ap_3.cpp
-        tests/test_ap/test_ap_4.cpp
-        tests/test_ap/test_ap_5.cpp
-        tests/test_ap/test_ap_6.cpp
-        tests/test_ap/test_ap_7.cpp
-        tests/test_ap/test_ap_8.cpp
-        tests/test_ap/test_ap_9.cpp
-        tests/test_ap/test_ap_10.cpp
-        tests/test_ap/test_ap_11.cpp
-        tests/test_ap/test_ap_12.cpp
-        tests/test_ap.cpp
-        tests/test_fu.cpp
-        tests/tester.cpp
-    )
-
-    add_executable(tester ${TEST_SOURCES})
-    set_target_properties(tester PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/tests")
-
-    include_directories(tests)
-    include_directories(tests/test_ap)
-
-    if(BUILD_DEBUG)
-        target_compile_options(tester PRIVATE -Wall -g)
-    else()
-        target_compile_options(tester PRIVATE -Wall -s -O3)
-    endif()
-
-    target_link_libraries(tester PRIVATE auspicious_library)
-
-    add_custom_command(TARGET tester POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy
-        ${CMAKE_SOURCE_DIR}/tests/test_fu_read_all_file.txt
-        ${CMAKE_BINARY_DIR}/tests/test_fu_read_all_file.txt
-    )
-
-    add_test(NAME run_tester COMMAND tester)
+    add_subdirectory(tests)
 endif()
+
+# Add examples if BUILD_EXAMPLES is ON
+if(BUILD_EXAMPLES)
+    add_subdirectory(examples)
+endif()
+
+# Installation rules
+install(TARGETS auspicious_library
+    EXPORT auspicious_library_targets
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)
+
+install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+
+# Export the targets to a script
+install(EXPORT auspicious_library_targets
+    FILE auspicious_library_targets.cmake
+    NAMESPACE auspicious_library::
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/auspicious_library
+)
+
+# Create a ConfigVersion file for find_package
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(
+    "${CMAKE_CURRENT_BINARY_DIR}/auspicious_library_config_version.cmake"
+    VERSION ${PROJECT_VERSION}
+    COMPATIBILITY AnyNewerVersion
+)
+
+# Configure the Config file
+configure_package_config_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/cmake/auspicious_library_config.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/auspicious_library_config.cmake"
+    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/auspicious_library
+)
+
+# Install the package config files
+install(FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/auspicious_library_config.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/auspicious_library_config_version.cmake"
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/auspicious_library
+)
+
+# Export the package for use in the build tree
+export(EXPORT auspicious_library_targets
+    FILE "${CMAKE_CURRENT_BINARY_DIR}/auspicious_library_targets.cmake"
+    NAMESPACE auspicious_library::
+)

@@ -1,8 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"structauspicious__library_1_1cu_1_1boundless__array.html#ae6cc4bdd2ea2ddb1c546302cd2a2743f":[16,0,0,2,0,7],
-"structauspicious__library_1_1cu_1_1boundless__basic__string.html":[14,0,0,3,1],
-"structauspicious__library_1_1cu_1_1boundless__basic__string.html":[16,0,0,2,1],
 "structauspicious__library_1_1cu_1_1boundless__basic__string.html#a0609f971220fa8708190416d734c738c":[14,0,0,3,1,19],
 "structauspicious__library_1_1cu_1_1boundless__basic__string.html#a0609f971220fa8708190416d734c738c":[16,0,0,2,1,19],
 "structauspicious__library_1_1cu_1_1boundless__basic__string.html#a118dbc7e9b8ff1563b004770275dca10":[14,0,0,3,1,30],

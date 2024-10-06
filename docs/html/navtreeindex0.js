@@ -206,8 +206,7 @@ var NAVTREEINDEX0 =
 "al__string__manipulators_8hpp_source.html":[17,0,0,4],
 "annotated.html":[16,0],
 "auspicious__library_8hpp.html":[17,0,0,5],
-"auspicious__library_8hpp.html#a6c2435b48d6170e6b62581cc5459094a":[17,0,0,5,1],
-"auspicious__library_8hpp.html#a96e6325d4a7db1d94b9dcd5d08e9de7e":[17,0,0,5,0],
+"auspicious__library_8hpp.html#a6c2435b48d6170e6b62581cc5459094a":[17,0,0,5,0],
 "auspicious__library_8hpp_source.html":[17,0,0,5],
 "classes.html":[16,1],
 "conceptauspicious__library_1_1cu_1_1boundless__accessible.html":[14,0,0,3,9],
@@ -228,8 +227,6 @@ var NAVTREEINDEX0 =
 "functions_rela.html":[16,3,4],
 "functions_type.html":[16,3,3],
 "functions_vars.html":[16,3,2],
-"globals.html":[17,1,0],
-"globals_defs.html":[17,1,1],
 "hierarchy.html":[16,2],
 "index.html":[],
 "index.html#autotoc_md54":[0],
@@ -249,5 +246,8 @@ var NAVTREEINDEX0 =
 "md_Guidelines.html#autotoc_md12":[11,0,0,8],
 "md_Guidelines.html#autotoc_md13":[11,0,1],
 "md_Guidelines.html#autotoc_md14":[11,0,1,0],
-"md_Guidelines.html#autotoc_md15":[11,0,1,1]
+"md_Guidelines.html#autotoc_md15":[11,0,1,1],
+"md_Guidelines.html#autotoc_md16":[11,0,1,2],
+"md_Guidelines.html#autotoc_md17":[11,0,1,3],
+"md_Guidelines.html#autotoc_md18":[11,0,1,4]
 };

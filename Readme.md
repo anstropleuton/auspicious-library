@@ -40,11 +40,16 @@ cd build
 cmake ..
 cmake --build .
 ```
- 3. Include the library to include all functionality:
+ 3. Install the library (optional, you can manually set up path if needed).
+    **WARNING**: Do not build tests or examples before installing.
+```bash
+sudo cmake --install .
+```
+ 4. Include the library to include all functionality:
 ```cpp
 #include "auspicious_library.hpp"
 ```
- 4. Go through [documentation](https://anstropleuton.github.io/auspicious-library) (or [header files](include/auspicious_library.hpp)[*](#Doxygen)) to get a grasp on what you can do using my library. You can check out [examples source files](examples/) for more usage information.
+ 5. Go through [documentation](https://anstropleuton.github.io/auspicious-library) (or [header files](include/auspicious_library.hpp)[*](#Doxygen)) to get a grasp on what you can do using my library. You can check out [examples source files](examples/) for more usage information.
 
 # Documentations
 Refer to the [documentation](https://anstropleuton.github.io/auspicious-library) (or [header files](include/auspicious_library.hpp)[*](#Doxygen)) to get a grasp on what you can do using my library.

@@ -1,8 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"namespacemembers_enum.html":[14,1,4],
-"namespacemembers_func.html":[14,1,1],
-"namespacemembers_type.html":[14,1,3],
 "namespacemembers_vars.html":[14,1,2],
 "namespaces.html":[14,0],
 "namespacestd.html":[14,0,1],
@@ -249,5 +246,8 @@ var NAVTREEINDEX2 =
 "structauspicious__library_1_1cu_1_1boundless__array.html#abd3412d5b9ae478887472fee19aff1df":[16,0,0,2,0,0],
 "structauspicious__library_1_1cu_1_1boundless__array.html#ae6237b9bdfb2bd9e23445660d90c18c1":[14,0,0,3,0,5],
 "structauspicious__library_1_1cu_1_1boundless__array.html#ae6237b9bdfb2bd9e23445660d90c18c1":[16,0,0,2,0,5],
-"structauspicious__library_1_1cu_1_1boundless__array.html#ae6cc4bdd2ea2ddb1c546302cd2a2743f":[14,0,0,3,0,7]
+"structauspicious__library_1_1cu_1_1boundless__array.html#ae6cc4bdd2ea2ddb1c546302cd2a2743f":[14,0,0,3,0,7],
+"structauspicious__library_1_1cu_1_1boundless__array.html#ae6cc4bdd2ea2ddb1c546302cd2a2743f":[16,0,0,2,0,7],
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html":[14,0,0,3,1],
+"structauspicious__library_1_1cu_1_1boundless__basic__string.html":[16,0,0,2,1]
 };
