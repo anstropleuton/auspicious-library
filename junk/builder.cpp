@@ -1,7 +1,7 @@
 /**
- *  @file    auspicious_library.hpp.in
+ *  @file    builder.hpp
  *  @author  Anstro Pleuton (https://github.com/anstropleuton)
- *  @brief   The template root header file to include everything.
+ *  @brief   Build Auspicious Library.
  *
  *  @copyright  Copyright (c) 2024 Anstro Pleuton
  *
@@ -42,22 +42,3 @@
  *    "Standard" (for "Auspicious") and "Small" (for "LIBRARY").
  */
 
-#pragma once
-
-#include <string_view>
-
-#include "auspicious_library_config.hpp"
-
-#include "al_container_utilities.hpp" // IWYU pragma: keep
-#include "al_string_manipulators.hpp" // IWYU pragma: keep
-#include "al_ansi_escape_codes.hpp" // IWYU pragma: keep
-#include "al_argument_parser.hpp" // IWYU pragma: keep
-#include "al_file_utilities.hpp" // IWYU pragma: keep
-
-/**
- *  @brief  All Auspicious Library's contents in this namespace.  Just do
- *          `using namespace auspicious_library` to make your life easier.
- */
-namespace auspicious_library {
-inline constinit std::string_view auspicious_library_version = AUSPICIOUS_LIBRARY_VERSION;
-} // namespace auspicious_library

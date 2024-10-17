@@ -605,7 +605,7 @@ struct measured_string {
      *  @brief  Create measured string by applying ANSI Escape Code.
      *
      *  @param  code    The ANSI Escape Code to apply.
-     *  @param  string  THe content to apply ANSI Escape Code.
+     *  @param  string  The content to apply ANSI Escape Code.
      */
     inline constexpr measured_string(aec::aec_t code, std::string_view string)
         : string(code(string)), size(string.size()) {}

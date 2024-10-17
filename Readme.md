@@ -71,3 +71,6 @@ This project is licensed under the terms of MIT License, see [License](License.m
 \*: Due to some limitations on how files link in Markdown, not all hyperlinks from this file link properly, so refer to:
 - [header files](https://anstropleuton.github.io/auspicious-library/docs/html/auspicious__library_8hpp_source.html)
 - [include](https://anstropleuton.github.io/auspicious-library/docs/html/dir_d44c64559bbebec7f509842c48db8b23.html)
+
+# Junk folder?
+That folder is where I put my useless features. Don't use them please.

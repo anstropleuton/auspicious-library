@@ -1,20 +1,17 @@
-# Collect all example source files
-file(GLOB_RECURSE EXAMPLE_SOURCES CONFIGURE_DEPENDS *.cpp)
+set(AuspiciousLibrary_EXAMPLES
+    "sm/to_string"
+    "cu/boundless_containers"
+    "cu/enumerated_array"
+    "cu/arithmetics"
+    "sm/arithmetics")
 
-foreach(example_src IN LISTS EXAMPLE_SOURCES)
-    get_filename_component(example_name ${example_src} NAME_WE)
-    add_executable(${example_name} ${example_src})
-    
-    target_link_libraries(${example_name}
-        PRIVATE auspicious_library::auspicious_library
-    )
-    
-    target_compile_options(${example_name} PRIVATE
-        $<$<CONFIG:Debug>:-Wall -Wextra -Wpedantic -g>
-        $<$<CONFIG:Release>:-Wall -Wextra -Wpedantic -O3>
-    )
-    
-    set_target_properties(${example_name} PROPERTIES
-        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/examples"
-    )
+function(add_example source executable)
+    add_executable(${executable} ${source})
+    target_link_libraries(${executable} auspicious_library)
+endfunction()
+
+foreach(example ${AuspiciousLibrary_EXAMPLES})
+    set(example_source "${CMAKE_CURRENT_SOURCE_DIR}/${example}.cpp")
+    string(REPLACE "/" "_" example_executable ${example})
+    add_example(${example_source} ${example_executable})
 endforeach()
