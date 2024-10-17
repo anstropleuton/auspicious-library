@@ -1,5 +1,0 @@
-var structstd_1_1std_1_1formatter_3_01auspicious__library_1_1cu_1_1boundless__basic__string_3_01Char430276a2aefc156067655d1b098b4d49 =
-[
-    [ "parse", "structstd_1_1std_1_1formatter_3_01auspicious__library_1_1cu_1_1boundless__basic__string_3_01Char430276a2aefc156067655d1b098b4d49.html#a665b6bb49514817220c7207ee4c1af19", null ],
-    [ "format", "structstd_1_1std_1_1formatter_3_01auspicious__library_1_1cu_1_1boundless__basic__string_3_01Char430276a2aefc156067655d1b098b4d49.html#acf9c25fa266b6c3968a5d03e3b30ddfb", null ]
-];

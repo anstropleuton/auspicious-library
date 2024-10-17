@@ -39,3 +39,6 @@ build
 
 # Clangd cash files
 .cache
+
+# Generated documentation files
+docs
